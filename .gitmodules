@@ -1,0 +1,6 @@
+[submodule "theme/uom_sphinx_wagtail_theme"]
+	path = theme/uom_sphinx_wagtail_theme
+	url = https://github.com/UOM-EEE-EEEN11202/uom_sphinx_wagtail_theme
+[submodule "docs/theme/uom_sphinx_wagtail_theme"]
+	path = docs/theme/uom_sphinx_wagtail_theme
+	url = https://github.com/UOM-EEE-EEEN11202/uom_sphinx_wagtail_theme
