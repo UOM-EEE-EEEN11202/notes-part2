@@ -29,6 +29,9 @@ If you get a low score, you may like to go back over some of the material, and d
 
 
    #### Sustainability is an important to think about in programming.
+
+   > See the lecture notes on [wider factors to consider](https://uom-eee-eeen11202.github.io/notes-part1/chapters/wider_factors.html)
+
    
    1. [x] True
        > That's correct! When starting out, we tend to focus on making programs that are functionally correct - ones that do what we want. Once they are working, there are a wide range of other factors, such as security and sustainability we may need to take into account. 
