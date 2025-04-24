@@ -9,9 +9,9 @@ If you get a low score, you may like to go back over some of the material, and d
 .. quizdown::
 
 
-   #### The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+   #### The diagram below, showing the parts of a computer system, is missing a central part. What is this part? https://uom-eee-eeen11202.github.io/notes-part2/_images/computer_parts_missing.png https://uom-eee-eeen11202.github.io/notes-part2/chapters/week1/formative_quiz.html
 
-   ![](./computer_parts_missing.png)
+   ![](../../_images/computer_parts_missing.png)
 
    > See the lecture notes on [computer hardware](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_hardware.html)
 
