@@ -1,9 +1,13 @@
 Formative quiz 1
 ================
 
+Below is a quiz testing the learning points covered so far in the course. Responses are anonymous and there is no mark given to this. The questions give you an opportunity to test your knowledge before moving on to later parts of the course. If you get a low score, you may like to go back over some of the material, and do the quiz again, before moving on to the next week. You can submit as many times as you would like.
+
 .. quizdown::
 
    ## The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+
+   ![](./computer_parts_missing.png)
 
    1. [ ] The core
        > That's not correct. A core is part of a processor, but it's not a complete processor, and all computers need a processor.
@@ -91,3 +95,7 @@ Formative quiz 1
    1. [ ] Eclipse
    1. [ ] Code blocks
 
+
+.. image:: ./computer_parts_missing.png
+  :width: 1
+  :alt: Component parts of a computer
