@@ -226,10 +226,13 @@
                         <main role="main" id="main">
     <section id="formative-quiz-1">
 <h1><span class="section-number">1.2. </span>Formative quiz 1<a class="headerlink" href="#formative-quiz-1" title="Link to this heading">¶</a></h1>
-<p>Below is a quiz testing the learning points covered so far in the course. Responses are anonymous and there is no mark given to this. The questions give you an opportunity to test your knowledge before moving on to later parts of the course. If you get a low score, you may like to go back over some of the material, and do the quiz again, before moving on to the next week. You can submit as many times as you would like.</p>
-<div class="quizdown">## The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+<p>Below is a quiz testing the learning points covered so far in the course. Responses are anonymous and there is no mark given to this. The questions give you an opportunity to test your knowledge before moving on to later parts of the course.</p>
+<p>If you get a low score, you may like to go back over some of the material, and do the quiz again, before moving on to the next week. You can submit as many times as you would like.</p>
+<div class="quizdown">#### The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
 
-![](./computer_parts_missing.png)
+![](../../_images/computer_parts_missing.png)
+
+&gt; See the lecture notes on [computer hardware](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_hardware.html)
 
 1. [ ] The core
     &gt; That&#x27;s not correct. A core is part of a processor, but it&#x27;s not a complete processor, and all computers need a processor.
@@ -243,7 +246,11 @@
     &gt; That&#x27;s not correct. Cache is memory very local to the processor, typically on the same microchip. Cache is part of a processor, but it&#x27;s not a complete processor, and all computers need a processor.
 
 
-## Sustainability isn&#x27;t an important factor in programming.
+
+#### Sustainability is an important to think about in programming.
+
+&gt; See the lecture notes on [wider factors to consider](https://uom-eee-eeen11202.github.io/notes-part1/chapters/wider_factors.html)
+
 
 1. [x] True
     &gt; That&#x27;s correct! When starting out, we tend to focus on making programs that are functionally correct - ones that do what we want. Once they are working, there are a wide range of other factors, such as security and sustainability we may need to take into account.
@@ -251,55 +258,111 @@
     &gt; That&#x27;s not correct. Computer systems use large amounts of energy and water, and inefficient coding can waste lots of resources.
 
 
-## What is the name of the Integrated Development Environment that we&#x27;ll use in this course?
+
+#### What is the name of the Integrated Development Environment that we&#x27;ll use in this course?
+
+&gt; See the lecture notes on [installing a programming environment](https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html)
 
 1. [x] VSCode
+    &gt; That&#x27;s correct!
 1. [ ] Visual Studio
+    &gt; That&#x27;s not correct. Visual Studio is a popular, powerful, and widely used Integrated Development Environment, but it only runs on Windows. We don&#x27;t make use of it on this course as we use platforms that are accessible on macOS and Linux too. We will use VSCode. VSCode is short for Visual Studio Code. Visual Studio and Visual Studio Code are very similar names! They are very different Integrated Development Environments though.
 1. [ ] Xcode
+    &gt; That&#x27;s not correct. Xcode is a popular, powerful, and widely used Integrated Development Environment, but it only runs on macOS. We don&#x27;t make use of it on this course as we use platforms that are accessible on Windows and Linux too.
 1. [ ] Eclipse
-1. [ ] Code blocks
+    &gt; That&#x27;s not correct. Eclipse is a popular, powerful, and widely used Integrated Development Environment. However we&#x27;ve chosen to use VSCode as it integrates well with other tools we&#x27;ll use in the course, such as GitHub.
+1. [ ] Pycharm
+    &gt; That&#x27;s not correct. Pycharm is a popular, powerful, and widely used Integrated Development Environment, but only for Python development. We&#x27;ve chosen to use VSCode as it lets us use the same Integrated Development Environment for all of the different programming languages that we&#x27;ll consider.
 
 
-## What is the function of static code analysis in an integrated development environment?
+
+#### What is the function of static code analysis in an integrated development environment?
+
+&gt; See the lecture notes on [static code analysis](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html)
 
 1. [ ] To analyze code after it has executed to detect errors that occurred.
+    &gt; That&#x27;s not correct. Although sometimes we can&#x27;t detect an error until after the code has run, in general if possible we want to detect potential issues as early as possible, before the code is ever run.
 1. [ ] To analyze code while it is running to debug and detect errors.
-1. [x] To analyze code before it is compiled to pre-detect potential errors.
+    &gt; That&#x27;s not correct. This is known as [debugging](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/debugger.html)
+1. [x] To analyze code before it is run or compiled to pre-detect potential errors.
+    &gt; That&#x27;s correct!
 1. [ ] To analyze our requirements and generate code for us using generative artificial intelligence.
+    &gt; That&#x27;s not correct. Static code analysis is for analyzing code that we already have in place, not generating new code.
 1. [ ] To carry out all tasks listed here.
+    &gt; That&#x27;s not correct. Try again.
 
 
-## What is meant by a conditional break point?
+
+#### What is meant by a conditional break point?
+
+&gt; See the lecture notes on [debugging](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/debugger.html)
 
 1. [ ] A line of code that changes the flow of the program
+    &gt; That&#x27;s not correct. This would be an if statement, or similar.
 1. [x] A debugger setting that pauses the program execution in certain cases
+    &gt; That&#x27;s correct!
 1. [ ] A comment that explains which code is relevant to different situations
+    &gt; That&#x27;s not correct. Comments are used to help document and understand the code, but aren&#x27;t directly when when debugging the code
 1. [ ] An assert statement that stops the execution of the program when triggered
+    &gt; That&#x27;s not correct. Assert statements are used with automated testing to detect when errors have occurred.
 1. [ ] A setting used to control when the code is checked into a version control repository
+    &gt; That&#x27;s not correct. Version control does not make use of break points.
 
-## What is meant by a conditional break point?
 
-1. [x] VSCode
-1. [ ] Visual Studio
-1. [ ] Xcode
-1. [ ] Eclipse
-1. [ ] Code blocks
 
-## What is meant by a conditional break point?
+#### You have been working on a Python code file called `my_work`, with extension `.py`. The username is `me`, and the work is stored in a folder called `eeen11202`. You are working on Windows. Re-arrange the entries below to give the likely absolute path to this Python file.
 
-1. [x] VSCode
-1. [ ] Visual Studio
-1. [ ] Xcode
-1. [ ] Eclipse
-1. [ ] Code blocks
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
 
-## What is meant by a conditional break point?
+1. C:\
+2. Users
+3. \
+4. me
+5. \
+6. eeen11202
+7. \
+8. my_work
+9. .py
+ &gt; File paths on Windows are separated by backslash characters `\\`. They start with a drive letter, usually `C:\\`. User files are, by default, put in a folder called `Users`.
 
-1. [x] VSCode
-1. [ ] Visual Studio
-1. [ ] Xcode
-1. [ ] Eclipse
-1. [ ] Code blocks
+
+
+#### The figure below shows two folders in the File Explorer. The `docs` folder contains a file `index.rst` and a folder called `chapters`. In the `chapters` folder there is a file called `motivation.rst`. Using backslashes `\\` as if on Windows, from `motivation.rst`, what is the relative address of the `index.rst` file?
+
+![](../../_images/windows_folders.png)
+
+1. [x] ..\\index.rst
+    &gt; That&#x27;s correct!
+1. [ ] .\\.\\index.rst
+    &gt; That&#x27;s not correct. `.\\` refers to the current folder, so this just refers to the same place twice.
+1. [ ] .\\index.rst
+    &gt; That&#x27;s not correct. `.\\` refers to a file in the current folder.
+1. [ ] ..\\..\\index.rst
+    &gt; That&#x27;s not correct. This moves up two folder levels, but the file is only up one level.
+1. [ ] ...\\index.rst
+    &gt; That&#x27;s not correct. `...\\` is not a valid address. To move more than one level, you use `..\` multiple times.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
+
+
+#### The figure below shows two folders in the File Explorer. The `docs` folder contains a file `index.rst` and a folder called `chapters`. In the `chapters` folder there is a file called `motivation.rst`. Using forward slashes `/` as if on macOS or Linux, from `index.rst`, what is the relative address of the `motivation.rst` file?
+
+![](../../_images/windows_folders.png)
+
+1. [x] ./chapters/motivation.rst
+    &gt; That&#x27;s correct!
+1. [ ] ./docs/motivation.rst
+    That&#x27;s not correct. The file is in the `chapters` folder.
+1. [ ] ../chapters/motivation.rst
+    &gt; That&#x27;s not correct. `../` moves up a level, before entering the `chapters` folder, but that isn&#x27;t needed here.
+1. [ ] ../docs/motivation.rst
+    &gt; That&#x27;s not correct. `../` moves up a level, before entering the `docs` folder, but that&#x27;s not the correct address. The file is in the `chapters` folder.
+1. [ ] ./index.rst/chapters/motivation.rst
+    &gt; That&#x27;s not correct. `index.rst` is a file rather than a folder. It can&#x27;t have folders *under* it.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
 
 ## What is meant by a conditional break point?
 
@@ -316,6 +379,8 @@
 1. [ ] Xcode
 1. [ ] Eclipse
 1. [ ] Code blocks</div><a class="reference internal image-reference" href="../../_images/computer_parts_missing.png"><img alt="Component parts of a computer" src="../../_images/computer_parts_missing.png" style="width: 1px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/windows_folders.png"><img alt="Examples of two folders containing files on Windows" src="../../_images/windows_folders.png" style="width: 1px;" />
 </a>
 </section>
 
