@@ -148,21 +148,35 @@ If you get a low score, you may like to go back over some of the material, and d
    > See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
 
 
-   ## What is meant by a conditional break point? 
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+   #### Drag the stages of the software lifecycle given below into the correct order.
 
-   ## What is meant by a conditional break point? 
+   > See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+ 
+   1. Requirements capture
+   2. Software architecture
+   3. Testing and debugging
+   4. Release, support, maintenance, and bug fixes
+   5. Documentation
+   6. Quality management
+    > See the lecture notes on [software lifecycle](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_lifecycle.html)
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+
+   #### What is the entrypoint function in a program usually called?
+
+   1. [x] main
+       > That's correct!
+   1. [ ] start
+       > That's not correct. The term start is most commonly used on Windows to refer to the start menu, the interface for starting programs.
+   1. [ ] head
+       > That's not correct. Try again.
+   1. [ ] def
+       > That's not correct. In Python, def is used to indicate you're writing a function, but it's not the name of the function. 
+   1. [ ] fn
+       > That's not correct. In Rust, fn is used to indicate you're writing a function, but it's not the name of the function. 
+
+   > See the lecture notes on [functions](https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/functions.html)
+
 
 
 .. image:: ./computer_parts_missing.png

@@ -1,0 +1,71 @@
+.. role:: console(code)
+   :language: console
+
+Stage 1
+=======
+On a desktop/laptop type device you will already have a command line interface installed. Start this, following the instructions given below for your operating system.
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        The terminal is called *PowerShell*. You have a choice for how to start this. 
+        
+        (1) You can start it directly by typing in :console:`powershell` to the search box in the start menu.
+
+        .. figure:: windows_powershell_start.png
+           :width: 800
+           :align: center
+           :alt: A Windows start menu search for the PowerShell app
+
+        (2) You can first install *Windows terminal*. Launch the *Microsoft Store* and then search for :console:`terminal`. Then install *Windows Terminal*.
+
+        .. figure:: windows_terminal_store.png
+           :width: 800
+           :align: center
+           :alt: The Microsoft Store for installing Windows Terminal
+
+        Then launch it by typing in :console:`terminal` to the search box in the start menu.
+
+        .. figure:: windows_terminal_start.png
+           :width: 800
+           :align: center
+           :alt: A Windows start menu search for the terminal app
+
+        We think that Windows Terminal provides a slightly nicer interface (to exactly the same thing) and so our screenshots will make us of it.
+
+
+    .. tab-item:: :fab:`apple` macOS 
+        :sync: key2
+
+        Click on the launchpad icon in the dock and then search for :console:`terminal`.
+
+
+    .. tab-item:: :fab:`linux` Linux
+        :sync: key3
+
+        Search for :console:`terminal` in your app launcher. 
+
+
+You should be presented with a terminal command line interface that looks like the below. Note that we've combined the instructions for macOS and Linux in the below, as these terminals will take the same commands and it reduces the number of pictures needed. The only meaningful difference at this point is that macOS uses :console:`$` to indicate where to enter commands, while Linux uses :console:`$` by default.
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        .. figure:: windows_permissions.png
+           :width: 800
+           :align: center
+           :alt: Windows terminal showing file permissions
+
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+        :sync: key4
+
+        .. figure:: linux_permissions.png
+           :width: 800
+           :align: center
+           :alt: Linux terminal showing file permissions
