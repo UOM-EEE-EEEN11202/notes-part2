@@ -11,3 +11,4 @@ This work is licensed under a
 
 TODO
 ====
+Week 2, add Finder images showing CLI/GUI match up

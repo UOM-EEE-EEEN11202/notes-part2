@@ -3,6 +3,9 @@
 
 Stage 1
 =======
+
+Launching the terminal
+----------------------
 On a desktop/laptop type device you will already have a command line interface installed. Start this, following the instructions given below for your operating system.
 
 .. tab-set::
@@ -11,7 +14,7 @@ On a desktop/laptop type device you will already have a command line interface i
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        The terminal is called *PowerShell*. You have a choice for how to start this. 
+        The terminal is called *PowerShell*. You have a **choice** for how to start this. 
         
         (1) You can start it directly by typing in :console:`powershell` to the search box in the start menu.
 
@@ -37,19 +40,13 @@ On a desktop/laptop type device you will already have a command line interface i
         We think that Windows Terminal provides a slightly nicer interface (to exactly the same thing) and so our screenshots will make us of it.
 
 
-    .. tab-item:: :fab:`apple` macOS 
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        Click on the launchpad icon in the dock and then search for :console:`terminal`.
+        Click on the launchpad / start icon for your operating system and then search for :console:`terminal`.
 
 
-    .. tab-item:: :fab:`linux` Linux
-        :sync: key3
-
-        Search for :console:`terminal` in your app launcher. 
-
-
-You should be presented with a terminal command line interface that looks like the below. Note that we've combined the instructions for macOS and Linux in the below, as these terminals will take the same commands and it reduces the number of pictures needed. The only meaningful difference at this point is that macOS uses :console:`$` to indicate where to enter commands, while Linux uses :console:`$` by default.
+You should be presented with a terminal command line interface that looks like the below. Note that we've combined the instructions for macOS and Linux in the below, as these terminals will take the same commands and it reduces the number of pictures needed. The only meaningful difference at this point is that macOS uses :console:`%` to indicate where to enter commands, while Linux uses :console:`$` by default. Widows uses :console:`>` to show where to enter commands.
 
 .. tab-set::
     :sync-group: os
@@ -57,15 +54,132 @@ You should be presented with a terminal command line interface that looks like t
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        .. figure:: windows_permissions.png
+        .. figure:: windows_terminal.png
            :width: 800
            :align: center
-           :alt: Windows terminal showing file permissions
+           :alt: Windows terminal
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-        :sync: key4
+        :sync: key2
 
-        .. figure:: linux_permissions.png
+        .. figure:: unix_terminal.png
            :width: 800
            :align: center
-           :alt: Linux terminal showing file permissions
+           :alt: macOS/Linux terminal
+
+
+
+
+Simple terminal commands
+------------------------
+There are then a large number of different commands that you can enter at the prompt to interact with your computer. After a while you'll probably memorize some common ones, but in general you can look up or ask AI to help with any that you don't know. Important here isn't to memorize all of the different commands, but to have an understanding of how the command line works so that you can use it to interact with the computer.
+
+
+Displaying the current folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To display the `address of the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#file-systems>`_ enter
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        :console:`> Get-Location`
+
+        Remember, you don't type in the :console:`>`, that just to show you where the command prompt is.
+
+        This will display something like 
+
+        .. figure:: windows_get_location.png
+           :width: 800
+           :align: center
+           :alt: Windows terminal showing the Get-Location command
+
+
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+        :sync: key2
+
+        :console:`$ pwd`
+
+        Remember, you don't type in the :console:`$`, that just to show you where the command prompt is.
+
+        :console:`$ pwd` stands for print working directory. This will display something like 
+
+        .. figure:: unix_get_location.png
+           :width: 800
+           :align: center
+           :alt: Unix terminal showing the pwd command
+
+
+The address shown will different depending on your computer settings and user name. Here the user name is alex. You should be able to open File Explorer/Finder/similar and find the same location on your computer. 
+
+It's not that you can't use the graphical interface to view this, it's that entering written commands gives us precise control and a log of what we've done. If you press the up arrow :console:`↑` on the keyboard you can see previous commands that you've entered. Press it multiple times to see earlier commands. Or, enter 
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        :console:`> Get-History`
+
+
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+        :sync: key2
+
+        :console:`$ history`
+
+to see a log of all of the commands that you've run. This makes it easy to re-run them. 
+
+
+Listing the files in the current folder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To get a list of the `files in the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files>`_ enter
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        :console:`> Get-ChildItem`
+        This will display something like 
+
+        .. figure:: windows_ls.png
+           :width: 800
+           :align: center
+           :alt: Windows terminal showing the Get-ChildItem command
+
+
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+        :sync: key2
+
+        :console:`$ ls`
+
+        This will display something like 
+
+        .. figure:: unix_ls.png
+           :width: 800
+           :align: center
+           :alt: Unix terminal showing the ls command
+
+Again, you should be able to open File Explorer/Finder/similar and find the same location on your computer.
+
+
+Changing folder
+^^^^^^^^^^^^^^^
+
+
+Command switches
+^^^^^^^^^^^^^^^^
+
+
+Further commands
+^^^^^^^^^^^^^^^^
+
+
+
+
+Shell scripts
+-------------
