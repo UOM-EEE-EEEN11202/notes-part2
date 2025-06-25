@@ -106,7 +106,7 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
 
         Remember, you don't type in the :console:`$`, that just to show you where the command prompt is.
 
-        :console:`$ pwd` stands for print working directory. This will display something like 
+        :console:`pwd` stands for print working directory. This will display something like 
 
         .. figure:: unix_get_location.png
            :width: 800
@@ -195,7 +195,7 @@ Then move into the folder :console:`test` by entering the command
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Set-Location -Path test
+        :console:`> Set-Location -Path test`
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
@@ -243,13 +243,13 @@ depending on the location you started from. You can go *up* a level, that is to 
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`cd ..`
+        :console:`> cd ..`
 
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`cd ..`
+        :console:`$ cd ..`
 
 
 Command switches
@@ -270,9 +270,14 @@ Lots of commands accept options that change their behavior. These are known as s
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`ls -la`
+        :console:`$ ls -la`
 
-        This lists the contents of the folder, together with additional information such as when the items were last changed. 
+        This lists the contents of the folder, together with additional information such as when the items were last changed. An example is below. What's shown will depend on what files and folders you have on your computer.
+
+        .. figure:: unix_lsla.png
+           :width: 800
+           :align: center
+           :alt: Example of output from ls -la
 
 
 Combining commands
@@ -280,27 +285,29 @@ Combining commands
 There are a number of ways in which you can combine togethers, for example to send the output of one command as the input to another command. Enter 
 
 .. tab-set::
-    :sync-group: os
+   :sync-group: os
 
-    .. tab-item:: :fab:`windows` Windows
-        :sync: key1
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
 
-        :console:`Get-ChildItem | Out-File -FilePath list.txt`
+      :console:`> Get-ChildItem | Out-File -FilePath list.txt`
 
-        This will take the output from :console:`Get-ChildItem` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
+      This will take the output from :console:`Get-ChildItem` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
 
-        :console:`Get-Content -Path list.txt`
+      :console:`Get-Content -Path list.txt`
 
-    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-        :sync: key2
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
 
-        :console:`ls -la | tee list.txt`
+      :console:`$ ls -la | tee list.txt`
 
-         This will take the output from :console:`ls -la` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
+      This will take the output from :console:`ls -la` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
 
-        :console:`cat list.txt`
+      :console:`$ cat list.txt`
 
-        (You can also use the redirection operator :console:`>>` for a similar effect, but we won't cover that here.)
+      .. admonition:: Aside
+
+         You can also use the redirection operator :console:`>>` for a similar effect, but we won't cover that here.
 
 
 
@@ -322,33 +329,31 @@ Often we need to carry out more complex processes though, which might need lots 
 
    You can probably accomplish the same automation, and more, using Python, which we'll meet later. However, for simple automation tasks that can be overkill. The shell commands are built into the operating system and so are always available. For simple automation tasks shell scripts are widely used. 
 
-Simple scripts
-^^^^^^^^^^^^^^
+Getting started
+^^^^^^^^^^^^^^^
 
-Make a folder called :console:`eeen11202` to store your work for the course. Make a folder called :console:`lab_a` inside this. 
+Make a folder called :console:`eeen11202` to store your work for the course. Make a folder called :console:`lab_a` inside this. You can do this using the Windows interface, or using the commands given in the previous section. 
 
 .. tab-set::
-    :sync-group: os
+   :sync-group: os
 
-    .. tab-item:: :fab:`windows` Windows
-        :sync: key1
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
+   
+      We suggest you put this at :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202\\lab_a` (using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.) This will look similar to the below.
 
-        You can do this using the Windows interface, or using the commands given in the previous section. 
-        
-        We suggest you put this at :console:`C:\Users\alex\OneDrive - The University of Manchester\eeen11202\lab_a` (using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.) This will look similar to the below.
-
-        .. figure:: windows_folder_structure.png
-           :width: 800
-           :align: center
-           :alt: File explorer showing the asked for folders
+      .. figure:: windows_folder_structure.png
+         :width: 800
+         :align: center
+         :alt: File explorer showing the asked for folders
 
 
-    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-        :sync: key2
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
 
-         You can do this using the graphical interface, or using the commands given in the previous section. 
+      You can do this using the graphical interface, or using the commands given in the previous section. 
          
-         We suggest you put this at :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202/lab_a` or :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/lab_a` (using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.)
+      We suggest you put this at :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202/lab_a` (macOS) or :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/lab_a` (Linux), using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.
 
 
 Start VSCode. This will display the welcome page, similar to the below. Remember that VSCode is very configurable. Don't worry if your screen isn't exactly the same, as long as it's broadly similar it will be fine.  
@@ -358,7 +363,7 @@ Start VSCode. This will display the welcome page, similar to the below. Remember
    :align: center
    :alt: The VSCode welcome page
 
-Click on :console:`Open Folder...` and select the :console:`lab_a` folder that you made in the previous step. You will be asked whether you trust the authors of this folder. This is a security setting, letting code run on your computer can change settings, delete files, or do other nefarious things. It's our own code we're writing though, so select :console:`Yes, I trust the authors`.
+Click on :console:`Open Folder...` and select the :console:`lab_a` folder that you made in the previous step. You will be asked whether you trust the authors of this folder. This is a security setting. Letting code run on your computer can change settings, delete files, or do other nefarious things. It's our own code we're writing though, so select :console:`Yes, I trust the authors`.
 
 .. figure:: vscode_trust_authors.png
    :width: 800
@@ -394,3 +399,178 @@ Once successful, you'll have an area to start adding your shell commands to, as 
    :width: 800
    :align: center
    :alt: A blank file in VSCode
+
+
+A simple script
+^^^^^^^^^^^^^^^
+In your file, enter the code
+
+.. tab-set::
+   :sync-group: os
+
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
+
+      .. code-block:: console
+           
+         # Display a welcome message
+         $name = "Alex"
+         Write-Host "Hello $name!"
+
+         # Display a different message depending on the value of $hour
+         $hour = 13
+         if ($hour -ge 12) {
+             Write-Host "It is the afternoon."
+         } else {
+             Write-Host "It is the morning."
+         }
+        
+        This is a very simple script. It:
+        
+        - Contains some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
+        - `Variables <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html>`_ to store data in. In Powershell, variables start with a :console:`$`. 
+        - :console:`Write-Host` is used to display output to the screen. 
+        - There is then an `if statement <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#if-else-statements>`_ to change what's displayed depending on the value of :console:`$hour`. Here :console:`-ge` means greater than or equal to.
+
+
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
+
+      .. code-block:: console
+           
+         
+         #!/usr/bin/env sh
+
+         # Display a welcome message
+         name="Alex"
+         echo "Hello $name!"
+
+         # Display a different message depending on the value of $hour
+         hour=13
+         if [ "$hour" -ge 12 ]; then
+             echo "It is the afternoon."
+         else 
+             echo "It is the morning."
+         fi
+        
+      This is a very simple script.
+        
+      - The line starting :console:`#!` is known as a *shebang line*. This tells the computer which language to use to interpret the script. You may well have more than one installed. The :console:`sh` tells the computer to use whatever the system default is. 
+      - There are then some some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
+      - `Variables <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html>`_ store data. Here variables start with a :console:`$` when being used, but the :console:`$` isn't needed when putting a value in the console. 
+      - :console:`echo` is used to display output to the screen. 
+      - There is then an `if statement <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#if-else-statements>`_ to change what's displayed depending on the value of :console:`$hour`. Here :console:`-ge` means greater than or equal to.
+
+Save the file by selecting :console:`File / Save`.
+
+
+Running the script
+^^^^^^^^^^^^^^^^^^
+To run the script, you have two options.
+
+.. tab-set::
+    :sync-group: os
+
+    .. tab-item:: :fab:`windows` Windows
+        :sync: key1
+
+        1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
+
+        .. figure:: vscode_run_script.png
+           :width: 800
+           :align: center
+           :alt: VSCode run button
+
+        2. In a terminal enter the command
+
+        .. code-block:: console
+
+           > powershell.exe -noprofile -executionpolicy bypass -file .\\my_script.ps1
+
+        .. figure:: terminal_run_script.png
+           :width: 800
+           :align: center
+           :alt: Running a PowerShell script in the terminal
+
+        :console:`.\\my_script.ps1` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
+
+        By default, Windows blocks users from running arbitrary scripts for security reasons. The extra commands above tell Windows to ignore the security settings for this run of the script. This is fine for this lab, but of course you should take care when running script from others. You can change the Windows security settings so you don't need to give an override each time, but we won't cover that here.
+
+        Change the values of :console:`$name` and :console:`$hour` and re-run the script to check it displays what you would expect. 
+
+    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+        :sync: key2
+
+        1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
+
+        .. figure:: vscode_run_script_unix.png
+           :width: 800
+           :align: center
+           :alt: VSCode run button
+
+        2. In a terminal enter the commands
+
+        .. code-block:: console
+
+           $ chmod u+x ./my_script.sh
+           $ ./my_script.sh
+
+        .. figure:: terminal_run_script_unix.png
+           :width: 800
+           :align: center
+           :alt: Running a PowerShell script in the terminal
+
+        :console:`./my_script.sh` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
+
+        :console:`chmod u+x` changes the security settings, allowing the script to be run (executed :console:`x`) by the user (:console:`u`). You only need to set this once for each file, then the setting will be kept. :console:`./my_script.sh` actually runs the code. 
+        
+        Change the values of :console:`$name` and :console:`$hour` and re-run the script to check it displays what you would expect. 
+
+As a challenge, get your script to automatically read the system time to determine which message to display. That is, rather than typing in a value for :console:`$hour`, use a command to set it for you. One Windows, read about the Get-Date command. On macOS/Linux, read about the date command. These give full dates by default, you'll need to add some switches for them to return only the current hour. Search the Internet or ask a chat bot for the options to provide.
+
+.. admonition:: Solution
+   :class: dropdown
+
+   .. tab-set::
+      :sync-group: os
+
+      .. tab-item:: :fab:`windows` Windows
+         :sync: key1
+
+         .. code-block:: console
+            
+            # Display a welcome message
+            $name = "Alex"
+            Write-Host "Hello $name!"
+
+            # Display a different message depending on the value of $hour
+            $hour = Get-Date -Format HH
+            if ($hour -ge 12) {
+                Write-Host "It is the afternoon."
+            } else {
+                Write-Host "It is the morning."
+            }
+
+
+      .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+         :sync: key2
+
+         .. code-block:: console
+
+            #!/usr/bin/env sh
+
+            # Display a welcome message
+            name="Alex"
+            echo "Hello $name!"
+
+            # Display a different message depending on the value of $hour
+            hour="$(date +"%H")"
+            if [ "$hour" -ge 12 ]; then
+                echo "It is the afternoon."
+            else 
+                echo "It is the morning."
+            fi
+
+
+A more complicated script
+^^^^^^^^^^^^^^^^^^^^^^^^^
