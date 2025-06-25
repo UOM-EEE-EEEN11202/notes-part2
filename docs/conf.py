@@ -18,7 +18,8 @@ extensions = [
     #'sphinx_affiliates', # needs incompatible version of Sphinx. Will re-visit at a later date
     'sphinx_wagtail_theme',
     'sphinx_design',
-    'sphinxcontrib.quizdown'
+    'sphinxcontrib.quizdown',
+    'sphinx-togglebutton'
 ]
 
 
