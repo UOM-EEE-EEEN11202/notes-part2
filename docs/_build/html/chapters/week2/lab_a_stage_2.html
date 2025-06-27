@@ -232,6 +232,84 @@
                         <main role="main" id="main">
     <section id="stage-2">
 <h1><span class="section-number">2.2.2. </span>Stage 2<a class="headerlink" href="#stage-2" title="Link to this heading">¶</a></h1>
+<p>In Stage 2 of the lab we’re going to look at <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html">version control</a>. We’ll use this a lot as we move through the course.</p>
+<p>For this part of the lab, and for the rest of the course, you VSCode and Docker installed on your computer. <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html">Follow the instructions for getting this on your computer.</a>.</p>
+<p>Start Docker before continuing with the below.</p>
+<section id="initial-setup">
+<h2><span class="section-number">2.2.2.1. </span>Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading">¶</a></h2>
+<p>We first need to do some initial setup. In <a class="reference internal" href="lab_a_stage_1.html#lab1a"><span class="std std-ref">Stage 1 of the labs</span></a> we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer.</p>
+<p>For our more general programming, we’re going to use our own dedicated computer that sits on top of your computer, as discussed in <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html">environment control</a>. Doing this can be a little confusing, you have a <em>virtual</em> computer in addition to the <em>physical</em> computer, You need to keep track of which is which,  but it’s easy once you’re used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from.</p>
+<p>You don’t need to do very much to set this up, you just need to make sure some files are in the correct places. Again, it can be a bit fiddly to get right at first - things won’t work if you miss a step. Once it’s going it should be quite robust though.</p>
+<p>In Stage 1 of the lab you should have made a folder</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-0">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">C:\Users\alex\OneDrive - The University of Manchester\eeen11202</span></code></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-1">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">/Users/alex/OneDrive - The University of Manchester/eeen11202</span></code> (macOS)
+or
+<code class="code highlight console docutils literal highlight-console"><span class="go">/home/alex/OneDrive - The University of Manchester/eeen11202/</span></code> (Linux)</p>
+</div>
+</div>
+<p>If not, make that folder now. Inside this, make a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>It is important that the folder name is correct. <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code> including the <code class="code highlight console docutils literal highlight-console"><span class="go">.</span></code>. Things won’t work correctly if this name is wrong.</p>
+</div>
+<p>Then, download our <em>devcontainer</em> from <a class="reference external" href="https://github.com/UOM-EEE-EEEN11202/devcontainer">GitHub</a>. Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Code</span></code> and then <code class="code highlight console docutils literal highlight-console"><span class="go">Download ZIP</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_powershell_start.png"><img alt="A Windows start menu search for the PowerShell app" src="../../_images/windows_powershell_start.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This will download a file with a <code class="code highlight console docutils literal highlight-console"><span class="go">.zip</span></code> extension. You should be able to double click to go inside this (you may need to do this twice). Eventually, you’ll see three files that you downloaded. On Windows this looks like:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_zip_file.png"><img alt="devcontainer files downloaded on Windows" src="../../_images/windows_zip_file.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Copy and paste these files into the <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code> folder you made earlier. That is, select them with the mouse, click the copy button, navigate to your folder, and then press the paste button. Done correctly, your files and folders should look like the below (shown for Windows only).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_copied_devcontainer_files.png"><img alt="devcontainer files copied to the correct location on Windows" src="../../_images/windows_copied_devcontainer_files.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Then, start VSCode. On the Welcome screen select <code class="code highlight console docutils literal highlight-console"><span class="go">Open Folder...</span></code></p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_open_folder.png"><img alt="The VSCode welcome page" src="../../_images/vscode_open_folder.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Select the folder</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-2">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">C:\Users\alex\OneDrive - The University of Manchester\eeen11202</span></code></p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-3">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">/Users/alex/OneDrive - The University of Manchester/eeen11202</span></code> (macOS)
+or
+<code class="code highlight console docutils literal highlight-console"><span class="go">/home/alex/OneDrive - The University of Manchester/eeen11202/</span></code> (Linux)</p>
+</div>
+</div>
+<p>The devcontainer may open automatically, or if not VSCode will display a message <code class="code highlight console docutils literal highlight-console"><span class="go">Reopen in Container</span></code>. Click on this if it appears.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_reopen_in_container.png"><img alt="VSCode giving the option to open a folder in a container" src="../../_images/vscode_reopen_in_container.png" style="width: 800px;" />
+</a>
+</figure>
+<p>It can take a few minutes for the devcontainer to start, especially the first time as various files have to be downloaded from the Internet. Once successful, you should see the bottom left hand corner has changed, it will now say it’s connected to a devcontainer.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_devcontainer.png"><img alt="VSCode showing that a devcontainer is being used" src="../../_images/vscode_devcontainer.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This indicates that you’re using our virtual computer rather than your real computer. You’re still using the same files, just editing them with a different computer. For all parts of the course from now on, you want this blue <code class="code highlight console docutils literal highlight-console"><span class="go">Dev Container</span></code> to be displayed in the bottom left of the screen before you start doing any programming.</p>
+</section>
+<section id="git-setup">
+<h2><span class="section-number">2.2.2.2. </span>Git setup<a class="headerlink" href="#git-setup" title="Link to this heading">¶</a></h2>
+</section>
 </section>
 
 </main>
@@ -244,6 +322,20 @@
     </a>
 </nav>
                     </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">2.2.2. Stage 2</a><ul>
+<li><a class="reference internal" href="#initial-setup">2.2.2.1. Initial setup</a></li>
+<li><a class="reference internal" href="#git-setup">2.2.2.2. Git setup</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
                     
                 </div>
             </div>

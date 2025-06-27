@@ -231,8 +231,8 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="stage-1">
-<h1><span class="section-number">2.2.1. </span>Stage 1<a class="headerlink" href="#stage-1" title="Link to this heading">¶</a></h1>
-<p>We’ll start with a tutorial. Work your way through the steps below.</p>
+<span id="lab1a"></span><h1><span class="section-number">2.2.1. </span>Stage 1<a class="headerlink" href="#stage-1" title="Link to this heading">¶</a></h1>
+<p>For this first part of the lab, you only need access to VSCode. <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html">Follow the instructions for getting this on your computer.</a>. Other tools will already be on your computer.</p>
 <section id="launching-the-terminal">
 <h2><span class="section-number">2.2.1.1. </span>Launching the terminal<a class="headerlink" href="#launching-the-terminal" title="Link to this heading">¶</a></h2>
 <p>On a desktop/laptop type device you will already have a command line interface installed. Start this, following the instructions given below for your operating system.</p>
@@ -700,8 +700,69 @@ or
 </div>
 </div>
 </section>
-<section id="a-more-complicated-script">
-<h3><span class="section-number">2.2.1.3.4. </span>A more complicated script<a class="headerlink" href="#a-more-complicated-script" title="Link to this heading">¶</a></h3>
+<section id="more-scripts">
+<h3><span class="section-number">2.2.1.3.4. </span>More scripts<a class="headerlink" href="#more-scripts" title="Link to this heading">¶</a></h3>
+<p>Many of the programming concepts introduced in Part 1, such as <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html">loops</a> and <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html">different data types</a> are possible in shell scripts if you need them. (Although if you’re doing much more than simple computer automation you’re likely better to use Python, as we’ll learn about later in the course.)</p>
+<p>At the end of your script file from above add the code</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-34" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-34">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Display<span class="w"> </span>colours<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>rainbow
+<span class="gp">$</span><span class="nv">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="o">(</span><span class="s2">&quot;Red&quot;</span>,<span class="s2">&quot;Orange&quot;</span>,<span class="s2">&quot;Yellow&quot;</span>,<span class="s2">&quot;Green&quot;</span>,<span class="s2">&quot;Blue&quot;</span>,<span class="s2">&quot;Indigo&quot;</span>,<span class="s2">&quot;Violet&quot;</span><span class="o">)</span>
+<span class="go">For ($i=0; $i -lt $colors.Length; $i++) {</span>
+<span class="go">    Write-Host $colors[$i]</span>
+<span class="go">}</span>
+
+<span class="gp"># </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>C:<span class="se">\</span>
+Get-ChildItem<span class="w"> </span>-Path<span class="w"> </span>C:<span class="se">\ </span><span class="p">|</span><span class="w"> </span>ForEach-Object<span class="w"> </span><span class="o">{</span>
+<span class="go">    Write-Host &quot;$_&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Save the file and press the <code class="code highlight console docutils literal highlight-console"><span class="go">Run</span></code> button again. You should have an output like the below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_loop_windows.png"><img alt="Example of for loops in a Windows shell script" src="../../_images/vscode_loop_windows.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This script now contains two different types of <code class="code highlight console docutils literal highlight-console"><span class="go">for</span></code> loop.</p>
+<ol class="arabic simple">
+<li><p>The first has a list of colours. Each of these colours is accessed in turn, and <code class="code highlight console docutils literal highlight-console"><span class="go">Write-Host</span></code> is used to display them to the screen.</p></li>
+<li><p>The second uses <code class="code highlight console docutils literal highlight-console"><span class="go">ForEach-Object</span></code>, and takes its input from <code class="code highlight console docutils literal highlight-console"><span class="go">Get-ChildItem</span></code>. That is, it looks up what what is in the folder asked for, <code class="code highlight console docutils literal highlight-console"><span class="go">C:\</span></code> in this case. The results are passed to the for loop, so that each item can be used in turn, with the name of each item automatically stored in <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>_</code>. In the for loop, here we just display the name of each time. You could imagine carrying out more tasks, such as changing the name of files, or checking whether a file contains particular text, and so on. You would just add more lines of code between the curly brackers <code class="code highlight console docutils literal highlight-console"><span class="go">{}</span></code> of the <code class="code highlight console docutils literal highlight-console"><span class="go">ForEach-Object</span></code> command.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-35" name="sd-tab-set-17" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-35">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Display<span class="w"> </span>colours<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>rainbow
+<span class="go">set -- &quot;Red&quot; &quot;Orange&quot; &quot;Yellow&quot; &quot;Green&quot; &quot;Blue&quot; &quot;Indigo&quot; &quot;Violet&quot;</span>
+<span class="go">for a in &quot;$@&quot;; do</span>
+<span class="go">  echo $a</span>
+<span class="go">done</span>
+
+<span class="gp"># </span>Display<span class="w"> </span>the<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>/
+<span class="go">for f in /*; do</span>
+<span class="go">  echo &quot;/ contains $f&quot;</span>
+<span class="go">done</span>
+</pre></div>
+</div>
+<p>Save the file and press the <code class="code highlight console docutils literal highlight-console"><span class="go">Run</span></code> button again. You should have an output like the below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_loop_unix.png"><img alt="Example of for loops in a shell script" src="../../_images/vscode_loop_unix.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This script now contains two different types of <code class="code highlight console docutils literal highlight-console"><span class="go">for</span></code> loop.</p>
+<ol class="arabic simple">
+<li><p>The first has a list of colours, stored using <code class="code highlight console docutils literal highlight-console"><span class="go">set</span></code> into a variable called <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>@</code>. Each of these colours is accessed in turn and put into a variable called <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>a</code>. <code class="code highlight console docutils literal highlight-console"><span class="go">echo</span></code> is used to display <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>a</code> to the screen.</p></li>
+<li><p>The second uses <code class="code highlight console docutils literal highlight-console"><span class="go">/*</span></code> to find all of the files that are stored in <code class="code highlight console docutils literal highlight-console"><span class="go">/</span></code>. <code class="code highlight console docutils literal highlight-console"><span class="go">*</span></code> indicates find everything. These are put into a variable called <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>f</code>, and <code class="code highlight console docutils literal highlight-console"><span class="go">echo</span></code> is used to display <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span>f</code> to the screen.</p></li>
+</ol>
+<div class="admonition-aside admonition">
+<p class="admonition-title">Aside</p>
+<p>The above syntax, in particular the <code class="code highlight console docutils literal highlight-console"><span class="go">set</span></code> command is slightly awkward. Recall that our shebang line is <code class="code highlight console docutils literal highlight-console"><span class="gp">#</span>!/usr/bin/env<span class="w"> </span>sh</code>, and use the system’s default. As we don’t necessarily know what the default will be, we’re restricted to a small set of commands that we know will work in every shell. There is a standard known as POSIX which defines this. For most Linux systems the default shell is bash, and so we could use <code class="code highlight console docutils literal highlight-console"><span class="gp">#</span>!/usr/bin/env<span class="w"> </span>bash</code> as the shebang line. The macOS the default shell is zsh, and so <code class="code highlight console docutils literal highlight-console"><span class="gp">#</span>!/usr/bin/env<span class="w"> </span>zsh</code>. Doing this allows many more commands and a much nicer array syntax. However, it would mean our code was no longer portable, able to run on any system. As we don’t know what computer you’re using, we went for the fully portable option.</p>
+</div>
+</div>
+</div>
+<p>There are of course many more possible commands and things that you can investigate. That’s not our aim here. Our aim is to give you a brief introduction and some insights into what’s possible, so you can then build on this if you need to, or if you encounter shell scripts in your future work.</p>
 </section>
 </section>
 </section>
@@ -736,7 +797,7 @@ or
 <li><a class="reference internal" href="#getting-started">2.2.1.3.1. Getting started</a></li>
 <li><a class="reference internal" href="#a-simple-script">2.2.1.3.2. A simple script</a></li>
 <li><a class="reference internal" href="#running-the-script">2.2.1.3.3. Running the script</a></li>
-<li><a class="reference internal" href="#a-more-complicated-script">2.2.1.3.4. A more complicated script</a></li>
+<li><a class="reference internal" href="#more-scripts">2.2.1.3.4. More scripts</a></li>
 </ul>
 </li>
 </ul>

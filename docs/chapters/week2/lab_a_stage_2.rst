@@ -1,2 +1,247 @@
+.. role:: console(code)
+   :language: console
+
 Stage 2
 =======
+
+In Stage 2 of the lab we're going to look at `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. We'll use this a lot as we move through the course.
+
+For this part of the lab, and for the rest of the course, you VSCode and Docker installed on your computer. `Follow the instructions for getting this on your computer. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_.
+
+Start Docker before continuing with the below.
+
+
+Initial setup
+-------------
+We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab1a>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
+
+For our more general programming, we're going to use our own dedicated computer that sits on top of your computer, as discussed in `environment control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html>`_. Doing this can be a little confusing, you have a *virtual* computer in addition to the *physical* computer, You need to keep track of which is which,  but it's easy once you're used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from. 
+
+You don't need to do very much to set this up, you just need to make sure some files are in the correct places. Again, it can be a bit fiddly to get right at first - things won't work if you miss a step. Once it's going it should be quite robust though. 
+
+In Stage 1 of the lab you should have made a folder 
+
+.. tab-set::
+   :sync-group: os
+
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
+   
+      :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202`
+
+
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
+
+      :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202` (macOS) 
+      or 
+      :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/` (Linux)
+
+If not, make that folder now. Inside this, make a folder called :console:`.devcontainer`.
+
+.. danger::
+
+    It is important that the folder name is correct. :console:`.devcontainer` including the :console:`.`. Things won't work correctly if this name is wrong. 
+
+
+Then, download our *devcontainer* from `GitHub <https://github.com/UOM-EEE-EEEN11202/devcontainer>`_. Click on :console:`Code` and then :console:`Download ZIP`.
+
+.. figure:: windows_powershell_start.png
+   :width: 800
+   :align: center
+   :alt: A Windows start menu search for the PowerShell app
+
+This will download a file with a :console:`.zip` extension. You should be able to double click to go inside this (you may need to do this twice). Eventually, you'll see three files that you downloaded. On Windows this looks like:
+
+.. figure:: windows_zip_file.png
+   :width: 800
+   :align: center
+   :alt: devcontainer files downloaded on Windows
+
+Copy and paste these files into the :console:`.devcontainer` folder you made earlier. That is, select them with the mouse, click the copy button, navigate to your folder, and then press the paste button. Done correctly, your files and folders should look like the below (shown for Windows only).
+
+.. figure:: windows_copied_devcontainer_files.png
+   :width: 800
+   :align: center
+   :alt: devcontainer files copied to the correct location on Windows
+
+Then, start VSCode. On the Welcome screen select :console:`Open Folder...`
+
+.. figure:: vscode_open_folder.png
+   :width: 800
+   :align: center
+   :alt: The VSCode welcome page
+
+Select the folder
+
+.. tab-set::
+   :sync-group: os
+
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
+   
+      :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202`
+
+
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
+
+      :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202` (macOS) 
+      or 
+      :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/` (Linux)
+
+The devcontainer may open automatically, or if not VSCode will display a message :console:`Reopen in Container`. Click on this if it appears.
+
+.. figure:: vscode_reopen_in_container.png
+   :width: 800
+   :align: center
+   :alt: VSCode giving the option to open a folder in a container
+
+It can take a few minutes for the devcontainer to start, especially the first time as various files have to be downloaded from the Internet. Once successful, you should see the bottom left hand corner has changed, it will now say it's connected to a devcontainer.
+
+.. figure:: vscode_devcontainer.png
+   :width: 800
+   :align: center
+   :alt: VSCode showing that a devcontainer is being used
+
+This indicates that you're using our virtual computer rather than your real computer. You're still using the same files, just editing them with a different computer. For all parts of the course from now on, you want this blue :console:`Dev Container` to be displayed in the bottom left of the screen before you start doing any programming.
+
+
+Git setup
+---------
+You might like to re-read our brief introduction to git in `Part 1 of the notes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. 
+
+Our version control is based upon the concept of a *repository*. That is a set of files and folders that we want to keep under version control. 
+
+We're going to have one repository for each lab in the course. We could have set this up differently - having one repository for storing everything for the course in. We thought that using multiple repositories, one per lab, would help give you more practice.
+
+We can have multiple copies of the same repository. Typically we refer to a *local repository*. This is the copy that you use day-to-day, stored with your working files. We then also have a *remote repository*. A remote repository is where we store our code, in a shared location not on our computer. This is typically on a server somewhere, where other people can access it. This may be so that the code can be open source and public, or it may be that you're programming a large project as part of a team, and the multiple team members need one common repository to share their local edits to. We use version control software to keep the copy on the local computer in sync with the version on the remote repository (and to merge in changes from others if multiple people are working on the code).
+
+We have made a remote repository already for each lab in the course, and these are hosted on `GitHub Classroom <https://classroom.github.com/>`_. You need to get a local copy of these, and when you submit tasks will need to sync your local repository with the remote repository. We'll walk you through how to do this. 
+
+GitHub Classroom doesn't automatically integrate with Canvas, and so you have to manually make an account using your University of Manchester email address. 
+	
+The Github Classroom link for Lab A is:
+
+      .. admonition:: GitHub Classroom link
+
+         `<https://classroom.github.com/a/RlQLmQUu>`_
+
+Click this link, and sign in to GitHub. If you don't already have an account, or an account using your University of Manchester email address, create one using the link that gets displayed. Follow the instructions on the website.
+
+.. figure:: github_signin1.png
+   :width: 300
+   :align: center
+   :alt: GitHub sign in page
+
+You can use any username that you would like, it doesn't need to be your University one (and it is probably better if it isn't, so you can keep your University username known only to you). You must enter your University of Manchester provided email address. This is needed for everything to work correctly for the assignments.
+	 
+After entering your details, GitHub will ask you to "Authorize GitHub Classroom". Do this.
+	
+.. figure:: github_signin2.png
+   :width: 300
+   :align: center
+   :alt: GitHub a authorization page	
+	
+You'll then be asked to "Accept this assignment". Each lab in the course will have its own classroom link, and you'll have to accept each assignment to add it to your account. When you click accept, a repository for storing your files is created on `<www.github.com>`_. In the figure below, this repository is called :console:`uom_eee_eeen11202-lab-a-ALEX-CASSON-LAB`, because the lab is called :console:`lab_a` and the username is :console:`ALEX-CASSON-LAB`. Yours will look slightly different, depending on the username you selected.
+
+.. figure:: github_signin3.png
+   :width: 300
+   :align: center
+   :alt: GitHub a accept assignment page	
+		
+It can take a minute or two for everything to set up. You may be shown a waiting page. Wait a minute and then refresh the page in your browser.
+
+.. figure:: github_signin4.png
+   :width: 300
+   :align: center
+   :alt: GitHub waiting page	
+	
+When set up, you'll be given a link to the remote repository which has been created for you. Make a note of this link. You'll need it later. Note that GitHub classroom knows we're using VSCode, and so it's given you the option to load the remote repository directly in VSCode. Don't do this for now, click the github.com link instead. You can explore the VSCode integration later on, if you'd like to, but for now it will complicate things.
+	
+.. figure:: github_signin5.png
+   :width: 300
+   :align: center
+   :alt: GitHub ready to go page		
+	
+When you click the link in the previous step, it will take you to a repository containing our starter files. This is as if you're joining an ongoing project that others have already started. Each student will have their own repository, with a unique address linked to their username. You'll see that this is a private repository, which means that only you (and the admin team) can access it. Again, for now ignore the "Open in Visual Studio Code" button.
+
+.. figure:: github_signin6.png
+   :width: 300
+   :align: center
+   :alt: GitHub repository page
+
+If you need the address of the repository again, because you didn't make a note earlier, you can click the "Code" button to see it again.
+	
+That completes the initial set up of the remote repository. Feel free to explore the GitHub website to see the functionality and options available.
+	
+Next we need to let the VSCode running on your computer see the remote repository that you've created. Start VSCode and make sure its connected to the devcontainer following the instructions above. This will display a window like the below. (If the Welcome page isn't displayed, you can select :console:`Help / Welcome` in the menu bar to display it.) Click on :console:`Clone Git Repository...` to sync a copy of the GitHub repository with your computer.
+	
+.. figure:: github_clone1.png
+   :width: 300
+   :align: center
+   :alt: Cloning a git repository
+	
+This will open a dropdown menu from the top bar where you can click :console:`Clone from GitHub`. 
+    
+If you're not already signed in, you'll be asked to sign in to GitHub. Use the credentials you created earlier. You may be asked to :console:`Authorize Visual-Studio-Code` and/or :console:`Authorize git-ecosystem`` to access your GitHub account. Do this.
+
+.. figure:: github_clone2.png
+   :width: 300
+   :align: center
+   :alt: Giving VSCode permissions to access GitHub	
+	
+In the top box enter the location of your remote repository that you noted down earlier. It will be something like
+   `<https://github.com/UOM-EEE-EEEN11202/lab-a-ALEX-CASSON-LAB>`_
+but different for your username. It may or may not have a .git extension. Press enter once you've entered the address. 
+
+.. figure:: github_clone3.png
+   :width: 800
+   :align: center
+   :alt: Entering the address of the repository
+
+You'll then be asked where to put the local copy of the repository. Enter
+   :console:`/workspaces/eeen11202`
+and then click :console:`Select as Repository Destination`
+
+.. figure:: github_clone4.png
+   :width: 800
+   :align: center
+   :alt: Selecting a location for the local repository
+
+This might look like a slightly odd location, but it's what we need for this course. Remember that you have your physical computer, and the virtual computer for doing programming on. :console:`/workspaces/eeen11202` has been set up as the location that appears on both so you can see you files from everywhere. If you have a terminal open in VSCode, you'll see it's working in :console:`/workspaces/eeen11202` as the default location (assuming you followed the steps above correctly!).
+
+You'll then be asked whether you'd like to open the repository. Select :console:`Open`.
+
+.. figure:: github_clone5.png
+   :width: 800
+   :align: center
+   :alt: Opening the repository
+
+If you've followed the steps correctly you should then have a view like
+
+.. figure:: github_clone6.png
+   :width: 800
+   :align: center
+   :alt: Opening the repository
+
+Check that it has the name of your GitHub repository in the top left, and that it shows its connected to the devcontainer in the bottom left. If you have these, then you're ready to go!
+
+Before moving on though, it is worth having a quick look at the files that we have so far. These are shown, in Windows, below.
+
+.. figure:: github_clone7.png
+   :width: 800
+   :align: center
+   :alt: Folder structure if items have been set up correctly
+
+- We have a folder called :console:`eeen11202` which is where we'll keep all of our programming files for the course.
+- This is in your :console:`OneDrive - The University of Manchester` folder so the files will be available whether you're on a personal or a University computer. 
+- Inside :console:`eeen11202` is a folder called :console:`.devcontainer` which you downloaded. You don't need to worry about the contents of this, as long as this folder is present as downloaded. This contains some settings we've made to help the course run smoothly and give a consistent setup for everyone. It will be used automatically by VSCode and Docker, as long as its in the right place. 
+- There is a folder called :console:`lab_a`, which you made in Stage 1 of the lab. This contains the scripts you've made so far.
+- There is a folder called :console:`lab-a-ALEX-CASSON-LAB`. This is our local repository, which mirrors a remote repository on GitHub. It's got a very similar name to :console:`lab_a`, but they are different things. We didn't set up any version control with :console:`lab_a`.
+
+It is a little work to get this set up, but it should be quite smooth once everything is correctly configured. It can also take a little to get your head around. Are you working on the physical computer, or the devcontainer that we use for programming? Are you working with files in the version control, or other files which happen to have a similar name? In the version control, is this the remote repository or the local repository? It takes a little effort to keep track of what's what, but this is key to professional software development and being able to work in large projects, where the tools and code are kept in sync for everyone. 
+
+
+Modifying our shell scripts
+---------------------------

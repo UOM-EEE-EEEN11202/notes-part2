@@ -1,10 +1,13 @@
 .. role:: console(code)
    :language: console
 
+.. _lab1a:
+
 Stage 1
 =======
 
-We'll start with a tutorial. Work your way through the steps below. 
+For this first part of the lab, you only need access to VSCode. `Follow the instructions for getting this on your computer. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_. Other tools will already be on your computer. 
+
 
 Launching the terminal
 ----------------------
@@ -572,5 +575,76 @@ As a challenge, get your script to automatically read the system time to determi
             fi
 
 
-A more complicated script
-^^^^^^^^^^^^^^^^^^^^^^^^^
+More scripts
+^^^^^^^^^^^^
+Many of the programming concepts introduced in Part 1, such as `loops <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html>`_ and `different data types <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html>`_ are possible in shell scripts if you need them. (Although if you're doing much more than simple computer automation you're likely better to use Python, as we'll learn about later in the course.) 
+
+At the end of your script file from above add the code 
+
+.. tab-set::
+   :sync-group: os
+
+   .. tab-item:: :fab:`windows` Windows
+      :sync: key1
+
+      .. code-block:: console
+
+         # Display colours of the rainbow
+         $colors = @("Red","Orange","Yellow","Green","Blue","Indigo","Violet")
+         For ($i=0; $i -lt $colors.Length; $i++) {
+             Write-Host $colors[$i]
+         }
+
+         # Display the contents of C:\ 
+         Get-ChildItem -Path C:\ | ForEach-Object {
+             Write-Host "$_"
+         }
+
+      Save the file and press the :console:`Run` button again. You should have an output like the below.
+
+      .. figure:: vscode_loop_windows.png
+         :width: 800
+         :align: center
+         :alt: Example of for loops in a Windows shell script
+
+      This script now contains two different types of :console:`for` loop.
+
+      1. The first has a list of colours. Each of these colours is accessed in turn, and :console:`Write-Host` is used to display them to the screen. 
+
+      2. The second uses :console:`ForEach-Object`, and takes its input from :console:`Get-ChildItem`. That is, it looks up what what is in the folder asked for, :console:`C:\\` in this case. The results are passed to the for loop, so that each item can be used in turn, with the name of each item automatically stored in :console:`$_`. In the for loop, here we just display the name of each time. You could imagine carrying out more tasks, such as changing the name of files, or checking whether a file contains particular text, and so on. You would just add more lines of code between the curly brackers :console:`{}` of the :console:`ForEach-Object` command. 
+
+
+   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
+      :sync: key2
+
+      .. code-block:: console
+
+         # Display colours of the rainbow
+         set -- "Red" "Orange" "Yellow" "Green" "Blue" "Indigo" "Violet"
+         for a in "$@"; do 
+           echo $a
+         done
+
+         # Display the contents of /
+         for f in /*; do
+           echo "/ contains $f"
+         done
+
+      Save the file and press the :console:`Run` button again. You should have an output like the below.
+
+      .. figure:: vscode_loop_unix.png
+         :width: 800
+         :align: center
+         :alt: Example of for loops in a shell script
+
+      This script now contains two different types of :console:`for` loop.
+
+      1. The first has a list of colours, stored using :console:`set` into a variable called :console:`$@`. Each of these colours is accessed in turn and put into a variable called :console:`$a`. :console:`echo` is used to display :console:`$a` to the screen. 
+
+      2. The second uses :console:`/*` to find all of the files that are stored in :console:`/`. :console:`*` indicates find everything. These are put into a variable called :console:`$f`, and :console:`echo` is used to display :console:`$f` to the screen. 
+      
+      .. admonition:: Aside
+
+         The above syntax, in particular the :console:`set` command is slightly awkward. Recall that our shebang line is :console:`#!/usr/bin/env sh`, and use the system's default. As we don't necessarily know what the default will be, we're restricted to a small set of commands that we know will work in every shell. There is a standard known as POSIX which defines this. For most Linux systems the default shell is bash, and so we could use :console:`#!/usr/bin/env bash` as the shebang line. The macOS the default shell is zsh, and so :console:`#!/usr/bin/env zsh`. Doing this allows many more commands and a much nicer array syntax. However, it would mean our code was no longer portable, able to run on any system. As we don't know what computer you're using, we went for the fully portable option. 
+
+There are of course many more possible commands and things that you can investigate. That's not our aim here. Our aim is to give you a brief introduction and some insights into what's possible, so you can then build on this if you need to, or if you encounter shell scripts in your future work. 

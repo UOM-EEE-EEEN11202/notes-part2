@@ -12,3 +12,5 @@ This work is licensed under a
 TODO
 ====
 Week 2, add Finder images showing CLI/GUI match up
+Fix toggle button
+Think about lab_a folder name in stage A. Needs images updating
