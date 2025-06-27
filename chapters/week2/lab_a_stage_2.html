@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>2.2.2. Stage 2 &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=cf22d736" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="2.2. Lab A" href="lab_a.html" />
+            <link rel="next" title="2.2.3. Assignment A" href="assignment_a.html" />
+            <link rel="prev" title="2.2.1. Stage 1" href="lab_a_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">2.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_a.html">2.2. Lab A</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_1.html">2.2.1. Stage 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.2.2. Stage 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_b.html">2.3. Lab B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/assignment_iii.html">3.3. Assignment iii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.4. Lab D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/assignment_iv.html">3.5. Assignment iv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.6. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/assignment_v.html">4.3. Assignment v</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.4. Lab F</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/assignment_vi.html">4.5. Assignment vi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.6. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/assignment_vii.html">5.3. Assignment vii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.4. Lab H</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/assignment_viii.html">5.5. Assignment viii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.6. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/assignment_ix.html">6.3. Assignment ix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.4. Lab J</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/assignment_x.html">6.5. Assignment x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.6. Formative quiz 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week7_intro.html">7. Week 7</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week7/theory.html">7.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week7/lab_k.html">7.2. Lab K</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week7/assignment_xi.html">7.3. Assignment xi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week7/formative_quiz.html">7.4. Formative quiz 7</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week2_intro.html"><span class="section-number">2. </span>Week 2</a></li>
+            <li class="breadcrumb-item"><a href="lab_a.html"><span class="section-number">2.2. </span>Lab A</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">2.2.2. </span>Stage 2</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week2/lab_a_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week2/lab_a_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="stage-2">
+<h1><span class="section-number">2.2.2. </span>Stage 2<a class="headerlink" href="#stage-2" title="Link to this heading">¶</a></h1>
+<p>In Stage 2 of the lab we’re going to look at <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html">version control</a>. We’ll use this a lot as we move through the course.</p>
+<p>For this part of the lab, and for the rest of the course, you VSCode and Docker installed on your computer. <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html">Follow the instructions for getting this on your computer.</a>.</p>
+<p>Start Docker before continuing with the below.</p>
+<section id="initial-setup">
+<h2><span class="section-number">2.2.2.1. </span>Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading">¶</a></h2>
+<p>We first need to do some initial setup. In <a class="reference internal" href="lab_a_stage_1.html#lab1a"><span class="std std-ref">Stage 1 of the labs</span></a> we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer.</p>
+<p>For our more general programming, we’re going to use our own dedicated computer that sits on top of your computer, as discussed in <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html">environment control</a>. Doing this can be a little confusing, you have a <em>virtual</em> computer in addition to the <em>physical</em> computer, You need to keep track of which is which,  but it’s easy once you’re used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from.</p>
+<p>You don’t need to do very much to set this up, you just need to make sure some files are in the correct places. Again, it can be a bit fiddly to get right at first - things won’t work if you miss a step. Once it’s going it should be quite robust though.</p>
+<p>In Stage 1 of the lab you should have made a folder</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-0">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">C:\Users\alex\OneDrive - The University of Manchester\eeen11202</span></code></p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-1">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">/Users/alex/OneDrive - The University of Manchester/eeen11202</span></code> (macOS)
+or
+<code class="code highlight console docutils literal highlight-console"><span class="go">/home/alex/OneDrive - The University of Manchester/eeen11202/</span></code> (Linux)</p>
+</div>
+</div>
+<p>If not, make that folder now. Inside this, make a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>It is important that the folder name is correct. <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code> including the <code class="code highlight console docutils literal highlight-console"><span class="go">.</span></code>. Things won’t work correctly if this name is wrong.</p>
+</div>
+<p>Then, download our <em>devcontainer</em> from <a class="reference external" href="https://github.com/UOM-EEE-EEEN11202/devcontainer">GitHub</a>. Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Code</span></code> and then <code class="code highlight console docutils literal highlight-console"><span class="go">Download ZIP</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_powershell_start.png"><img alt="A Windows start menu search for the PowerShell app" src="../../_images/windows_powershell_start.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This will download a file with a <code class="code highlight console docutils literal highlight-console"><span class="go">.zip</span></code> extension. You should be able to double click to go inside this (you may need to do this twice). Eventually, you’ll see three files that you downloaded. On Windows this looks like:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_zip_file.png"><img alt="devcontainer files downloaded on Windows" src="../../_images/windows_zip_file.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Copy and paste these files into the <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code> folder you made earlier. That is, select them with the mouse, click the copy button, navigate to your folder, and then press the paste button. Done correctly, your files and folders should look like the below (shown for Windows only).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/windows_copied_devcontainer_files.png"><img alt="devcontainer files copied to the correct location on Windows" src="../../_images/windows_copied_devcontainer_files.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Then, start VSCode. On the Welcome screen select <code class="code highlight console docutils literal highlight-console"><span class="go">Open Folder...</span></code></p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_open_folder.png"><img alt="The VSCode welcome page" src="../../_images/vscode_open_folder.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Select the folder</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-2">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">C:\Users\alex\OneDrive - The University of Manchester\eeen11202</span></code></p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-3">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">/Users/alex/OneDrive - The University of Manchester/eeen11202</span></code> (macOS)
+or
+<code class="code highlight console docutils literal highlight-console"><span class="go">/home/alex/OneDrive - The University of Manchester/eeen11202/</span></code> (Linux)</p>
+</div>
+</div>
+<p>The devcontainer may open automatically, or if not VSCode will display a message <code class="code highlight console docutils literal highlight-console"><span class="go">Reopen in Container</span></code>. Click on this if it appears.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_reopen_in_container.png"><img alt="VSCode giving the option to open a folder in a container" src="../../_images/vscode_reopen_in_container.png" style="width: 800px;" />
+</a>
+</figure>
+<p>It can take a few minutes for the devcontainer to start, especially the first time as various files have to be downloaded from the Internet. Once successful, you should see the bottom left hand corner has changed, it will now say it’s connected to a devcontainer.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vscode_devcontainer.png"><img alt="VSCode showing that a devcontainer is being used" src="../../_images/vscode_devcontainer.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This indicates that you’re using our virtual computer rather than your real computer. You’re still using the same files, just editing them with a different computer. For all parts of the course from now on, you want this blue <code class="code highlight console docutils literal highlight-console"><span class="go">Dev Container</span></code> to be displayed in the bottom left of the screen before you start doing any programming.</p>
+</section>
+<section id="git-setup">
+<h2><span class="section-number">2.2.2.2. </span>Git setup<a class="headerlink" href="#git-setup" title="Link to this heading">¶</a></h2>
+<p>You might like to re-read our brief introduction to git in <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html">Part 1 of the notes</a>.</p>
+<p>Our version control is based upon the concept of a <em>repository</em>. That is a set of files and folders that we want to keep under version control.</p>
+<p>We’re going to have one repository for each lab in the course. We could have set this up differently - having one repository for storing everything for the course in. We thought that using multiple repositories, one per lab, would help give you more practice.</p>
+<p>We can have multiple copies of the same repository. Typically we refer to a <em>local repository</em>. This is the copy that you use day-to-day, stored with your working files. We then also have a <em>remote repository</em>. A remote repository is where we store our code, in a shared location not on our computer. This is typically on a server somewhere, where other people can access it. This may be so that the code can be open source and public, or it may be that you’re programming a large project as part of a team, and the multiple team members need one common repository to share their local edits to. We use version control software to keep the copy on the local computer in sync with the version on the remote repository (and to merge in changes from others if multiple people are working on the code).</p>
+<p>We have made a remote repository already for each lab in the course, and these are hosted on <a class="reference external" href="https://classroom.github.com/">GitHub Classroom</a>. You need to get a local copy of these, and when you submit tasks will need to sync your local repository with the remote repository. We’ll walk you through how to do this.</p>
+<p>GitHub Classroom doesn’t automatically integrate with Canvas, and so you have to manually make an account using your University of Manchester email address.</p>
+<p>The Github Classroom link for Lab A is:</p>
+<blockquote>
+<div><div class="admonition-github-classroom-link admonition">
+<p class="admonition-title">GitHub Classroom link</p>
+<p><a class="reference external" href="https://classroom.github.com/a/mULBYuO3">https://classroom.github.com/a/mULBYuO3</a></p>
+</div>
+</div></blockquote>
+<p>Click this link, and sign in to GitHub. If you don’t already have an account, or an account using your University of Manchester email address, create one using the link that gets displayed. Follow the instructions on the website.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin1.png"><img alt="GitHub sign in page" src="../../_images/github_signin1.png" style="width: 300px;" />
+</a>
+</figure>
+<p>You can use any username that you would like, it doesn’t need to be your University one (and it is probably better if it isn’t, so you can keep your University username known only to you). You must enter your University of Manchester provided email address. This is needed for everything to work correctly for the assignments.</p>
+<p>After entering your details, GitHub will ask you to “Authorize GitHub Classroom”. Do this.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin2.png"><img alt="GitHub a authorization page" src="../../_images/github_signin2.png" style="width: 300px;" />
+</a>
+</figure>
+<p>You’ll then be asked to “Accept this assignment”. Each lab in the course will have its own classroom link, and you’ll have to accept each assignment to add it to your account. When you click accept, a repository for storing your files is created on <a class="reference external" href="www.github.com">www.github.com</a>. In the figure below, this repository is called <code class="code highlight console docutils literal highlight-console"><span class="go">uom_eee_eeen11202-lab-a-ALEX-CASSON-LAB</span></code>, because the lab is called <code class="code highlight console docutils literal highlight-console"><span class="go">lab_a</span></code> and the username is <code class="code highlight console docutils literal highlight-console"><span class="go">ALEX-CASSON-LAB</span></code>. Yours will look slightly different, depending on the username you selected.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin3.png"><img alt="GitHub a accept assignment page" src="../../_images/github_signin3.png" style="width: 300px;" />
+</a>
+</figure>
+<p>It can take a minute or two for everything to set up. You may be shown a waiting page. Wait a minute and then refresh the page in your browser.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin4.png"><img alt="GitHub waiting page" src="../../_images/github_signin4.png" style="width: 300px;" />
+</a>
+</figure>
+<p>When set up, you’ll be given a link to the remote repository which has been created for you. Make a note of this link. You’ll need it later. Note that GitHub classroom knows we’re using VSCode, and so it’s given you the option to load the remote repository directly in VSCode. Don’t do this for now, click the github.com link instead. You can explore the VSCode integration later on, if you’d like to, but for now it will complicate things.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin5.png"><img alt="GitHub ready to go page" src="../../_images/github_signin5.png" style="width: 300px;" />
+</a>
+</figure>
+<p>When you click the link in the previous step, it will take you to a repository containing our starter files. This is as if you’re joining an ongoing project that others have already started. Each student will have their own repository, with a unique address linked to their username. You’ll see that this is a private repository, which means that only you (and the admin team) can access it. Again, for now ignore the “Open in Visual Studio Code” button.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/github_signin6.png"><img alt="GitHub repository page" src="../../_images/github_signin6.png" style="width: 300px;" />
+</a>
+</figure>
+<p>If you need the address of the repository again, because you didn’t make a note earlier, you can click the “Code” button to see it again.</p>
+<p>That completes the initial set up of the remote repository. Feel free to explore the GitHub website to see the functionality and options available.</p>
+<p>Next we need to let the VSCode running on your computer see the remote repository that you’ve created. Start VSCode and make sure its connected to the devcontainer following the instructions above. This will display a window like the below. (If the Welcome page isn’t displayed, you can select <code class="code highlight console docutils literal highlight-console"><span class="go">Help / Welcome</span></code> in the menu bar to display it.) Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Clone Git Repository...</span></code> to sync a copy of the GitHub repository with your computer.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone1.png"><img alt="Cloning a git repository" src="../../_images/git_clone1.png" style="width: 300px;" />
+</a>
+</figure>
+<p>This will open a dropdown menu from the top bar where you can click <code class="code highlight console docutils literal highlight-console"><span class="go">Clone from GitHub</span></code>.</p>
+<p>If you’re not already signed in, you’ll be asked to sign in to GitHub. Use the credentials you created earlier. You may be asked to <code class="code highlight console docutils literal highlight-console"><span class="go">Authorize Visual-Studio-Code</span></code> and/or <code class="code highlight console docutils literal highlight-console"><span class="go">Authorize git-ecosystem`</span></code> to access your GitHub account. Do this.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone2.png"><img alt="Giving VSCode permissions to access GitHub" src="../../_images/git_clone2.png" style="width: 300px;" />
+</a>
+</figure>
+<p>In the top box enter the location of your remote repository that you noted down earlier. It will be something like <a class="reference external" href="https://github.com/UOM-EEE-EEEN11202/lab-a-ALEX-CASSON-LAB">https://github.com/UOM-EEE-EEEN11202/lab-a-ALEX-CASSON-LAB</a> but different for your username. It may or may not have a .git extension. Press enter once you’ve entered the address.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone3.png"><img alt="Entering the address of the repository" src="../../_images/git_clone3.png" style="width: 800px;" />
+</a>
+</figure>
+<p>You’ll then be asked where to put the local copy of the repository. Enter <code class="code highlight console docutils literal highlight-console"><span class="go">/workspaces/eeen11202</span></code> and then click <code class="code highlight console docutils literal highlight-console"><span class="go">Select as Repository Destination</span></code></p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone4.png"><img alt="Selecting a location for the local repository" src="../../_images/git_clone4.png" style="width: 800px;" />
+</a>
+</figure>
+<p>This might look like a slightly odd location, but it’s what we need for this course. Remember that you have your physical computer, and the virtual computer for doing programming on. <code class="code highlight console docutils literal highlight-console"><span class="go">/workspaces/eeen11202</span></code> has been set up as the location that appears on both so you can see you files from everywhere. If you have a terminal open in VSCode, you’ll see it’s working in <code class="code highlight console docutils literal highlight-console"><span class="go">/workspaces/eeen11202</span></code> as the default location (assuming you followed the steps above correctly!).</p>
+<p>You’ll then be asked whether you’d like to open the repository. Select <code class="code highlight console docutils literal highlight-console"><span class="go">Open</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone5.png"><img alt="Opening the repository" src="../../_images/git_clone5.png" style="width: 800px;" />
+</a>
+</figure>
+<p>If you’ve followed the steps correctly you should then have a view like</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone6.png"><img alt="Opening the repository" src="../../_images/git_clone6.png" style="width: 800px;" />
+</a>
+</figure>
+<p>Check that it has the name of your GitHub repository in the top left, and that it shows its connected to the devcontainer in the bottom left. If you have these, then you’re ready to go!</p>
+<p>Before moving on though, it is worth having a quick look at the files that we have so far. These are shown, in Windows, below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_clone7.png"><img alt="Folder structure if items have been set up correctly" src="../../_images/git_clone7.png" style="width: 800px;" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>We have a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">eeen11202</span></code> which is where we’ll keep all of our programming files for the course.</p></li>
+<li><p>This is in your <code class="code highlight console docutils literal highlight-console"><span class="go">OneDrive - The University of Manchester</span></code> folder so the files will be available whether you’re on a personal or a University computer.</p></li>
+<li><p>Inside <code class="code highlight console docutils literal highlight-console"><span class="go">eeen11202</span></code> is a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">.devcontainer</span></code> which you downloaded. You don’t need to worry about the contents of this, as long as this folder is present as downloaded. This contains some settings we’ve made to help the course run smoothly and give a consistent setup for everyone. It will be used automatically by VSCode and Docker, as long as its in the right place.</p></li>
+<li><p>There is a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">lab_a</span></code>, which you made in Stage 1 of the lab. This contains the scripts you’ve made so far.</p></li>
+<li><p>There is a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">lab-a-ALEX-CASSON-LAB</span></code>. This is our local repository, which mirrors a remote repository on GitHub. It’s got a very similar name to <code class="code highlight console docutils literal highlight-console"><span class="go">lab_a</span></code>, but they are different things. We didn’t set up any version control with <code class="code highlight console docutils literal highlight-console"><span class="go">lab_a</span></code>.</p></li>
+</ul>
+<p>It is a little work to get this set up, but it should be quite smooth once everything is correctly configured. It can also take a little to get your head around. Are you working on the physical computer, or the devcontainer that we use for programming? Are you working with files in the version control, or other files which happen to have a similar name? In the version control, is this the remote repository or the local repository? It takes a little effort to keep track of what’s what, but this is key to professional software development and being able to work in large projects, where the tools and code are kept in sync for everyone.</p>
+<div class="admonition-aside admonition">
+<p class="admonition-title">Aside</p>
+<p>You might find some sources online that warn against using git inside of a OneDrive folder. Don’t worry about it for here. For large projects, it likely is best to use just one of them, but for a University course it’s useful to have the files in both so they’re available on your personal computer and one the University computers.</p>
+</div>
+</section>
+<section id="modifying-our-shell-scripts">
+<h2><span class="section-number">2.2.2.3. </span>Modifying our shell scripts<a class="headerlink" href="#modifying-our-shell-scripts" title="Link to this heading">¶</a></h2>
+<p>With the files downloaded from git, you’ll find you have copies of the shell scripts from Stage 1 of the lab. You have both <code class="code highlight console docutils literal highlight-console"><span class="go">my_script.ps1</span></code> and <code class="code highlight console docutils literal highlight-console"><span class="go">my_script.sh</span></code>. The devcontainer has been set up to be able to run both of these, use whichever you feel most comfortable with. Below we’ll include screenshots only for <code class="code highlight console docutils literal highlight-console"><span class="go">my_script.sh</span></code>.</p>
+<p>In these scripts, the name has been coded to be <em>Alex</em>. Change this to be your name. (If your name is Alex, pick some other name as an example!) In the screenshots below the name has been changed to <em>Caitlin</em>.</p>
+<p>When you save your changes, you’ll see that VSCode has detected that the file has been modified. It’s added <code class="code highlight console docutils literal highlight-console"><span class="go">M</span></code> in a number of places. If you want, you can also use the command line to show the version control status with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>(This is optional, it’s the same information as the graphical interface is displaying.)</p>
+<p>You need to explicitly <em>commit</em> or <em>check in</em> the changes to the version control system. It won’t keep a copy of every change you make, only the ones you ask it to. Again you can do this in the GUI or at the command line, you only need to do one.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key1" for="sd-tab-item-4">
+<span class="fab fa-fa-display"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Source Control</span></code> button in the left hand menu. This is highlighted in the figure below. If you’ve made changes it will have a number next to it indicating how many files have changed.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_commit.png"><img alt="Git commit via the VSCode GUI" src="../../_images/git_commit.png" style="width: 800px;" />
+</a>
+</figure>
+<p>There is a box called <code class="code highlight console docutils literal highlight-console"><span class="go">Message</span></code>. You must enter some text in here. To commit your files git requires that you add a message documenting your changes. This should be something meaningful, saying what has changed and why. In the figure above <code class="code highlight console docutils literal highlight-console"><span class="go">Changed the name</span></code> has been entered. You won’t be able to click the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button until some text has been entered.</p>
+<p>To commit the changes you need to click the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button.</p>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key2" for="sd-tab-item-5">
+<span class="fab fa-fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<p>Enter</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Changed the name&quot;</span>
+</pre></div>
+</div>
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">-a</span></code> asks all of the files to be committed. This is optional. You can remove this and list files one by one if you’d like. The <code class="code highlight console docutils literal highlight-console"><span class="go">-m &quot;text&quot;</span></code> is required. To commit your files git requires that you add a message documenting your changes. This should be something meaningful, saying what has changed and why.</p>
+</div>
+</div>
+<p>Committing the changes only updates the local repository. You also need to explicitly update the remote repository. This is very common industry practice - you work on a local copy of the code, and can make as many version controlled changes as you like. When you’re done making changes, you update the remote repository so that other team members can access the updated code. This lets you work independently, while also collaborating and keeping in sync with others. In the EEEN11202 labs you’re working by yourself, but we’re still going to replicate this process (and use it for the Gradescope submissions) so that you gain experience in this industry standard process.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key1" for="sd-tab-item-6">
+<span class="fab fa-fa-display"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Once you’ve committed your changes, and before you make any others, the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button will change to display <code class="code highlight console docutils literal highlight-console"><span class="go">Sync Changes</span></code>. Press this and the changes will be pushed to the remote repository.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/git_sync.png"><img alt="Git sync via the VSCode GUI" src="../../_images/git_sync.png" style="width: 800px;" />
+</a>
+</figure>
+<p>You may be asked to confirm you want to do this before it takes effect. If so, press <code class="code highlight console docutils literal highlight-console"><span class="go">OK</span></code>.</p>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key2" for="sd-tab-item-7">
+<span class="fab fa-fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<p>You need to enter two commands, one after another. First</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>fetch
+</pre></div>
+</div>
+<p>This checks the remote repository for any changes there, and updates the local repository if there are. You want to do this before trying to push your changes to the remote repository to avoid conflicts with changes others have made. Then enter</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should be able to then go back to the GitHub website. If you click on the file(s) you’ve changed, you’ll see the new version.</p>
+</section>
+<section id="going-further">
+<h2><span class="section-number">2.2.2.4. </span>Going further<a class="headerlink" href="#going-further" title="Link to this heading">¶</a></h2>
+<p>There’s lots more than you can do with the version control. We’ll cover more in future labs. For now, explore the VSCode interface a bit more. Explore different options and settings. Try making more changes to your scripts. Then move on to the assignment.</p>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_a_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">2.2.1. </span>Stage 1
+    </a>
+    <a class="float-right" href="assignment_a.html" title="Next">
+        <span class="section-number">2.2.3. </span>Assignment A <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">2.2.2. Stage 2</a><ul>
+<li><a class="reference internal" href="#initial-setup">2.2.2.1. Initial setup</a></li>
+<li><a class="reference internal" href="#git-setup">2.2.2.2. Git setup</a></li>
+<li><a class="reference internal" href="#modifying-our-shell-scripts">2.2.2.3. Modifying our shell scripts</a></li>
+<li><a class="reference internal" href="#going-further">2.2.2.4. Going further</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright Alex Casson. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Released under CC-BY-NC-SA 4.0 license.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
