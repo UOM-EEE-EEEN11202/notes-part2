@@ -23,21 +23,21 @@ On a desktop/laptop type device you will already have a command line interface i
         
         (1) You can start it directly by typing in :console:`powershell` to the search box in the start menu.
 
-        .. figure:: windows_powershell_start.png
+        .. figure:: ./images/windows_powershell_start.png
            :width: 800
            :align: center
            :alt: A Windows start menu search for the PowerShell app
 
         (2) You can first install *Windows terminal*. Launch the *Microsoft Store* and then search for :console:`terminal`. Then install *Windows Terminal*.
 
-        .. figure:: windows_terminal_store.png
+        .. figure:: ./images/windows_terminal_store.png
            :width: 800
            :align: center
            :alt: The Microsoft Store for installing Windows Terminal
 
         Then launch it by typing in :console:`terminal` to the search box in the start menu.
 
-        .. figure:: windows_terminal_start.png
+        .. figure:: ./images/windows_terminal_start.png
            :width: 800
            :align: center
            :alt: A Windows start menu search for the terminal app
@@ -59,7 +59,7 @@ You should be presented with a terminal command line interface that looks like t
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        .. figure:: windows_terminal.png
+        .. figure:: ./images/windows_terminal.png
            :width: 800
            :align: center
            :alt: Windows terminal
@@ -67,7 +67,7 @@ You should be presented with a terminal command line interface that looks like t
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        .. figure:: unix_terminal.png
+        .. figure:: ./images/unix_terminal.png
            :width: 800
            :align: center
            :alt: macOS/Linux terminal
@@ -96,7 +96,7 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
 
         This will display something like 
 
-        .. figure:: windows_get_location.png
+        .. figure:: ./images/windows_get_location.png
            :width: 800
            :align: center
            :alt: Windows terminal showing the Get-Location command
@@ -111,7 +111,7 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
 
         :console:`pwd` stands for print working directory. This will display something like 
 
-        .. figure:: unix_get_location.png
+        .. figure:: ./images/unix_get_location.png
            :width: 800
            :align: center
            :alt: Unix terminal showing the pwd command
@@ -152,7 +152,7 @@ To get a list of the `files in the current folder <https://uom-eee-eeen11202.git
         
         This will display something like 
 
-        .. figure:: windows_ls.png
+        .. figure:: ./images/windows_ls.png
            :width: 800
            :align: center
            :alt: Windows terminal showing the Get-ChildItem command
@@ -165,7 +165,7 @@ To get a list of the `files in the current folder <https://uom-eee-eeen11202.git
 
         This will display something like 
 
-        .. figure:: unix_ls.png
+        .. figure:: ./images/unix_ls.png
            :width: 800
            :align: center
            :alt: Unix terminal showing the ls command
@@ -277,7 +277,7 @@ Lots of commands accept options that change their behavior. These are known as s
 
         This lists the contents of the folder, together with additional information such as when the items were last changed. An example is below. What's shown will depend on what files and folders you have on your computer.
 
-        .. figure:: unix_lsla.png
+        .. figure:: ./images/unix_lsla.png
            :width: 800
            :align: center
            :alt: Example of output from ls -la
@@ -345,7 +345,7 @@ Make a folder called :console:`eeen11202` to store your work for the course. Mak
    
       We suggest you put this at :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202\\lab_a` (using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.) This will look similar to the below.
 
-      .. figure:: windows_folder_structure.png
+      .. figure:: ./images/windows_folder_structure.png
          :width: 800
          :align: center
          :alt: File explorer showing the asked for folders
@@ -361,14 +361,14 @@ Make a folder called :console:`eeen11202` to store your work for the course. Mak
 
 Start VSCode. This will display the welcome page, similar to the below. Remember that VSCode is very configurable. Don't worry if your screen isn't exactly the same, as long as it's broadly similar it will be fine.  
 
-.. figure:: vscode_open_folder.png
+.. figure:: ./images/vscode_open_folder.png
    :width: 800
    :align: center
    :alt: The VSCode welcome page
 
 Click on :console:`Open Folder...` and select the :console:`lab_a` folder that you made in the previous step. You will be asked whether you trust the authors of this folder. This is a security setting. Letting code run on your computer can change settings, delete files, or do other nefarious things. It's our own code we're writing though, so select :console:`Yes, I trust the authors`.
 
-.. figure:: vscode_trust_authors.png
+.. figure:: ./images/vscode_trust_authors.png
    :width: 800
    :align: center
    :alt: VSCode trust authors security settings
@@ -389,7 +389,7 @@ You'll see that the :console:`lab_a` folder has been opened, but it may not cont
 
         :console:`my_script.sh`
 
-.. figure:: vscode_new_file.png
+.. figure:: ./images/vscode_new_file.png
    :width: 800
    :align: center
    :alt: VSCode New File... interface
@@ -398,7 +398,7 @@ You'll need to press :console:`Enter` on the keyboard, and then :console:`Create
 
 Once successful, you'll have an area to start adding your shell commands to, as shown below. (This figure assumes you're using Windows, so the script has a :console:`.ps1` extension).
 
-.. figure:: vscode_blank_script.png
+.. figure:: ./images/vscode_blank_script.png
    :width: 800
    :align: center
    :alt: A blank file in VSCode
@@ -479,7 +479,7 @@ To run the script, you have two options.
 
         1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
 
-        .. figure:: vscode_run_script.png
+        .. figure:: ./images/vscode_run_script.png
            :width: 800
            :align: center
            :alt: VSCode run button
@@ -490,7 +490,7 @@ To run the script, you have two options.
 
            > powershell.exe -noprofile -executionpolicy bypass -file .\\my_script.ps1
 
-        .. figure:: terminal_run_script.png
+        .. figure:: ./images/terminal_run_script.png
            :width: 800
            :align: center
            :alt: Running a PowerShell script in the terminal
@@ -506,7 +506,7 @@ To run the script, you have two options.
 
         1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
 
-        .. figure:: vscode_run_script_unix.png
+        .. figure:: ./images/vscode_run_script_unix.png
            :width: 800
            :align: center
            :alt: VSCode run button
@@ -518,7 +518,7 @@ To run the script, you have two options.
            $ chmod u+x ./my_script.sh
            $ ./my_script.sh
 
-        .. figure:: terminal_run_script_unix.png
+        .. figure:: ./images/terminal_run_script_unix.png
            :width: 800
            :align: center
            :alt: Running a PowerShell script in the terminal
@@ -602,7 +602,7 @@ At the end of your script file from above add the code
 
       Save the file and press the :console:`Run` button again. You should have an output like the below.
 
-      .. figure:: vscode_loop_windows.png
+      .. figure:: ./images/vscode_loop_windows.png
          :width: 800
          :align: center
          :alt: Example of for loops in a Windows shell script
@@ -632,7 +632,7 @@ At the end of your script file from above add the code
 
       Save the file and press the :console:`Run` button again. You should have an output like the below.
 
-      .. figure:: vscode_loop_unix.png
+      .. figure:: ./images/vscode_loop_unix.png
          :width: 800
          :align: center
          :alt: Example of for loops in a shell script

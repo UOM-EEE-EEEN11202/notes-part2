@@ -10,16 +10,14 @@ language = 'en_GB'
 
 # Set extensions
 extensions = [
-    'sphinx-prompt',
     'sphinx_copybutton',
     'notfound.extension',
     'sphinx.ext.intersphinx',
     'sphinx.ext.extlinks',
-    #'sphinx_affiliates', # needs incompatible version of Sphinx. Will re-visit at a later date
     'sphinx_wagtail_theme',
     'sphinx_design',
     'sphinxcontrib.quizdown',
-    #'sphinx-togglebutton'
+    'sphinx-togglebutton'
 ]
 
 

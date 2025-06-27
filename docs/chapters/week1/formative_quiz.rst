@@ -179,10 +179,10 @@ If you get a low score, you may like to go back over some of the material, and d
 
 
 
-.. image:: ./computer_parts_missing.png
+.. image:: ./images/computer_parts_missing.png
   :width: 1
   :alt: Component parts of a computer
 
-.. image:: ./windows_folders.png
+.. image:: ./images/windows_folders.png
   :width: 1
   :alt: Examples of two folders containing files on Windows
