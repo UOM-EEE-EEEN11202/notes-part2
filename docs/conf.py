@@ -17,7 +17,7 @@ extensions = [
     'sphinx_wagtail_theme',
     'sphinx_design',
     'sphinxcontrib.quizdown',
-    'sphinx-togglebutton'
+    #'sphinx-togglebutton'
 ]
 
 
