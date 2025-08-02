@@ -14,7 +14,7 @@ Start Docker before continuing with the below.
 
 Initial setup
 -------------
-We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab_1a>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
+We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab_a1>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
 
 For our more general programming, we're going to use our own dedicated computer that sits on top of your computer, as discussed in `environment control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html>`_. Doing this can be a little confusing, you have a *virtual* computer in addition to the *physical* computer, You need to keep track of which is which,  but it's easy once you're used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from. 
 

@@ -4,6 +4,8 @@
 .. role:: python(code)
    :language: python
 
+.. _lab_b1:
+
 Python getting started
 ======================
 

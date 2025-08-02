@@ -1,7 +1,7 @@
 .. role:: console(code)
    :language: console
 
-.. _lab_1a:
+.. _lab_a1:
 
 Shell scripting
 ===============
