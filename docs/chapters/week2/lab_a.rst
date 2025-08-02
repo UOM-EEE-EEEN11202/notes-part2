@@ -1,3 +1,5 @@
+.. _lab_a:
+
 Lab A
 =====
 
@@ -7,11 +9,10 @@ In `Part 0 of the notes <https://uom-eee-eeen11202.github.io/>`_ we included ins
 
 Each of the labs is broken down into three stages: two stages of *tutorial style* or *problem style* steps to work through; and one assignment to help you test your knowledge. From the `unit delivery plan <https://uom-eee-eeen11202.github.io/chapters/course_administration/unit_delivery_plan.html>`_ each lab is expected to take approximately three hours in total. If taking the course in person in Manchester, you have a two hour lab allocated where individual support will be available for asking questions. You're then expected to complete the lab tasks in your own time. 
 
-The contents of lab A are:
+The contents of Lab A are:
 
 .. toctree::
    :maxdepth: 1
 
    lab_a_stage_1
    lab_a_stage_2
-   assignment_a

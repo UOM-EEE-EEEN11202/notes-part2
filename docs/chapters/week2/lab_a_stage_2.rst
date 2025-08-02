@@ -1,8 +1,8 @@
 .. role:: console(code)
    :language: console
 
-Stage 2
-=======
+Version control
+===============
 
 In Stage 2 of the lab we're going to look at `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. We'll use this a lot as we move through the course.
 
@@ -10,10 +10,11 @@ For this part of the lab, and for the rest of the course, you VSCode and Docker 
 
 Start Docker before continuing with the below.
 
+.. _vscode_setup:
 
 Initial setup
 -------------
-We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab1a>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
+We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab_1a>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
 
 For our more general programming, we're going to use our own dedicated computer that sits on top of your computer, as discussed in `environment control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html>`_. Doing this can be a little confusing, you have a *virtual* computer in addition to the *physical* computer, You need to keep track of which is which,  but it's easy once you're used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from. 
 
@@ -106,6 +107,7 @@ It can take a few minutes for the devcontainer to start, especially the first ti
 
 This indicates that you're using our virtual computer rather than your real computer. You're still using the same files, just editing them with a different computer. For all parts of the course from now on, you want this blue :console:`Dev Container` to be displayed in the bottom left of the screen before you start doing any programming.
 
+.. _version_control:
 
 Git setup
 ---------

@@ -1,10 +1,10 @@
 .. role:: console(code)
    :language: console
 
-.. _lab1a:
+.. _lab_1a:
 
-Stage 1
-=======
+Shell scripting
+===============
 
 For this first part of the lab, you only need access to VSCode. `Follow the instructions for getting this on your computer. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_. Other tools will already be on your computer. 
 
@@ -322,8 +322,8 @@ For now, spend a bit of time moving between folders using the commands given abo
 
 
 
-Shell scripts
--------------
+Scripts
+-------
 The above commands work very well when working *interactively* with the computer. That is, entering one command, observing the output, then entering the next command; and so on. 
 
 Often we need to carry out more complex processes though, which might need lots of commands. We might want to run these multiple times, once a day for example to run a series of steps repeatedly. We can collect together shell commands into a *shell script* to help us with this. A shell script is a file containing a list of commands to be run one-after-another.
@@ -331,6 +331,8 @@ Often we need to carry out more complex processes though, which might need lots 
 .. admonition:: Aside
 
    You can probably accomplish the same automation, and more, using Python, which we'll meet later. However, for simple automation tasks that can be overkill. The shell commands are built into the operating system and so are always available. For simple automation tasks shell scripts are widely used. 
+
+.. _make_onedrive_folder:
 
 Getting started
 ^^^^^^^^^^^^^^^
