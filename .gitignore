@@ -8,5 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+.python-version
+uv.lock
 
 docs/_build
