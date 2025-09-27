@@ -21,7 +21,6 @@ The contents of Part 2 of the notes are:
    chapters/week4_intro
    chapters/week5_intro
    chapters/week6_intro
-   chapters/week7_intro
 
 
 Links to the other parts of the course:
