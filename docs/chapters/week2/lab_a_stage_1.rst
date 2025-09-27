@@ -309,6 +309,7 @@ There are a number of ways in which you can combine togethers, for example to se
       :console:`$ cat list.txt`
 
       .. admonition:: Aside
+         :class: dropdown
 
          You can also use the redirection operator :console:`>>` for a similar effect, but we won't cover that here.
 
@@ -329,6 +330,7 @@ The above commands work very well when working *interactively* with the computer
 Often we need to carry out more complex processes though, which might need lots of commands. We might want to run these multiple times, once a day for example to run a series of steps repeatedly. We can collect together shell commands into a *shell script* to help us with this. A shell script is a file containing a list of commands to be run one-after-another.
 
 .. admonition:: Aside
+   :class: dropdown
 
    You can probably accomplish the same automation, and more, using Python, which we'll meet later. However, for simple automation tasks that can be overkill. The shell commands are built into the operating system and so are always available. For simple automation tasks shell scripts are widely used. 
 
@@ -646,6 +648,7 @@ At the end of your script file from above add the code
       2. The second uses :console:`/*` to find all of the files that are stored in :console:`/`. :console:`*` indicates find everything. These are put into a variable called :console:`$f`, and :console:`echo` is used to display :console:`$f` to the screen. 
       
       .. admonition:: Aside
+         :class: dropdown
 
          The above syntax, in particular the :console:`set` command is slightly awkward. Recall that our shebang line is :console:`#!/usr/bin/env sh`, and use the system's default. As we don't necessarily know what the default will be, we're restricted to a small set of commands that we know will work in every shell. There is a standard known as POSIX which defines this. For most Linux systems the default shell is bash, and so we could use :console:`#!/usr/bin/env bash` as the shebang line. The macOS the default shell is zsh, and so :console:`#!/usr/bin/env zsh`. Doing this allows many more commands and a much nicer array syntax. However, it would mean our code was no longer portable, able to run on any system. As we don't know what computer you're using, we went for the fully portable option. 
 

@@ -241,6 +241,7 @@ Before moving on though, it is worth having a quick look at the files that we ha
 It is a little work to get this set up, but it should be quite smooth once everything is correctly configured. It can also take a little to get your head around. Are you working on the physical computer, or the devcontainer that we use for programming? Are you working with files in the version control, or other files which happen to have a similar name? In the version control, is this the remote repository or the local repository? It takes a little effort to keep track of what's what, but this is key to professional software development and being able to work in large projects, where the tools and code are kept in sync for everyone. 
 
 .. admonition:: Aside
+   :class: dropdown
 
    You might find some sources online that warn against using git inside of a OneDrive folder. Don't worry about it for here. For large projects, it likely is best to use just one of them, but for a University course it's useful to have the files in both so they're available on your personal computer and one the University computers. 
 

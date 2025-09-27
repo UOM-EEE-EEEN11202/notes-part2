@@ -141,6 +141,7 @@ In this part we'll look at some basic Python code to get us started with Python.
    This will install Pandas into the virtual environment. It may take a minute. It's only been installed in the virtual environment that's currently active. When you make or use a new or different virtual environment, you may need to install it again. (Which is one of the aims of using virtual environments, we could install different versions of Pandas in different virtual environments if we wanted to.)
 
    .. admonition:: Aside
+      :class: dropdown
 
       In the next lab we'll look at how to list *dependencies* in a file so we have a list of what needs to be installed in order for our code to run. 
 

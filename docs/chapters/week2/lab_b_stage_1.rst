@@ -108,6 +108,7 @@ Before we can start programming we first need to make a :ref:`virtual environmen
 We make a virtual environment at the command line, as we used in :ref:`Lab A <lab_1a>`. We're not using Python yet! The command prompt in the terminal will look like :console:`$` rather than :console:`>>>`. :console:`$` is the computer's command prompt, while :console:`>>>` is the Python command prompt.
 
    .. admonition:: Aside
+      :class: dropdown
 
       There are multiple different ways of making a virtual environment. You may see examples on the Internet using :console:`$ python -m venv .venv` or :console:`conda create --name .venv`. We're going to use an approach with :console:`uv`. If you see instructions using a different approach, they all have similar commands that are fairly intuitive to map between different tools.
 
@@ -142,6 +143,7 @@ We make a virtual environment at the command line, as we used in :ref:`Lab A <la
    This will download some optional Python parts from the Internet and install them into your virtual environment. It's important your virtual environment is turned on before you do this, otherwise it may be installed in the wrong place. :console:`ipykernel` is something that's needed to make the Jupyter Notebooks we'll use later on work. There are lots of optional packages that you can download from the Internet, it's common to find online tutorials that say:console:`pip install <package-name>`. As we're using :console:`uv`, we actually use :console:`uv pip install <package-name>`.
 
 .. admonition:: Aside
+   :class: dropdown
 
    If you want to turn off a virtual environment after it's been started you can enter :console:`deactivate` in the terminal.
 
