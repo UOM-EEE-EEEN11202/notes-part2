@@ -9,6 +9,8 @@
 Python getting started
 ======================
 
+.. _starting_the_environment:
+
 Starting the programming environment
 ------------------------------------
 

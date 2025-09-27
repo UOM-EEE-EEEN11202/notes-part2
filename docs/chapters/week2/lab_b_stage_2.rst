@@ -43,7 +43,7 @@ In this part we'll look at some basic Python code to get us started with Python.
       lim_low = 0
       lim_high = 5
       for i in range(lim_low,lim_high):
-         print(i*mult)
+          print(i*mult)
 
    .. figure:: ./images/python_for_loop.png
       :width: 800
@@ -134,7 +134,7 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    At the computer terminal enter
 
-   .. code-block:: python
+   .. code-block:: console
    
       $ uv pip install pandas
 
@@ -167,7 +167,7 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    At the computer terminal enter
 
-   .. code-block:: python
+   .. code-block:: console
    
       $ uv pip install plotly jupyterlab anywidget
     
