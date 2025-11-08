@@ -16,3 +16,4 @@ The contents of Lab A are:
 
    lab_a_stage_1
    lab_a_stage_2
+   assignment_a

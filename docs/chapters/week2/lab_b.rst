@@ -15,3 +15,4 @@ The contents of Lab B are:
 
    lab_b_stage_1
    lab_b_stage_2
+   assignment_b
