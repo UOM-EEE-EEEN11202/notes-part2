@@ -6,7 +6,11 @@
 Shell scripting
 ===============
 
-For this first part of the lab, you only need access to VSCode. `Follow the instructions for getting this on your computer. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_. Other tools will already be on your computer. 
+Setup
+-----
+`Follow the instructions for getting access to a suitable programming environment on your computer <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_. If you have any difficulties, ask a demonstrator in a lab session for help.
+
+You don't need to actually start VSCode yet. We're going to start using only the command line interface (also known as the terminal, shell, or console) that's built into your computer.
 
 
 Launching the terminal
@@ -21,26 +25,26 @@ On a desktop/laptop type device you will already have a command line interface i
 
         The terminal is called *PowerShell*. You have a **choice** for how to start this. 
         
-        (1) You can start it directly by typing in :console:`powershell` to the search box in the start menu.
+        #. You can start it directly by typing in :console:`powershell` to the search box in the start menu.
 
-        .. figure:: ./images/windows_powershell_start.png
-           :width: 800
-           :align: center
-           :alt: A Windows start menu search for the PowerShell app
+           .. figure:: ./images/windows_powershell_start.png
+              :width: 800
+              :align: center
+              :alt: A Windows start menu search for the PowerShell app
 
-        (2) You can first install *Windows terminal*. Launch the *Microsoft Store* and then search for :console:`terminal`. Then install *Windows Terminal*.
+        #. Or, you can first install *Windows terminal*. Launch the *Microsoft Store* and search for :console:`terminal`. Then install *Windows Terminal*.
 
-        .. figure:: ./images/windows_terminal_store.png
-           :width: 800
-           :align: center
-           :alt: The Microsoft Store for installing Windows Terminal
+           .. figure:: ./images/windows_terminal_store.png
+              :width: 800
+              :align: center
+              :alt: The Microsoft Store for installing Windows Terminal
 
-        Then launch it by typing in :console:`terminal` to the search box in the start menu.
+           Then launch it by typing in :console:`terminal` to the search box in the start menu.
 
-        .. figure:: ./images/windows_terminal_start.png
-           :width: 800
-           :align: center
-           :alt: A Windows start menu search for the terminal app
+           .. figure:: ./images/windows_terminal_start.png
+              :width: 800
+              :align: center
+              :alt: A Windows start menu search for the terminal app
 
         We think that Windows Terminal provides a slightly nicer interface (to exactly the same thing) and so our screenshots will make us of it.
 
@@ -77,12 +81,14 @@ You should be presented with a terminal command line interface that looks like t
 
 Simple terminal commands
 ------------------------
-There are then a large number of different commands that you can enter at the prompt to interact with your computer. After a while you'll probably memorize some common ones, but in general you can look up or ask AI to help with any that you don't know. Important here isn't to memorize all of the different commands, but to have an understanding of how the command line works so that you can use it to interact with the computer.
+There are a large number of different commands that you can enter at the prompt to interact with your computer. We'll go through some common examples below.
+
+After a while you'll probably memorize some common ones, but in general you can look up or ask AI to help with any that you don't know. Important for this course isn't to memorize all of the different commands, but to have an understanding of how the command line works so that you can use it to interact with the computer.
 
 
 Displaying the current folder
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To display the `address of the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#file-systems>`_ enter
+To display the `address of the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#file-systems>`_ type in
 
 .. tab-set::
     :sync-group: os
@@ -90,11 +96,16 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Get-Location`
+        .. prompt::
+           :language: powershell
 
+           Get-Location
+
+        and press the :console:`Enter` key on the keyboard.
+        
         Remember, you don't type in the :console:`>`, that just to show you where the command prompt is.
 
-        This will display something like 
+        This will display something like the below, where we've also shown how this appears in the Windows graphical interface.
 
         .. figure:: ./images/windows_get_location.png
            :width: 800
@@ -105,11 +116,16 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ pwd`
+        .. prompt::
+           :language: bash
+        
+           pwd
 
+        and press the :console:`Enter` key on the keyboard.
+        
         Remember, you don't type in the :console:`$`, that just to show you where the command prompt is.
 
-        :console:`pwd` stands for print working directory. This will display something like 
+        :console:`pwd` stands for print working directory. This will display something like the below.
 
         .. figure:: ./images/unix_get_location.png
            :width: 800
@@ -117,9 +133,7 @@ To display the `address of the current folder <https://uom-eee-eeen11202.github.
            :alt: Unix terminal showing the pwd command
 
 
-The address shown will be different depending on your computer settings and user name. Here the user name is alex. You should be able to open File Explorer/Finder/similar and find the same location on your computer. 
-
-It's not that you can't use the graphical interface to view this, it's that entering written commands gives us precise control and a log of what we've done. If you press the up arrow :console:`↑` on the keyboard you can see previous commands that you've entered. Press it multiple times to see earlier commands. Or, enter 
+The address shown will be different depending on your computer settings and user name. Here the user name is alex. You should be able to open File Explorer/Finder/similar and find the same location on your computer. It's not that you can't use the graphical interface to view this information, it's that entering written commands gives us precise control and a log of what we've done. If you press the up arrow :console:`↑` on the keyboard you can see previous commands that you've entered. Press it multiple times to see earlier commands. Or, enter 
 
 .. tab-set::
     :sync-group: os
@@ -127,20 +141,26 @@ It's not that you can't use the graphical interface to view this, it's that ente
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Get-History`
+        .. prompt::
+           :language: powershell
+        
+           Get-History
 
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ history`
+        .. prompt::
+           :language: bash
+        
+           history
 
 to see a log of all of the commands that you've run. This makes it easy to re-run them. 
 
 
 Listing the files in the current folder
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To get a list of the `files in the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files>`_ enter
+To get a list of the `files in the current folder <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files>`_ type in
 
 .. tab-set::
     :sync-group: os
@@ -148,7 +168,12 @@ To get a list of the `files in the current folder <https://uom-eee-eeen11202.git
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Get-ChildItem`
+        .. prompt::
+           :language: powershell
+        
+           Get-ChildItem
+
+        and press the :console:`Enter` key on the keyboard.
         
         This will display something like 
 
@@ -161,7 +186,12 @@ To get a list of the `files in the current folder <https://uom-eee-eeen11202.git
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ ls`
+        .. prompt::
+           :language: bash
+
+           ls
+
+        and press the :console:`Enter` key on the keyboard.
 
         This will display something like 
 
@@ -170,7 +200,9 @@ To get a list of the `files in the current folder <https://uom-eee-eeen11202.git
            :align: center
            :alt: Unix terminal showing the ls command
 
-Again, you should be able to open File Explorer/Finder/similar and find the same location on your computer.
+You may have different files, or none at all, displayed depending on what's on your computer in your current location. 
+
+Again, you should be able to open File Explorer/Finder/similar and find the same location and files on your computer.
 
 
 Folders
@@ -183,12 +215,18 @@ Make a folder called :console:`test` by entering the command
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> New-Item -ItemType Directory -Path test`
+        .. prompt::
+           :language: powershell
+
+           New-Item -ItemType Directory -Path test
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ mkdir test`
+        .. prompt::
+           :language: bash
+        
+           mkdir test
 
 Then move into the folder :console:`test` by entering the command
 
@@ -198,12 +236,18 @@ Then move into the folder :console:`test` by entering the command
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Set-Location -Path test`
+        .. prompt::
+           :language: powershell
+
+           Set-Location -Path test
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ cd test`
+        .. prompt::
+           :language: bash
+
+           cd test
 
 You can enter 
 
@@ -213,12 +257,18 @@ You can enter
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> Get-ChildItem`
+        .. prompt::
+           :language: powershell
+        
+           Get-ChildItem
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ ls`
+        .. prompt::
+           :language: bash
+        
+           ls
 
 again to check the location. It should display something similar to 
 
@@ -228,8 +278,7 @@ again to check the location. It should display something similar to
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`C:\Users\alex\test`
-
+        :console:`C:\\Users\\alex\\test`
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
@@ -238,7 +287,7 @@ again to check the location. It should display something similar to
         or
         :console:`/home/alex/test`
 
-depending on the location you started from. You can go *up* a level, that is to exit the :console:`test`, by entering
+depending on the location you started from. You can go *up* a level, that is to exit the :console:`test` folder, by entering
 
 .. tab-set::
     :sync-group: os
@@ -246,18 +295,24 @@ depending on the location you started from. You can go *up* a level, that is to 
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`> cd ..`
+        .. prompt::
+           :language: powershell
+
+           cd ..
 
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ cd ..`
+        .. prompt::
+           :language: bash
+
+           cd ..
 
 
 Command switches
 ^^^^^^^^^^^^^^^^
-Lots of commands accept options that change their behavior. These are known as switches or as arguments. Generally these are entered with a hyphen :console:`-` or two hyphens :console:`--` after the main command. Try entering
+Lots of commands accept options that change their behavior. These are known as *switches* or as *arguments*. Generally these are entered with a hyphen :console:`-` or two hyphens :console:`--` after the main command. Try entering
 
 .. tab-set::
     :sync-group: os
@@ -265,7 +320,10 @@ Lots of commands accept options that change their behavior. These are known as s
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`Get-ChildItem -Attributes Directory`
+        .. prompt::
+           :language: powershell
+
+           Get-ChildItem -Attributes Directory
 
         This will display only folders, rather than everything that's in the current location.
 
@@ -273,7 +331,10 @@ Lots of commands accept options that change their behavior. These are known as s
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`$ ls -la`
+        .. prompt::
+           :language: bash
+
+           ls -la
 
         This lists the contents of the folder, together with additional information such as when the items were last changed. An example is below. What's shown will depend on what files and folders you have on your computer.
 
@@ -293,20 +354,32 @@ There are a number of ways in which you can combine togethers, for example to se
    .. tab-item:: :fab:`windows` Windows
       :sync: key1
 
-      :console:`> Get-ChildItem | Out-File -FilePath list.txt`
+      .. prompt::
+         :language: powershell
+
+         Get-ChildItem | Out-File -FilePath list.txt
 
       This will take the output from :console:`Get-ChildItem` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
 
-      :console:`Get-Content -Path list.txt`
+      .. prompt::
+         :language: powershell
+
+         Get-Content -Path list.txt
 
    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
       :sync: key2
 
-      :console:`$ ls -la | tee list.txt`
+      .. prompt::
+         :language: bash
+
+         ls -la | tee list.txt
 
       This will take the output from :console:`ls -la` and write it to a text file called :console:`list.txt` rather than displaying it to the screen. You can read the contents of this file using 
 
-      :console:`$ cat list.txt`
+      .. prompt::
+         :language: bash
+
+         cat list.txt
 
       .. admonition:: Aside
          :class: dropdown
@@ -325,7 +398,7 @@ For now, spend a bit of time moving between folders using the commands given abo
 
 Scripts
 -------
-The above commands work very well when working *interactively* with the computer. That is, entering one command, observing the output, then entering the next command; and so on. 
+The above commands work very well when working *interactively* with the computer. That is, entering one command, observing the output, then entering the next command, and so on. 
 
 Often we need to carry out more complex processes though, which might need lots of commands. We might want to run these multiple times, once a day for example to run a series of steps repeatedly. We can collect together shell commands into a *shell script* to help us with this. A shell script is a file containing a list of commands to be run one-after-another.
 
@@ -334,50 +407,34 @@ Often we need to carry out more complex processes though, which might need lots 
 
    You can probably accomplish the same automation, and more, using Python, which we'll meet later. However, for simple automation tasks that can be overkill. The shell commands are built into the operating system and so are always available. For simple automation tasks shell scripts are widely used. 
 
-.. _make_onedrive_folder:
+
 
 Getting started
 ^^^^^^^^^^^^^^^
+`Follow the instructions to install the software needed for this course, and then to start VSCode following those instructions. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_
 
-Make a folder called :console:`eeen11202` to store your work for the course. Make a folder called :console:`lab_a` inside this. You can do this using the Windows interface, or using the commands given in the previous section. 
+This will display the welcome page, and pre-downloaded files for Lab A, similar to the below. Remember that VSCode is very configurable. Don't worry if your screen isn't exactly the same, as long as it's broadly similar it will be fine.  
 
-.. tab-set::
-   :sync-group: os
-
-   .. tab-item:: :fab:`windows` Windows
-      :sync: key1
-   
-      We suggest you put this at :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202\\lab_a` (using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.) This will look similar to the below.
-
-      .. figure:: ./images/windows_folder_structure.png
-         :width: 800
-         :align: center
-         :alt: File explorer showing the asked for folders
-
-
-   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-      :sync: key2
-
-      You can do this using the graphical interface, or using the commands given in the previous section. 
-         
-      We suggest you put this at :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202/lab_a` (macOS) or :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/lab_a` (Linux), using the equivalent for your username and OneDrive. This will mean your files are automatically backed up and will be available on any computer where you're logged in to OneDrive.
-
-
-Start VSCode. This will display the welcome page, similar to the below. Remember that VSCode is very configurable. Don't worry if your screen isn't exactly the same, as long as it's broadly similar it will be fine.  
-
-.. figure:: ./images/vscode_open_folder.png
+.. figure:: ./images/vscode_welcome_page.png
    :width: 800
    :align: center
    :alt: The VSCode welcome page
 
-Click on :console:`Open Folder...` and select the :console:`lab_a` folder that you made in the previous step. You will be asked whether you trust the authors of this folder. This is a security setting. Letting code run on your computer can change settings, delete files, or do other nefarious things. It's our own code we're writing though, so select :console:`Yes, I trust the authors`.
+You may (but may not) be asked whether you trust the authors. This is a security setting. Letting code run on your computer can change settings, delete files, or do other nefarious things. It's our own code we're writing though, so select :console:`Yes, I trust the authors`.
 
 .. figure:: ./images/vscode_trust_authors.png
    :width: 800
    :align: center
    :alt: VSCode trust authors security settings
 
-You'll see that the :console:`lab_a` folder has been opened, but it may not contain any files yet. (See figure below.) To make a file to store your shell script, click :console:`New File...`. This will display a box to enter the file name. Enter the filename as
+You need to make a `file <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files>`_ to store your shell script in. Click :console:`New File...`. This will display a box to enter the file name. 
+
+.. figure:: ./images/vscode_new_file.png
+   :width: 800
+   :align: center
+   :alt: VSCode New File... interface
+
+Enter the filename as
 
 .. tab-set::
     :sync-group: os
@@ -385,22 +442,29 @@ You'll see that the :console:`lab_a` folder has been opened, but it may not cont
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        :console:`my_script.ps1`
+        :console:`hello_world.ps1`
 
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        :console:`my_script.sh`
+        :console:`hello_world.sh`
 
-.. figure:: ./images/vscode_new_file.png
+You'll need to press :console:`Enter` on the keyboard. This will display another box confirming where you want the file stored. We want it in the Lab A folder, which should come up as the default location. Press :console:`OK`.
+
+.. figure:: ./images/vscode_new_file2.png
    :width: 800
    :align: center
-   :alt: VSCode New File... interface
+   :alt: VSCode confirming new file
 
-You'll need to press :console:`Enter` on the keyboard, and then :console:`Create File` in the dialogue box that appears.
+Due to our VSCode setup, where each Lab is stored as a separate *workspace*, VSCode will ask you which lab you want the script to be associated with. Select Lab A. 
 
-Once successful, you'll have an area to start adding your shell commands to, as shown below. (This figure assumes you're using Windows, so the script has a :console:`.ps1` extension).
+.. figure:: ./images/vscode_select_workspace.png
+   :width: 800
+   :align: center
+   :alt: VSCode selecting workspace to use for the lab
+
+Once successful, you'll see the :console:`hello_world` file in VSCode. You'll have an area to start adding your shell commands to, as shown below. (This figure assumes you're using Windows, so the script has a :console:`.ps1` extension).
 
 .. figure:: ./images/vscode_blank_script.png
    :width: 800
@@ -410,7 +474,7 @@ Once successful, you'll have an area to start adding your shell commands to, as 
 
 A simple script
 ^^^^^^^^^^^^^^^
-In your file, enter the code
+In your file, enter the code below. (It's fine to just copy and paste this.)
 
 .. tab-set::
    :sync-group: os
@@ -432,12 +496,12 @@ In your file, enter the code
              Write-Host "It is the morning."
          }
         
-        This is a very simple script. It:
+      This is a very simple script. It:
         
-        - Contains some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
-        - `Variables <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html>`_ to store data in. In Powershell, variables start with a :console:`$`. 
-        - :console:`Write-Host` is used to display output to the screen. 
-        - There is then an `if statement <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#if-else-statements>`_ to change what's displayed depending on the value of :console:`$hour`. Here :console:`-ge` means greater than or equal to.
+      - Contains some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
+      - `Variables <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html>`_ to store data in. In Powershell, variables start with a :console:`$`. 
+      - :console:`Write-Host` is used to display output to the screen. 
+      - There is then an `if statement <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#if-else-statements>`_ to change what's displayed depending on the value of :console:`$hour`. Here :console:`-ge` means greater than or equal to.
 
 
    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
@@ -463,7 +527,7 @@ In your file, enter the code
       This is a very simple script.
         
       - The line starting :console:`#!` is known as a *shebang line*. This tells the computer which language to use to interpret the script. You may well have more than one installed. The :console:`sh` tells the computer to use whatever the system default is. 
-      - There are then some some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
+      - There are then some `comments <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html>`_, lines starting with :console:`#` to explain what's going on.
       - `Variables <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html>`_ store data. Here variables start with a :console:`$` when being used, but the :console:`$` isn't needed when putting a value in the console. 
       - :console:`echo` is used to display output to the screen. 
       - There is then an `if statement <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#if-else-statements>`_ to change what's displayed depending on the value of :console:`$hour`. Here :console:`-ge` means greater than or equal to.
@@ -473,7 +537,7 @@ Save the file by selecting :console:`File / Save`.
 
 Running the script
 ^^^^^^^^^^^^^^^^^^
-To run the script, you have two options.
+To run the script, you have two options. Both options do exactly the same thing, just one method is built into VSCode and one method is built into the computer's command line. 
 
 .. tab-set::
     :sync-group: os
@@ -481,59 +545,65 @@ To run the script, you have two options.
     .. tab-item:: :fab:`windows` Windows
         :sync: key1
 
-        1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
+        Option 1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
 
         .. figure:: ./images/vscode_run_script.png
            :width: 800
            :align: center
            :alt: VSCode run button
 
-        2. In a terminal enter the command
+        Option 2. In a Powershell terminal on the computer enter the command
 
-        .. code-block:: console
+        .. prompt::
+           :language: powershell
 
-           > powershell.exe -noprofile -executionpolicy bypass -file .\\my_script.ps1
+           powershell.exe -noprofile -executionpolicy bypass -file .\hello_world.ps1
+
+        :console:`.\\hello_world.ps1` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
 
         .. figure:: ./images/terminal_run_script.png
            :width: 800
            :align: center
            :alt: Running a PowerShell script in the terminal
 
-        :console:`.\\my_script.ps1` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
-
-        By default, Windows blocks users from running arbitrary scripts for security reasons. The extra commands above tell Windows to ignore the security settings for this run of the script. This is fine for this lab, but of course you should take care when running script from others. You can change the Windows security settings so you don't need to give an override each time, but we won't cover that here.
-
-        Change the values of :console:`$name` and :console:`$hour` and re-run the script to check it displays what you would expect. 
+        By default, Windows blocks users from running arbitrary scripts for security reasons. The extra commands above tell Windows to ignore the security settings for this run of the script. This is fine for this lab, but of course you should take care when running scripts from others. You can change the Windows security settings so you don't need to give an override each time, but we won't cover that here.
 
     .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
         :sync: key2
 
-        1. Press the run button that appears in the VSCode GUI. This will run the script, and you'll see appropriate text in the terminal, as shown below.
+        Option 1. In the VSCode terminal enter the commands
+
+        .. prompt::
+           :language: bash
+
+           chmod u+x ./hello_world.sh
+           ./hello_world.sh
 
         .. figure:: ./images/vscode_run_script_unix.png
            :width: 800
            :align: center
            :alt: VSCode run button
 
-        2. In a terminal enter the commands
+        Option 2. In a computer terminal enter the commands
 
-        .. code-block:: console
+        .. prompt::
+           :language: bash
 
-           $ chmod u+x ./my_script.sh
-           $ ./my_script.sh
+           chmod u+x ./hello_world.sh
+           ./hello_world.sh
 
         .. figure:: ./images/terminal_run_script_unix.png
            :width: 800
            :align: center
            :alt: Running a PowerShell script in the terminal
 
-        :console:`./my_script.sh` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
-
-        :console:`chmod u+x` changes the security settings, allowing the script to be run (executed :console:`x`) by the user (:console:`u`). You only need to set this once for each file, then the setting will be kept. :console:`./my_script.sh` actually runs the code. 
+        In both cases, :console:`chmod u+x` changes the security settings, allowing the script to be run (executed :console:`x`) by the user (:console:`u`). You only need to set this once for each file, then the setting will be remembered. :console:`./hello_world.sh` actually runs the code. 
         
-        Change the values of :console:`$name` and :console:`$hour` and re-run the script to check it displays what you would expect. 
+        :console:`./hello_world.sh` is a `relative address <https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#absolute-vs-relative-addresses>`_. It assumes your terminal is in the same folder as the script. 
 
-As a challenge, get your script to automatically read the system time to determine which message to display. That is, rather than typing in a value for :console:`$hour`, use a command to set it for you. One Windows, read about the Get-Date command. On macOS/Linux, read about the date command. These give full dates by default, you'll need to add some switches for them to return only the current hour. Search the Internet or ask a chat bot for the options to provide.
+Try changing the values of :console:`$name` and :console:`$hour` and re-run the script to check it displays what you would expect. 
+
+As a challenge, get your script to automatically read the system time to determine which message to display. That is, rather than typing in a value for :console:`$hour`, use a command to set it for you. On Windows, read about the :console:`Get-Date` command. On macOS/Linux, read about the :console:`date` command. These give full dates by default, you'll need to add some switches for them to return only the current hour. Search the Internet or ask a chat bot for the options to provide.
 
 .. admonition:: Solution
    :class: dropdown
@@ -599,8 +669,8 @@ At the end of your script file from above add the code
              Write-Host $colors[$i]
          }
 
-         # Display the contents of C:\ 
-         Get-ChildItem -Path C:\ | ForEach-Object {
+         # Display the contents of / 
+         Get-ChildItem -Path / | ForEach-Object {
              Write-Host "$_"
          }
 
@@ -615,8 +685,12 @@ At the end of your script file from above add the code
 
       1. The first has a list of colours. Each of these colours is accessed in turn, and :console:`Write-Host` is used to display them to the screen. 
 
-      2. The second uses :console:`ForEach-Object`, and takes its input from :console:`Get-ChildItem`. That is, it looks up what what is in the folder asked for, :console:`C:\\` in this case. The results are passed to the for loop, so that each item can be used in turn, with the name of each item automatically stored in :console:`$_`. In the for loop, here we just display the name of each time. You could imagine carrying out more tasks, such as changing the name of files, or checking whether a file contains particular text, and so on. You would just add more lines of code between the curly brackers :console:`{}` of the :console:`ForEach-Object` command. 
+      2. The second uses :console:`ForEach-Object`, and takes its input from :console:`Get-ChildItem`. That is, it looks up what what is in the folder asked for. The results are passed to the for loop, so that each item can be used in turn, with the name of each item automatically stored in :console:`$_`. In the for loop, here we just display the name of each time. You could imagine carrying out more tasks, such as changing the name of files, or checking whether a file contains particular text, and so on. You would just add more lines of code between the curly brackers :console:`{}` of the :console:`ForEach-Object` command. 
 
+      .. admonition:: Aside
+         :class: dropdown
+      
+         You'll notice the code above displays the contents of :console:`/`, not :console:`C:\\`. This is because for the screenshots its being run in the devcontainer, which is a Linux environment. If you run it on your own Windows computer you'll want to display the contents of :console:`C:\\` instead.
 
    .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
       :sync: key2
@@ -634,7 +708,7 @@ At the end of your script file from above add the code
            echo "/ contains $f"
          done
 
-      Save the file and press the :console:`Run` button again. You should have an output like the below.
+      Save the file and run the script again. You should have an output like the below.
 
       .. figure:: ./images/vscode_loop_unix.png
          :width: 800
@@ -650,6 +724,8 @@ At the end of your script file from above add the code
       .. admonition:: Aside
          :class: dropdown
 
-         The above syntax, in particular the :console:`set` command is slightly awkward. Recall that our shebang line is :console:`#!/usr/bin/env sh`, and use the system's default. As we don't necessarily know what the default will be, we're restricted to a small set of commands that we know will work in every shell. There is a standard known as POSIX which defines this. For most Linux systems the default shell is bash, and so we could use :console:`#!/usr/bin/env bash` as the shebang line. The macOS the default shell is zsh, and so :console:`#!/usr/bin/env zsh`. Doing this allows many more commands and a much nicer array syntax. However, it would mean our code was no longer portable, able to run on any system. As we don't know what computer you're using, we went for the fully portable option. 
+         The above syntax, in particular the :console:`set` command is slightly awkward. Recall that our shebang line is :console:`#!/usr/bin/env sh`, to use the system's default terminal. As we don't necessarily know what the default will be, we're restricted to a small set of commands that we know will work in every shell. There is a standard known as POSIX which defines this. For most Linux systems the default shell is bash, and so we could use :console:`#!/usr/bin/env bash` as the shebang line. The macOS the default shell is zsh, and so :console:`#!/usr/bin/env zsh`. Doing this allows many more commands and a much nicer array syntax. However, it would mean our code was no longer portable, able to run on any system. As we don't know what computer you're using, we went for the fully portable option. 
 
 There are of course many more possible commands and things that you can investigate. That's not our aim here. Our aim is to give you a brief introduction and some insights into what's possible, so you can then build on this if you need to, or if you encounter shell scripts in your future work. 
+
+If you are having any issues writing or running the code, we've pre-made scripts called :console:`my_script.ps1` and :console:`my_script.sh` which contain the final code for this part of the lab. These were automatically downloaded to your Lab A folder as part of the VSCode setup. Have a look at these and use them to help debug or fix your code.

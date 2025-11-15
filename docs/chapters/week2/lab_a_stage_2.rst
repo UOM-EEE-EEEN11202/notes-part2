@@ -4,261 +4,141 @@
 Version control
 ===============
 
-In Stage 2 of the lab we're going to look at `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. We'll use this a lot as we move through the course.
+In this second part of the lab we're going to look at `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. We'll use this a lot as we move through the course, and will look at more features in later labs.
 
-For this part of the lab, and for the rest of the course, you VSCode and Docker installed on your computer. `Follow the instructions for getting this on your computer. <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_.
 
-Start Docker before continuing with the below.
+Checking in files
+-----------------
+In the first part of this lab you made a new file, called either :console:`hello_world.ps1` or :console:`hello_world.sh`. Let's add this to the version control system so that we have a record of it, and can track any changes we make to it in future.
 
-.. _vscode_setup:
+Previously quite a few of our steps varied depending on which operating system you were using. That's not the case now. We're now using consistent tools across all operating systems, so the steps are the same regardless of whether you're using Windows, macOS, or Linux as your main host operating system  (although your filename may differ between :console:`hello_world.ps1` or :console:`hello_world.sh`). 
 
-Initial setup
--------------
-We first need to do some initial setup. In :ref:`Stage 1 of the labs <lab_a1>` we interacted with your computer, using the command line to control it. We wrote some simple scripts to automate some tasks. The important point is that we were interacting directly with your computer. 
-
-For our more general programming, we're going to use our own dedicated computer that sits on top of your computer, as discussed in `environment control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html>`_. Doing this can be a little confusing, you have a *virtual* computer in addition to the *physical* computer, You need to keep track of which is which,  but it's easy once you're used to it. It gives the benefit of us being able to control the settings on the computer used for programming. We can ensure everyone is using the same tools, and the same versions of the tools. This is really important when working in a large programming team, it gives a common base for everyone to be working from. 
-
-You don't need to do very much to set this up, you just need to make sure some files are in the correct places. Again, it can be a bit fiddly to get right at first - things won't work if you miss a step. Once it's going it should be quite robust though. 
-
-In Stage 1 of the lab you should have made a folder 
+You do have a choice for whether you use the VSCode graphical interface, or the command line interface. 
 
 .. tab-set::
-   :sync-group: os
+   :sync-group: gui_cli
 
-   .. tab-item:: :fab:`windows` Windows
-      :sync: key1
-   
-      :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202`
+   .. tab-item:: :fab:`fa-display` GUI
+      :sync: key4
 
+      Click on the :console:`Source Control` tab in the left hand menu. This will have automatically detected that you have a new file. It will have a :console:`U` next to it. This indicates that the file is *untracked*. That is, we've not checked it in to the version control system yet. (See the figure below.)
 
-   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-      :sync: key2
+      To do this, add a comment such as "Added hello_world script" in the box that's present. Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code." Then press :console:`Commit`.
 
-      :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202` (macOS) 
-      or 
-      :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/` (Linux)
+      .. figure:: ./images/git_add.png
+         :width: 800
+         :align: center
+         :alt: Adding files in Git
 
-If not, make that folder now. Inside this, make a folder called :console:`.devcontainer`.
+      This adds the file to be tracked for any changes, and *commits* it to the *local repository*. You may like to re-read the section on `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_ to remind yourself on these terms.
 
-.. danger::
+      You'll see that the :console:`Commit` button has changed to :console:`Sync Changes`. Press this.
 
-    It is important that the folder name is correct. :console:`.devcontainer` including the :console:`.`. Things won't work correctly if this name is wrong. 
+      .. figure:: ./images/git_sync.png
+         :width: 800
+         :align: center
+         :alt: Pushing changes to the remote repository
 
+      You may be asked to to press :console:`OK`.
 
-Then, download our *devcontainer* from `GitHub <https://github.com/UOM-EEE-EEEN11202/devcontainer>`_. Click on :console:`Code` and then :console:`Download ZIP`.
+   .. tab-item:: :fab:`fa-terminal` CLI
+      :sync: key5
 
-.. figure:: ./images/windows_powershell_start.png
-   :width: 800
-   :align: center
-   :alt: A Windows start menu search for the PowerShell app
+      Enter the command 
 
-This will download a file with a :console:`.zip` extension. You should be able to double click to go inside this (you may need to do this twice). Eventually, you'll see three files that you downloaded. On Windows this looks like:
+      .. prompt::
+           :language: bash
 
-.. figure:: ./images/windows_zip_file.png
-   :width: 800
-   :align: center
-   :alt: devcontainer files downloaded on Windows
+           git status
 
-Copy and paste these files into the :console:`.devcontainer` folder you made earlier. That is, select them with the mouse, click the copy button, navigate to your folder, and then press the paste button. Done correctly, your files and folders should look like the below (shown for Windows only).
+      This will produce some output similar to
 
-.. figure:: ./images/windows_copied_devcontainer_files.png
-   :width: 800
-   :align: center
-   :alt: devcontainer files copied to the correct location on Windows
+      .. code-block:: console
 
-Then, start VSCode. On the Welcome screen select :console:`Open Folder...`
+         On branch main
+         Your branch is up to date with 'origin/main'.
 
-.. figure:: ./images/vscode_open_folder.png
-   :width: 800
-   :align: center
-   :alt: The VSCode welcome page
+         Untracked files:
+           (use "git add <file>..." to include in what will be committed)
+                 hello_world.ps1
 
-Select the folder
+         nothing added to commit but untracked files present (use "git add" to track)
 
-.. tab-set::
-   :sync-group: os
+      This is saying that the file :console:`hello_world.ps1` is not currently being tracked by the version control system.
 
-   .. tab-item:: :fab:`windows` Windows
-      :sync: key1
-   
-      :console:`C:\\Users\\alex\\OneDrive - The University of Manchester\\eeen11202`
+      Enter the commands
 
+      .. prompt::
+           :language: bash
 
-   .. tab-item:: :fab:`apple` macOS / :fab:`linux` Linux
-      :sync: key2
+           git add hello_world.ps1
+           git commit -m "Added hello_world script"
 
-      :console:`/Users/alex/OneDrive - The University of Manchester/eeen11202` (macOS) 
-      or 
-      :console:`/home/alex/OneDrive - The University of Manchester/eeen11202/` (Linux)
+      This adds the file to be tracked for any changes, and *commits* it to the *local repository*. You may like to re-read the section on `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_ to remind yourself on these terms.
 
-The devcontainer may open automatically, or if not VSCode will display a message :console:`Reopen in Container`. Click on this if it appears.
+      There are two important notes on the commands above.
 
-.. figure:: ./images/vscode_reopen_in_container.png
-   :width: 800
-   :align: center
-   :alt: VSCode giving the option to open a folder in a container
+      #. Git doesn't look for changes in all of our files by default. It lets you have files in the same folder, some of which it does track, and some of which it doesn't. That's why we have to explicitly add our new file. If you have lots of files, you can use
 
-It can take a few minutes for the devcontainer to start, especially the first time as various files have to be downloaded from the Internet. Once successful, you should see the bottom left hand corner has changed, it will now say it's connected to a devcontainer.
+         .. prompt::
+           :language: bash
 
-.. figure:: ./images/vscode_devcontainer.png
-   :width: 800
-   :align: center
-   :alt: VSCode showing that a devcontainer is being used
+           git commit -a -m "Added hello_world script"
 
-This indicates that you're using our virtual computer rather than your real computer. You're still using the same files, just editing them with a different computer. For all parts of the course from now on, you want this blue :console:`Dev Container` to be displayed in the bottom left of the screen before you start doing any programming.
+         to add all new files to be tracked without having to add them one by one.
 
-.. _version_control:
+      #. The :console:`-m` stands for message. Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code. 
 
-Git setup
----------
-You might like to re-read our brief introduction to git in `Part 1 of the notes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. 
+      Finally, enter the commands
 
-Our version control is based upon the concept of a *repository*. That is a set of files and folders that we want to keep under version control. 
+      .. prompt::
+           :language: bash
 
-We're going to have one repository for each lab in the course. We could have set this up differently - having one repository for storing everything for the course in. We thought that using multiple repositories, one per lab, would help give you more practice.
+           git fetch
+           git push
 
-We can have multiple copies of the same repository. Typically we refer to a *local repository*. This is the copy that you use day-to-day, stored with your working files. We then also have a *remote repository*. A remote repository is where we store our code, in a shared location not on our computer. This is typically on a server somewhere, where other people can access it. This may be so that the code can be open source and public, or it may be that you're programming a large project as part of a team, and the multiple team members need one common repository to share their local edits to. We use version control software to keep the copy on the local computer in sync with the version on the remote repository (and to merge in changes from others if multiple people are working on the code).
+This updates the *remote repository* with the changes you've made locally. You should be able to go to the GitHub website and see that your new file is there. This step in fact does two things:
 
-We have made a remote repository already for each lab in the course, and these are hosted on `GitHub Classroom <https://classroom.github.com/>`_. You need to get a local copy of these, and when you submit tasks will need to sync your local repository with the remote repository. We'll walk you through how to do this. 
+#. It checks for any updates in the remote repository and downloads them. 
+#. It pushes your updates to to the remote repository.
 
-GitHub Classroom doesn't automatically integrate with Canvas, and so you have to manually make an account using your University of Manchester email address. 
-	
-The Github Classroom link for Lab A is:
+This helps keep your files in sync with any changes that have been made. It's best practice to make sure your code is up to date with any changes in the remote repository (e.g. code updated made by others) before pushing your own updates. 
 
-      .. admonition:: GitHub Classroom link
-
-         `<https://classroom.github.com/a/mULBYuO3>`_
-
-Click this link, and sign in to GitHub. If you don't already have an account, or an account using your University of Manchester email address, create one using the link that gets displayed. Follow the instructions on the website.
-
-.. figure:: ./images/github_signin1.png
-   :width: 300
-   :align: center
-   :alt: GitHub sign in page
-
-You can use any username that you would like, it doesn't need to be your University one (and it is probably better if it isn't, so you can keep your University username known only to you). You must enter your University of Manchester provided email address. This is needed for everything to work correctly for the assignments.
-	 
-After entering your details, GitHub will ask you to "Authorize GitHub Classroom". Do this.
-	
-.. figure:: ./images/github_signin2.png
-   :width: 300
-   :align: center
-   :alt: GitHub a authorization page	
-	
-You'll then be asked to "Accept this assignment". Each lab in the course will have its own classroom link, and you'll have to accept each assignment to add it to your account. When you click accept, a repository for storing your files is created on `<www.github.com>`_. In the figure below, this repository is called :console:`uom_eee_eeen11202-lab-a-ALEX-CASSON-LAB`, because the lab is called :console:`lab_a` and the username is :console:`ALEX-CASSON-LAB`. Yours will look slightly different, depending on the username you selected.
-
-.. figure:: ./images/github_signin3.png
-   :width: 300
-   :align: center
-   :alt: GitHub a accept assignment page	
-		
-It can take a minute or two for everything to set up. You may be shown a waiting page. Wait a minute and then refresh the page in your browser.
-
-.. figure:: ./images/github_signin4.png
-   :width: 300
-   :align: center
-   :alt: GitHub waiting page	
-	
-When set up, you'll be given a link to the remote repository which has been created for you. Make a note of this link. You'll need it later. Note that GitHub classroom knows we're using VSCode, and so it's given you the option to load the remote repository directly in VSCode. Don't do this for now, click the github.com link instead. You can explore the VSCode integration later on, if you'd like to, but for now it will complicate things.
-	
-.. figure:: ./images/github_signin5.png
-   :width: 300
-   :align: center
-   :alt: GitHub ready to go page		
-	
-When you click the link in the previous step, it will take you to a repository containing our starter files. This is as if you're joining an ongoing project that others have already started. Each student will have their own repository, with a unique address linked to their username. You'll see that this is a private repository, which means that only you (and the admin team) can access it. Again, for now ignore the "Open in Visual Studio Code" button.
-
-.. figure:: ./images/github_signin6.png
-   :width: 300
-   :align: center
-   :alt: GitHub repository page
-
-If you need the address of the repository again, because you didn't make a note earlier, you can click the "Code" button to see it again.
-	
-That completes the initial set up of the remote repository. Feel free to explore the GitHub website to see the functionality and options available.
-	
-Next we need to let the VSCode running on your computer see the remote repository that you've created. Start VSCode and make sure its connected to the devcontainer following the instructions above. This will display a window like the below. (If the Welcome page isn't displayed, you can select :console:`Help / Welcome` in the menu bar to display it.) Click on :console:`Clone Git Repository...` to sync a copy of the GitHub repository with your computer.
-	
-.. figure:: ./images/git_clone1.png
-   :width: 300
-   :align: center
-   :alt: Cloning a git repository
-	
-This will open a dropdown menu from the top bar where you can click :console:`Clone from GitHub`. 
-    
-If you're not already signed in, you'll be asked to sign in to GitHub. Use the credentials you created earlier. You may be asked to :console:`Authorize Visual-Studio-Code` and/or :console:`Authorize git-ecosystem`` to access your GitHub account. Do this.
-
-.. figure:: ./images/git_clone2.png
-   :width: 300
-   :align: center
-   :alt: Giving VSCode permissions to access GitHub	
-	
-In the top box enter the location of your remote repository that you noted down earlier. It will be something like `<https://github.com/UOM-EEE-EEEN11202/lab-a-ALEX-CASSON-LAB>`_ but different for your username. It may or may not have a .git extension. Press enter once you've entered the address. 
-
-.. figure:: ./images/git_clone3.png
-   :width: 800
-   :align: center
-   :alt: Entering the address of the repository
-
-You'll then be asked where to put the local copy of the repository. Enter :console:`/workspaces/eeen11202` and then click :console:`Select as Repository Destination`
-
-.. figure:: ./images/git_clone4.png
-   :width: 800
-   :align: center
-   :alt: Selecting a location for the local repository
-
-This might look like a slightly odd location, but it's what we need for this course. Remember that you have your physical computer, and the virtual computer for doing programming on. :console:`/workspaces/eeen11202` has been set up as the location that appears on both so you can see you files from everywhere. If you have a terminal open in VSCode, you'll see it's working in :console:`/workspaces/eeen11202` as the default location (assuming you followed the steps above correctly!).
-
-You'll then be asked whether you'd like to open the repository. Select :console:`Open`.
-
-.. figure:: ./images/git_clone5.png
-   :width: 800
-   :align: center
-   :alt: Opening the repository
-
-If you've followed the steps correctly you should then have a view like
-
-.. figure:: ./images/git_clone6.png
-   :width: 800
-   :align: center
-   :alt: Opening the repository
-
-Check that it has the name of your GitHub repository in the top left, and that it shows its connected to the devcontainer in the bottom left. If you have these, then you're ready to go!
-
-Before moving on though, it is worth having a quick look at the files that we have so far. These are shown, in Windows, below.
-
-.. figure:: ./images/git_clone7.png
-   :width: 800
-   :align: center
-   :alt: Folder structure if items have been set up correctly
-
-- We have a folder called :console:`eeen11202` which is where we'll keep all of our programming files for the course.
-- This is in your :console:`OneDrive - The University of Manchester` folder so the files will be available whether you're on a personal or a University computer. 
-- Inside :console:`eeen11202` is a folder called :console:`.devcontainer` which you downloaded. You don't need to worry about the contents of this, as long as this folder is present as downloaded. This contains some settings we've made to help the course run smoothly and give a consistent setup for everyone. It will be used automatically by VSCode and Docker, as long as its in the right place. 
-- There is a folder called :console:`lab_a`, which you made in Stage 1 of the lab. This contains the scripts you've made so far.
-- There is a folder called :console:`lab-a-ALEX-CASSON-LAB`. This is our local repository, which mirrors a remote repository on GitHub. It's got a very similar name to :console:`lab_a`, but they are different things. We didn't set up any version control with :console:`lab_a`.
-
-It is a little work to get this set up, but it should be quite smooth once everything is correctly configured. It can also take a little to get your head around. Are you working on the physical computer, or the devcontainer that we use for programming? Are you working with files in the version control, or other files which happen to have a similar name? In the version control, is this the remote repository or the local repository? It takes a little effort to keep track of what's what, but this is key to professional software development and being able to work in large projects, where the tools and code are kept in sync for everyone. 
-
-.. admonition:: Aside
-   :class: dropdown
-
-   You might find some sources online that warn against using git inside of a OneDrive folder. Don't worry about it for here. For large projects, it likely is best to use just one of them, but for a University course it's useful to have the files in both so they're available on your personal computer and one the University computers. 
+Remember, having both *local* and *remote* repositories is a key part of version control. Essentially, one is for your local work, one is for putting in a shared location for team members all working on the same code. In the context of this course, the team is you the student, and us, the online marking system in Gradescope. To submit your code to us, you have to push it to your remote repository, and you can only do this after committing it to your local repository. 
 
 
 Modifying our shell scripts
 ---------------------------
-With the files downloaded from git, you'll find you have copies of the shell scripts from Stage 1 of the lab. You have both :console:`my_script.ps1` and :console:`my_script.sh`. The devcontainer has been set up to be able to run both of these, use whichever you feel most comfortable with. Below we'll include screenshots only for :console:`my_script.sh`. 
+Now let's looking at modifying our code. Open one of the script files to edit. This can be your :console:`hello_world` file you made, or the :console:`my_script` file we provided to you. It doesn't make a difference to the steps. The screenshots below use :console:`my_script.sh`. 
 
-In these scripts, the name has been coded to be *Alex*. Change this to be your name. (If your name is Alex, pick some other name as an example!) In the screenshots below the name has been changed to *Caitlin*. 
+In your script, change the name. In the screenshots below the name has been changed from *Alex* to *Caitlin*. 
 
-When you save your changes, you'll see that VSCode has detected that the file has been modified. It's added :console:`M` in a number of places. If you want, you can also use the command line to show the version control status with
+.. tab-set::
+   :sync-group: gui_cli
 
-.. code-block:: console
+   .. tab-item:: :fab:`fa-display` GUI
+      :sync: key4
 
-   $ git status
+      When you save your changes, you'll see that VSCode has detected that the file has been modified.
 
-(This is optional, it's the same information as the graphical interface is displaying.)
+      VSCode has added :console:`M` in a number of places. This indicates the file has been *modified*, with changes not yet committed to the local repository. 
+
+      .. figure:: ./images/git_commit.png
+         :width: 800
+         :align: center
+         :alt: Git commit via the VSCode GUI
+
+
+   .. tab-item:: :fab:`fa-terminal` CLI
+      :sync: key5
+
+      Enter the command 
+
+      .. prompt::
+           :language: bash
+
+           git status
+
 
 You need to explicitly *commit* or *check in* the changes to the version control system. It won't keep a copy of every change you make, only the ones you ask it to. Again you can do this in the GUI or at the command line, you only need to do one.
 
@@ -266,21 +146,14 @@ You need to explicitly *commit* or *check in* the changes to the version control
    :sync-group: gui_cli
 
    .. tab-item:: :fab:`fa-display` GUI
-      :sync: key1
+      :sync: key4
 
-      Click on the :console:`Source Control` button in the left hand menu. This is highlighted in the figure below. If you've made changes it will have a number next to it indicating how many files have changed. 
+      See the screenshot above. 
 
-      .. figure:: ./images/git_commit.png
-         :width: 800
-         :align: center
-         :alt: Git commit via the VSCode GUI
-
-      There is a box called :console:`Message`. You must enter some text in here. To commit your files git requires that you add a message documenting your changes. This should be something meaningful, saying what has changed and why. In the figure above :console:`Changed the name` has been entered. You won't be able to click the :console:`Commit` button until some text has been entered. 
-
-      To commit the changes you need to click the :console:`Commit` button.
+      Enter a message in the :console:`Message` box to give some brief documentation on what's changed. To commit the changes you need to click the :console:`Commit` button.
 
    .. tab-item:: :fab:`fa-terminal` CLI
-      :sync: key2
+      :sync: key5
 
       Enter
 
@@ -288,19 +161,17 @@ You need to explicitly *commit* or *check in* the changes to the version control
     
          $ git commit -a -m "Changed the name"
 
-      :console:`-a` asks all of the files to be committed. This is optional. You can remove this and list files one by one if you'd like. The :console:`-m "text"` is required. To commit your files git requires that you add a message documenting your changes. This should be something meaningful, saying what has changed and why.
 
-
-Committing the changes only updates the local repository. You also need to explicitly update the remote repository. This is very common industry practice - you work on a local copy of the code, and can make as many version controlled changes as you like. When you're done making changes, you update the remote repository so that other team members can access the updated code. This lets you work independently, while also collaborating and keeping in sync with others. In the EEEN11202 labs you're working by yourself, but we're still going to replicate this process (and use it for the Gradescope submissions) so that you gain experience in this industry standard process.
+As before, committing the changes only updates the local repository. You also need to explicitly update the remote repository. This is very common industry practice - you work on a local copy of the code, and can make as many version controlled changes as you like. When you're done making changes, you update the remote repository so that other team members can access the updated code. This lets you work independently, while also collaborating and keeping in sync with others. In the EEEN11202 labs you're working by yourself, but we're still going to replicate this process (and use it for the Gradescope submissions) so that you gain experience in this industry standard process.
 
 
 .. tab-set::
    :sync-group: gui_cli
 
    .. tab-item:: :fab:`fa-display` GUI
-      :sync: key1
+      :sync: key4
 
-      Once you've committed your changes, and before you make any others, the :console:`Commit` button will change to display :console:`Sync Changes`. Press this and the changes will be pushed to the remote repository. 
+      Press the :console:`Sync Changes`. Press this and the changes will be pushed to the remote repository. 
 
       .. figure:: ./images/git_sync.png
          :width: 800
@@ -310,22 +181,59 @@ Committing the changes only updates the local repository. You also need to expli
       You may be asked to confirm you want to do this before it takes effect. If so, press :console:`OK`.
 
    .. tab-item:: :fab:`fa-terminal` CLI
-      :sync: key2
+      :sync: key5
 
-      You need to enter two commands, one after another. First
+      Enter two commands, one after another.
 
-      .. code-block:: console
-    
-         $ git fetch
+      .. prompt::
+           :language: bash
 
-      This checks the remote repository for any changes there, and updates the local repository if there are. You want to do this before trying to push your changes to the remote repository to avoid conflicts with changes others have made. Then enter
+           git fetch
+           git push
 
-      .. code-block:: console
-    
-         $ git push
- 
 You should be able to then go back to the GitHub website. If you click on the file(s) you've changed, you'll see the new version.
 
+
+Rolling back changes
+--------------------
+A key reason for using version control is that it lets you roll back changes if you make a mistake. There are no hard rules for how often you should commit your code, but in general if you have something that works, do a commit. Then you have a working version you can go back to if you change something and it stops working later on.
+
+If you click on :console:`Graph` in the bottom left of VSCode window, VSCode will display a list of all the commits you've made. (:console:`Graph` may be at the bottom of the screen rather than mid-way up as in the screenshot below.)
+
+You can click on a file, and it will show the differences for you. This can be very useful when trying to figure out why something is no longer working. 
+
+
+.. figure:: ./images/vscode_git_compare.png
+   :width: 800
+   :align: center
+   :alt: Comparing different versions of the same file in Git
+
+To undo the last commit and role back to the previous version you can:
+
+.. tab-set::
+   :sync-group: gui_cli
+
+   .. tab-item:: :fab:`fa-display` GUI
+      :sync: key4
+
+      Click on the :console:`...` near :console:`CHANGES` in the :console:`Source Control` tab. Note these only when you place the mouse in that area. Then select :console:`Commit / Undo Last Commit`.
+      
+      .. figure:: ./images/vscode_undo_commit.png
+         :width: 800
+         :align: center
+         :alt: Reverting a commit in VSCode
+
+   .. tab-item:: :fab:`fa-terminal` CLI
+      :sync: key5
+
+      Enter the command
+
+      .. prompt::
+         :language: bash
+
+         git revert HEAD
+
+You can of course compare files from any version of your code, and roll back to any previous version, not just the most recent ones as the commands above do. We won't cover these here though. 
 
 Going further
 -------------

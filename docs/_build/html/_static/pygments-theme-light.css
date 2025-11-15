@@ -1,4 +1,4 @@
-.theme-light pre { line-height: 125%; }
+.theme-light pre { line-height: 125%; color: #2e1f5e;}
 .theme-light td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 .theme-light span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 .theme-light td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
@@ -21,7 +21,7 @@
 .theme-light .highlight .gr { color: #E40000 } /* Generic.Error */
 .theme-light .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .theme-light .highlight .gi { color: #008400 } /* Generic.Inserted */
-.theme-light .highlight .go { color: #717171 } /* Generic.Output */
+.theme-light .highlight .go { color: #2e1f5e } /* Generic.Output */
 .theme-light .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .theme-light .highlight .gs { font-weight: bold } /* Generic.Strong */
 .theme-light .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
