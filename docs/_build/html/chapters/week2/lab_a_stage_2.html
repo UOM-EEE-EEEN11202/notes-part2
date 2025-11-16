@@ -250,7 +250,7 @@
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-0">
 <span class="fab fa-fa-display"></span> GUI</label><div class="sd-tab-content docutils">
 <p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Source Control</span></code> tab in the left hand menu. This will have automatically detected that you have a new file. It will have a <code class="code highlight console docutils literal highlight-console"><span class="go">U</span></code> next to it. This indicates that the file is <em>untracked</em>. That is, we’ve not checked it in to the version control system yet. (See the figure below.)</p>
-<p>To do this, add a comment such as “Added hello_world script”. Git forces you to add some documentation, explaining the changes that you’ve made. You should add something brief but meaningful, to help to tell what you added or removed in different versions of the code.” Then press <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code>.</p>
+<p>To do this, add a comment such as “Added hello_world script” in the box that’s present. Git forces you to add some documentation, explaining the changes that you’ve made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code.” Then press <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code>.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/git_add.png"><img alt="Adding files in Git" src="../../_images/git_add.png" style="width: 800px;" />
 </a>
@@ -269,9 +269,9 @@
 <p>Enter the command</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
 span.prompt1:before {
-  content: "PS C:\\> ";
+  content: "$ ";
 }
-</style><span class="prompt1"><span class="n">git</span> <span class="n">status</span></span>
+</style><span class="prompt1">git<span class="w"> </span>status</span>
 </pre></div></div><p>This will produce some output similar to</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">On branch main</span>
 <span class="go">Your branch is up to date with &#39;origin/main&#39;.</span>
@@ -285,44 +285,40 @@ span.prompt1:before {
 </div>
 <p>This is saying that the file <code class="code highlight console docutils literal highlight-console"><span class="go">hello_world.ps1</span></code> is not currently being tracked by the version control system.</p>
 <p>Enter the commands</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
-span.prompt2:before {
-  content: "$ ";
-}
-</style><span class="prompt2">git<span class="w"> </span>add<span class="w"> </span>hello_world.ps1</span>
-<span class="prompt2">git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added hello_world script&quot;</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>add<span class="w"> </span>hello_world.ps1</span>
+<span class="prompt1">git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added hello_world script&quot;</span></span>
 </pre></div></div><p>This adds the file to be tracked for any changes, and <em>commits</em> it to the <em>local repository</em>. You may like to re-read the section on <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html">version control</a> to remind yourself on these terms.</p>
 <p>There are two important notes on the commands above.</p>
 <ol class="arabic">
-<li><p>Git doesn’t look for changes in all of our files by default. It lets you have files in the same folder, some of which it does track, and some of which it doesn’t. That’s why we have to explicitly add our new file. If you’ve added lots of files, you can use</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added hello_world script&quot;</span></span>
+<li><p>Git doesn’t look for changes in all of our files by default. It lets you have files in the same folder, some of which it does track, and some of which it doesn’t. That’s why we have to explicitly add our new file. If you have lots of files, you can use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added hello_world script&quot;</span></span>
 </pre></div></div><p>to add all new files to be tracked without having to add them one by one.</p>
 </li>
-<li><p>The <code class="code highlight console docutils literal highlight-console"><span class="go">-m</span></code> stands for message. Git forces you to add some documentation, explaining the changes that you’ve made. You should add something brief but meaningful, to help to tell what you added or removed in different versions of the code.</p></li>
+<li><p>The <code class="code highlight console docutils literal highlight-console"><span class="go">-m</span></code> stands for message. Git forces you to add some documentation, explaining the changes that you’ve made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code.</p></li>
 </ol>
-<p>Finally, enter the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">git<span class="w"> </span>fetch</span>
-<span class="prompt2">git<span class="w"> </span>push</span>
+<p>Finally, enter the commands</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>fetch</span>
+<span class="prompt1">git<span class="w"> </span>push</span>
 </pre></div></div></div>
 </div>
-<p>This updates the <em>remote repository</em> with the changes you’ve made locally. You can then go to the GitHub website and see that your new file is there. It in fact does two things:</p>
+<p>This updates the <em>remote repository</em> with the changes you’ve made locally. You should be able to go to the GitHub website and see that your new file is there. This step in fact does two things:</p>
 <ol class="arabic simple">
 <li><p>It checks for any updates in the remote repository and downloads them.</p></li>
 <li><p>It pushes your updates to to the remote repository.</p></li>
 </ol>
-<p>This helps keep your files in sync with any changes that have been made.</p>
-<p>Remember having both <em>local</em> and <em>remote</em> repositories is a key part of version control. Essentially, one is for your local work, one is for putting in a shared location for teams all working on the same code base. (In the context of this course, the team is you the student, and us, the online marking system in Gradescope.) To submit your code to us, you have to push it to your remote repository, and you can only do this after committing it to your local repository.</p>
+<p>This helps keep your files in sync with any changes that have been made. It’s best practice to make sure your code is up to date with any changes in the remote repository (e.g. code updated made by others) before pushing your own updates.</p>
+<p>Remember, having both <em>local</em> and <em>remote</em> repositories is a key part of version control. Essentially, one is for your local work, one is for putting in a shared location for team members all working on the same code. In the context of this course, the team is you the student, and us, the online marking system in Gradescope. To submit your code to us, you have to push it to your remote repository, and you can only do this after committing it to your local repository.</p>
 </section>
 <section id="modifying-our-shell-scripts">
 <h2><span class="section-number">2.2.2.2. </span>Modifying our shell scripts<a class="headerlink" href="#modifying-our-shell-scripts" title="Link to this heading">¶</a></h2>
 <p>Now let’s looking at modifying our code. Open one of the script files to edit. This can be your <code class="code highlight console docutils literal highlight-console"><span class="go">hello_world</span></code> file you made, or the <code class="code highlight console docutils literal highlight-console"><span class="go">my_script</span></code> file we provided to you. It doesn’t make a difference to the steps. The screenshots below use <code class="code highlight console docutils literal highlight-console"><span class="go">my_script.sh</span></code>.</p>
 <p>In your script, change the name. In the screenshots below the name has been changed from <em>Alex</em> to <em>Caitlin</em>.</p>
-<p>When you save your changes, you’ll see that VSCode has detected that the file has been modified.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-2">
 <span class="fab fa-fa-display"></span> GUI</label><div class="sd-tab-content docutils">
-<p>VSCode has added <code class="code highlight console docutils literal highlight-console"><span class="go">M</span></code> in a number of places. This indicates the file has been <em>modified</em> and not yet committed to the local repository.</p>
+<p>When you save your changes, you’ll see that VSCode has detected that the file has been modified.</p>
+<p>VSCode has added <code class="code highlight console docutils literal highlight-console"><span class="go">M</span></code> in a number of places. This indicates the file has been <em>modified</em>, with changes not yet committed to the local repository.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/git_commit.png"><img alt="Git commit via the VSCode GUI" src="../../_images/git_commit.png" style="width: 800px;" />
 </a>
@@ -332,7 +328,7 @@ span.prompt2:before {
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-3">
 <span class="fab fa-fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
 <p>Enter the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">git<span class="w"> </span>status</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>status</span>
 </pre></div></div></div>
 </div>
 <p>You need to explicitly <em>commit</em> or <em>check in</em> the changes to the version control system. It won’t keep a copy of every change you make, only the ones you ask it to. Again you can do this in the GUI or at the command line, you only need to do one.</p>
@@ -341,8 +337,7 @@ span.prompt2:before {
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-4">
 <span class="fab fa-fa-display"></span> GUI</label><div class="sd-tab-content docutils">
 <p>See the screenshot above.</p>
-<p>Enter a message in the <code class="code highlight console docutils literal highlight-console"><span class="go">Message</span></code> box to give some brief documentation on what’s changed. You must enter some text in here. (To commit your files git requires that you add a message documenting your changes. You won’t be able to click the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button until some text has been entered.)</p>
-<p>To commit the changes you need to click the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button.</p>
+<p>Enter a message in the <code class="code highlight console docutils literal highlight-console"><span class="go">Message</span></code> box to give some brief documentation on what’s changed. To commit the changes you need to click the <code class="code highlight console docutils literal highlight-console"><span class="go">Commit</span></code> button.</p>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-5">
@@ -369,17 +364,17 @@ span.prompt2:before {
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-7">
 <span class="fab fa-fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
 <p>Enter two commands, one after another.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">git<span class="w"> </span>fetch</span>
-<span class="prompt2">git<span class="w"> </span>push</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>fetch</span>
+<span class="prompt1">git<span class="w"> </span>push</span>
 </pre></div></div></div>
 </div>
 <p>You should be able to then go back to the GitHub website. If you click on the file(s) you’ve changed, you’ll see the new version.</p>
 </section>
 <section id="rolling-back-changes">
 <h2><span class="section-number">2.2.2.3. </span>Rolling back changes<a class="headerlink" href="#rolling-back-changes" title="Link to this heading">¶</a></h2>
-<p>A key reason for using version control is that it lets you roll back changes if you make a mistake. There are no hard rules for how often you should commit your code, but in general if you have something that works, do a commit. Then you have a work version you can go back to if you change something and it stops working later on.</p>
+<p>A key reason for using version control is that it lets you roll back changes if you make a mistake. There are no hard rules for how often you should commit your code, but in general if you have something that works, do a commit. Then you have a working version you can go back to if you change something and it stops working later on.</p>
 <p>If you click on <code class="code highlight console docutils literal highlight-console"><span class="go">Graph</span></code> in the bottom left of VSCode window, VSCode will display a list of all the commits you’ve made. (<code class="code highlight console docutils literal highlight-console"><span class="go">Graph</span></code> may be at the bottom of the screen rather than mid-way up as in the screenshot below.)</p>
-<p>You can click on a file, and it will show the differences for you. This can be very useful when trying to figure our why something is no longer working.</p>
+<p>You can click on a file, and it will show the differences for you. This can be very useful when trying to figure out why something is no longer working.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/vscode_git_compare.png"><img alt="Comparing different versions of the same file in Git" src="../../_images/vscode_git_compare.png" style="width: 800px;" />
 </a>
@@ -398,11 +393,11 @@ span.prompt2:before {
 <input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-9">
 <span class="fab fa-fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
-<p>enter the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">git<span class="w"> </span>revert<span class="w"> </span>HEAD</span>
+<p>Enter the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>revert<span class="w"> </span>HEAD</span>
 </pre></div></div></div>
 </div>
-<p>You can of course compare files from any version of your code, and roll back to any previous version, not just the most recent one as the commands above do. We won’t cover these here though.</p>
+<p>You can of course compare files from any version of your code, and roll back to any previous version, not just the most recent ones as the commands above do. We won’t cover these here though.</p>
 </section>
 <section id="going-further">
 <h2><span class="section-number">2.2.2.4. </span>Going further<a class="headerlink" href="#going-further" title="Link to this heading">¶</a></h2>

@@ -23,7 +23,7 @@ You do have a choice for whether you use the VSCode graphical interface, or the 
 
       Click on the :console:`Source Control` tab in the left hand menu. This will have automatically detected that you have a new file. It will have a :console:`U` next to it. This indicates that the file is *untracked*. That is, we've not checked it in to the version control system yet. (See the figure below.)
 
-      To do this, add a comment such as "Added hello_world script". Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added or removed in different versions of the code." Then press :console:`Commit`.
+      To do this, add a comment such as "Added hello_world script" in the box that's present. Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code." Then press :console:`Commit`.
 
       .. figure:: ./images/git_add.png
          :width: 800
@@ -47,7 +47,7 @@ You do have a choice for whether you use the VSCode graphical interface, or the 
       Enter the command 
 
       .. prompt::
-           :language: powershell
+           :language: bash
 
            git status
 
@@ -78,7 +78,7 @@ You do have a choice for whether you use the VSCode graphical interface, or the 
 
       There are two important notes on the commands above.
 
-      #. Git doesn't look for changes in all of our files by default. It lets you have files in the same folder, some of which it does track, and some of which it doesn't. That's why we have to explicitly add our new file. If you've added lots of files, you can use
+      #. Git doesn't look for changes in all of our files by default. It lets you have files in the same folder, some of which it does track, and some of which it doesn't. That's why we have to explicitly add our new file. If you have lots of files, you can use
 
          .. prompt::
            :language: bash
@@ -87,9 +87,9 @@ You do have a choice for whether you use the VSCode graphical interface, or the 
 
          to add all new files to be tracked without having to add them one by one.
 
-      #. The :console:`-m` stands for message. Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added or removed in different versions of the code. 
+      #. The :console:`-m` stands for message. Git forces you to add some documentation, explaining the changes that you've made. You should add something brief but meaningful, to help to tell what you added, changed, or removed in different versions of the code. 
 
-      Finally, enter the command
+      Finally, enter the commands
 
       .. prompt::
            :language: bash
@@ -97,14 +97,14 @@ You do have a choice for whether you use the VSCode graphical interface, or the 
            git fetch
            git push
 
-This updates the *remote repository* with the changes you've made locally. You can then go to the GitHub website and see that your new file is there. It in fact does two things:
+This updates the *remote repository* with the changes you've made locally. You should be able to go to the GitHub website and see that your new file is there. This step in fact does two things:
 
 #. It checks for any updates in the remote repository and downloads them. 
 #. It pushes your updates to to the remote repository.
 
-This helps keep your files in sync with any changes that have been made. 
+This helps keep your files in sync with any changes that have been made. It's best practice to make sure your code is up to date with any changes in the remote repository (e.g. code updated made by others) before pushing your own updates. 
 
-Remember having both *local* and *remote* repositories is a key part of version control. Essentially, one is for your local work, one is for putting in a shared location for teams all working on the same code base. (In the context of this course, the team is you the student, and us, the online marking system in Gradescope.) To submit your code to us, you have to push it to your remote repository, and you can only do this after committing it to your local repository. 
+Remember, having both *local* and *remote* repositories is a key part of version control. Essentially, one is for your local work, one is for putting in a shared location for team members all working on the same code. In the context of this course, the team is you the student, and us, the online marking system in Gradescope. To submit your code to us, you have to push it to your remote repository, and you can only do this after committing it to your local repository. 
 
 
 Modifying our shell scripts
@@ -113,15 +113,15 @@ Now let's looking at modifying our code. Open one of the script files to edit. T
 
 In your script, change the name. In the screenshots below the name has been changed from *Alex* to *Caitlin*. 
 
-When you save your changes, you'll see that VSCode has detected that the file has been modified.
-
 .. tab-set::
    :sync-group: gui_cli
 
    .. tab-item:: :fab:`fa-display` GUI
       :sync: key4
 
-      VSCode has added :console:`M` in a number of places. This indicates the file has been *modified* and not yet committed to the local repository. 
+      When you save your changes, you'll see that VSCode has detected that the file has been modified.
+
+      VSCode has added :console:`M` in a number of places. This indicates the file has been *modified*, with changes not yet committed to the local repository. 
 
       .. figure:: ./images/git_commit.png
          :width: 800
@@ -150,9 +150,7 @@ You need to explicitly *commit* or *check in* the changes to the version control
 
       See the screenshot above. 
 
-      Enter a message in the :console:`Message` box to give some brief documentation on what's changed. You must enter some text in here. (To commit your files git requires that you add a message documenting your changes. You won't be able to click the :console:`Commit` button until some text has been entered.)
-
-      To commit the changes you need to click the :console:`Commit` button.
+      Enter a message in the :console:`Message` box to give some brief documentation on what's changed. To commit the changes you need to click the :console:`Commit` button.
 
    .. tab-item:: :fab:`fa-terminal` CLI
       :sync: key5
@@ -198,11 +196,11 @@ You should be able to then go back to the GitHub website. If you click on the fi
 
 Rolling back changes
 --------------------
-A key reason for using version control is that it lets you roll back changes if you make a mistake. There are no hard rules for how often you should commit your code, but in general if you have something that works, do a commit. Then you have a work version you can go back to if you change something and it stops working later on.
+A key reason for using version control is that it lets you roll back changes if you make a mistake. There are no hard rules for how often you should commit your code, but in general if you have something that works, do a commit. Then you have a working version you can go back to if you change something and it stops working later on.
 
 If you click on :console:`Graph` in the bottom left of VSCode window, VSCode will display a list of all the commits you've made. (:console:`Graph` may be at the bottom of the screen rather than mid-way up as in the screenshot below.)
 
-You can click on a file, and it will show the differences for you. This can be very useful when trying to figure our why something is no longer working. 
+You can click on a file, and it will show the differences for you. This can be very useful when trying to figure out why something is no longer working. 
 
 
 .. figure:: ./images/vscode_git_compare.png
@@ -228,14 +226,14 @@ To undo the last commit and role back to the previous version you can:
    .. tab-item:: :fab:`fa-terminal` CLI
       :sync: key5
 
-      enter the command
+      Enter the command
 
       .. prompt::
          :language: bash
 
          git revert HEAD
 
-You can of course compare files from any version of your code, and roll back to any previous version, not just the most recent one as the commands above do. We won't cover these here though. 
+You can of course compare files from any version of your code, and roll back to any previous version, not just the most recent ones as the commands above do. We won't cover these here though. 
 
 Going further
 -------------

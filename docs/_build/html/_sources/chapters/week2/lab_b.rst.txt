@@ -1,12 +1,15 @@
+.. role:: console(code)
+   :language: console
+
 .. _lab_b:
 
 Lab B
 =====
-In Lab B we're going to start using Python, and will work some more on version control as introduced in :ref:`Lab A <lab_a>`.
+In Lab B we're going to start using Python. Python is a very versatile language, there are lots of different ways of fundamentally doing the same thing. We're going to look at one particular way. 
 
-We'll focus on using Python in :ref:`Jupyter interactive mode <python_modes>` before moving on to :ref:`batch mode <python_modes>` in Lab X. 
+In this lab we'll focus on using Python in :ref:`a Jupyter Notebook <python_modes>` before moving on to writing :console:`.py` files for the other Python labs in the course.
 
-Python is a very versatile language, there are lots of different ways of fundamentally doing the same thing. We're going to look at one particular way. If you've used similar, but different, approaches previously, VSCode as we introduce in this lab. 
+If you've used Python before, but with a different approach - that's fine - there's more than one way of doing this. Nevertheless, follow along with the approach here to see what's new and different. 
 
 The contents of Lab B are:
 

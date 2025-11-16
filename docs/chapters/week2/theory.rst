@@ -113,16 +113,23 @@ Writing Python refers to the process of entering Python commands into the comput
 
    By convention Python code files have a :console:`.py` extension. When working in Jupyter mode interactively you may also encounter code stored in *Jupyter Notebooks*. These have a :console:`.ipynb` extension. The two are fundamentally the same, and VSCode has a number of different options/buttons for running both of these from the graphical interface. However, a Jupyter Notebook has additional features for formatting the code and adding text, images, and including results to explain what the code is doing. We'll see how to work with both :console:`.py` files and Jupyter Notebooks in :ref:`Lab B <lab_b>`, but in the course we'll mainly use plain :console:`.py` files.
    
-#. **Batch mode**. Here the commands are stored in a file, and we just ask for all of the commands to be run and get the end result. This is useful once we've got our finalized code and, say, want to run it hundreds or thousands of time on different data sets. If your Python code is stored in a file called :console:`my_code.py`, then you can run it with:
+#. **As a script**. Here the commands are stored in a file, and we just ask for all of the commands to be run and get the end result. This is useful once we've got our finalized code and, say, want to run it hundreds or thousands of time on different data sets. If your Python code is stored in a file called :console:`my_code.py`, then you can run it with:
 
    .. prompt::
       :language: bash
 
       python3 my_code.py
 
+   or
+
+      .. prompt::
+      :language: bash
+
+      uv run --no-project my_code.py
+
    Again, VSCode has a number of different buttons for starting this code from the graphical interface rather than the command line if that's what you prefer.
    
-   You won't be able to view the intermediate results, but you can see the final result. (Unless there's an error and the script stops running part way through.)
+   You won't be able to view the intermediate results without using a debugger, but you can see the final result. (Unless there's an error and the script stops running part way through.)
 
 #. **As a package or module**. For both (2) and (3) above our code will be in a file, with a :console:`.py` extension. We can share this file with others and they'll be able to run it (as long as their :ref:`virtual environment <virtual_environments>` has a suitable Python version and libraries installed). You'll find that we often use code from others, not by sharing a :console:`.py` file, but by installing it using a tool called :console:`pip`. This is a more formal way of sharing code, and adding it to a Python installation. It is an easier way of sharing code with lots of people, especially if the code is split into lots of different files. 
 

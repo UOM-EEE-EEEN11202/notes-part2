@@ -31,10 +31,10 @@ In this part we'll look at some basic Python code to get us started with Python.
       :align: center
       :alt: An empty Jupyter Notebook
 
-   Save this to give it a name by clicking on :console:`File / Save As...`. Pick any name that you would like.
+   Save this to give it a name by clicking on :console:`File / Save As...`. Pick any name that you would like. Make sure you save it in your :console:`lab_b` folder. 
 
 
-#. Copy and paste the code below into a cell and run the cell. VSCode which Python virtual environment you want to use, in which case you should select :console:`.venv`, the one we made :ref:`in the previous part of the lab <lab_b1>`. Does the code do as you would expect? Ask a demonstrator to help explain the operation if it would be useful.
+#. Copy and paste the code below into a cell and run the cell. To do this, you may need to tell VSCode which Python virtual environment you want to use, in which case you should select :console:`.venv`, the one we made :ref:`in the previous part of the lab <lab_b1>`.
 
    .. code-block:: python
 
@@ -50,12 +50,18 @@ In this part we'll look at some basic Python code to get us started with Python.
       :align: center
       :alt: Example of a Python for loop
 
+   Notice how :python:`print(i*mult)` is indented. This is how Python determines which parts of the code *belong* to the :python:`for` loop.
+
+   Does the code do as you would expect? Ask a demonstrator to help explain the operation if it would be useful.
+
    .. admonition:: Solution
       :class: dropdown
 
-      This code will display the numbers 0, 11, 22, 33, and 44. :python:`lim_low` is 0, and :python:`lim_high` is 5. :console:`range(lim_low,lim_high)` makes a list of numbers between these, i.e. 0, 1, 2, 3, and 4. 5 is the stopping point, this isn't included. :for: is a loop which goes through each of these numbers in turn, putting them in the variable :python:`i`. The code then carries out the multiplication :python:`i*mult`.
+      This code will display the numbers 0, 11, 22, 33, and 44. 
+      
+      :python:`lim_low` is 0, and :python:`lim_high` is 5. :console:`range(lim_low,lim_high)` makes a list of numbers between these, i.e. 0, 1, 2, 3, and 4. 5 is the stopping point, this isn't included. :python:`for` is a loop which goes through each of these numbers in turn, putting them in the variable :python:`i`. The code then carries out the multiplication :python:`i*mult`.
 
-      Even in this simple example, there are no *hard coded* values. It's tempting to write :python:`range(0,5)` or similar. However, this can give very fragile code if we want to use the 5 somewhere else as well. It's better to put the number in a variable and use the variable. That way, if the number changes at some point in the future the new value will automatically be used everywhere that the variable is used.
+      Even in this simple example, there are no *hard coded* values. It's tempting to write :python:`range(0,5)` or similar. However, this can give very fragile code. If we want to use the 5 somewhere else in the code as well as here, it's better to put the number in a variable and use the variable everywhere. That way, if the number changes at some point in the future the new value will automatically be used everywhere that the variable is used.
 
 
 #. Add a new *Markdown cell* by clicking on the :console:`+ Markdown` button.
@@ -82,10 +88,10 @@ In this part we'll look at some basic Python code to get us started with Python.
       :align: center
       :alt: A formatted comment using Markdown
 
-   Not every code edit will display the text with the formatting, some will just display the text. Nevertheless, it's a nice feature for adding emphasis or structure to your comments.
+   Not every code editor will display the text with the formatting, some will just display the text. Nevertheless, it's a nice feature for adding emphasis or structure to your comments.
 
 
-#. In Electronic Engineering it's very common that we work with sine waves. Mathematically, this is :math:`V_{out}(t) = A \sin (2\pi f t)` where :math:`A` is the amplitude, :math:`f` is the frequency of the wave in Hz, and :math:`t` is the time in seconds. This is known as a *time series*, to see a sine wave we need to know the value of :math:`V_{out}(t)` at multiple different points in time, not just at one time.
+#. In Electronic Engineering it's very common that we work with sine waves. Mathematically, this is :math:`V_{out}(t) = A \sin (2\pi f t)` where :math:`A` is the amplitude, :math:`f` is the frequency of the wave in Hz, and :math:`t` is the time in seconds. This is known as a *time series*, as to see a sine wave we need to know the value of :math:`V_{out}(t)` at multiple different points in time, not just at one time.
 
    Make a new cell and copy and paste the below into it. 
 
@@ -94,15 +100,15 @@ In this part we'll look at some basic Python code to get us started with Python.
       # Make a sine wave
       sample_start = 0
       sample_stop  = 100
-      t = range(sample_start, sample_stop) # interpret at 1s, 2s, 3s, ...
+      t = range(sample_start, sample_stop) # interpret as representing 1 s, 2 s, 3 s, ...
 
    :python:`t` will produce numbers 0, 1, 2, 3, up to :python:`sample_stop-1`, and we as humans can think of these as representing time points, 0 second, 1 second, and so on. 
 
    .. danger::
 
-      There is a better way of doing this! The :python:`range` function can only make interger time points (1 s, 2 s, 3 s, and so on). In Lab X we'll use :python:`numpy` arrays to do the same time, and this is probably nearly always what you would actually want to do. We included this example here to give an Electronic Engineering example early on, even if you learn better ways of achieving the same functionality later on. 
+      There is a better way of doing this! The :python:`range` function can only make integer time points (1 s, 2 s, 3 s, and so on). In :ref:`Lab E <lab_e>` we'll use :python:`numpy` arrays to do the same thing, with a number of other benefits. Using :python:`numpy`  is probably nearly always what you should actually do. We've included this example here to give an Electronic Engineering example early on, even if you learn better ways of achieving the same functionality later. 
 
-   To implement the equation :math:`V_{out}(t) = A \sin (2\pi f t)` we need a :math:`\sin` function, and the number :math:`\pi`. These are avaiable in the Python :python:`math` module. This is the part of the Python `standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_. This is a built-in part of Python, but you need to explicitly add it to your code with the :python:`import` function.
+   To implement the equation :math:`V_{out}(t) = A \sin (2\pi f t)` we need a :math:`\sin` function, and the number :math:`\pi`. These are available in the Python :python:`math` module. This is the part of the Python `standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_. This is a built-in part of Python, but you need to explicitly add it to your code with the :python:`import` function.
 
    Add the code below to your function. 
 
@@ -123,9 +129,9 @@ In this part we'll look at some basic Python code to get us started with Python.
       :align: center
       :alt: Variables in the variable explorer
 
-#. The variable explorer is very useful for examining the results of calculations, checking that variables contain the correct thing, and so on. It has more functionality, but we need to install a Python `module <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#packages-from-online-repositories>`_ called Pandas to add this functionality. Pandas is very widely used, but it's not part of the s`standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_ so we need to ensure it's in the virtual environment by installing it ourselves.
+#. The variable explorer is very useful for examining the results of calculations, checking that variables contain the correct thing, and so on. It has more functionality, but we need to install a Python `module <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#packages-from-online-repositories>`_ called Pandas to add this functionality. Pandas is very widely used, but it's not part of the `standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_ so we need to ensure it's in the virtual environment by installing it ourselves.
 
-   Click on the :console:`Terminal` tab in VSCode. It should look like the below. You should see that :console:`(.venv)` is present, indicating the virtual environment we're working in is active. (If not, activate it with :console:`source .venv/bin/activate`.) You should also see that the command prompt looks like :console:`$`, indicating that this is the computer's terminal, not a Python terminal (which would be :console:`>>>`).
+   Click on the :console:`Terminal` tab in VSCode. It should look like the below. You should see that :console:`(.venv)` is present, indicating the virtual environment we're working in is active. (If not, make sure the terminal is in the :console:`lab_b` folder, and then activate the :console:.`venv` with :console:`source .venv/bin/activate`.) You should also see that the command prompt looks like :console:`$`, indicating that this is the computer's terminal, not a Python terminal (which would be :console:`>>>`).
 
    .. figure:: ./images/vscode_integrated_terminal.png
       :width: 800
@@ -134,9 +140,10 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    At the computer terminal enter
 
-   .. code-block:: console
+   .. prompt::
+      :language: python
    
-      $ uv pip install pandas
+      uv pip install pandas
 
    This will install Pandas into the virtual environment. It may take a minute. It's only been installed in the virtual environment that's currently active. When you make or use a new or different virtual environment, you may need to install it again. (Which is one of the aims of using virtual environments, we could install different versions of Pandas in different virtual environments if we wanted to.)
 
@@ -145,14 +152,16 @@ In this part we'll look at some basic Python code to get us started with Python.
 
       In the next lab we'll look at how to list *dependencies* in a file so we have a list of what needs to be installed in order for our code to run. 
 
-   VSCode won't pick up the installation of Pandas automatically if you install it while VSCode is running. Click on the :console:`Restart` button, and then :console:`Restart` again to confirm. Then press :console:`Run All` to re-run the code and it will be picked up.
+   VSCode won't pick up the installation of Pandas automatically if you install it while VSCode is running. Click on the :console:`Restart` button, and then :console:`Restart` again to confirm. This restarts the Python kernel so that it will pick up any changes to the virtual environment.
+   
+   Then press :console:`Run All` to re-run the code and it will be picked up.
 
    .. figure:: ./images/restart_kernel.png
       :width: 800
       :align: center
       :alt: Restarting the Python kernel to pick up the new installed module
 
-   Click on the :console:`Terminal` tab in VSCode. Then double click on :python:`v_out` to open a more detailed view of what's stored in the variable. (You may need to scroll down in the variable explorer to see :python:`v_out`.) You should have a view similar to the below. Check some of the values using your calculator to check that they're what you expect. 
+   Click on the :console:`Jupyter` tab in VSCode. Then double click on :python:`v_out` to open a more detailed view of what's stored in the variable. (You may need to scroll down in the variable explorer to see :python:`v_out`.) You should have a view similar to the below. Check some of the values using your calculator to check that they're what you expect. 
 
    .. figure:: ./images/data_wrangler.png
       :width: 800
@@ -164,13 +173,14 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    .. admonition:: Note
 
-      We're going to look at data visualization more in Lab X. There are lots of options beyond what we're going to look at here. This example is just something to get started with.
+      We're going to look at data visualization more in :ref:`Lab F <lab_f>`. There are lots of options beyond what we're going to look at here. This example is just something to get started with.
 
    At the computer terminal enter
 
-   .. code-block:: console
+   .. prompt::
+      :language: python
    
-      $ uv pip install plotly jupyterlab anywidget
+      uv pip install plotly jupyterlab anywidget
     
    Then restart the Python kernel as before. 
 
@@ -192,7 +202,7 @@ In this part we'll look at some basic Python code to get us started with Python.
 
       When :python:`f = 0.01` you see a sine wave as you expect. It's quite a low frequency sine wave, and so we don't see many oscillations present in 100 seconds. When :python:`f = 10` we don't see a sine wave. :python:`f = 10` means were expecting 10 oscillations per second. However our time points are only at 0 s, 1 s, 2 s, and so on. (We're sampling at 1 Hz.) We're not sampling quickly enough to see the oscillations. Indeed in this case we're sampling so slowly that we get a very strange shape indeed. 
       
-      You'll learn about the Nyquist theory later in your degree. In general, we need the samples to be at least twice as fast as the highest frequency we want to plot. (This is nothing to do with Python, it applies to all cases of plotting a sine wave.) If we're sampling at 1 Hz, the largest :python:`f` we can have is 0.5 Hz. In practice, the ratio needs to be more like 10-30 times the highest frequency to get a good plot. 
+      You'll learn about the *Nyquist theory* later in your degree. In general, we need the sampling frequency to be at least twice as fast as the highest frequency we want to plot. (This is nothing to do with Python, it applies to all cases of plotting a waveform.) If we're sampling at 1 Hz, the largest :python:`f` we can have is 0.5 Hz. In practice, the ratio needs to be more like 10-30 times the highest frequency to get a good plot. 
 
    Set
 
@@ -220,7 +230,7 @@ In this part we'll look at some basic Python code to get us started with Python.
    .. admonition:: Solution
       :class: dropdown
 
-      In the plot we can clearly see the sine wave crossing 0. Have a look in the variable explorer however. You'll see it's only 0 at the time time point. After this, it gets very close to 0, for example :math:`1.22 \times 10^{-16}`. This is a very small number, but it's not exactly 0! The :python:`== 0` is checking for exactly zero. We're seeing the impact of `floating point numbers <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/floating_point_numbers.html>`_. Rather than getting exactly 0 were getting a little bit of rounding error. This is negligible in any practical sense (if this was a voltage we've measured from a circuit, it's very hard to measure :math:`1.22 \times 10^{-16}` Volts. However it means that our code doesn't do what we want in this case.
+      In the plot we can clearly see the sine wave crossing 0. Have a look in the variable explorer however. You'll see it's only 0 at the time point 0. After this, it gets very close to 0, for example :math:`1.22 \times 10^{-16}`. This is a very small number, but it's not exactly 0! The :python:`== 0` is checking for exactly zero. We're seeing the impact of `floating point numbers <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/floating_point_numbers.html>`_. Rather than getting exactly 0 were getting a little bit of rounding error. This is negligible in any practical sense (if this was a voltage we've measured from a circuit, it's very hard to measure :math:`1.22 \times 10^{-16}` Volts. However it means that our code doesn't do what we want in this case. Try
 
       .. code-block:: python
 
@@ -232,7 +242,7 @@ In this part we'll look at some basic Python code to get us started with Python.
       This is a bit more generous in its checking and should work as you want. 
 
 
-#. Python can also do complex maths. There is a module :python:`cmath` in the standard library which adds functions for working with complex numbers. Make a new cell and enter the code below.
+#. Python can also do complex maths, as we commonly need for circuit analysis. There is a module :python:`cmath` in the standard library which adds functions for working with complex numbers. Make a new cell and enter the code below.
 
    .. code-block:: python
 
@@ -288,7 +298,9 @@ In this part we'll look at some basic Python code to get us started with Python.
               print("Unexpected component. Was expecting only resistors or capacitors")
       print(f"{resistors} resistors and {capacitors} capacitors are in the BOM.")
 
-   It combines a :python:`for` loop with an :python:`if` statement to count the number of resistors and capacitors in the BOM. Make sure you understand how this works before you move on. The syntax in :python:`print(f"{resistors} resistors and {capacitors} capacitors are in the BOM.")` is new. It is known as an *f-string*. Notice that the string starts :python:`f"`. In an f-string, items in curly brackets :python:`{}` are replaced with their values. So with :python:`{resistors}` the value of the variable :python:`resistors` is displayed rather than the word resistors. 
+   This code combines a :python:`for` loop with an :python:`if` statement to count the number of resistors and capacitors in the BOM. Make sure you understand how this works before you move on. Note the different levels of indentation to show which code belongs to which part of the structure.
+   
+   The syntax in :python:`print(f"{resistors} resistors and {capacitors} capacitors are in the BOM.")` is known as an *f-string*. Notice that the string starts :python:`f"`. In an f-string, items in curly brackets :python:`{}` are replaced with their values. So with :python:`{resistors}` the value of the variable :python:`resistors` is displayed rather than the word resistors. 
 
 
 Electronic engineering problems
@@ -303,11 +315,11 @@ Electronic engineering problems
    where :math:`R_{T}` is the total resistance and :math:`R_{1}` (and similar) are the value of each individual resistor being connected in parallel.
    
    .. figure:: ./images/resistors_in_parallel.png
-      :width: 800
+      :width: 500
       :align: center
       :alt: Drawing of three resistors in parallel
 
-   You are given 10 resistors connected in parallel, values: 10 k:math:`{\Omega}`, 20 k:math:`{\Omega}`, 30 k:math:`{\Omega}`, 40 k:math:`{\Omega}`, 50 k:math:`{\Omega}`, 60 k:math:`{\Omega}`, 70 k:math:`{\Omega}`, 80 k:math:`{\Omega}`, 90 k:math:`{\Omega}`, and 100 k:math:`{\Omega}`. Write a code cell to calculate :math:`R_{T}`, the total effective resistance present. View your calculated value in the variable explorer.
+   You are given 10 resistors connected in parallel, values: 10 k :math:`{\Omega}`, 20 k :math:`{\Omega}`, 30 k :math:`{\Omega}`, 40 k :math:`{\Omega}`, 50 k :math:`{\Omega}`, 60 k :math:`{\Omega}`, 70 k :math:`{\Omega}`, 80 k :math:`{\Omega}`, 90 k :math:`{\Omega}`, and 100 k :math:`{\Omega}`. Write a code cell to calculate :math:`R_{T}`, the total effective resistance present. View your calculated value in the variable explorer.
 
    .. admonition:: Solution
       :class: dropdown
@@ -323,7 +335,7 @@ Electronic engineering problems
 #. A potential divider is made when the output voltage is taken from a point between two impedances, labelled :math:`Z_{1}` and :math:`Z_{2}` in the figure below.
 
    .. figure:: ./images/potential_divider.png
-      :width: 800
+      :width: 500
       :align: center
       :alt: Drawing of a potential divider
  
@@ -333,11 +345,11 @@ Electronic engineering problems
 
       V_{out} = \frac{Z_{2}V_{in}}{Z_{1} + Z_{2}}
 
-   If both impedances are resistors, Z1 and Z2 will be real numbers. Use the Python code below to calculate the output voltage for the case when:
+   If both impedances are resistors, :math:`Z_{1}` and :math:`Z_{2}` will be real numbers. Use the Python code below to calculate the output voltage for the case when:
 	
    * :math:`V_{in}` = 10 V (d.c.).
-   * :math:`Z_{1}` = 1 k:math:`{\Omega}`.
-   * :math:`Z_{2}` = 10 k:math:`{\Omega}`.
+   * :math:`Z_{1}` = 1 k :math:`{\Omega}`.
+   * :math:`Z_{2}` = 10 k :math:`{\Omega}`.
 
    .. code-block:: python
     
@@ -348,41 +360,41 @@ Electronic engineering problems
       v_out = (z2 * v_in) / (z1 + z2)  # Volts
 
 
-#. 	:math:`Z_{1}` is kept as a resistor of value 1 k:math:`{\Omega}`, and :math:`Z_{2}` is replaced by a capacitor. 
-	
-	A capacitor has an impedance (in :math:`{\Omega}`)
+#. :math:`Z_{1}` is kept as a resistor of value 1 k :math:`{\Omega}`, and :math:`Z_{2}` is replaced by a capacitor. 
 
-    .. math::
+   A capacitor has an impedance (in :math:`{\Omega}`)
 
-        Z = \frac{1}{j\omega C}
+   .. math::
 
-	where :math:`\omega`` is the angular frequency
+      Z = \frac{1}{j\omega C}
 
-    .. math::
+   where :math:`\omega` is the angular frequency
 
-        \omega = 2\pi f
+   .. math::
 
-	:math:`f` is the frequency of the a.c. source in Hz, and :math:`C` is the capacitance. When considering the impedance of the capacitor (not its capacitance in Farads, its impedance in Ohms) the same potential divider equation as in Step 2 is valid without modification. 
-	
-	Make a copy of your code from Step 2. Change the definition of :math:`Z_{2}` to be a complex number:
-		
-    .. code-block:: python
+      \omega = 2\pi f
 
-        z2 = 1 / (1j * w * c)
+   :math:`f` is the frequency of the a.c. source in Hz, and :math:`C` is the capacitance in Farads. When considering the impedance of the capacitor (not its capacitance in Farads, its impedance in Ohms) the same potential divider equation as in Step 2 is valid without modification. 
+
+   Make a copy of your code from Step 2. Change the definition of :math:`Z_{2}` to be a complex number:
+
+   .. code-block:: python
+
+      z2 = 1 / (1j * w * c)
     
-    where :python:`w` is the angular frequency and :python:`c` is the value of the capacitance. Make suitable variables for these, assuming a capacitor of value 1 nF and frequency of 160 kHz.
+   where :python:`w` is the angular frequency and :python:`c` is the value of the capacitance. Make suitable variables for these, assuming a capacitor of value 1 nF and frequency of 160 kHz.
 
-    Modify the :python:`v_in` in your code to be an a.c., sinusoidal signal with a frequency of 160 kHz, phase of 0, and amplitude of 5 V. Mathematically, you can represent this as a phasor, that is, a complex exponential. Recall that from your circuit theory you would represent such an input as :math:`5e^{j\omega}` where :math:`\omega = 2\pi \times 160,000`.
-	
-	In Python you can represent this as 
+   Modify the :python:`v_in` in your code to be an a.c., sinusoidal signal with a frequency of 160 kHz, phase of 0, and amplitude of 5 V. Mathematically, you can represent this as a phasor, that is, a complex exponential. Recall that from your circuit theory you would represent such an input as :math:`5e^{j\omega}` where :math:`\omega = 2\pi \times 160,000`.
 
-    .. code-block:: python
+   In Python you can represent this as 
 
-       v_in = 5 * cmath.exp(1j*2*math.pi*160000)
+   .. code-block:: python
 
-    Assuming that you already have :python:`import cmath` and :python:`import math` in your code.
+      v_in = 5 * cmath.exp(1j*2*math.pi*160000)
 
-    With these two changes, find the magnitude and phase of the output voltage, :math:`V_{out}`. You can do this with the :python:`abs` and :python:`cmath.phase` commands.
+   (assuming that you already have :python:`import cmath` and :python:`import math` in your code).
+
+   With these two changes, find the magnitude and phase of the output voltage, :math:`V_{out}`. You can do this with the :python:`abs` and :python:`cmath.phase` commands.
 
    .. admonition:: Solution
       :class: dropdown
@@ -405,7 +417,7 @@ Electronic engineering problems
 
 
 #. Using your code from above, change the frequency of the input (and the one used in the :python:`z2` equation). Pick some frequency values and see how the magnitude of :math:`V_{out}` changes. (We suggest making quite big steps in frequency, go up and down from 160 kHz by factors of 10, and then 100.)
-	
+
    Based on the results of your simulation, does this circuit act as a high pass filter (where low frequency signals are blocked but high frequency signals passed through) or a low pass filter (where low frequency signals are passed through but high frequency signals are blocked)?
 
    .. admonition:: Solution
