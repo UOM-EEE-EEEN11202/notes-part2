@@ -4,6 +4,8 @@
 .. role:: python(code)
    :language: python
 
+.. _lab_b_stage_2:
+
 Starting commands
 =================
 In the first part of Lab B we did quite a lot of setup, and not a lot of coding. This was to start forming good habits early on, in terms of using version control, virtual environments, and so on.
@@ -42,15 +44,15 @@ In this part we'll look at some basic Python code to get us started with Python.
       mult = 11
       lim_low = 0
       lim_high = 5
-      for i in range(lim_low,lim_high):
-          print(i*mult)
+      for i in range(lim_low, lim_high):
+          print(i * mult)
 
    .. figure:: ./images/python_for_loop.png
       :width: 800
       :align: center
       :alt: Example of a Python for loop
 
-   Notice how :python:`print(i*mult)` is indented. This is how Python determines which parts of the code *belong* to the :python:`for` loop.
+   Notice how :python:`print(i * mult)` is indented. This is how Python determines which parts of the code *belong* to the :python:`for` loop.
 
    Does the code do as you would expect? Ask a demonstrator to help explain the operation if it would be useful.
 
@@ -59,9 +61,9 @@ In this part we'll look at some basic Python code to get us started with Python.
 
       This code will display the numbers 0, 11, 22, 33, and 44. 
       
-      :python:`lim_low` is 0, and :python:`lim_high` is 5. :console:`range(lim_low,lim_high)` makes a list of numbers between these, i.e. 0, 1, 2, 3, and 4. 5 is the stopping point, this isn't included. :python:`for` is a loop which goes through each of these numbers in turn, putting them in the variable :python:`i`. The code then carries out the multiplication :python:`i*mult`.
+      :python:`lim_low` is 0, and :python:`lim_high` is 5. :console:`range(lim_low, lim_high)` makes a list of numbers between these, i.e. 0, 1, 2, 3, and 4. 5 is the stopping point, this isn't included. :python:`for` is a loop which goes through each of these numbers in turn, putting them in the variable :python:`i`. The code then carries out the multiplication :python:`i * mult`.
 
-      Even in this simple example, there are no *hard coded* values. It's tempting to write :python:`range(0,5)` or similar. However, this can give very fragile code. If we want to use the 5 somewhere else in the code as well as here, it's better to put the number in a variable and use the variable everywhere. That way, if the number changes at some point in the future the new value will automatically be used everywhere that the variable is used.
+      Even in this simple example, there are no *hard coded* values. It's tempting to write :python:`range(0, 5)` or similar. However, this can give very fragile code. If we want to use the 5 somewhere else in the code as well as here, it's better to put the number in a variable and use the variable everywhere. That way, if the number changes at some point in the future the new value will automatically be used everywhere that the variable is used.
 
 
 #. Add a new *Markdown cell* by clicking on the :console:`+ Markdown` button.
@@ -99,8 +101,8 @@ In this part we'll look at some basic Python code to get us started with Python.
 
       # Make a sine wave
       sample_start = 0
-      sample_stop  = 100
-      t = range(sample_start, sample_stop) # interpret as representing 1 s, 2 s, 3 s, ...
+      sample_stop = 100
+      t = range(sample_start, sample_stop)  # interpret as representing 1 s, 2 s, 3 s, ...
 
    :python:`t` will produce numbers 0, 1, 2, 3, up to :python:`sample_stop-1`, and we as humans can think of these as representing time points, 0 second, 1 second, and so on. 
 
@@ -116,8 +118,9 @@ In this part we'll look at some basic Python code to get us started with Python.
       
       # Calculate the sine wave
       import math
-      A = 1 # Volts
-      f = 0.1 # Hz
+
+      A = 1  # Volts
+      f = 0.1  # Hz
       v_out = [A * math.sin(2 * math.pi * f * time) for time in t]
     
    :python:`math.pi` contains 3.1415..., the value of :math:`\pi`. Here there is a small :python:`for` loop which goes through each value in :python:`t`, puts it in a `list <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#lists>`_ called :python:`time`, and calculates the value of :python:`v_out` for each value of :python:`time`.
@@ -131,7 +134,7 @@ In this part we'll look at some basic Python code to get us started with Python.
 
 #. The variable explorer is very useful for examining the results of calculations, checking that variables contain the correct thing, and so on. It has more functionality, but we need to install a Python `module <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#packages-from-online-repositories>`_ called Pandas to add this functionality. Pandas is very widely used, but it's not part of the `standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_ so we need to ensure it's in the virtual environment by installing it ourselves.
 
-   Click on the :console:`Terminal` tab in VSCode. It should look like the below. You should see that :console:`(.venv)` is present, indicating the virtual environment we're working in is active. (If not, make sure the terminal is in the :console:`lab_b` folder, and then activate the :console:.`venv` with :console:`source .venv/bin/activate`.) You should also see that the command prompt looks like :console:`$`, indicating that this is the computer's terminal, not a Python terminal (which would be :console:`>>>`).
+   Click on the :console:`Terminal` tab in VSCode. It should look like the below. You should see that :console:`(.venv)` is present, indicating the virtual environment we're working in is active. (If not, make sure the terminal is in the :console:`lab_b` folder, and then activate the :console:`.venv` with :console:`source .venv/bin/activate`.) You should also see that the command prompt looks like :console:`$`, indicating that this is the computer's terminal, not a Python terminal (which would be :console:`>>>`).
 
    .. figure:: ./images/vscode_integrated_terminal.png
       :width: 800
@@ -190,6 +193,7 @@ In this part we'll look at some basic Python code to get us started with Python.
    
       # Plot the sine wave
       import plotly.express as px
+
       fig = px.line(x=t, y=v_out, labels={'x': 'Time [s]', 'y': 'Voltage [V]'})
       fig.show()
 
@@ -208,8 +212,8 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    .. code-block:: python
    
-      A = 1 # Volts
-      f = 0.1 # Hz
+      A = 1  # Volts
+      f = 0.1  # Hz
     
    again and re-run the code before proceeding.
 
@@ -326,10 +330,10 @@ Electronic engineering problems
 
       .. code-block:: python
 
-         # Calculate the total resistance
-         r_values = range(10, 100, 10)  # kOhm values
-         r_intermediate = [1/r for r in r_values] # broken into two lines for readability
-         r_t = 1/sum(r_intermediate)  # kOhm values
+      # Calculate the total resistance
+      r_values = range(10, 100, 10)  # kOhm values
+      r_intermediate = [1 / r for r in r_values]  # broken into two lines for readability
+      r_t = 1 / sum(r_intermediate)  # kOhm values
 
 
 #. A potential divider is made when the output voltage is taken from a point between two impedances, labelled :math:`Z_{1}` and :math:`Z_{2}` in the figure below.
@@ -355,8 +359,8 @@ Electronic engineering problems
     
       # Potential divider example
       v_in = 10
-      z1 = 1 # kOhm
-      z2 = 10 # kOhm
+      z1 = 1  # kOhm
+      z2 = 10  # kOhm
       v_out = (z2 * v_in) / (z1 + z2)  # Volts
 
 
@@ -390,7 +394,7 @@ Electronic engineering problems
 
    .. code-block:: python
 
-      v_in = 5 * cmath.exp(1j*2*math.pi*160000)
+      v_in = 5 * cmath.exp(1j * 2 * math.pi * 160000)
 
    (assuming that you already have :python:`import cmath` and :python:`import math` in your code).
 
@@ -400,17 +404,20 @@ Electronic engineering problems
       :class: dropdown
 
       .. code-block:: python
+         
+         import cmath
+         import math
 
          # Potential divider where z2 is a capacitor
-         f = 160000 # Hz
-         w = 2 * math.pi * f # rad/s
-         
-         v_in = 5 * cmath.exp(1j*2*math.pi*160000)
-         
-         z1 = 1 # kOhm
-         c = 1e-9 # Farads
-         z2 = 1 / (1j * w * c) 
-         
+         f = 160000  # Hz
+         w = 2 * math.pi * f  # rad/s
+
+         v_in = 5 * cmath.exp(1j * w)
+
+         z1 = 1  # kOhm
+         c = 1e-9  # Farads
+         z2 = 1 / (1j * w * c)
+
          v_out = (z2 * v_in) / (z1 + z2)  # Volts
          vout_mag = abs(v_out)
          vout_phase = cmath.phase(v_out)

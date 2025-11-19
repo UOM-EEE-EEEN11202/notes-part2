@@ -8,3 +8,4 @@ In Lab C we're going to make a Python project. Essentially, organising the code 
 
    lab_c_stage_1
    lab_c_stage_2
+   assignment_c

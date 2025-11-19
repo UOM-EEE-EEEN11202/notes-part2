@@ -248,15 +248,15 @@
     &gt; That&#x27;s not correct. You can run a virtual environment on a cloud computer, but *virtual* doesn&#x27;t mean it can only be on the cloud.
 1. [ ] To obscure the code so that it can&#x27;t be read be copied by others.
     &gt; That&#x27;s not correct. In general virtual environments help make the code easier for others to use, as they know exactly which versions of Python and external libraries are needed to make it work.
-1. [ ] To provide an integrated development environment (IDE) for writing and running Python code.
+1. [ ] To provide an Integrated Development Environment (IDE) for writing and running Python code.
     &gt; That&#x27;s not correct. An IDE brings together all of the different tools we use for writing, testing, and running our code. A virtual environment is one of the tools we access, from within VSCode (the IDE) in our case.
 
 
-## Which command activates a virtual environment called :console:`venv`?
+## Which command activates a virtual environment called `venv`?
 
-1. [x] :python:`source .venv/bin/activate`
+1. [x] `source .venv/bin/activate`
     &gt; That&#x27;s correct! This assumes the terminal is in the same folder as the virtual environment. It also assumes you&#x27;re using Linux or macOS as the development environment (which we do in the devcontainer). If using Windows, the command is a bit different. e
-1. [ ] :python:`start .venv`
+1. [ ] `start .venv`
     &gt; That&#x27;s not correct.
 
 
@@ -268,113 +268,106 @@
     &gt; That&#x27;s not correct. Python code will work without a virtual environment, but it&#x27;s not good practice in general.
 
 
-## Why can we use :python:`import math` in our Python code directly, whereas to use :python:`import pandas` we first need to add a module to the virtual environment?
+## Why can we use `import math` in our Python code directly, whereas to use `import pandas` we first need to add a module to the virtual environment?
 
-1. [ ] This is incorrect. Both :ptyhon:`math` and :python:`pandas` can be used without any further actions.
+1. [ ] This is incorrect. Both `import math` and `import pandas` can be used without any further actions.
     &gt; That&#x27;s not correct. The statement in the question is right Try again.
-1. [ ] This is incorrect. Both :python:`math` and :python:`pandas` need to be added to a virtual environment before they can be used.
+1. [ ] This is incorrect. Both `import math` and `import pandas` need to be added to a virtual environment before they can be used.
     &gt; That&#x27;s not correct. The statement in the question is right Try again.
-1. [ ] :python:`import math` doesn&#x27;t actually do anything, the same functions are present even without this line of code.
-    &gt; That&#x27;s not correct. :python:`import math` adds the ability for Python to use a wide number of common mathematical functions, such as :python:`math.sin()`, which couldn&#x27;t be used in the code without this statement.
-1. [ ] :python:`pandas` is only available on some computer platforms.
-      &gt; That&#x27;s not correct. :python:`pandas` is available on all platforms that support Python, but it is not part of the `standard library &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library&gt;`_.
-1. [X] :python:`math` is part of the `standard library &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library&gt;`_ installed with Python, and :python:`pandas` is not.
+1. [ ] `import math` doesn&#x27;t actually do anything, the same functions are present even without this line of code.
+    &gt; That&#x27;s not correct. `import math` adds the ability for Python to use a wide number of common mathematical functions, such as `math.sin()`, which couldn&#x27;t be used in the code without this statement.
+1. [ ] `pandas` is only available on some computer platforms.
+      &gt; That&#x27;s not correct. `pandas` is available on all platforms that support Python, but it is not part of the standard library.
+1. [X] `math` is part of the standard library installed with Python, and `pandas` is not.
     &gt; That&#x27;s correct!
 
 
-## What does the :python:`print()` function do?
+## What does the `print()` function do?
 
 1. [x] It displays a string that&#x27;s within the brackets to the standard output, usually the terminal.
     &gt; That&#x27;s correct!
 1. [ ] It displays text that&#x27;s within the brackets to the standard error, usually the terminal.
-    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. :python:`print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
+    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. `print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
 1. [ ] It displays anything that&#x27;s within the brackets to the standard output, usually the terminal.
-    &gt; That&#x27;s not correct. In general :python:`print()` displays text. TO display something else it first needs to be converted to text, for example with :python:`str()` or an f-string.
+    &gt; That&#x27;s not correct. In general `print()` displays text. TO display something else it first needs to be converted to text, for example with `str()` or an f-string.
 1. [ ] It displays anything that&#x27;s within the brackets to the standard error, usually the terminal.
-    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. :python:`print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
+    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. `print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
 1. [ ] If a printer is connected to the computer, it prints out the Python file.
-    &gt; That&#x27;s not correct. :python:`print()` doesn&#x27;t have any relationship with using a physical printer.
+    &gt; That&#x27;s not correct. `print()` doesn&#x27;t have any relationship with using a physical printer.
 
 
 ## Why will the code below not run?
 
-.. code-block:: python
+`mult = 11` &lt;br /&gt;
+`lim_low = 0` &lt;br /&gt;
+`lim_high = 5` &lt;br /&gt;
+`for i in range(lim_low,lim_high):` &lt;br /&gt;
+`    print(i*mult)`
 
-   mult = 11
-   lim_low = 0
-   lim_high = 5
-   for i in range(lim_low,lim_high):
-   print(i*mult)
-
-1. [ ] It is not valid Python to do the sum :python:`i*mult` within the :python:`print()` statement.
+1. [ ] It is not valid Python to do the sum `i*mult` within the `print()` statement.
     &gt; That&#x27;s not correct. You can nest commands like this, as long as you think the code is sufficiently readable.
 1. [x] The print statement is not indented. In Python, indentation is used to define blocks of code, such as the body of a loop or function.
     &gt; That&#x27;s correct!
-1. [ ] There should not be a colon :python:`:` at the end of the :python:`for` statement.
+1. [ ] There should not be a colon `:` at the end of the `for` statement.
     &gt; That&#x27;s not correct. This is required Python syntax.
-1. [ ] :python:`range()` is not a built-in Python function and so an :python:`import` statement is needed.
-    &gt; That&#x27;s not correct. :python:`range()` is a core Python function and can be used without an :python:`import` statement.
-1. [ ] :python:`i` represents a complex number, it can&#x27;t be used to represent something else.
-    &gt; That&#x27;s not correct. :python:`1i` represents a complex number, to differentiate it from :python:`i` which can be the name of a variable if you want. Indeed :python:`i` is commonly used to count how many times a loop has run.
+1. [ ] `range()` is not a built-in Python function and so an `import` statement is needed.
+    &gt; That&#x27;s not correct. `range()` is a core Python function and can be used without an `import` statement.
+1. [ ] `i` represents a complex number, it can&#x27;t be used to represent something else.
+    &gt; That&#x27;s not correct. `1i` represents a complex number, to differentiate it from `i` which can be the name of a variable if you want. Indeed `i` is commonly used to count how many times a loop has run.
 
 
 ## Is the data below stored in a tuple or in a list?
 
-.. code-block:: python
-
-   v = (1, 2, 3, 4, 5)
+`v = (1, 2, 3, 4, 5)`
 
 1. [ ] List
-    &gt; That&#x27;s not correct. Refresh yourself on `storing multiple values &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#storing-multiple-values&gt;`_
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
 1. [x] Tuple
     &gt; That&#x27;s correct!
 
 
 ## What type of data structure is being used in the code below?
 
-.. code-block:: python
-   l1 = {&quot;component_number&quot;: 4, &quot;type&quot;: &quot;inductor&quot;, &quot;value&quot;: 1e-3, &quot;units&quot;: &quot;H&quot;}
+`l1 = {&quot;component_number&quot;: 4, &quot;type&quot;: &quot;inductor&quot;, &quot;value&quot;: 1e-3, &quot;units&quot;: &quot;H&quot;}`
 
 1. [ ] List
-    &gt; That&#x27;s not correct. Refresh yourself on `storing multiple values &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#storing-multiple-values&gt;`_
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
 1. [ ] Tuple
-    &gt; That&#x27;s not correct. Refresh yourself on `storing multiple values &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#storing-multiple-values&gt;`_
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
 1. [x] Dictionary
     &gt; That&#x27;s correct!
 1. [ ] DataFrame
-    &gt; That&#x27;s not correct. Refresh yourself on `storing multiple values &lt;https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#storing-multiple-values&gt;`_
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
 1. [ ] Object
     &gt; That&#x27;s not correct (for the purposes of this quiz). This code defines a dictionary, which is the answer we want. A dictionary is a type of object, and has methods that can be applied to the data stored in the dictionary. Object is a less specific answer than dictionary for this example though.
 
 
 ## How do you enter a complex number in Python? Select all that apply.
 
-- [x] :python:`1i`
-- [x] :python:`1j`
-- [x] :python:`complex(0,1)`
-- [x] :python:`cmath.exp(1i)`
-- [x] :python:`cmath.exp(1j)`
+- [x] `1i`
+- [x] `1j`
+- [x] `complex(0,1)`
+- [x] `cmath.exp(1i)`
+- [x] `cmath.exp(1j)`
 
 
 ## What will be the output of the code below? Select all that apply.
 
-.. code-block:: python
-
-   x = 1
-   if x &lt; 0:
-      x = 2
-   print(&quot;x is less than 0)
+`x = 1` &lt;br /&gt;
+`if x &lt; 0:` &lt;br /&gt;
+`   x = 2` &lt;br /&gt;
+`print(&quot;x is less than 0&quot;)`
 
 - [x] It will display &quot;x is less than 0&quot;
-   &gt; That&#x27;s correct! It&#x27;s probably not what the writer wanted the code to do, because :python:`x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the :python:`x = 2` command.
+   &gt; That&#x27;s correct! It&#x27;s probably not what the writer wanted the code to do, because `x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the `x = 2` command.
 - [ ] It won&#x27;t display anything
-   &gt; That&#x27;s not correct It&#x27;s probably what the writer wanted the code to do, because :python:`x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the :python:`x = 2` command.
-- [ ] It will set :python:`x` to 2.
-   &gt; That&#x27;s not correct. :python:`x = 2` is within the if statment, which won&#x27;t run in this case because :python:`x = 1`.
-- [x] The value of :python:`x` will stay at 1
+   &gt; That&#x27;s not correct It&#x27;s probably what the writer wanted the code to do, because `x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the `x = 2` command.
+- [ ] It will set `x` to 2.
+   &gt; That&#x27;s not correct. `x = 2` is within the if statment, which won&#x27;t run in this case because `x = 1`.
+- [x] The value of `x` will stay at 1
    &gt; That&#x27;s correct!
-- [ ] It will set :python:`x` to a number less than 0.
-   &gt; That&#x27;s not correct. :python:`if x &lt; 0` compares :python:`x` to 0, but doesn&#x27;t change the value of :python:`x`</div></section>
+- [ ] It will set `x` to a number less than 0.
+   &gt; That&#x27;s not correct. `if x &lt; 0` compares `x` to 0, but doesn&#x27;t change the value of `x`</div></section>
 
 </main>
                         <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">

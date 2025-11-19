@@ -8,3 +8,4 @@ Lab D
 
    lab_d_stage_1
    lab_d_stage_2
+   assignment_d

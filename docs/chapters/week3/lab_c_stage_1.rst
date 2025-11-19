@@ -10,118 +10,394 @@
 Setting up a Python project
 ===========================
 
-Starting the programming environment
-------------------------------------
-First we need to start VSCode in our devcontainer. There's nothing new here. It's exactly the same as in Week 2. 
-
-#. The Github Classroom link for Lab C is:
-
-   .. admonition:: GitHub Classroom link
-
-      `<https://classroom.github.com/a/ycLvpHIy>`_
-
-   Follow the instructions as in :ref:`Lab B <starting_the_environment>` to add this repository to your account and to open it in VSCode. Everything is exactly the same as in Lab B, we're just doing Lab C now. 
+#. Start VSCode and make sure you are working in the Lab C folder. If needed, select :console:`Terminal / New Terminal` and select Lab C, to make a terminal in the correct location. 
 
 
+#. In VSCode, at the terminal enter
 
-Making a blank Python project
------------------------------
+   .. prompt::
+      :language: bash
 
-#. We make a project at the computer's terminal, not within Python. With the terminal in VSCode, enter:
+      uv init .
 
-    .. code-block:: console
-    
-       $ uv init --package .
-    
-    This will create a new project in the current folder. Using the file explorer you should be able to see that a :console:`pyproject.toml` file has been created, and a folder called :console:`src` to contain the code. You can list the file present using commands at the terminal if you prefer. Using :console:`ls -R` will list everything that's present. Your view should look similar to the below.
+   This will make a new Python project in the current folder. It will be named automatically after the folder name.
 
-    .. figure:: ./images/uv_init.png
+
+#. You'll see that three files have been automatically created for you:
+
+   - :console:`.python-version`
+   - :console:`pyproject.toml`
+   - :console:`main.py`
+
+   .. figure:: ./images/vscode_blank_python_project.png
       :width: 800
       :align: center
-      :alt: Starting a new Python project with uv
+      :alt: VSCode after making a new Python project
 
-#. You'll see that it hasn't made a :console:`tests` folder for storing our tests in, or a :console:`docs` folder for documentation. Make these with
+   :console:`.python-version` sets the Python version to use. We don't need to look at it, it will have been set to a default version. 
 
-   We'll make these later, but for now we can ignore them. Make these using VSCode by clicking the :console:`New Folder...` button that appears when you hover over the folder name. Or, making them using the command line by enterting the two commands:
 
-      .. code-block:: console
+#. Open the :console:`pyproject.toml` file. This will look like
 
-         $ mkdir tests
-         $ mkdir docs
-    
-   Your view should look similar to the below. We're not actually going to use these folders in this lab, but we now have a complete project structure. We'll look at adding tests in :ref:`Lab D <lab_d>` 
+   .. code-block:: toml
 
-   .. figure:: ./images/vscode_new_folder.png
+      [project]
+      name = "lab-c"
+      version = "0.1.0"
+      description = "Add your description here"
+      readme = "README.md"
+      requires-python = ">=3.14"
+      dependencies = []
+
+   The project has been given a name (:console:`lab-c`) based on the folder name. There's the option to give a version number and some description. At the moment we haven't added any dependencies, so the :console:`dependencies` list is empty.
+
+
+#. Open the :console:`main.py` file. This is where our Python code will go. We can of course change the name if we would like to. You'll see that some boilerplate code has been added to get started
+
+   .. code-block:: python
+
+      def main():
+          print("Hello from lab-c!")
+
+      if __name__ == "__main__":
+          main()
+
+   Run the code by entering the command
+
+   .. prompt::
+      :language: bash
+
+      uv run main.py
+
+   You'll see :console:`Hello from lab-c!` displayed in the terminal. You'll also see that a virtual environment has been automatically created and is being used. (The :console:`uv init .` command doesn't actually make the environment for you, it just makes the files.) Due to the setup of VSCode, the graphical buttons to run a Python script won't work until the virtual environment has been created.
+
+   .. figure:: ./images/uv_run.png
       :width: 800
       :align: center
-      :alt: Making the tests and docs folders in VSCode
+      :alt: Running a script with uv run
 
-   .. admonition:: Aside
+#. :console:`main.py` uses `functions <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/functions.html>`_. The block in :python:`if __name__ == "__main__":` is what is actually run when the code starts. Here it just calls the function called :python:`main`. 
 
-      There are Python tools such as `cookiecutter <https://cookiecutter.readthedocs.io/en/stable/>`_ that can automate this process further, so you don't need to make these additional items by hand.
+   A function is defined with the :python:`def` keyword, followed by the name of the function. Here the function :python:`main` just displays some text to the screen.
+
+   Good practice is generally to do as little as possible under :python:`if __name__ == "__main__":` and instead put most of the code in functions. This makes it easier to test the code later, as we'll learn about in :ref:`Lab D <lab_d>`.
 
 
+Porting the sine wave example from Lab B
+========================================
+In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. Let's repeat that example, but using the new project structure. 
 
-Exploring the project
----------------------
+#. Replace the code in your :console:`main.py` file with the following
 
-#. We're now ready to start writing our project code. First, we'll explore the project files a little bit. Open the :console:`pyproject.toml` file in VSCode by clicking on it in the file explorer. It will contain text similar to the below (the exact details may vary on your computer).
+   .. code-block:: python
 
-    .. code-block:: toml
-    
-       [project]
-       name = "lab-c-alex-casson-lab"
-       version = "0.1.0"
-       description = "Add your description here"
-       readme = "README.md"
-       authors = [
-           { name = "Alex Casson", email = "alex.casson@manchester.ac.uk" }
-       ]
-       requires-python = ">=3.13"
-       dependencies = []
+      import math
 
-       [project.scripts]
-       lab-c-alex-casson-lab = "lab_c_alex_casson_lab:main"
+      import plotly.express as px
 
-       [build-system]
-       requires = ["hatchling"]
-       build-backend = "hatchling.build"
 
-   Information is arranged into sections. We'll ignore the :toml:`[project.scripts]` and :toml:`[build-system]` sections. They're for more advanced use. In the :toml:`[project]` section, it gives the project a name and a version. It list the authors, so anyone using or maintaing the project in the future can see who wrote it. It also lists the minimum version of Python that is needed to run the code. We haven't installed any external modules yet, so the :toml:`dependencies` entry is empty.
+      def make_sine_wave():
+          """
+          Make a sine wave signal
+          TO DO: replace range with a numpy array
+
+          Returns: t: time samples
+          v_out: voltage samples
+          """
+          sample_start = 0
+          sample_stop = 100
+          A = 1  # Volts
+          f = 0.1  # Hz
+          t = range(sample_start, sample_stop)  # interpret as representing 1 s, 2 s, 3 s, ...
+          v_out = [A * math.sin(2 * math.pi * f * time) for time in t]
+          return t, v_out
+
+
+      def plot_sine_wave(t, v_out):
+          """Plot a sine wave using plotly and label the axes"""
+          fig = px.line(x=t, y=v_out, labels={"x": "Time [s]", "y": "Voltage [V]"})
+          fig.show()
+
+
+      if __name__ == "__main__":
+          t, v_out = make_sine_wave()
+          plot_sine_wave(t, v_out)
+
    
-   we can see the name of the project, the version, and so on. The :toml:`dependencies` section is where we will list the external modules that are needed for our code to work. For now, it's empty.
+   This requires the external library :python:`plotly`, so we need to add that as a dependency. (It also needs :python:`numpy` and :python:`pandas`.) If you press the Run button before installing this, the program won't work.
 
-   You can edit the :console:`pyproject.toml` file by hand if you want to, but in many cases won't need to. Things will be automatically added to it for us, and it can just exist in the background, keeping a record of the settings needed for the Python project. 
+   To install the dependency do one of
 
-   Note that we haven't actually made a virtual environment as we did in :ref:`Lab B <lab_b>`. This will now be done for us automatically in the background, using the settings in :console:`pyproject.toml`.
+   .. prompt::
+      :language: bash
 
+      uv add plotly numpy pandas
 
-
-Adding dependencies
--------------------
-
-In the next part of the lab we're going to use :console:`numpy` and :console:`scipy`, as very commonly used Python modules in Engineering. Let's add them to the project now so we can see what happens to :console:`pyproject.toml` while we have it open.
-
-#. At the command line enter
-
-   .. code-block:: console
-
-      $ uv add numpy scipy
-
-   This will make a new virtual environment, and install the :console:`numpy` and :console:`scipy` modules into it. It will also update the :console:`pyproject.toml` file to include these modules as dependencies. If you still have :console:`pyproject.toml` open, it may take a minute or two to update, but you should see that the :toml:`dependencies` section now includes these modules. We now have a record of exactly which versions of :console:`numpy` and :console:`scipy` are needed for the code to work. You can of course change this to use specific versions, or different versions if you wanted. Here we've just asked it to use the latest version. You may well see higher version numbers if there have been updates to these modules since this course was written.
+   Once the dependencies are installed, you can run the code with
    
-   Your VSCode should now look similar to the below. Again, you don't need to edit this file by hand, we're just viewing it to see what's happening behind the scenes. 
+   .. prompt::
+      :language: bash
 
-   .. figure:: ./images/vscode_pyproject.png
-      :width: 800
+      uv run main.py
+      
+   or by using the Run button in VSCode.
+
+   You should see the sine wave plot displayed as a graph in a web browser. You can use the bottons in this to zoom in, and so on, to explore the plot
+
+   .. figure:: ./images/sine_wave.png
+      :width: 500
       :align: center
-      :alt: Viewing pyproject.toml after adding dependencies
-
-    If your code has more dependencies you can add them in the same way. 
+      :alt: Sine wave plot in a web browser
 
 
-Hello world example
--------------------
-As with :ref:`Lab B <starting_the_environment>`, we've taken quite a few steps to get to the point where we can start writing code. This was deliberate - we could have jumped straight in for a starting point like this, but we wanted to starting building techniques that will be useful as your projects get larger. Once you're used to them they're quite quick to do. Anyway, we're now ready to write some code.
+#. Although the above example is brief, there's lots to explore and think about.
 
-Make a new file called :console:`hello_world.py` in the :console:`src` folder. 
+   Firstly, open the :console:`pyproject.toml` file again. It will now contain something like
+
+   .. code-block:: toml
+
+      [project]
+      name = "lab-c"
+      version = "0.1.0"
+      description = "Add your description here"
+      readme = "README.md"
+      requires-python = ">=3.14"
+      dependencies = [
+          "numpy>=2.3.5",
+          "pandas>=2.3.3",
+          "plotly>=6.4.0",
+      ]
+
+   It now contains details on what version of Python, and the external libraries, are needed for the code to run. If you were to share this project with someone else, they could use this file to set up their own environment with the correct dependencies automatically. (There is a :console:`uv sync` command to make a virtual environment match a :console:`pyproject.toml` file.)
+
+   For a small project like this, the precise versions of the different tools used probably doesn't matter too much. However, it can be very important for larger projects developed over a period of time.
+
+
+#. Secondly, the code that runs when the program starts is
+
+   .. code-block:: python
+
+      if __name__ == "__main__":
+          t, v_out = make_sine_wave()
+          plot_sine_wave(t, v_out)
+
+   The aim is for this to be readable, by inspection, to see that the code does what we want it to. This is easy when there's only two steps as in the above, we want to make a sine wave and then plot it.
+
+   To understand the other parts of the code:
+
+   - :python:`make_sine_wave()` doesn't take any inputs, there's nothing between the brackets :python:`()`. 
+   - :python:`plot_sine_wave(t, v_out)` takes two inputs. These input are the outputs of :python:`make_sine_wave()`, assigned by placing them on the left hand side of the :python:`=` sign. 
+   - Inside the definition of the :python:`make_sine_wave()` function, the two outputs are defined by the :python:`return` statement. 
+   - Inside the definition of the :python:`plot_sine_wave(t, v_out)` function, the two inputs are defined by the items between the brackets :python:`(t, v_out)`. Otherwise, the Python code is unchanged from previously (just indented to show which code belongs to which block).
+   - Both functions start with a `docstring <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/docstrings.html>`_ to add some documentation.
+
+
+Porting the RC circuit simulation example from Lab B
+====================================================
+Let's now port the other example that we had in :ref:`Lab B <lab_b_stage_2>`, the RC circuit simulation. This was simulating the potential divider shown below 
+
+.. figure:: ./images/potential_divider_capacitor.png
+   :width: 500
+   :align: center
+   :alt: Drawing of a potential divider
+
+where :math:`Z_{1}` is a resistor and :math:`Z_{2}` is a capacitor with impedance 
+
+.. math::
+
+   Z = \frac{1}{j\omega C}
+
+where :math:`\omega` is the angular frequency
+
+.. math::
+
+   \omega = 2\pi f
+
+The output voltage is given by
+
+.. math::
+
+   V_{out} = \frac{Z_{2}V_{in}}{Z_{1} + Z_{2}}
+
+Your code will have looked like the below.
+
+.. code-block:: python
+
+   # Potential divider where z2 is a capacitor
+   import cmath
+   import math
+
+   f = 160000  # Hz
+   w = 2 * math.pi * f  # rad/s
+
+   v_in = 5 * cmath.exp(1j * w)
+
+   z1 = 1  # kOhm
+   c = 1e-9  # Farads
+   z2 = 1 / (1j * w * c)
+
+   v_out = (z2 * v_in) / (z1 + z2)  # Volts
+   vout_mag = abs(v_out)
+   vout_phase = cmath.phase(v_out)
+
+
+#. Refactor this code to use an :python:`if __name__ == "__main__":` block and functions, similar to the sine wave example above. ALso, add code to display :python:`vout_mag` and :python:`vout_phase` to the screen. 
+
+   In your Lab C files you will see a file called :console:`lpf.py` which contains some starter code for this. :python:`...` indicates where you need to add code.
+
+   .. admonition:: Solution
+      :class: dropdown
+
+      .. code-block:: python
+
+         """
+         Calculate the output voltage magnitude and phase of an RC low-pass filter
+         """
+
+         import cmath
+         import math
+
+
+         def calculate_circuit_output(f):
+             """
+             Calculate the output voltage magnitude and phase of an RC low-pass filter
+             given an input frequency f in Hz.
+             Returns: vout_mag: output voltage magnitude in Volts
+                      vout_phase: output voltage phase in radians
+             """
+
+             # Calculate input
+             w = 2 * math.pi * f  # rad/s
+             v_in = 5 * cmath.exp(1j * w)
+
+             # Define the circuit
+             z1 = 1  # kOhm
+             c = 1e-9  # Farads
+             z2 = 1 / (1j * w * c)
+             v_out = (z2 * v_in) / (z1 + z2)  # Volts
+
+             # Calculate magnitude and phase
+             vout_mag = abs(v_out)
+             vout_phase = cmath.phase(v_out)
+
+             return vout_mag, vout_phase
+
+
+         def display_results(vout_mag, vout_phase):
+             """Display the output voltage magnitude and phase using an f string"""
+             print(f"Output voltage magnitude: {vout_mag} V")
+             print(f"Output voltage phase: {vout_phase} radians")
+
+
+         if __name__ == "__main__":
+             f = input("Enter frequency in Hz: ")  # remember f will be a string
+             vout_mag, vout_phase = calculate_circuit_output(float(f))
+             display_results(vout_mag, vout_phase)
+
+
+#. In practice in electronics it's common to display :math:`V_{out}` not as a Voltage, but as the gain of the circuit. That is, the ratio 
+
+   .. math::
+
+      G = \frac{V_{out}}{V_{in}}
+
+   Moreover, this is usually expressed in decibels (dB) by using the equation
+
+   .. math::
+
+      G_{dB} = 20 \log_{10}\left(\frac{V_{out}}{V_{in}}\right)
+
+   Modify your code to display the gain in dB instead of the output voltage magnitude.
+
+   .. admonition:: Solution
+      :class: dropdown
+
+      .. code-block:: python
+
+         """
+         Calculate the output voltage magnitude and phase of an RC low-pass filter
+         """
+
+         import cmath
+         import math
+
+
+         def calculate_circuit_output(f):
+             """
+             Calculate the output voltage magnitude and phase of an RC low-pass filter
+             given an input frequency f in Hz.
+             Returns: vout_mag: output voltage magnitude in Volts
+                      vout_phase: output voltage phase in radians
+             """
+
+             # Calculate input
+             w = 2 * math.pi * f  # rad/s
+             a = 5  # input amplitude in Volts
+             v_in = a * cmath.exp(1j * 2 * math.pi * 160000)
+
+             # Define the circuit
+             z1 = 1  # kOhm
+             c = 1e-9  # Farads
+             z2 = 1 / (1j * w * c)
+             v_out = (z2 * v_in) / (z1 + z2)  # Volts
+
+             # Calculate magnitude and phase
+             vout_mag = abs(v_out)
+             vout_mag_db = 20 * math.log10(
+                 vout_mag / a
+             )  # remember to divide by the input amplitude
+             vout_phase = cmath.phase(v_out)
+
+             return vout_mag_db, vout_phase
+
+
+         def display_results(vout_mag, vout_phase):
+             """Display the output voltage magnitude and phase using an f string"""
+             print(f"Output voltage magnitude: {vout_mag} dB")
+             print(f"Output voltage phase: {vout_phase} radians")
+
+
+         if __name__ == "__main__":
+             f = input("Enter frequency in Hz: ")  # remember f will be a string
+             vout_mag, vout_phase = calculate_circuit_output(float(f))
+             display_results(vout_mag, vout_phase)
+
+
+
+#. Check in your code to Git before proceeding.
+
+   .. tab-set::
+      :sync-group: gui_cli
+
+      .. tab-item:: :fab:`fa-display` GUI
+         :sync: key4
+
+         #. Click on the :console:`Source Control` tab in the left hand menu. You may need to click :console:`Refresh` for it to pick up your changes. 
+
+         #. Enter a message such as "Completed the first part of Lab C" in the message box.
+
+         #. Click :console:`Commit`. This checks the files in to the local repository. 
+      
+            .. figure:: ./images/vscode_lab_c_commit.png
+               :width: 800
+               :align: center
+               :alt: Committing Lab C files
+
+         #. Click :console:`Sync Changes`. This checks the files in to the remote repository.
+
+            .. figure:: ./images/vscode_lab_c_sync.png
+               :width: 800
+               :align: center
+               :alt: Syncing Lab C files with the remote repository
+
+      .. tab-item:: :fab:`fa-terminal` CLI
+         :sync: key5
+
+         Enter the commands
+
+         .. prompt::
+            :language: bash
+
+            git commit -a -m "Completed the first part of Lab C"
+            git fetch
+            git push
