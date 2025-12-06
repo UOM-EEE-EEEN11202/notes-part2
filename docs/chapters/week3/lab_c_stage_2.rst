@@ -541,3 +541,5 @@ We've kept this task fairly open ended for you to think about how you want to ap
    are *hard coded*. They assume that the first line of the file will have the start frequency, the second line the stop frequency, and the third line the step size. If the file format changes, or the user doesn't create that file correctly, the code will break.
 
    As an optional challenge, add a :python:`match` statement that uses the text part of the file loaded in to assign the correct value to the correct variable, whatever order they are in in the file. (We won't provide a solution for this optional challenge, but feel free to ask a demonstrator to look at your solution.)
+
+#. Check in your code to Git before moving on. The instructions are the same as :ref:`in the first part of this lab <lab_c_stage_1>`.
