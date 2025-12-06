@@ -7,10 +7,12 @@
 .. role:: toml(code)
    :language: toml
 
+.. _lab_c_stage_1:
+
 Setting up a Python project
 ===========================
 
-#. Start VSCode and make sure you are working in the Lab C folder. If needed, select :console:`Terminal / New Terminal` and select Lab C, to make a terminal in the correct location. 
+#. Start VSCode and make sure you are working in the Lab C folder. If needed, on the menu bar select :console:`Terminal / New Terminal` and select Lab C, to make a terminal in the correct location. 
 
 
 #. In VSCode, at the terminal enter
@@ -52,7 +54,7 @@ Setting up a Python project
    The project has been given a name (:console:`lab-c`) based on the folder name. There's the option to give a version number and some description. At the moment we haven't added any dependencies, so the :console:`dependencies` list is empty.
 
 
-#. Open the :console:`main.py` file. This is where our Python code will go. We can of course change the name if we would like to. You'll see that some boilerplate code has been added to get started
+#. Open the :console:`main.py` file. This is where our Python code will go. We can of course change the file name if we would like to. You'll see that some *boilerplate* code has been added to get started
 
    .. code-block:: python
 
@@ -69,7 +71,7 @@ Setting up a Python project
 
       uv run main.py
 
-   You'll see :console:`Hello from lab-c!` displayed in the terminal. You'll also see that a virtual environment has been automatically created and is being used. (The :console:`uv init .` command doesn't actually make the environment for you, it just makes the files.) Due to the setup of VSCode, the graphical buttons to run a Python script won't work until the virtual environment has been created.
+   You'll see :console:`Hello from lab-c!` displayed in the terminal. You'll also see that a virtual environment has been automatically created and is being used. (The :console:`uv init .` command doesn't actually make the environment for you, it just makes the files that say what should be in the environment.) Due to the setup of VSCode, the graphical buttons to run a Python script won't work until the virtual environment has been created.
 
    .. figure:: ./images/uv_run.png
       :width: 800
@@ -124,16 +126,16 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
           plot_sine_wave(t, v_out)
 
    
-   This requires the external library :python:`plotly`, so we need to add that as a dependency. (It also needs :python:`numpy` and :python:`pandas`.) If you press the Run button before installing this, the program won't work.
+   This requires the external library :python:`plotly`, so we need to add that as a dependency. (It also needs :python:`numpy` and :python:`pandas`.) If you press the Run button before installing these dependencies, the program won't work.
 
-   To install the dependency do one of
+#. To install the dependencies, at the terminal enter
 
    .. prompt::
       :language: bash
 
       uv add plotly numpy pandas
 
-   Once the dependencies are installed, you can run the code with
+#. Once the dependencies are installed, you can run the code with
    
    .. prompt::
       :language: bash
@@ -142,7 +144,7 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
       
    or by using the Run button in VSCode.
 
-   You should see the sine wave plot displayed as a graph in a web browser. You can use the bottons in this to zoom in, and so on, to explore the plot
+   You should see the sine wave plot displayed as a graph in a web browser. You can use the buttons in this to zoom in, and so on, to explore the plot
 
    .. figure:: ./images/sine_wave.png
       :width: 500
@@ -168,7 +170,7 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
           "plotly>=6.4.0",
       ]
 
-   It now contains details on what version of Python, and the external libraries, are needed for the code to run. If you were to share this project with someone else, they could use this file to set up their own environment with the correct dependencies automatically. (There is a :console:`uv sync` command to make a virtual environment match a :console:`pyproject.toml` file.)
+   It now contains details on what version of Python, and the external libraries, are needed for the code to run. If you were to share this project with someone else, they could use this file to set up their own virtual environment with the correct dependencies automatically. (There is a :console:`uv sync` command to make a virtual environment match a :console:`pyproject.toml` file.)
 
    For a small project like this, the precise versions of the different tools used probably doesn't matter too much. However, it can be very important for larger projects developed over a period of time.
 
@@ -181,12 +183,12 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
           t, v_out = make_sine_wave()
           plot_sine_wave(t, v_out)
 
-   The aim is for this to be readable, by inspection, to see that the code does what we want it to. This is easy when there's only two steps as in the above, we want to make a sine wave and then plot it.
+   The aim is for this in :python:`main` to be readable, by inspection, to see that the code does what we want it to conceptually. This is easy when there's only two steps as in the above, we want to make a sine wave and then plot it.
 
    To understand the other parts of the code:
 
    - :python:`make_sine_wave()` doesn't take any inputs, there's nothing between the brackets :python:`()`. 
-   - :python:`plot_sine_wave(t, v_out)` takes two inputs. These input are the outputs of :python:`make_sine_wave()`, assigned by placing them on the left hand side of the :python:`=` sign. 
+   - :python:`plot_sine_wave(t, v_out)` takes two inputs. These inputs are the outputs of :python:`make_sine_wave()`, assigned by placing them on the left hand side of the :python:`=` sign. 
    - Inside the definition of the :python:`make_sine_wave()` function, the two outputs are defined by the :python:`return` statement. 
    - Inside the definition of the :python:`plot_sine_wave(t, v_out)` function, the two inputs are defined by the items between the brackets :python:`(t, v_out)`. Otherwise, the Python code is unchanged from previously (just indented to show which code belongs to which block).
    - Both functions start with a `docstring <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/docstrings.html>`_ to add some documentation.
@@ -219,7 +221,7 @@ The output voltage is given by
 
    V_{out} = \frac{Z_{2}V_{in}}{Z_{1} + Z_{2}}
 
-Your code will have looked like the below.
+Your code in Lab B will have looked like the below.
 
 .. code-block:: python
 
@@ -241,9 +243,9 @@ Your code will have looked like the below.
    vout_phase = cmath.phase(v_out)
 
 
-#. Refactor this code to use an :python:`if __name__ == "__main__":` block and functions, similar to the sine wave example above. ALso, add code to display :python:`vout_mag` and :python:`vout_phase` to the screen. 
+#. Refactor this code to use an :python:`if __name__ == "__main__":` block and functions, similar to the sine wave example above. Also, add code to display :python:`vout_mag` and :python:`vout_phase` to the screen. 
 
-   In your Lab C files you will see a file called :console:`lpf.py` which contains some starter code for this. :python:`...` indicates where you need to add code.
+   In your Lab C files you will see that a number of files have been pre-downloaded for you. A file called :console:`lpf.py` which contains some starter code for this task. Open in. Inside the file, :python:`...` indicates where you need to add code.
 
    .. admonition:: Solution
       :class: dropdown
@@ -399,5 +401,5 @@ Your code will have looked like the below.
             :language: bash
 
             git commit -a -m "Completed the first part of Lab C"
-            git fetch
+            git pull
             git push
