@@ -14,8 +14,3 @@ dependencies = [
     "sphinx-togglebutton",
     "sphinx-prompt",
 ]
-
-[tool.uv.workspace]
-members = [
-    "docs",
-]
