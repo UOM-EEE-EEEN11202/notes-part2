@@ -456,6 +456,9 @@ We've kept this task fairly open ended for you to think about how you want to ap
 
    #. Modify :python:`display_results()` as appropriate.
 
+
+.. _lab_c_stage_2_solution:
+
 .. admonition:: Solution and optional challenge
    :class: dropdown
 
