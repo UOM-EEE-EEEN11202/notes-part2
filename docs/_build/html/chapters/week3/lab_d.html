@@ -20,8 +20,8 @@
             <link rel="search" title="Search" href="../../search.html" />
             <link rel="top" title="notes-part2 0.1 documentation" href="#" />
             <link rel="up" title="3. Week 3" href="../week3_intro.html" />
-            <link rel="next" title="3.3.1. Lab D" href="lab_d_stage_1.html" />
-            <link rel="prev" title="3.2.3. Assignment C" href="assignment_c.html" />
+            <link rel="next" title="3.3.1. Initial setup for the Lab" href="lab_d_stage_1.html" />
+            <link rel="prev" title="3.2.6. Assignment C" href="assignment_c.html" />
     </head>
 <body>
     <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
@@ -136,14 +136,21 @@
 <li class="toctree-l2"><a class="reference internal" href="theory.html">3.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lab_c.html">3.2. Lab C</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html">3.2.1. Setting up a Python project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_2.html">3.2.2. Lab C</a></li>
-<li class="toctree-l3"><a class="reference internal" href="assignment_c.html">3.2.3. Assignment C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html#porting-the-sine-wave-example-from-lab-b">3.2.2. Porting the sine wave example from Lab B</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html#porting-the-rc-circuit-simulation-example-from-lab-b">3.2.3. Porting the RC circuit simulation example from Lab B</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_2.html">3.2.4. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_2.html#extending-the-rc-circuit-example">3.2.5. Extending the RC circuit example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_c.html">3.2.6. Assignment C</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.3. Lab D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Lab D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_2.html">3.3.2. Lab D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="assignment_d.html">3.3.3. Assignment D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html#static-code-analysis">3.3.2. Static code analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html#the-debugger">3.3.3. The debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html#logging">3.3.4. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_2.html">3.3.5. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_2.html#test-coverage">3.3.6. Test coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_d.html">3.3.7. Assignment D</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">3.4. Formative quiz 3</a></li>
@@ -238,11 +245,17 @@
                         <main role="main" id="main">
     <section id="lab-d">
 <span id="id1"></span><h1><span class="section-number">3.3. </span>Lab D<a class="headerlink" href="#lab-d" title="Link to this heading">¶</a></h1>
+<p>Lab D is all about testing in Python. We’ve made a number of Python scripts so far, and probably some of them haven’t worked first time for you. You’ve had to search for your errors and fix the code to make it run. Both Python and VSCode have a wide number of built-in tools to help with this <em>debugging</em> and we’ll explore some of these in the first part of the lab.</p>
+<p>In the second part of the lab we’ll look at <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/automated_testing.html">unit testing</a>. It’s one thing to convince ourselves that our code is working. It’s another to be able to convince your boss, or your customer, that our code is working. Unit tests will help us methodically test our code.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Lab D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_2.html">3.3.2. Lab D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignment_d.html">3.3.3. Assignment D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_1.html#static-code-analysis">3.3.2. Static code analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_1.html#the-debugger">3.3.3. The debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_1.html#logging">3.3.4. Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_2.html">3.3.5. Unit testing with Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_d_stage_2.html#test-coverage">3.3.6. Test coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_d.html">3.3.7. Assignment D</a></li>
 </ul>
 </div>
 </section>
@@ -250,10 +263,10 @@
 </main>
                         <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
     <a class="float-left" href="assignment_c.html" title="Previous">
-        <span aria-hidden="true">←&nbsp;</span><span class="section-number">3.2.3. </span>Assignment C
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">3.2.6. </span>Assignment C
     </a>
     <a class="float-right" href="lab_d_stage_1.html" title="Next">
-        <span class="section-number">3.3.1. </span>Lab D <span aria-hidden="true">&nbsp;→</span>
+        <span class="section-number">3.3.1. </span>Initial setup for the Lab <span aria-hidden="true">&nbsp;→</span>
     </a>
 </nav>
                     </div>

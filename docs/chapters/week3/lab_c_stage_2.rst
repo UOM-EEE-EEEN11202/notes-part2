@@ -4,6 +4,8 @@
 .. role:: python(code)
    :language: python
 
+.. _lab_c_stage_2:
+
 Common Python commands
 ======================
 We've now learnt how to make and use a virtual environment, and have written some simple Python programs. 
@@ -303,6 +305,7 @@ Loops
               raise Exception("Something must have gone wrong!")
 
           print(f"{student} has {pass_status} with {marks[student]} marks.")
+          return pass_status
 
    The :python:`for` loop iterates through each student, and the :python:`if` statements check whether they passed or failed the course, changing the message that is displayed as appropriate. 
     

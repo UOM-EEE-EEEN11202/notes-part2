@@ -136,17 +136,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Setting up a Python project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Lab C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html#porting-the-sine-wave-example-from-lab-b">3.2.2. Porting the sine wave example from Lab B</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html#porting-the-rc-circuit-simulation-example-from-lab-b">3.2.3. Porting the RC circuit simulation example from Lab B</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.4. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html#extending-the-rc-circuit-example">3.2.5. Extending the RC circuit example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.6. Assignment C</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../week3/assignment_c.html">3.3. Assignment C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.4. Lab D</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.4.1. Lab D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.4.2. Lab D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html#static-code-analysis">3.3.2. Static code analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html#the-debugger">3.3.3. The debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html#logging">3.3.4. Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.5. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html#making-tests">3.3.6. Making tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html#test-coverage">3.3.7. Test coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html#a-final-example">3.3.8. A final example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.9. Assignment D</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../week3/assignment_d.html">3.5. Assignment D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.6. Formative quiz 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
@@ -323,15 +332,8 @@ span.prompt2:before {
 <li><p><strong>As a script</strong>. Here the commands are stored in a file, and we just ask for all of the commands to be run and get the end result. This is useful once we’ve got our finalized code and, say, want to run it hundreds or thousands of time on different data sets. If your Python code is stored in a file called <code class="code highlight console docutils literal highlight-console"><span class="go">my_code.py</span></code>, then you can run it with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">python3<span class="w"> </span>my_code.py</span>
 </pre></div></div><p>or</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">language<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bash</p>
-</dd>
-</dl>
-<p>uv run –no-project my_code.py</p>
-</div></blockquote>
-<p>Again, VSCode has a number of different buttons for starting this code from the graphical interface rather than the command line if that’s what you prefer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">uv<span class="w"> </span>run<span class="w"> </span>--no-project<span class="w"> </span>my_code.py</span>
+</pre></div></div><p>Again, VSCode has a number of different buttons for starting this code from the graphical interface rather than the command line if that’s what you prefer.</p>
 <p>You won’t be able to view the intermediate results without using a debugger, but you can see the final result. (Unless there’s an error and the script stops running part way through.)</p>
 </li>
 <li><p><strong>As a package or module</strong>. For both (2) and (3) above our code will be in a file, with a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> extension. We can share this file with others and they’ll be able to run it (as long as their <a class="reference internal" href="#virtual-environments"><span class="std std-ref">virtual environment</span></a> has a suitable Python version and libraries installed). You’ll find that we often use code from others, not by sharing a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> file, but by installing it using a tool called <code class="code highlight console docutils literal highlight-console"><span class="go">pip</span></code>. This is a more formal way of sharing code, and adding it to a Python installation. It is an easier way of sharing code with lots of people, especially if the code is split into lots of different files.</p>

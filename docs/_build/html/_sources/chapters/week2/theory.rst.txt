@@ -122,7 +122,7 @@ Writing Python refers to the process of entering Python commands into the comput
 
    or
 
-      .. prompt::
+   .. prompt::
       :language: bash
 
       uv run --no-project my_code.py
