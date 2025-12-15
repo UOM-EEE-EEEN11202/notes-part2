@@ -3,91 +3,135 @@ Formative quiz 3
 
 .. quizdown::
 
-   ## The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+   ## What is the name of the file usually used to configure a Python project?
 
-   1. [ ] The core
-       > That's not correct. A core is part of a processor, but it's not a complete processor, and all computers need a processor.
-   1. [ ] The soundcard
-       > That's not correct. Most computers will have soundcards, allowing audio to be played, but they're not the central part of the computer drawn here.
-   1. [ ] Touch input
-       > That's not correct. Touch input is widely used in some computer systems, but it's not the central part of the computer drawn here.
-   1. [x] The processor
+   1. [x] pyproject.toml
        > That's correct!
-   1. [ ] The cache
-       > That's not correct. Cache is memory very local to the processor, typically on the same microchip. Cache is part of a processor, but it's not a complete processor, and all computers need a processor.
+   1. [ ] requirements.txt
+       > That's not correct. Some, mainly older, Python projects will use a requirements.txt file to list the packages they depend on, but this is not the main configuration file for a Python project.
+   1. [ ] config.json
+       > That's not correct.
+   1. [ ] cargo.toml
+       > That's not correct. This is the name of the configuration file used in Rust projects.
+   1. [ ] Makefile
+       > That's not correct. Make files are usually used with C/C++ projects.
 
 
-   ## Sustainability isn't an important factor in programming.
+   ## Which folder is typically used to store the source code of a Python project?
    
-   1. [x] True
-       > That's correct! When starting out, we tend to focus on making programs that are functionally correct - ones that do what we want. Once they are working, there are a wide range of other factors, such as security and sustainability we may need to take into account. 
-   1. [ ] False
-       > That's not correct. Computer systems use large amounts of energy and water, and inefficient coding can waste lots of resources.
+   1. [ ] `project_name/docs`
+       > That's correct! This is usually where we would put the documentation. 
+   1. [ ] `project_name/tests`
+       > That's not correct. This is usually where we would put the tests. 
+   1. [x] `project_name/src`
+       > That's correct!
+   1. [ ] `project_name/code`
+       > That's correct! This is fine if you want to use it as a name, but `src` is more commonly used.
+   1. [ ] `project_name/bin`
+       > That's not correct. `bin` implies this folder compiled binary files rather than our source code. We don't have these when working with Python, but will with Rust and C/C++ later in the course. 
 
 
-   ## What is the name of the Integrated Development Environment that we'll use in this course?
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+   ## Re-arrange the below to make the command to make a new virtual envuironment using `uv`
 
-
-   ## What is the function of static code analysis in an integrated development environment?
-
-   1. [ ] To analyze code after it has executed to detect errors that occurred.
-   1. [ ] To analyze code while it is running to debug and detect errors.
-   1. [x] To analyze code before it is compiled to pre-detect potential errors.
-   1. [ ] To analyze our requirements and generate code for us using generative artificial intelligence.
-   1. [ ] To carry out all tasks listed here.
+   1. init
+   2. .
+   3. uv
+    > uv does first, then the subcommand init. The . represents the name of the project, here read automatically from the name of the folder. 
 
 
-   ## What is meant by a conditional break point? 
+   ## You have a pyproject.toml file as below. It contains a blank entry `...`. What would be suitable entries for this line? Select all that apply.
 
-   1. [ ] A line of code that changes the flow of the program
-   1. [x] A debugger setting that pauses the program execution in certain cases
-   1. [ ] A comment that explains which code is relevant to different situations
-   1. [ ] An assert statement that stops the execution of the program when triggered
-   1. [ ] A setting used to control when the code is checked into a version control repository
+   `[project]`<br />
+   `name = "lab-c"`<br />
+   `version = "0.1.0"`<br />
+   `description = "Add your description here"`<br />
+   `readme = "README.md"`<br />
+   `...`<br />
+   `dependencies = []`<br />
 
-   ## What is meant by a conditional break point? 
+   - [ ] `pytest = "^7.2.0"`
+    > That's not correct. This would be a dependency, and so should go in the dependencies list.
+   - [x] `requires-python = ">=3.14"`
+    > That's correct!
+   - [ ] `pytest = "on"`
+    > That's not correct. You can specify pytest as a dependency, and configure it in pyproject.toml, but but not here, with this syntax.
+   - [x] `requires-python = ">=3.10.5"`
+    > That's correct!
+   - [ ] `if __name__ == "__main__":`
+    > That's not correct. This is Python code, and so would not go in pyproject.toml.
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
 
-   ## What is meant by a conditional break point? 
+   ## Re-arrange the below to place the logging levels into order from lowest to highest.
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+   1. DEBUG
+   2. INFO
+   3. WARNING
+   4. ERROR
+   5. CRITICAL
+    > See the [logging notes](https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#logging)
 
-   ## What is meant by a conditional break point? 
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+   ## What is a benefit of using the `logging` library over using `print` statements for debugging? Select all that apply. 
 
-   ## What is meant by a conditional break point? 
+   - [x] Logging statements can be left in production code, whereas print statements should be removed.
+   - [x] Logging statements can be recorded to different levels of detail without changing the core code. 
+   - [x] Logging statements are stored in a file by default allowing later inspection by others.
+   - [x] Logging statements can automatically add additional information, such as timestamps.
+   - [x] Logging statements are intended for debugging, whereas print statements are intended for user output, and so it's using the correct tool for the job.
+    > All of these are correct! Possibly with some debate about the "correct tool for the job", but it's generally true.
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
 
-   ## What is meant by a conditional break point? 
+   ## What prefix does Pytest expect test functions to have by default? (Although note that you can change this if needed.)
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
+   1. [ ] myTest_
+    > That's not correct. Try again. 
+   1. [x] test_
+    > That's correct!
+   1. [ ] check_
+    > That's not correct. Try again. 
+   1. [ ] verify_
+    > That's not correct. Try again. 
+   1. [ ] unit_
+    > That's not correct. Try again. 
+
+
+   ## Which `assert` statement would be used with Pytest to check that the variable `result` is equal to 42?
+
+   1. [ ] `assert(result, 42)`
+    > That's not correct. This is not valid syntax for an assert statement.
+   1. [ ] `assert result = 42`
+    > That's not correct. A single equals sign is used for assignment, not for checking equality. An assert statement needs to evaluate to True or False.
+   1. [ ] `assert != 42`
+    > That's not correct. We check what we want the result to be, not that it isn't what we want it to be. 
+   1. [ ] `assertEqual(result, 42)`
+    > That's not correct. This is used in other testing frameworks, but not Pytest.
+   1. [x] `assert result == 42`
+    > That's correct!
+
+
+   ## Re-arrange the below to make an `assert` statement that checks whether the length of a list `x` is greater than 10
+
+   1. assert
+   2. len
+   3. (
+   4. x
+   5. )
+   6. `>`
+   7. 10
+    > The correct order is: `assert len(x) > 10`
+
+
+   ## What is meant by test coverage?
+
+   1. [x] The percentage of lines of code tested by unit tests. 
+    > That's correct! 
+   1. [ ] The number of input cases used to test code.
+    > That's not correct. Try again. 
+   1. [ ] The number of bugs found by unit tests.
+    > That's not correct. Try again.
+   1. [ ] The percentage of functions tested by unit tests.
+    > That's not correct. Try again.
+   1. [ ] The percentage of tests that pass.
+    > That's not correct. Try again.
 
