@@ -459,7 +459,7 @@ A final example
    
       This lets you test the library functions in isolation and get 100% (or close to this) coverage of the library functions in :console:`lab_part2.py`. The testing task for :console:`lab_part2.py` then switches from, *are my functions correct* to *am I using my functions to correctly do what I want to*. This still needs testing, but it's a higher level test. 
 
-      We'll cover splitting code across multiple files in :ref:`Lab F <lab_f>`.
+      We'll cover splitting code across multiple files in :ref:`Lab H <lab_h_stage_2>`.
 
 #. As with many of the things we've looked at so far in the course, there's much more that you can do with testing, and many ways to customize the tests and make them more powerful. At the moment we're just building familiarity. In your wider reading, explore some of the other things you can do with Pytest.
 

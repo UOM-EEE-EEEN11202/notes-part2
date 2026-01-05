@@ -1,4 +1,4 @@
-Formative quiz 6
+Formative quiz 4
 ================
 
 .. quizdown::

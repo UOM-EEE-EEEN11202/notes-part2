@@ -131,6 +131,7 @@ In addition to the :console:`pyproject.toml` file, a Python project typically in
    │       └── support_functions.py
    │
    ├── tests/                 # Your tests
+   |   ├── __init__.py
    │   └── test_main.py
    │   └── test_support_functions.py
    │
@@ -150,4 +151,4 @@ We won't use all of this structure until we get to :ref:`Lab D <lab_d>` when we 
 .. admonition:: Aside
    :class: dropdown
 
-   In the diagram above you'll see there is a :console:`__init__.py` file. As we're not going to make a Python *package* we'll ignore this, but it's important to learn about if you go deeper into Python development. 
+   In the diagram above you'll see there some a :console:`__init__.py` files. As we're not going to make a Python *package* we'll largely ignore these. 
