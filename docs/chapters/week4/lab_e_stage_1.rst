@@ -15,9 +15,9 @@ Initial setup for the Lab
    
       uv init .
 
-   This will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others.
+   This will make a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others.
 
-#. Add some structure to your code by entering the commands:
+#. Add some structure to your code folder by entering the commands:
 
    .. prompt::
       :language: bash
@@ -27,9 +27,9 @@ Initial setup for the Lab
       uv run src/main.py
       touch tests/__init__.py
 
-   #. Here we've moved :console:`main.py` into the :console:`src` folder. You'll see that the :console:`src` folder contains some code that we've written for you. 
-   #. We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation. We won't ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it's working!
-   #. In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
+   - Here we've moved :console:`main.py` into the :console:`src` folder. You'll see that the :console:`src` folder already contains some code that we've written for you. 
+   - We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation. We won't ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it's working!
+   - In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
 
 #. Install the required dependencies for this lab by entering the command:
 
@@ -48,7 +48,7 @@ Numerical analysis in Python
 ----------------------------
 #. Make a new Python file with any suitable name. Put it in your Lab E :console:`src` folder.
 
-#. In this file, copy the code below and run it. We suggest putting a breakpoint on the :python:`return` statement on Line 13 so you can view the results, or you can inset :python:`print` or :python:`logging` commands if you prefer.
+#. In this file, copy the code below and run it. We suggest putting a breakpoint on the :python:`return` statement on Line 13 so you can view the results, or you can inset :python:`logging` commands if you prefer.
 
    .. code-block:: python
 
@@ -77,7 +77,7 @@ Numerical analysis in Python
       :align: center
       :alt: View if the VSCode debugger
 
-   From your Maths courses you should remember multiplying vectors, where you can use the dot product to get a scalar result, and the cross product to get another vector. :python:`numpy` makes this very easy. 
+   From your Maths courses you should remember multiplying vectors, where you can use the dot product to get a scalar result, or the cross product to get another vector. :python:`numpy` makes this very easy. 
 
    To analyze the code briefly:
 
@@ -86,7 +86,7 @@ Numerical analysis in Python
    - :python:`np.dot()` and :python:`np.cross()` are then the numpy functions for calculating the dot product and cross products respectively.
 
 
-#. To work with matrices, we can make 2D arrays. Add the code below to the :python:`vector_and_matrix_multiplication` function, and run it again.
+#. To work with matrices, we can make 2D arrays. Add the code below to the :python:`vector_and_matrix_multiplication()` function, and run it again.
 
    .. code-block:: python
 
@@ -110,10 +110,10 @@ Numerical analysis in Python
       :align: center
       :alt: View if the VSCode debugger
 
-   This defines two 3x3 matrices, and then performs matrix multiplication. There are two different syntaxes, both of which give the same result. :python:`@` is just a short hand as multiplying matrices is a common thing to want to do. 
+   This defines two 3x3 matrices, and then performs a matrix multiplication. There are two different syntaxes, both of which give the same result. :python:`@` is just a short hand as multiplying matrices is a common thing to want to do. 
 
 
-#. In many engineering applications, we need to solve systems of linear equations. These are equations like the below, where we've selected some values for :math:`A` and :math:`b`. The aim is to find the value of :math:`x`.
+#. In many engineering applications, we need to solve systems of linear equations. These are equations like the below. The aim is to find the value of :math:`x`.
 
    .. math::
 
@@ -135,7 +135,7 @@ Numerical analysis in Python
             3
             \end{bmatrix}
       
-   Add code to your :python:`vector_and_matrix_multiplication` function to work out the value of :math:`x` for the given :math:`A` and :math:`b`.
+   By searching the Internet, asking AI, or similar, add code to your :python:`vector_and_matrix_multiplication()` function to work out the value of :math:`x` for the :math:`A` and :math:`b` given above.
 
    .. admonition:: Solution
       :class: dropdown
@@ -148,7 +148,7 @@ Numerical analysis in Python
          x1 = np.linalg.solve(A, b)
          x2 = np.linalg.inv(A) @ b  # alternative method
 
-      Again this is quite a common thing to do, and so it's got it own dedicated function in numpy, :python:`np.linalg.solve()`. An alternative method is to calculate the inverse of :math:`A` using :python:`np.linalg.inv()`, and then multiply by :math:`b`. Both methods give the same result.
+      Again solving linear systems is quite a common thing to do, and so it's got it own dedicated function in numpy, :python:`np.linalg.solve()`. An alternative method is to calculate the inverse of :math:`A` using :python:`np.linalg.inv()`, and then multiply it by :math:`b`. Both methods give the same result.
 
 
 #. What is the value of :math:`x` when
@@ -189,7 +189,7 @@ Simulating signals in Python
 ----------------------------
 #. In your Lab E :console:`src` folder we've placed a Python file called :console:`sine_plotting.py`. Open this file. 
 
-   It contains a function called :python:`make_sine_wave()`, shown below. It's a minor variant on the code we introduced in `Lab B <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week2/lab_b_stage_2.html>`_
+   It contains a function called :python:`make_sine_wave()`, shown below. It's a minor variant on the code we introduced in `Lab B <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week2/lab_b_stage_2.html>`_.
 
    .. code-block:: python
 
@@ -209,7 +209,7 @@ Simulating signals in Python
           v_out = [A * math.sin(2 * math.pi * f * time) for time in t]
           return t, v_out
 
-   This code is not ideal, because :python:`range()` can only generate whole numbers, which we have to interpret as representing seconds (1 s, 2 s, 3 s, ...). Now we can make numpy arrays that can have numbers that we like. Also, it uses a :python:`for` loop to calculate the value of sine at each time sample. Numpy can do this sort of operation much more efficiently without needing a loop.
+   This code is not ideal, because :python:`range()` can only generate whole numbers, which we have to interpret as representing seconds (1 s, 2 s, 3 s, ...). Now we can make numpy arrays that can have numbers that we like. Also, it uses a :python:`for` loop to calculate the value of sin at each time sample. Numpy can do this sort of operation much more efficiently without needing a loop.
 
 
 #. In :console:`sine_plotting.py` there is also a function called :python:`make_sine_wave_numpy()`. This is a version of the same function, but using numpy arrays. The code is given below. 
@@ -232,9 +232,9 @@ Simulating signals in Python
    The key changes are:
 
    - :python:`t` is now made using :python:`np.arange()`, which is similar to :python:`range()`, but can have any step size. Here the step size is set to 30 samples per cycle of the sine wave, which makes a nice plot whatever value of :python:`f` is used.
-   - :python:`math.sin()` has been replaced with :python:`np.sin()`. This can take a numpy array as an input, and will then calculate the sine of each element in the array automatically. We don't need a for loop to cycle through every element in the array.
+   - :python:`math.sin()` has been replaced with :python:`np.sin()`. This can take a numpy array as the input, and will calculate the sin of each element in the array automatically. We don't need a :python:`for` loop to cycle through every element in the array.
 
-#.  In :console:`sine_plotting.py` there is also a function called :python:`plot_sine_wave()`. Add code to :python:`if __name__ == "__main__":` to make a sine wave of amplitude 1 V, frequency 0.1 Hz, from time 0 s to 50 s, and then plot it. Do this using both :python:`make_sine_wave()` and :python:`make_sine_wave_numpy()` to see the difference. 
+#. In :console:`sine_plotting.py` there is also a function called :python:`plot_sine_wave()`. Add code to :python:`if __name__ == "__main__":` to make a sine wave of amplitude 1 V, frequency 0.1 Hz, from time 0 s to 50 s, and then plot it. Do this using both :python:`make_sine_wave()` and :python:`make_sine_wave_numpy()` to see the difference. 
 
    .. admonition:: Solution
       :class: dropdown
@@ -260,10 +260,10 @@ Simulating signals in Python
       :alt: Two plots of sine waves with plotly
 
 
-#. Experiment with different values of :python:`A` and :python:`f` to see the different signals produced. If you make the frequency very high you might want to decrease the stop time to see just a few cycles of the sine wave.
+#. Experiment with different values of :python:`A` and :python:`f` to see the different signals produced. If you make the frequency :python:`f` very high you might want to decrease the stop time to see just a few cycles of the sine wave.
 
 
-#. An important feature of numpy is that it can operate on whole arrays at once. This is called *vectorization*. It saves us having lots of for loops which, by definition, need to be run multiple times and so can make the code slower to run. 
+#. An important feature of numpy is that it can operate on whole arrays at once. This is called *vectorization*. It saves us from having lots of :python:`for` loops which, by definition, need to be run multiple times and so can make the code slower to run. 
 
    Add the below to your code
 
@@ -289,9 +289,9 @@ Simulating signals in Python
       vo = v1 + v2
       do_plots(time, vo)
 
-   We can just add the two sine waves, :python:`v_out1` and :python:`v_out2`, together directly. Numpy will automatically add the corresponding elements in each array together to make a new array, :python:`vout`. This is much simpler than needing to write a for loop to do the addition element by element. We just need to make sure that the arrays have the same number of elements in them so that the addition makes sense.
+   We can just add the two arrays, :python:`v1` and :python:`v2`, together directly. Numpy will automatically add the corresponding elements in each array together to make a new array, :python:`vo`. This is much simpler than needing to write a :python:`for` loop to do the addition element by element. We just need to make sure that the arrays have the same number of elements in them so that the addition makes sense.
 
-   You should see a plot like the below. This is a 10 Hz sine wave with a smaller 50 Hz sine wave superimposed on top of it. 50 Hz is the mains frequency in the UK, so this sort of signal could represent a low frequency signal with some mains interference on top of it. In the lab, it's quite common that we see 50 Hz interference in our measurements. 
+#. You should see a plot like the below. This is a 10 Hz sine wave with a smaller 50 Hz sine wave superimposed on top of it. 50 Hz is the mains frequency in the UK, so this sort of trace could be representing a low frequency signal with some mains interference on top of it. In the lab, it's quite common that we see 50 Hz interference in our measurements. 
 
    .. figure:: ./images/sine_with_50hz.png
       :width: 800
@@ -319,7 +319,7 @@ Simulating signals in Python
       :align: center
       :alt: Sine wave with noise plotted with plotly
 
-#. Using the time vector :python:`ts` defined below
+#. Let's try another example. Using the time vector :python:`ts` defined below
 
    .. code-block:: python
    
@@ -351,12 +351,12 @@ Simulating signals in Python
 
       As more terms are added, the signal looks more and more like a square wave. (This is an example of a Fourier series which you'll learn about in your Maths course. Briefly, any periodic signal can be approximated by adding together sine waves of different frequencies and amplitudes.)
 
-      Numpy doesn't have a function to make square waves directly, but Scipy does. You can use :python:`scipy.signal.square()` to make square waves more easily than the above.
+      Numpy doesn't have a function to make square waves directly, but scipy does. You can use :python:`scipy.signal.square()` to make square waves more easily than the above.
 
 
 Array slicing
 -------------
-It's common that we don't want to work with an entire numpy array. It might have thousands, or millions of elements in it An array can be *sliced* to access just a few elements in it. This uses square brackets :python:`[]` and numbers to indicate which elements we want to access. A colon :python:`:` is used to indicate a range of elements.
+It's common that we don't want to work with an entire numpy array. It might have thousands, or millions of elements in it. An array can be *sliced* to access just a few elements in it. This uses square brackets :python:`[]` and numbers to indicate which elements we want to access. A colon :python:`:` is used to indicate a range of elements.
 
 #. Make a time vector using the code below.
 

@@ -24,9 +24,9 @@ Initial setup for the Lab
    
       uv init .
 
-   This will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others.
+   This will make a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others.
 
-#. Add some structure to your code by entering the commands:
+#. Add some structure to your folder by entering the commands:
 
    .. prompt::
       :language: bash
@@ -44,7 +44,7 @@ Initial setup for the Lab
 
    .. prompt::
 
-      uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel ipykernel pyarrow
+      uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel ipykernel pyarrow nbformat
 
 #. Make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#>`_ if you're unsure. 
 
@@ -52,9 +52,9 @@ Initial setup for the Lab
 
 Plotting examples
 =================
-If there's one thing that AI is good at, it's helping to generate code for plotting data, remembering all of the different options that might be used to customize the display. As such, we're not going to spend too long on this section. You'll naturally pick up different options as you use plotting libraries more often, and you can readily refer to documentation and AI tools to help with the details. Here we'll look at a few examples to build some familiarity. 
+If there's one thing that AI is good at, it's helping to generate code for plotting data, remembering all of the different options that might be used to customize the display. As such, we're not going to spend too long exploring lots of options. You'll naturally pick up different ones as you use plotting libraries more often, and you can readily refer to documentation and AI tools to help with the details. Here we'll look at a few examples to build some familiarity. 
 
-For this we'll use the: 
+For this we'll use the code: 
 
 .. code-block:: python
 
@@ -114,15 +114,6 @@ For this we'll use the:
    .. tab-item:: |plotly| Plotly
       :sync: key6
 
-      Before we get started, a few notes:
-
-      - Plotly works very well with `dataframes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html>`_, which we'll cover in :ref:`the second part of the lab <lab_f_stage_2>`. We thus won't use them here, but you'll find that many online examples using Plotly just ask it to plot different columns in a dataframe. Plotly can then pick up the column heading (for example) for the legend automatically.
-
-      - Below we're using *Plotly Express*, abbreviated to :python:`px`, which provides a simple syntax for creating plots. To get more control over a figure you can use a *graph object* using :python:`import plotly.graph_objects as go`. We won't cover these here apart from very briefly at the end when we look at subplots. More information is in the documentation at `Plotly Graph Objects <https://plotly.com/python/graph-objects/>`_ if you need to make more complicated plots. The general advice would be to make a basic plot using Plotly Express first, as we do below, and then if you need more control modify it using graph objects.
-
-      - We also won't look at saving Plotly plot to files here. We'll cover that only for Matplotlib. This reflects our approach of using Plotly for interactive exploration of data, and Matplotlib for making publication quality figures. If saving your Plotly figures for a report or presentation, remember that you might want to adjust the font sizes and the resolution of the saved figure to make sure they look good.  
-
-
       **Setup**
 
       #. Make a new Python file in your Lab F :console:`src` folder called :file:`plotly_examples.py` or similar. Copy the code given above into this. 
@@ -139,6 +130,15 @@ For this we'll use the:
 
       #. Run your code to check that there are no errors before proceeding. It won't produce any outputs yet.
 
+      **Notes**
+
+      Before we get started, a few notes:
+
+      - Plotly works very well with `dataframes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html>`_, which we'll cover in :ref:`the second part of the lab <lab_f_stage_2>`. We thus won't use them here, but you'll find that many online examples using Plotly just ask it to plot different columns in a dataframe. Plotly can then pick up the column heading (for example) for the legend automatically.
+
+      - Below we're using *Plotly Express*, abbreviated to :python:`px`, which provides a simple syntax for creating plots. To get more control over a figure you can use a *graph object* using :python:`import plotly.graph_objects as go`. We won't cover these here, apart from very briefly at the end when we look at subplots. More information is in the documentation at `Plotly Graph Objects <https://plotly.com/python/graph-objects/>`_ if you need to make more complicated plots. The general advice would be to make a basic plot using Plotly Express first, as we do below, and then if you need more control modify it using graph objects.
+
+      - We also won't look at saving plotly plots to files here. We'll cover that only for matplotlib. This reflects our approach of using plotly for interactive exploration of data, and matplotlib for making publication quality figures. If saving your plotly figures for a report or presentation, remember that you might want to adjust the font sizes and the resolution of the saved figure to make sure they look good.  
 
       **Line plots**
       
@@ -166,7 +166,7 @@ For this we'll use the:
 
       #. To add a second line, you use the :python:`fig0` object, and call :python:`add_scatter()`. This adds the data points, and we'll set the mode to :python:`lines` so that it draws a line between the points. 
 
-         Remember to call :python:`fig0.show()` to actually draw the updated plot. We also had to add a legend for the first line that we had.
+         Remember to call :python:`fig0.show()` to actually draw the updated plot. We also have to add a legend for the first line that we had.
 
          .. code-block:: python
 
@@ -198,7 +198,7 @@ For this we'll use the:
          .. admonition:: Solution
             :class: dropdown
 
-            In this plot, the second line is green, and uses circle symbols to mark each data point. The code below modified the existing line to change its style.
+            In this plot, the second line is green, and uses circle symbols to mark each data point. The code below modifies the existing line to change its style.
 
             .. code-block:: python
 
@@ -210,7 +210,7 @@ For this we'll use the:
                fig0.data[1].mode = "lines+markers"  # show both lines and markers
                fig0.show()
 
-      #. By searching the Internet, asking AI, or similar, add a vertical line at the time constant of each line (0.2 s and 0.1 s). You can do this using :python:`add_vline()`.
+      #. By searching the Internet, asking AI, or similar, add a vertical line at the time constant of each line (0.2 s and 0.1 s). You can do this using :python:`.add_vline()`.
 
          .. admonition:: Solution
             :class: dropdown
@@ -240,7 +240,7 @@ For this we'll use the:
       
       There are many different types of plot that you might want to make. Here are a few examples using the student marks data defined above.
 
-      #. Copy and paste the code below into your file to a histogram of the course 1 marks. 
+      #. Copy and paste the code below into your file to plot a histogram of the course 1 marks. 
 
          .. code-block:: python
 
@@ -282,7 +282,7 @@ For this we'll use the:
       #. Using :python:`px.pie()` make a pie chart like the below, showing the distribution of classifications in course 1.
 
          .. figure:: ./images/plotly_pie.png
-            :width: 400
+            :width: 500
             :align: center
             :alt: Pie chart showing distribution of student marks
 
@@ -317,14 +317,14 @@ For this we'll use the:
                )
                fig3.show()
 
-      #. There are lots of plotly examples `online < https://plotly.com/python/plotly-express/>`. Try some of these out. 
+      #. There are lots of `plotly examples online <https://plotly.com/python/plotly-express/>`_. Try some of these out. 
 
 
       **Subplots**
       
       Having more than one plot in a figure is often useful to compare different data. 
 
-      If you add :python:`from plotly.subplots import make_subplots` there is a function :python:`make_subplots()` for building up figures. There are two ways of doing this.
+      If you add :python:`from plotly.subplots import make_subplots` to your code, there is a function :python:`make_subplots()` for building up subplots. There are two ways of doing this.
 
       #. (The non-preferred method.) You can make a subplot, and then copy existing traces to this. Add the code below to your file and run it. 
 
@@ -353,7 +353,9 @@ For this we'll use the:
             :align: center
             :alt: Subplots in plotly
 
-         Here we've made a 2x2 grid of plots, and added the traces of each of the previous plots to one of the subplots. We haven't copied the labels over, so these are missing at the moment. Note that you need to tell Plotly what type of plot each subplot is, using the :python:`specs` argument to :python:`make_subplots()`. :python:`"xy"` is for line plots, histograms, box plots, etc., while :python:`"domain"` is for pie charts.
+         Here we've made a 2x2 grid of plots, and added the traces of each of the previous plots to one of the subplots. We haven't copied the labels over, so these are missing at the moment. 
+         
+         Note that you need to tell plotly what type of plot each subplot is, using the :python:`specs` argument to :python:`make_subplots()`. :python:`"xy"` is for line plots, histograms, box plots, etc., while :python:`"domain"` is for pie charts.
 
       #. (The preferred method.) You can make a subplot, and then use :python:`.add_trace()` to add data to each subplot directly. So far we've been using Plotly Express :python:`px` to quickly build graphs. Unfortunately these aren't compatible with :python:`.add_trace()`. Instead we need to use Plotly Graph Objects :python:`go` to give more control. We're not going to cover them in a lot of detail here, but add the code below to your file as an example creating two Pie charts next to each other.
 
@@ -418,7 +420,12 @@ For this we'll use the:
                 col=2,
             )
             fig5.show()
-  
+
+         .. figure:: ./images/plotly_two_pie_charts.png
+            :width: 800
+            :align: center
+            :alt: Subplots in plotly
+
          The plotting syntax using :python:`go` is very similar, but different to what we've used before. We won't go into any more depth here, but this should give you enough of a starting point to build up your own plots to explore data.
       
 
@@ -500,13 +507,13 @@ For this we'll use the:
             :align: center
             :alt: An exponential curve plotted with matplotlib
 
-         The basic matplotlib syntax is fairly straightforwards, if they take quite a few lines of code to do everything. 
+         The basic matplotlib syntax is fairly straightforwards, if it takes quite a few lines of code to do everything. 
          
          - :python:`fig0, ax0 = plt.subplots()` makes a new figure and an axis in this figure.
-         - :python:`ax0.plot(t, v)` adds the line to the axis we ask for.
+         - :python:`ax0.plot(t, v)` plots a line on the axis we ask for.
          - There are then a number of commands to control the formatting of the plot. 
          - You need to explicitly call :python:`fig0.show()` to display the plot. (This let you build up more complicated plots, and only display them when you're ready.)
-         - Finally, we call :python:`plt.show()`. This stops the program from completing until all of the figures have been closed. Without this, the program will display the figures, and then quickly close them rather than waiting until you've finished looking at them. For how we're using matplotlib here, we only want one :python:`plt.show()` at the end of the code, so further examples below should be above this line.
+         - Finally, we call :python:`plt.show()`. This stops the program from completing until all of the figures have been closed. Without this, the program will display the figures, and then quickly close them rather than waiting until you've finished looking at them. For how we're using matplotlib here, we only want one :python:`plt.show()` at the end of the code, so further plots should be above this line.
 
          The plot controls are in the bottom left of the figure. Try zooming in on the plot to see more detail. You can also hover over the line to see the exact values at each point. When you're done, press the home button (the house icon) to return to the original view.
 
@@ -542,7 +549,7 @@ For this we'll use the:
          .. admonition:: Solution
             :class: dropdown
 
-            In this plot, the second line is green, and uses circle symbols to mark each data point. To achieve this, change the plot comm
+            In this plot, the second line is green, and uses circle symbols to mark each data point. To achieve this, change the plot command to
 
             .. code-block:: python
 
@@ -566,7 +573,7 @@ For this we'll use the:
 
       There are many different types of plot that you might want to make. Here are a few examples using the student marks data defined above.
 
-      #. Copy and paste the code below into your file to a histogram of the course 1 marks. Remember to put this above the final :python:`plt.show()` line. 
+      #. Copy and paste the code below into your file to plot a histogram of the course 1 marks. Remember to put this above the final :python:`plt.show()` line. 
 
          .. code-block:: python
 
@@ -599,7 +606,7 @@ For this we'll use the:
       #. Using :python:`.pie()` make a pie chart like the below, showing the distribution of classifications in course 1.
 
          .. figure:: ./images/matplotlib_pie.png
-            :width: 400
+            :width: 500
             :align: center
             :alt: Pie chart showing distribution of student marks
 
@@ -622,7 +629,7 @@ For this we'll use the:
                    ax3.pie(counts, labels=labels, autopct="%1.1f%%")
                    fig3.show()
 
-      #. There are lots of matplotlib examples `online <https://matplotlib.org/stable/gallery/index.html>`_. Try some of these out. 
+      #. There are lots of `matplotlib examples online <https://matplotlib.org/stable/gallery/index.html>`_. Try some of these out. 
 
 
       **Subplots**
@@ -684,7 +691,7 @@ For this we'll use the:
       #. Make a figure that looks like the below, plotting pie charts for the two sets of student marks next to one another.
 
          .. figure:: ./images/matplotlib_pie_subplots.png
-            :width: 400
+            :width: 800
             :align: center
             :alt: Two pie charts showing student marks for the two courses
 
@@ -706,7 +713,7 @@ For this we'll use the:
 
       **Saving plots to files**
 
-      We can save a figure using the :python:`.savefig()` method on the figure we want to save. Run the free examples below, and compare the saved files, particularly when you zoom in. 
+      We can save a figure to a file using the :python:`.savefig()` method on the figure. Run the free examples below, and compare the saved files, particularly when you zoom in. You should see that the low resolution one doesn't look very good. 
 
       .. code-block:: python
 

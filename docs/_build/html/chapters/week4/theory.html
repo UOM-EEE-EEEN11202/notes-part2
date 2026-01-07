@@ -169,7 +169,7 @@
 <li class="toctree-l2"><a class="reference internal" href="lab_f.html">4.3. Lab F</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="lab_f_stage_1.html">4.3.1. Initial setup for the Lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lab_f_stage_1.html#plotting-examples">4.3.2. Plotting examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_2.html">4.3.3. Lab F Stage 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_2.html">4.3.3. Polars</a></li>
 <li class="toctree-l3"><a class="reference internal" href="assignment_f.html">4.3.4. Assignment F</a></li>
 </ul>
 </li>
@@ -274,25 +274,25 @@
 <h1><span class="section-number">4.1. </span>Theory<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h1>
 <section id="common-external-libraries">
 <h2><span class="section-number">4.1.1. </span>Common external libraries<a class="headerlink" href="#common-external-libraries" title="Link to this heading">¶</a></h2>
-<p>So far, we’ve mainly made use of Python’s <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library">standard library</a>. This has lots of functions, but it’s also very common to use external libraries which have been written by other people. We’ve already used a number of these in different parts of the course, but haven’t looked at them in any depth, other than <code class="code highlight python docutils literal highlight-python"><span class="n">pytest</span></code>.</p>
-<p>We’re going to briefly look at four common external libraries which are widely used in engineering applications. Remember that most organizations will block arbitrary libraries from being installed on work computers for security reasons. The below are so common that they’ll likely be avaiable everywhere, but they might not be.</p>
-<p>We’re going to cover these libraries as in the order below, split across two labs. It’s not quite ideal. For example, you often want to plot data to help explore it, but we need numpy to help have some data to plot. The plotting libraries work very well with <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">Dataframes</a>, but we need to cover Polars to introduce these. In a couple of cases, mainly around plotting, we might give some suggestions to look at the next topic before we’ve covered it fully.</p>
+<p>So far, we’ve mainly made use of Python’s <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library">standard library</a>. This has lots of functions, but it’s also very common to use external libraries which have been written by other people and which don’t come bundled with Python by default. We’ve already used a number of these in different parts of the course, but haven’t looked at any in depth, other than <code class="code highlight python docutils literal highlight-python"><span class="n">pytest</span></code>.</p>
+<p>We’re going to briefly look at four common external libraries. Remember that most organizations will block arbitrary libraries from being installed on work computers for security reasons. The below are so common that they’ll probably be available everywhere, but they might not be.</p>
+<p>We’re going to cover these libraries in the order below, split across two labs. It’s not quite ideal. For example, you often want to plot data to help explore it, but we need numpy to have some data to plot and so we need to cover numpy first. The plotting libraries work very well with <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">Dataframes</a>, but we need to cover Polars to introduce these and we want to do some plotting sooner than this. In a couple of cases, mainly around plotting, we might give some suggestions to look at the next topic before we’ve covered the current topic.</p>
 <section id="numpy">
-<h3><span class="section-number">4.1.1.1. </span>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://numpy.org/">Numpy</a> is a library for numerical computing in Python. It provides lots of functions which are a bit similar to <a class="reference external" href="https://uk.mathworks.com/products/matlab.html">Matlab</a>, which is still widely used in Engineering, but is a commercial product. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">numpy</span></code> for <em>signal</em> and <em>system</em> <em>modelling</em>. We can create arrays that store sine waves, and other signals, and then perform operations on them.</p>
+<h3><span class="section-number">4.1.1.1. </span>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://numpy.org/">NumPy</a> is a library for numerical computing in Python. It provides lots of functions which are a bit similar to <a class="reference external" href="https://uk.mathworks.com/products/matlab.html">Matlab</a>, which is still widely used in Engineering, but is a commercial product. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">numpy</span></code> for <em>signal</em> and <em>system</em> <em>modelling</em>. We can create arrays that store models of sine waves, and other signals, and then perform operations on them.</p>
 </section>
 <section id="scipy">
-<h3><span class="section-number">4.1.1.2. </span>Scipy<a class="headerlink" href="#scipy" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://scipy.org/">Scipy</a> is a library which builds on Numpy, and provides lots of additional functions for scientific computing. It includes functions for signal processing, statistics, and more.</p>
+<h3><span class="section-number">4.1.1.2. </span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://scipy.org/">SciPy</a> is a library which builds on numpy, and provides lots of additional functions for scientific computing. It includes functions for signal processing, statistics, and more.</p>
 </section>
 <section id="plotly-and-matplotlib">
-<h3><span class="section-number">4.1.1.3. </span>Plotly and matplotlib<a class="headerlink" href="#plotly-and-matplotlib" title="Link to this heading">¶</a></h3>
-<p>We’ve already used <a class="reference external" href="https://plotly.com/python/">Plotly</a> for plotting. <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> is another library for creating graphs. This week we’re going to use both <code class="code highlight python docutils literal highlight-python"><span class="n">matplotlib</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">plotly</span></code>. The exact split is probably one of personal preference. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">plotly</span></code> for interactive plots, where we want to be able to zoom in and hover over points, and then <code class="code highlight python docutils literal highlight-python"><span class="n">matplotlib</span></code> for plots we save to a file for putting into a report or into a presentation.</p>
-<p>An important outcome from this course is being able to plot data using Python. When you get to your third year project, different supervisors might say different things, but for high quality plots I would expect most students to be producing plots in Python rather than in other packages such as Excel.</p>
+<h3><span class="section-number">4.1.1.3. </span>Plotly and Matplotlib<a class="headerlink" href="#plotly-and-matplotlib" title="Link to this heading">¶</a></h3>
+<p>We’ve already used <a class="reference external" href="https://plotly.com/python/">plotly</a> for plotting. <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> is another library for creating graphs. We’re going to use both <code class="code highlight python docutils literal highlight-python"><span class="n">matplotlib</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">plotly</span></code>. The exact split is probably one of personal preference. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">plotly</span></code> for interactive plots, where we want to be able to zoom in and hover over points, and so on, and then <code class="code highlight python docutils literal highlight-python"><span class="n">matplotlib</span></code> for plots we save to a file for putting into a report or into a presentation.</p>
+<p>An important outcome from this course is being able to plot data using Python. When you get to your third year project, different supervisors might say different things, but for high quality plots I would expect most students to be producing them in Python rather than in other packages such as Excel.</p>
 </section>
 <section id="polars">
 <h3><span class="section-number">4.1.1.4. </span>Polars<a class="headerlink" href="#polars" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://pypi.org/project/polars/">Polars</a> is a library for data manipulation and analysis. It provides <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">Dataframe</a> objects, which are a bit like a table in spreadsheet. Lots of operations that you might do by hand in, say, an Excel spreadsheet, can be done programmatically in Python by using Dataframes. We’ll use it for loading in data (say from an experiment in the lab), and then doing some analysis on this data.</p>
+<p><a class="reference external" href="https://pypi.org/project/polars/">Polars</a> is a library for data manipulation and analysis. It provides <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">Dataframe</a> objects, which are a bit like a table in spreadsheet. Lots of operations that you might do by hand in, say, an Excel spreadsheet, can be done programmatically in Python by using Dataframes. We’ll use it for loading in data and then doing some analysis on this data.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> is another library for data manipulation and creating dataframes. It is extremely common.</p>
@@ -302,7 +302,7 @@
 <li><p>It has a reputation for being easier to use, with a more consistent interface than Pandas.</p></li>
 <li><p>Polars also supports Rust, and so we can use the same dataframes and interface with the Rust code we’ll develop later in the course.</p></li>
 </ul>
-<p>If you’re joining an existing project which already uses Pandas, or you’re using code from elsewhere which uses Pandas, essentially all of the concepts are the same as we’ll cover here with Polars, just with a slightly different syntax.</p>
+<p>If you’re joining an existing project which already uses Pandas, or you’re using code from elsewhere which uses Pandas, essentially all of the concepts are the same as we’ll cover here with Polars, just with a different syntax.</p>
 </div>
 </section>
 </section>
@@ -312,7 +312,7 @@
 <p>As a reminder:</p>
 <ul class="simple">
 <li><p>We’re going to be using the <code class="code highlight console docutils literal highlight-console"><span class="go">uv</span></code> package manager. You might see examples online that use <code class="code highlight console docutils literal highlight-console"><span class="go">pip</span></code> or <code class="code highlight console docutils literal highlight-console"><span class="go">conda</span></code> to achieve the same thing, as (essentially) older approaches.</p></li>
-<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv</span></code> is going to keep a record of our dependencies in a file called <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. You might see examples online that use a file called <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code> instead, which is essentially an older way of doing the same thing. You might also see examples online which have no configuration file at all. This isn’t good practice unless your Python file is very simple. Remember, we need two things for our Python code to run: the Python code, and a virtual environment with all the required libraries installed with the correct versions.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv</span></code> is going to keep a record of our dependencies in a file called <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. You might see examples online that use a file called <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code> instead, which is essentially an older way of doing the same thing. You might also see examples online which have no configuration file at all. This isn’t good practice unless your Python code is very simple. Remember, we need two things for our Python code to run: the Python code, and a virtual environment with all the required dependencies installed with the correct versions.</p></li>
 </ul>
 </section>
 <section id="plotting">
@@ -323,12 +323,12 @@
 <p>The terminology of a making a graph is:</p>
 <ul class="simple">
 <li><p>The basic unit of a graphics element is a <em>figure</em>.</p></li>
-<li><p>A figure can contain one of more <em>plots</em>.</p></li>
-<li><p>If there is more than one plot in figure, each is known as a <em>subplot</em>. Each plot contains one or more <em>axes</em>.</p></li>
+<li><p>A figure can contain one or more <em>plots</em>.</p></li>
+<li><p>If there is more than one plot in figure, each is known as a <em>subplot</em>.</p></li>
+<li><p>Each plot contains one or more <em>axes</em>.</p></li>
 <li><p>Onto an axes we can display whatever graph we want.</p></li>
 </ul>
-<p>These are illustrated on the figure below. In practice, you might find that the terms <em>figure</em> and <em>plot</em> are used interchangeably, and similarly <em>axes</em> and <em>subplot</em> used interchangeably.</p>
-<p>The name of each figure, or plot, or axes can be store in an object, so we can modify it later.</p>
+<p>These are illustrated on the figure below. In practice, you might find that the terms <em>figure</em> and <em>plot</em> are used interchangeably, and similarly <em>axes</em> and <em>subplot</em> used interchangeably. In each case, the name of a figure, or plot, or axes can be store in an object, so we can modify it later.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/example_figure.png"><img alt="A matplotlib figure showing the terminology of figure, plot, subplot and axes." src="../../_images/example_figure.png" style="width: 800px;" />
 </a>
@@ -336,11 +336,11 @@
 </section>
 <section id="plot-style-guide">
 <h3><span class="section-number">4.1.3.2. </span>Plot style guide<a class="headerlink" href="#plot-style-guide" title="Link to this heading">¶</a></h3>
-<p>We’ve discussed our code <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/useful_information/style_guide.html">style guide</a> previously. There are also some common conventions for styling plots. In general, as electronic engineers we tend to follow the <a class="reference external" href="https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/">IEEE style</a>.</p>
-<p>Briefly:</p>
+<p>We’ve discussed our <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/useful_information/style_guide.html">code style guide</a> previously. There are also some common conventions for styling plots. In general, as electronic engineers we tend to follow the <a class="reference external" href="https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/">IEEE style</a>.</p>
+<p>Briefly we will use:</p>
 <ul class="simple">
 <li><p>Label all axes clearly, including units where appropriate.</p></li>
-<li><p>Units should be in square brackets, e.g. <span class="math notranslate nohighlight">\(\text{Voltage [V]}\)</span>.</p></li>
+<li><p>Units should be in square brackets, e.g. <code class="code highlight console docutils literal highlight-console"><span class="go">Voltage [V]</span></code>.</p></li>
 <li><p>Do not include a title in the figure - this is usually redundant with the caption in the report or paper.</p></li>
 <li><p>Ensure that different lines are differentiated by more than just color. For example, changing the color and the line style (solid, dashed, dotted etc.). This helps people with color blindness, and also helps if the figure is printed in black and white.</p></li>
 <li><p>Include a legend if (and only if) there are multiple data series in the figure.</p></li>
@@ -351,7 +351,7 @@
 </section>
 <section id="plots-for-reports-and-presentations">
 <h3><span class="section-number">4.1.3.3. </span>Plots for reports and presentations<a class="headerlink" href="#plots-for-reports-and-presentations" title="Link to this heading">¶</a></h3>
-<p>As a last note, important to remember is that by default, plots tend to be optimized for display on a screen. That is, for you to work with to explore the data, such as zooming in and out on particular areas of interest, sitting in front of a screen maybe 50 cm away. If you put a default style plot into a report, or presentation where you’re viewing it from several meters aways
+<p>As a last note, important to remember is that, by default, plots tend to be optimized for display on a screen and reading by the computer user. That is, for you to work with the plot to explore the data, such as zooming in and out on particular areas of interest, while sitting in front of a screen maybe 50 cm away. If you put a default style plot into a report, or presentation where you’re viewing it from several meters aways
 , the default plot settings will almost certainly be low resolution, and have axis labels that are too small to read.</p>
 <p>We won’t go into the details of why we make some of recommendations below, but in general for good quality plots for reports and presentations:</p>
 <ul class="simple">
@@ -381,9 +381,9 @@
                             <ul>
 <li><a class="reference internal" href="#">4.1. Theory</a><ul>
 <li><a class="reference internal" href="#common-external-libraries">4.1.1. Common external libraries</a><ul>
-<li><a class="reference internal" href="#numpy">4.1.1.1. Numpy</a></li>
-<li><a class="reference internal" href="#scipy">4.1.1.2. Scipy</a></li>
-<li><a class="reference internal" href="#plotly-and-matplotlib">4.1.1.3. Plotly and matplotlib</a></li>
+<li><a class="reference internal" href="#numpy">4.1.1.1. NumPy</a></li>
+<li><a class="reference internal" href="#scipy">4.1.1.2. SciPy</a></li>
+<li><a class="reference internal" href="#plotly-and-matplotlib">4.1.1.3. Plotly and Matplotlib</a></li>
 <li><a class="reference internal" href="#polars">4.1.1.4. Polars</a></li>
 </ul>
 </li>
@@ -443,7 +443,6 @@
         <script src="../../_static/translations.js?v=8fd896e3"></script>
         <script src="../../_static/design-tabs.js?v=f930bc37"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
         <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>

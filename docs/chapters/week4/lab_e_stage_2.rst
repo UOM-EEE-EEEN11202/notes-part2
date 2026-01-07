@@ -10,14 +10,10 @@
 Scipy examples
 ==============
 
-Scipy provides lots of useful functions for scientific computing, such as analyzing signals. This forms the starting point for implementing *signal processing*, which is a very common topic in electronic engineering. For example, as we had above, most things that we measure in the lab are subject to interference and noise from other sources. Signal processing can help us filter and remove this noise. 
+Scipy provides lots of useful functions for scientific computing, such as analyzing signals. This forms the starting point for implementing *signal processing*, which is a very common topic in electronic engineering. For example, as we had :ref:`the first part of the lab <lab_e_stage_1>`, most things that we measure in the lab are subject to interference and noise from other sources. Signal processing can help us filter and remove this noise. 
 
 Signal filtering example
 ------------------------
-
-
-from scipy import signal
-
 
 #. In your Lab E folder you will see there is also a folder called :console:`data`. Here we've put some files that contain pre-saved data for us. For example, this might be a recording we did in the lab using an oscilloscope or data acquisition system.
 
@@ -29,14 +25,14 @@ from scipy import signal
       :console:`.mat` format is a proprietary implementation of the open source `hierarchical data format (HDF5) <https://www.hdfgroup.org/solutions/hdf5/>`_. We could work with HDF5 files directly using the :python:`h5py` library, but it's easier to use the :python:`scipy.io` functions that can read and write :console:`.mat` files, and :console:`.mat` files are widely used and inter-operable with open source tools. 
 
 
-   Scipy has a function that can read these files for us, called :python:`scipy.io.loadmat()`. You can read its `documentation <https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html>`_.
+   Scipy has a function that can read these :console:`.mat` files for us, called :python:`scipy.io.loadmat()`. You can read its `documentation online <https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html>`_.
 
 
 #. Start a new Python file in your Lab E :console:`src` folder. Call it something like :console:`signal_filtering.py`. Write a function that loads the file :console:`data/signal_data.mat`, and extracts the time vector and signal vector from it, and then plots it. 
 
    - The variable names in the file are :python:`t` for the time vector, and :python:`v` for the signal vector. 
    - You might need to think about where the data file is located relative to your code file. In the solution below we've used the :python:`pathlib` library to find this automatically, but you can just type in the address by hand if you prefer.
-   - Think about what type of variables you want to store your output in. :python:`scipy.io.loadmat()` will load the data into a dictionary, so you probably want to extract the variables from this and put them in numpy arrays. 
+   - Think about what type of variables you want to store your output in. :python:`scipy.io.loadmat()` will load the data into a dictionary, so you probably want to extract the variables from this dictionary and put them in numpy arrays. 
 
    .. admonition:: Solution
       :class: dropdown
@@ -49,6 +45,7 @@ from scipy import signal
          import numpy as np
          import plotly.express as px
          import scipy.io as sio
+         from scipy import signal
 
 
          def load_signal_from_matfile():
@@ -74,10 +71,10 @@ from scipy import signal
       :align: center
       :alt: Sine wave with noise plotted with plotly
 
-   This is a 10 Hz sine wave, corrupted by some high frequency noise. It's the same as the signal we made earlier by adding random noise to a 10 Hz sine wave, we've now just loaded it in from a file.
+   This is a 10 Hz sine wave, corrupted by some high frequency noise. It's the same as the signal we made :ref:`the first part of the lab <lab_e_stage_1>` by adding random noise to a 10 Hz sine wave, we've now just loaded it in from a file.
 
 
-#. Scipy contains functions for filtering this noise out. Add the function below to your code, and edit the rest of the code to call this, and plot the filtered signal. You'll need to work out the correct parameters to pass to :python:`filter_data()`.
+#. Scipy contains functions for filtering this noise out. Add the function below to your code, edit the rest of the code to call this function, and plot the filtered signal. You'll need to work out the correct parameters to pass to :python:`filter_data()`.
 
    .. code-block:: python
 
@@ -95,7 +92,7 @@ from scipy import signal
           signal_filtered = signal.filtfilt(b, a, data)
           return signal_filtered
 
-   This is implementing a *Butterworth* filter, which you will have learnt about in your electronic courses. It attenuates frequencies higher than the cutoff.
+   This is implementing a *Butterworth* filter, which you will have learnt about in your electronics courses. It attenuates frequencies higher than the cutoff.
 
    .. admonition:: Solution
       :class: dropdown
@@ -117,14 +114,14 @@ from scipy import signal
          :align: center
          :alt: A filtered sine wave plotted with plotly
 
-#. Assuming you've implemented the filtering as in the solution above, the sine wave still looks quite noisy. By using different filtering functions as given in the `Scipy signal documentation <https://docs.scipy.org/doc/scipy/reference/signal.html#>`_, or otherwise, try and clean the signal more to make it look like a pure sine wave. 
+#. Assuming you've implemented the filtering as in the solution above, the sine wave still looks quite noisy. By using different filtering functions as given in the `scipy signal documentation <https://docs.scipy.org/doc/scipy/reference/signal.html#>`_, or otherwise, try and clean the signal more to make it look like a pure sine wave. 
 
    .. admonition:: Solution
       :class: dropdown
 
-      The simplest will just be to change the order of the filter, and the cut-off. Our example code uses a first order filter with a cut-off of 50 Hz. We know the sine wave is at 10 Hz, so the cut-off can probably be a bit lower. First order is quite low for a filter. Taking the order too high will introduce a different type of distortion (covered in your filters courses), but it can probably be second or fourth order without issue.
+      The simplest approach will just be to change the order of the filter, and the cut-off. Our example code uses a first order filter with a cut-off of 50 Hz. We know the sine wave is at 10 Hz, so the cut-off can probably be a bit lower. First order is quite low for a filter. Taking the order too high will introduce a different type of distortion (covered in your filters courses), but it can probably be second or fourth order without issue.
 
-      There are lots of different functions in Scipy that you can try here, and we'll leave you to experiment.  
+      There are also lots of different filtering functions in scipy that you can try here, and we'll leave you to experiment.  
 
 
 Signal detection example
@@ -176,9 +173,9 @@ Signal detection example
    .. admonition:: Aside
       :class: dropdown
    
-      This is an `electrocardiography (ECG) signal <https://en.wikipedia.org/wiki/Electrocardiography>`_. It represents the electrical activity of the heart. Many smart watches now include ECG monitors as part of their health and wellbeing features. Clinically, the ECG is widely used to diagnose a wide number of heart related conditions. 
+      This is an `electrocardiography (ECG) signal <https://en.wikipedia.org/wiki/Electrocardiography>`_. It represents the electrical activity of the heart. Many smartwatches now include ECG monitors as part of their health and wellbeing features. Clinically, the ECG is regularly used to diagnose a wide number of heart related conditions. 
       
-      The example in our labs is simulated, using the code from `ecgsyn <https://physionet.org/content/ecgsyn/1.0.0>`_, but there are many real recordings on `PhysioNet <https://physionet.org/about/database/>`_ that you can explore if you're interested. 
+      The example in our labs is simulated, using the code from `ecgsyn <https://physionet.org/content/ecgsyn/1.0.0>`_, but there are many real ECG recordings on `PhysioNet <https://physionet.org/about/database/>`_ that you can explore if you're interested. 
       
       Scipy also includes an example ECG dataset that you can load directly using :python:`scipy.misc.electrocardiogram()`.
 
@@ -188,9 +185,9 @@ Signal detection example
    .. admonition:: Hint
       :class: dropdown
 
-      You'll find that too many peaks are detected using the default settings for :python:`signal.find_peaks()`. You get a good estimation you'll need to change the settings for how a peak is detected. See the documentation for :python:`signal.find_peaks()` `here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html>`_ to see the options available. 
+      You'll find that too many peaks are detected using the default settings for :python:`signal.find_peaks()`. To get a good estimation you'll need to change the settings for how a peak is detected. See the documentation for :python:`signal.find_peaks()` `here <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html>`_ to see the options available. 
    
-      You might find it helpful to plot the detected peaks on top of the ECG signal to see what points have been detected. This requires plotting two lines on the same graph, which we'll cover in :ref:`the second part of the Lab <lab_e_stage_2>` if you want to skip ahead. 
+      You might find it helpful to plot the detected peaks on top of the ECG signal to see which points have been detected. This requires plotting two lines on the same graph, which we'll cover in :ref:`Lab F <lab_f_stage_1>` if you want to skip ahead. 
 
    .. admonition:: Solution
       :class: dropdown
@@ -256,8 +253,8 @@ Signal detection example
 #. Check your code in to Git before proceeding. 
 
 
-Further tasks
-=============
+Further (optional) tasks
+========================
 #. Usually we don't want to estimate the heart rate from the entire signal. This would mean waiting a long time to get all of the data. 
 
    It's common (in wearables) that we estimate heart rate using 8 second windows of data. Every 2 s this window moves on, so there's 6 seconds of overlap between each window. This means that every 2 s we get a new estimate of heart rate, based on the last 8 seconds of data. We can then get a plot of heart rate over time. 
