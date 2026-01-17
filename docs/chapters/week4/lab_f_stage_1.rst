@@ -46,7 +46,15 @@ Initial setup for the Lab
 
       uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel ipykernel pyarrow nbformat
 
-#. Make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#>`_ if you're unsure. 
+#. Run 
+
+   .. prompt::
+
+      uv run src/main.py
+
+   to make sure the virtual environment is built. 
+
+#. When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#>`_ if you're unsure. 
 
 
 

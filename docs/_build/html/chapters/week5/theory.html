@@ -160,17 +160,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Initial setup for the Lab</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html#numpy">4.2.2. Numpy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html#scipy">4.2.3. Scipy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html#optional-tasks">4.2.4. Optional tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.5. Lab E Stage 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.6. Assignment E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html#numpy-examples">4.2.2. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.3. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html#further-optional-tasks">4.2.4. Further (optional) tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.5. Assignment E</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Lab F Stage 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Lab F Stage 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html#plotting-examples">4.3.2. Plotting examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.3. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.4. Assignment F</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
@@ -179,9 +179,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">5.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lab_g.html">5.2. Lab G</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html">5.2.1. Lab G Stage 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.2. Lab G Stage 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.3. Assignment G</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html">5.2.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html#objects">5.2.2. Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html#a-student-example">5.2.3. A student example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.4. Lab G Stage 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.5. Assignment G</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lab_h.html">5.3. Lab H</a><ul>
@@ -272,6 +274,41 @@
                         <main role="main" id="main">
     <section id="theory">
 <h1><span class="section-number">5.1. </span>Theory<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2><span class="section-number">5.1.1. </span>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<p>So far in the course we’ve <em>used</em> lots of <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/objects.html">objects</a>. For example, if we have a list</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> is an instance of an object. It has data stored in it, and <em>methods</em> to work with the data in the object. For example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>adds a number to the list.</p>
+<p>We now want to look at how to create our own objects. That is, objects that are tailored to work with the particular data we have in whatever problem we’re working on, and to have methods that are relevant to that data. Rather than relying only on the built-in Python data types, we can start to build our own to better fit whatever problem we’re making code for.</p>
+<p>Objects are created from <em>classes</em>. A <em>class</em> defines the data that an object will hold, and the methods that the object will have. We can then create multiple instances of the class, each with their own data. That is, to use a class <code class="code highlight python docutils literal highlight-python"><span class="n">ExampleClass</span></code> we can have</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> are are all different objects, made from the same template. They might each have their own data, but the same methods to work with that data.</p>
+<p>Using our own objects is thus just writing Python code as we have before. Making our own means learning how to make a class. There are two primary ways of doing this:</p>
+<ol class="arabic simple">
+<li><p>We can write a class from scratch. This is what we’ll look at in <a class="reference internal" href="lab_g.html#lab-g"><span class="std std-ref">Lab G</span></a>.</p></li>
+<li><p>We can write a class takes an existing class, and builds on top of it to add more functionality. This is known as <em>inheritance</em>.</p></li>
+</ol>
+<p>We’re only going to look at writing classes from scratch here. This is mainly due to the length of the course. We’re going to introduce classes so that you’re familiar with them and can work with them when you see them in code (as you will in <a class="reference internal" href="lab_g.html#lab-g"><span class="std std-ref">Lab I</span></a>). Learning more about <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object orientated programming</a> is probably an important topic to look at in more depth, if/as/when you do more programming in the future.</p>
+</section>
+<section id="exceptions">
+<h2><span class="section-number">5.1.2. </span>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
+<p>Different programming languages have different ways of handling errors. Python uses a mechanism called <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/asserts_and_exceptions.html">exceptions</a>. We see how to work with these in <a class="reference internal" href="lab_h.html#lab-h"><span class="std std-ref">Lab H</span></a>.</p>
+<p>The theory to introduce here is the concept of a <em>recoverable error</em> vs. a <em>non-recoverable error</em>.</p>
+<p>A <em>non-recoverable error</em> is an error which means that the program cannot continue. For example, if we try to open a file which does not exist, and we need that file to continue, then this is a non-recoverable error. The program must stop.</p>
+<p>A <em>recoverable error</em> is an error which means that something has gone wrong, but the program can continue. For example, in <a class="reference internal" href="../week4/lab_f_stage_2.html#lab-f-stage-2"><span class="std std-ref">Lab F</span></a>, we had an example where there was some missing data in a file we loaded in. There we could fill in the missing data with a default value and continue processing it.</p>
+<p>Sometimes, an error that is non-recoverable in one part of the program might be recoverable in another part of the program. For example, if we try and open a file that doesn’t exist, that file open function will fail. Whatever’s calling that function might be able to handle the failure. For example, it could prompt the use to enter a different filename.</p>
+<p>In error handling we can <em>try</em> and perform an action. If it works without issue, great. If something goes wrong, we can <em>raise</em> an <em>exception</em>. The user, or another bit of code can then decide what to do, e.g. to just stop and display an error message to the user, or to run some more code to try and recover from the error in some way.</p>
+</section>
 </section>
 
 </main>
@@ -284,6 +321,20 @@
     </a>
 </nav>
                     </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">5.1. Theory</a><ul>
+<li><a class="reference internal" href="#classes">5.1.1. Classes</a></li>
+<li><a class="reference internal" href="#exceptions">5.1.2. Exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
                     
                 </div>
             </div>
@@ -309,7 +360,7 @@
                 </nav>
             
             <div class="text-center">
-                    &copy; Copyright Alex Casson. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Released under CC-BY-NC-SA 4.0 license.</a>
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Released under CC-BY-NC-SA 4.0 license.</a>
             </div>
         </div>
     </div>
