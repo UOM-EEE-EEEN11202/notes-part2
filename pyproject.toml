@@ -13,5 +13,4 @@ dependencies = [
     "sphinxcontrib-quizdown @ git+https://github.com/bonartm/sphinxcontrib-quizdown",
     "sphinx-togglebutton",
     "sphinx-prompt",
-    "sphinxcontrib-googleanalytics",
 ]
