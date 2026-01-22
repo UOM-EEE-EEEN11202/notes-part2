@@ -3,91 +3,144 @@ Formative quiz 5
 
 .. quizdown::
 
-   ## The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+   ## What is the difference between a method and a function?
 
-   1. [ ] The core
-       > That's not correct. A core is part of a processor, but it's not a complete processor, and all computers need a processor.
-   1. [ ] The soundcard
-       > That's not correct. Most computers will have soundcards, allowing audio to be played, but they're not the central part of the computer drawn here.
-   1. [ ] Touch input
-       > That's not correct. Touch input is widely used in some computer systems, but it's not the central part of the computer drawn here.
-   1. [x] The processor
+   1. [ ] A method is for storing data, a function is for processing data.
+       > That's not correct. Both methods and functions can process data.
+   1. [x] A method is a function that is associated with an object.
        > That's correct!
-   1. [ ] The cache
-       > That's not correct. Cache is memory very local to the processor, typically on the same microchip. Cache is part of a processor, but it's not a complete processor, and all computers need a processor.
+   1. [ ] A method is for processing data, a function is for storing data.
+       > That's not correct. Both methods and functions can process data.
+   1. [ ] A method is a function that is associated with an object.
+       > That's not correct. It's the other way round.
+   1. [x] The two are the same.
+       > That's not correct. Both are defined with def statements, but a method sits inside a class definition while a function does not.
 
-
-   ## Sustainability isn't an important factor in programming.
+   ## What is the intention of using a single underscore _ at the start and end of a method name in a class?
    
-   1. [x] True
-       > That's correct! When starting out, we tend to focus on making programs that are functionally correct - ones that do what we want. Once they are working, there are a wide range of other factors, such as security and sustainability we may need to take into account. 
+   1. [x] It indicates the method is for the class itself to use, not for users of the class.
+       > That's correct! This is a common convention in Python.
+   1. [ ] It has no special meaning. 
+       > That's not correct. You can use underscores for any method if you want, but by convention this has a special meaning. Try again.
+   1. [ ] It indicates this is a method that Python provides automatically for the class.
+       > That's not correct. There are special methods, these use two underscores.
+   1. [ ] It indicates this method is a prototype and hasn't been fully tested yet.
+       > That's not correct. Try again.
+   1. [ ] It indicates that this method can only work with numerical data. 
+       > That's not correct. Try again.
+
+
+   ## What is the first argument given to a method?
+
+   1. [x] self
+       > That's correct!
+   1. [ ] me
+       > That's not correct.
+   1. [ ] this
+       > That's not correct.
+   1. [ ] a
+       > That's not correct.
+   1. [ ] Any name you want
+       > That's not correct.
+
+
+   ## What case do we usually use to indicate a class name in Python?
+
+   1. [ ] camelCase
+       > That's not correct.
+   1. [ ] snake_case
+       > That's not correct.
+   1. [ ] kebab-case
+       > That's not correct.
+   1. [ ] ALLCAPS
+       > That's not correct.
+   1. [X] PascalCase
+       > That's correct!
+
+
+   ## Re-arrange the below to import a function called `check_email()` from a file called `funcs.py` stored in a folder called `lib`.
+   
+   1. from 
+   2. lib
+   3. .
+   4. funcs 
+   5. import 
+   6. check_email
+
+
+   ## Which term is `...` representing in the `try`-`except` block below?
+
+   `try:` <br />
+    `    x = 101` <br />
+    `except:` <br />
+    `    x = 100` <br />
+    `...:` <br />
+    `    print("No exceptions were raised.")` <br />
+    `finally:` <br />
+    `    print(f"x is {x}")` <br />
+
+   1. [ ] if
+       > That's not correct.
+   1. [x] else
+       > That's correct!
+   1. [ ] then
+       > That's not correct.
+   1. [ ] except
+       > That's not correct. You can have more than one except block to catch different exceptions, but the first except block in this example already catches all exceptions. 
+   1. [ ] continue
+       > That's not correct.
+
+   ## Re-arrange the below to raise a `ValueError` exception with the message "Invalid input".
+
+   1. raise 
+   2. ValueError
+   3. (
+   4. "
+   5. Invalid input
+   6. "
+   7. )
+
+
+   ## Which of the below are built in exceptions in Python? Select all that apply.
+
+   - [x] ValueError
+   - [x] FileNotFoundError
+   - [x] IndexError
+   - [x] ZeroDivisionError
+   - [x] ImportError
+
+
+   ## In a `try`-`except` block you can only have exactly one `except` statement.
+
+   1. [ ] True
+       > That's not correct. You can have multiple except statements to catch different exceptions.
    1. [ ] False
-       > That's not correct. Computer systems use large amounts of energy and water, and inefficient coding can waste lots of resources.
+       > That's correct!
 
 
-   ## What is the name of the Integrated Development Environment that we'll use in this course?
+   ## In Git, combining two branches together is known as
 
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
-
-   ## What is the function of static code analysis in an integrated development environment?
-
-   1. [ ] To analyze code after it has executed to detect errors that occurred.
-   1. [ ] To analyze code while it is running to debug and detect errors.
-   1. [x] To analyze code before it is compiled to pre-detect potential errors.
-   1. [ ] To analyze our requirements and generate code for us using generative artificial intelligence.
-   1. [ ] To carry out all tasks listed here.
+   1. [ ] Fetching
+       > That's not correct. This is a different operation, not related to branches. 
+   1. [ ] Branching
+       > That's not correct. This is making a new branch.
+   1. [ ] Rebasing
+       > That's not correct. This is a valid git operation, but not the correct answer here.
+   1. [x] Merging
+       > That's correct!
+   1. [ ] Combining
+       > That's not correct. This isn't the name of an operation in git.
 
 
-   ## What is meant by a conditional break point? 
+   ## Which of the below makes a custom exception called `NotNumberError`?
 
-   1. [ ] A line of code that changes the flow of the program
-   1. [x] A debugger setting that pauses the program execution in certain cases
-   1. [ ] A comment that explains which code is relevant to different situations
-   1. [ ] An assert statement that stops the execution of the program when triggered
-   1. [ ] A setting used to control when the code is checked into a version control repository
-
-   ## What is meant by a conditional break point? 
-
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
-   ## What is meant by a conditional break point? 
-
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
-   ## What is meant by a conditional break point? 
-
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
-   ## What is meant by a conditional break point? 
-
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
-   ## What is meant by a conditional break point? 
-
-   1. [x] VSCode
-   1. [ ] Visual Studio
-   1. [ ] Xcode
-   1. [ ] Eclipse
-   1. [ ] Code blocks
-
+   1. [ ] def NotNumberError(Exception):
+       > That's not correct. You need to use class, not def, to make a custom exception.
+   1. [x] class NotNumberError(Exception):
+       > That's correct!
+   1. [ ] class NotNumberError(Error):
+       > That's not correct. You need to inherit from Exception, not Error.
+   1. [ ] class NotNumberError():
+       > That's not correct. You need to inherit from Exception.
+   1. def Exception(NotNumberError):
+       > That's not correct. You need to use class, not def, to make a custom exception.

@@ -73,7 +73,7 @@ Raising exceptions
 
 #. You should see that the code runs, :console:`Hello from lab-h!` is displayed, and then the programs ends with an error. This error has a custom name and message, the ones we asked for in the code. This is shown in the screenshot below.
 
-   .. image:: ./images/raising_an_exception.png
+   .. figure:: ./images/raising_an_exception.png
       :width: 800
       :align: center
       :alt: VSCode showing a Python exception being raised
