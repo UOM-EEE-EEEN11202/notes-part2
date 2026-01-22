@@ -171,7 +171,7 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
 
    Make these changes and check the code still runs as before.
 
-   .. adominition:: Aside
+   .. admonition:: Aside
       :class: dropdown
 
       :python:`import ... as ...` and :python:`from ... import ... as ...` actually do slightly different things if the file you're importing has code at the global level in it, not just function and class definitions. We won't worry about this here though.

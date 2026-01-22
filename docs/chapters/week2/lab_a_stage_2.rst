@@ -1,6 +1,9 @@
 .. role:: console(code)
    :language: console
 
+.. _lab_a_stage_2:
+
+
 Version control
 ===============
 
