@@ -10,7 +10,7 @@ Multi-file scripts
 ==================
 This is a smaller topic, to be helpful as we start to write longer code.
 
-So far, we've essentially written all of our Python code to be in a single file. (Apart from the unit tests which were in their own files.) It's fine in principle to have all of our code in one file, but as the code gets longer and longer it can get hard to manage. Remember that practical coding problems can easily have thousands, or even millions, lines of code. 
+So far, we've essentially written all of our Python code to be in a single file. (Apart from the unit tests which were in their own files.) It's fine in principle to have all of our code in one file, but as the code gets longer and longer it can get hard to manage. Remember that practical coding problems can easily have thousands, or even millions, of lines of code. 
 
 There are no hard rules for when to split code into multiple files. Similarly, for what to put in which files. You could group all of your functions into one file and classes in another, or you could group related functionality together into files. Here we'll just look at an example to build some familiarty, so that you can start splitting up your code as/when you want to. 
 
@@ -18,7 +18,7 @@ Our two code files
 ------------------
 We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the first part of the lab <lab_g_stage_1>`. We'll split the code into two files. 
 
-#. In your Lab G :console:`src` folder make one code file and call it :file:`my_lib.py`. Enter the code below into it. 
+#. In your Lab G :console:`src` folder make one code file and call it :file:`my_lib.py`. Enter the code below into it.
 
    .. code-block:: python
 
@@ -120,7 +120,7 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
    This code is exactly the same as what we had in :ref:`the first part of the lab <lab_g_stage_1>`, except that we've added a function called :python:`display_student_info()` to make the display to the screen slightly more tidy. 
 
 
-#. In :console:`process_student_marks.py` you'll see that various parts are unlined in red by the `static code analysis <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html>`_. Although the two code files in the the same folder they can't automatically see each other. We have to explicitly :python:`import` what we want. We'll look at a few different ways of doing this. 
+#. In VSCode, in :console:`process_student_marks.py` you'll see that various parts are underlined in red by the `static code analysis <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html>`_. Although the two code files are in the same folder they can't automatically see each other. We have to explicitly :python:`import` what we want. We'll look at a few different ways of doing this. 
 
    .. figure:: ./images/static_code_analysis.png
       :width: 800
@@ -135,7 +135,7 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
 
    If you now run :console:`process_student_marks.py` it should work as before. This command imports everything from :console:`my_lib.py` into the current file.
 
-   The problem with this approach is that if :console:`my_lib.py` and :console:`process_student_marks.py` both have functions or classes with the same name, there will be a conflict. Python won't know which one to use.
+   The problem with this approach is that if :console:`my_lib.py` and :console:`process_student_marks.py` both have functions or classes with the same names, there will be a conflict. Python won't know which one to use.
 
 
 #. Change the import statement to be
@@ -165,9 +165,9 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
 
       import my_lib as my
 
-   This has imported everything freom :console:`my_lib.py`, and put it into a `namespace <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html#namespaces>`_ called :python:`my`. To access things from :console:`my_lib.py` we now have to use the namespace. 
+   This has imported everything from :console:`my_lib.py`, and put it into a `namespace <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html#namespaces>`_ called :python:`my`. To access things from :console:`my_lib.py` we now have to use the namespace. 
    
-   So, :python:`StudentMarksEEEN11202` becomes :python:`my.StudentMarksEEEN11202`, and :python:`display_student_info()` becomes :python:`my.display_student_info()`.
+   So, :python:`StudentMarksEEEN11202` becomes :python:`my.StudentMarksEEEN11202`, and :python:`display_student_info()` becomes :python:`my.display_student_info()`. This is very useful when we're importing lots of functions and classes from different sources which might have similar names. 
 
    Make these changes and check the code still runs as before.
 
@@ -177,12 +177,12 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
       :python:`import ... as ...` and :python:`from ... import ... as ...` actually do slightly different things if the file you're importing has code at the global level in it, not just function and class definitions. We won't worry about this here though.
 
 
-#. Make a folder in your :console:`src`folder called :console:`lib` and move :console:`my_lib.py` into it. At the command line (assuming you're in the :console:`lab-g` folder rather than :console:`lab-g/src`) you can do this with
+#. Make a folder in your :console:`src` folder called :console:`lib` and move :console:`my_lib.py` into it. At the command line (assuming you're in the :console:`lab-g` folder rather than :console:`lab-g/src`) you can do this with
 
    .. code-block:: console
 
       mkdir -p src/lib
-      mv ./src/my_lib.py src/lib/
+      mv ./src/my_lib.py ./src/lib/
 
    When done correctly, VSCode should look like the below.
 
@@ -214,4 +214,4 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
       student1.set_exam_mark(65)
       display_student_info(student1)
 
-   so that we can look at it, and see it's what we want. Functions, classes and similar are then in a library which contains more complicated code, but also code which we have written unit tests for to check they work was wanted. 
+   so that we can look at it, and see it's what we want. Functions, classes and similar are then in a library which contains more complicated code, but also code which we have written `unit tests <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/automated_testing.html#unit-tests>`_for to check they work was wanted. 

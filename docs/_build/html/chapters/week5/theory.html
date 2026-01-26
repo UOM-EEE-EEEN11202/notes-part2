@@ -181,15 +181,19 @@
 <li class="toctree-l2"><a class="reference internal" href="lab_g.html">5.2. Lab G</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html">5.2.1. Initial setup for the Lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html#objects">5.2.2. Objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html#a-student-example">5.2.3. A student example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.4. Lab G Stage 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html#another-example">5.2.3. Another example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.4. Multi-file scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.5. Assignment G</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lab_h.html">5.3. Lab H</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html">5.3.1. Lab H Stage 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_2.html">5.3.2. Lab H Stage 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="assignment_h.html">5.3.3. Assignment H</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html">5.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html#raising-exceptions">5.3.2. Raising exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html#raising-warnings">5.3.3. Raising warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html#handling-exceptions">5.3.4. Handling exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html#extending-the-student-class-example">5.3.5. Extending the student class example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_2.html">5.3.6. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_h.html">5.3.7. Assignment H</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">5.4. Formative quiz 5</a></li>
@@ -198,7 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Lab I Stage 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Lab I Stage 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
 </ul>
@@ -285,29 +289,31 @@
 </pre></div>
 </div>
 <p>adds a number to the list.</p>
-<p>We now want to look at how to create our own objects. That is, objects that are tailored to work with the particular data we have in whatever problem we’re working on, and to have methods that are relevant to that data. Rather than relying only on the built-in Python data types, we can start to build our own to better fit whatever problem we’re making code for.</p>
-<p>Objects are created from <em>classes</em>. A <em>class</em> defines the data that an object will hold, and the methods that the object will have. We can then create multiple instances of the class, each with their own data. That is, to use a class <code class="code highlight python docutils literal highlight-python"><span class="n">ExampleClass</span></code> we can have</p>
+<p>We now want to look at how to create our own objects. That is, objects that are tailored to work with the particular data we have for whatever problem we’re working on; and to have methods that are relevant to that data. Rather than relying only on the built-in Python data types, we can start to build our own to better fit whatever problem we’re making code for.</p>
+<p>Objects are created from <em>classes</em>. A <em>class</em> defines the data that an object will hold, and the methods that the object will have. We can then create multiple <em>instances</em> of the class, <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> in the example above, each with their own data. That is, to use a class <code class="code highlight python docutils literal highlight-python"><span class="n">ExampleClass</span></code> we can have</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> are are all different objects, made from the same template. They might each have their own data, but the same methods to work with that data.</p>
-<p>Using our own objects is thus just writing Python code as we have before. Making our own means learning how to make a class. There are two primary ways of doing this:</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> are are all different objects, made from the same class template. They might each have their own data, but the same methods to work with that data.</p>
+<p>Using our own objects is thus just writing Python code as we have before. Making our own objects means learning how to make a class. There are two primary ways of doing this:</p>
 <ol class="arabic simple">
 <li><p>We can write a class from scratch. This is what we’ll look at in <a class="reference internal" href="lab_g.html#lab-g"><span class="std std-ref">Lab G</span></a>.</p></li>
-<li><p>We can write a class takes an existing class, and builds on top of it to add more functionality. This is known as <em>inheritance</em>.</p></li>
+<li><p>We can write a class that takes an existing class, and builds on top of it to add more functionality. This is known as <em>inheritance</em>.</p></li>
 </ol>
-<p>We’re only going to look at writing classes from scratch here. This is mainly due to the length of the course. We’re going to introduce classes so that you’re familiar with them and can work with them when you see them in code (as you will in <a class="reference internal" href="lab_g.html#lab-g"><span class="std std-ref">Lab I</span></a>). Learning more about <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object orientated programming</a> is probably an important topic to look at in more depth, if/as/when you do more programming in the future.</p>
+<p>We’re only going to look at writing classes from scratch here. This is mainly due to the length of the course. We’re going to introduce classes so that you’re familiar with them and can work with them when you see them in code (as you will for example in <a class="reference internal" href="lab_g.html#lab-g"><span class="std std-ref">Lab I</span></a>). Learning more about <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">object orientated programming</a> is probably an important topic to look at in more depth, if/as/when you do more programming in the future.</p>
 </section>
 <section id="exceptions">
 <h2><span class="section-number">5.1.2. </span>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
-<p>Different programming languages have different ways of handling errors. Python uses a mechanism called <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/asserts_and_exceptions.html">exceptions</a>. We see how to work with these in <a class="reference internal" href="lab_h.html#lab-h"><span class="std std-ref">Lab H</span></a>.</p>
+<p>Different programming languages have different ways of handling errors. Python uses a mechanism called <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/asserts_and_exceptions.html">exceptions</a>. We’ll see how to work with these in <a class="reference internal" href="lab_h.html#lab-h"><span class="std std-ref">Lab H</span></a>.</p>
 <p>The theory to introduce here is the concept of a <em>recoverable error</em> vs. a <em>non-recoverable error</em>.</p>
-<p>A <em>non-recoverable error</em> is an error which means that the program cannot continue. For example, if we try to open a file which does not exist, and we need that file to continue, then this is a non-recoverable error. The program must stop.</p>
-<p>A <em>recoverable error</em> is an error which means that something has gone wrong, but the program can continue. For example, in <a class="reference internal" href="../week4/lab_f_stage_2.html#lab-f-stage-2"><span class="std std-ref">Lab F</span></a>, we had an example where there was some missing data in a file we loaded in. There we could fill in the missing data with a default value and continue processing it.</p>
+<ul class="simple">
+<li><p>A <em>non-recoverable error</em> is an error which means that the program cannot continue. For example, if we try to open a file which does not exist, and we need that file, then this is a non-recoverable error. The program must stop.</p></li>
+<li><p>A <em>recoverable error</em> is an error which means that something has gone wrong, but the program can continue. For example, in <a class="reference internal" href="../week4/lab_f_stage_2.html#lab-f-stage-2"><span class="std std-ref">Lab F</span></a>, we had an example where there was some missing data in a file we loaded in. There we could fill in the missing data with a default value and continue processing it.</p></li>
+</ul>
 <p>Sometimes, an error that is non-recoverable in one part of the program might be recoverable in another part of the program. For example, if we try and open a file that doesn’t exist, that file open function will fail. Whatever’s calling that function might be able to handle the failure. For example, it could prompt the use to enter a different filename.</p>
-<p>In error handling we can <em>try</em> and perform an action. If it works without issue, great. If something goes wrong, we can <em>raise</em> an <em>exception</em>. The user, or another bit of code can then decide what to do, e.g. to just stop and display an error message to the user, or to run some more code to try and recover from the error in some way.</p>
+<p>In error handling we can <em>try</em> and perform an action. If it works without issue, great. If something goes wrong, we can <em>raise</em> an <em>exception</em>. The user, or another bit of code, can then decide what to do, e.g. to just stop and display an error message to the user, or to run some more code to try and recover from the error in some way.</p>
 </section>
 </section>
 

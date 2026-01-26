@@ -34,12 +34,14 @@ Initial setup for the Lab
 #. Install the required dependencies for this lab by entering the command:
 
    .. prompt::
+      :language: bash
 
       uv add numpy scipy pandas plotly
 
 #. Run 
 
    .. prompt::
+      :language: bash
 
       uv run src/main.py
 

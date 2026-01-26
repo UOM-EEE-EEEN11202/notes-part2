@@ -43,12 +43,14 @@ Initial setup for the Lab
 #. Install the required dependencies for this lab by entering the command:
 
    .. prompt::
+      :language: bash
 
       uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel ipykernel pyarrow nbformat
 
 #. Run 
 
    .. prompt::
+      :language: bash
 
       uv run src/main.py
 

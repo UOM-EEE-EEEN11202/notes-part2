@@ -2,7 +2,7 @@
 
 Lab H
 =====
-The first part of Lab H focuses on exceptions for error handling. This forms the major focus of the overall lab. The second part of the lab then returns to look at Git a bit more.
+The first part of Lab H focuses on exceptions for error handling. This forms the major focus of the overall lab. The second part of the lab then returns to look at version control in Git a bit more.
 
 
 .. toctree::

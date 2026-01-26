@@ -6,5 +6,6 @@
 
 .. _lab_i_stage_1:
 
-Lab I Stage 1
-=============
+Writing code for AI
+===================
+There's no need to re-invent the wheel when it comes to having a lab on writing code for AI models in Python. 

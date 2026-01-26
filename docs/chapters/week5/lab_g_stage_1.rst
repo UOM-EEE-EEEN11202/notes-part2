@@ -22,24 +22,25 @@ Initial setup for the Lab
    .. prompt::
       :language: bash
    
-      mkdir tests docs
+      mkdir tests docs src
       mv main.py src
       uv run src/main.py
       touch tests/__init__.py
 
-   - Here we've moved :console:`main.py` into the :console:`src` folder. You'll see that the :console:`src` folder contains some code that we've written for you. 
+   - Here we've moved :console:`main.py` into the :console:`src` folder.
    - We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation. We won't ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it's working!
-   - In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
 
 #. Install the required dependencies for this lab by entering the command:
 
    .. prompt::
+      :language: bash
 
       uv add numpy
 
 #. Run 
 
    .. prompt::
+    :language: bash
 
       uv run src/main.py
 
@@ -84,12 +85,12 @@ Objects
    - The body of the class is indented below this line.
    - The class has one method, :python:`__init__()` which defines what happens when a new instance of the class is created. 
    
-     - A method is defined using the :python:`def` keyword, just like a function, we just call it a method because the definition is inside a class. 
-     - This method name starts and ends with a double underscore :python:`__`. This is known as a *dunder* method. All classes will have a range of built in dunder methods which provide default functionality. We don't have to use them all, but they are there if we want to.
-     - The :python:`def __init__(self, value)` method takes two inputs, :python:`self` and :python:`value`. A method always takes :python:`self` as its first input. :python:`self` means take the name of the current object. That is, if when have :python:`a = ExampleClass(2)`, :python:`self` represents :python:`a`. When have :python:`b = ExampleClass(2)`, :python:`self` represents :python:`b`. The class definition doesn't know what we're going to call any particular object that we might make, and so it uses :python:`self` instead.
+     - A method is defined using the :python:`def` keyword, just like a function. We just call it a method because the definition is inside a class. 
+     - The :python:`__init__` method name starts and ends with a double underscore :python:`__`. This is known as a *dunder* method. All classes will have a range of built in dunder methods which provide default functionality. We don't have to use them all, but they are there if we want to.
+     - The :python:`def __init__(self, value)` method takes two inputs, :python:`self` and :python:`value`. A method always takes :python:`self` as its first input. :python:`self` means take the name of the current object. That is, if we have :python:`a = ExampleClass(2)`, :python:`self` represents :python:`a`. When we have :python:`b = ExampleClass(2)`, :python:`self` represents :python:`b`. The class definition doesn't know what we're going to call any particular object that we might make, and so it uses :python:`self` instead.
      - Any inputs after :python:`self` are just whatever we want to provide to get the behaviour that we want. Here we're just making a class that holds a single value. 
       
-#. Fundamentally that's it! We now just want to make the class as complicated as we need it to be for whatever problem we're trying to solve. We'll make this example a bit more detailed before moving on to something possibly more realistic. 
+#. Fundamentally that's it! We now just need to make the class as simple or as complicated as we need it to be for whatever problem we're trying to solve. We'll make this example a bit more detailed before moving on to something possibly more realistic. 
 
 #. Add
 
@@ -97,7 +98,7 @@ Objects
 
       print(a)
 
-   to your :python:`main()` function, and run the code again. You'll see something like
+   to your :python:`main()` function, and run the code again. You'll see something like the below displayed:
 
    .. code-block:: console
 
@@ -122,11 +123,6 @@ Objects
       :alt: View of a simple class in VSCode with a __str__ method
 
 #. Modify the :python:`__str__()` method to display the value the object is storing. 
-
-   .. code-block:: console
-
-      def __str__(self):
-          return f"ExampleClass object with value: {self.value}"
 
    .. admonition:: Solution
       :class: dropdown
@@ -198,9 +194,9 @@ Objects
          if __name__ == "__main__":
              main()
 
-   The :python:`multiply()` method has its own input, called :python:`factor`. This is just a normal input to a function, except that the first input is always :python:`self`, which represents the object that the method is being called on. It multiples the stored value in the object by the input :python:`factor`. 
+   The :python:`multiply()` method has its own input, called :python:`factor`. This is just a normal input to a function, except that the first input is always :python:`self`, which represents the object that the method is being called on. This method multiples the stored value in the object by the input :python:`factor`. 
 
-#. Add a new method called :python:`pow()` which returns the square of the value stored in the object, if that value is even, and makes the cube of the value if the value is odd. Test your method by calling it on each of the three objects :python:`a`, :python:`b` and :python:`c` in the :python:`main()` function, and printing the results. 
+#. Add a new method called :python:`pow()` which returns the square of the value stored in the object, if that value is even, and the cube of the value if the value is odd. Test your method by calling it on each of the three objects :python:`a`, :python:`b` and :python:`c` in the :python:`main()` function, and printing the results. 
 
    .. admonition:: Solution
       :class: dropdown
@@ -263,12 +259,12 @@ Another example
 .. admonition:: Aside
    :class: dropdown
 
-   In the below we're going to store marks for a student, as we did using Polars dataframes in :ref:`Lab F <lab_f_stage_2>`. This is just an example to illustrate how to make a class in an accessible way, using an example you're already familiar with. In practice, for storing tabular data like student marks, using a dataframe is might be more appropriate, but it will depend on what you're trying to do. 
+   In the below we're going to store marks for a student, as we did using Polars dataframes in :ref:`Lab F <lab_f_stage_2>`. This is just an example to illustrate how to make a class, in an accessible way by using an example you're already familiar with. In practice, for storing tabular data like student marks using a dataframe might be more appropriate, but it will depend on what you're trying to do. 
 
 
 #. Let's make an object that stores information about a student. Firstly, think about what information we want it to store. 
 
-   This is a really important question that gets to the heart of why we want to make our own objects. The object is tailored to the problem that we're trying to solve. We'll store:
+   This is a really important question that gets to the heart of why we want to make our own objects. The object is *tailored* to the problem that we're trying to solve. We'll store:
 
    - The student's name
    - The student's ID number
@@ -315,15 +311,15 @@ Another example
           main()
 
 
-   This uses a slightly different approach for the :python:`__init__()` method. We've told it explicitly that when we create a new instance of the class, we need to provide the student's name and ID number. The other data (assignment marks, exam mark and overall mark) can't be set when the object is made, they will require methods to set the value. When an object is first made, these values are set to a default value of :python:`None`. (`See None in our discussion on datatypes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#none-null>`_) We're actually going to change this in the next step.
+   This uses a slightly different approach for the :python:`__init__()` method. We've told it explicitly that when we create a new instance of the class, we need to provide the student's name and ID number. The other data (assignment marks, exam mark and overall mark) can't be set when the object is made, they will require methods to set the value. When an object is first made, these values are set to a default value of :python:`None`. (`See None in our discussion on datatypes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#none-null>`_. We're actually going to change this in the next step.)
 
    .. admonition:: Note
 
-      Note that we've used :python:`None` rather than :python:`0` as the default mark. This is part of our data model. :python:`None` lets us differentiate between a mark that hasn't been set yet, and a student who has submitted work and got :python:`0` for it. In turn, this lets us follow up with students who haven't submitted yet to make sure they do so before the deadline, and to follow up with students who tried the assignment but got :python:`0`, to offer them more support. We can't do these if we just initialize all of the marks to :python:`0`. Of course, at the end of the course any remaining :python:`None` marks need to be set to :python:`0`.
+      Note that we've used :python:`None` rather than :python:`0` as the default mark. Using :python:`None` lets us differentiate between a mark that hasn't been set yet, and a student who has submitted work but got :python:`0` for it. In turn, this lets us follow up with students who haven't submitted yet to make sure they do so before the deadline, and to follow up with students who tried the assignment but got :python:`0`, to offer them more support. We can't do these if we just initialize all of the marks to :python:`0`. Of course, at the end of the course any remaining :python:`None` marks need to be set to :python:`0`. This use of different data types is part of our *data model* for this problem.
 
 #. The above isn't quite a good enough starting point. There are 20 assignments in this course (Assignments A to T) and so we need an array of some form to put these in rather than a single value. We could use a list. We'll actually use a numpy array, because we'll want to do some sums on these to get the overall mark. 
 
-   For a numpy array, rather than :python:`None` we use NaN (`see NaN in our discussion on datatypes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#nan>`_) via np.nan() to representing missing numerical data. This is just the choice we're making here. You could chose a different data model if you wanted to. 
+   For a numpy array, rather than :python:`None` we use NaN (`see NaN in our discussion on datatypes <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#nan>`_) via np.nan() to represent missing numerical data. This is just the choice we're making here. You could chose a different data model if you wanted to. 
 
    Modify the class definition to be:
 
@@ -357,7 +353,9 @@ Another example
       Exam mark: nan
 
 
-#. Let's make one more improvement before continuing. Using :python:`np.nan` to represent missing data is fine, but it relies on us remembering that :python:`np.nan` means no submission has been made. We can make the code more readable by making another class, :python:`NoSubmission` to represent no submission. This will just a be wrapper for :python:`np.nan`, but it makes the code more readable. 
+#. Let's make one more improvement before continuing. Using :python:`np.nan` to represent missing data is fine, but it relies on us remembering that :python:`np.nan` means "*no submission has been made*". 
+
+   We can make the code more readable by making another class, :python:`NoSubmission` to represent no submission. This will just a be wrapper for :python:`np.nan`, but it makes the code more readable. 
 
    Add the following code above the :python:`StudentMarksEEEN11202` class definition:
 
@@ -396,7 +394,7 @@ Another example
               self.exam_mark = NoSubmission()
               self.overall_mark = NoSubmission() 
 
-   Here, it's a bit more clear that we're setting the default to represent no submission being made. If you run the code now, the output will look like:
+   Here, it's a bit clearer that we're setting the default to represent no submission being made. If you run the code now, the output will look like:
 
    .. code-block:: console
 
@@ -499,7 +497,7 @@ Another example
          if __name__ == "__main__":
              main()
 
-#. Setting assignment mark is a little more complicated because we need to provide both a mark, and which assignment to set the mark for.
+#. Setting an assignment mark is a little more complicated because we need to provide both a mark, and which assignment to set the mark for.
 
    We want to call the method like:
 
@@ -539,7 +537,7 @@ Another example
 
 #. The final method, :python:`_set_overall_mark()` is slightly complicated for two reasons. 
 
-   - We *don't* want the main code to call this as :python:`student1._set_overall_mark(65)` or similar. That's not how the overall mark works. The overall mark is a result of the combined assessment and exam marks, not something that can be set directly. Instead, :python:`._set_overall_mark()` should be called automatically whenever an assignment or exam mark is updated. Thus, it's the class itself that calls :python:`._set_overall_mark()`. This is known as a *private method*. By convention, private methods start with an underscore :python:`_` to indicate that they shouldn't be called directly from outside the class. Also a result, implementing :python:`._set_overall_mark()` requires updating :python:`set_assignment_mark()` and :python:`set_exam_mark()` to call it whenever a mark is updated.
+   - We *don't* want the main code to call this as :python:`student1._set_overall_mark(65)` or similar. That's not how the overall mark works. The overall mark is a result of the combined assessment and exam marks, not something that can be set directly. Instead, :python:`._set_overall_mark()` should be called automatically whenever an assignment or exam mark is updated. Thus, it's the class itself that calls :python:`._set_overall_mark()`. This is known as a *private method*. By convention, private methods start with an underscore :python:`_` to indicate that they shouldn't be called directly from outside the class. Also as a result, implementing :python:`._set_overall_mark()` requires updating :python:`set_assignment_mark()` and :python:`set_exam_mark()` to call it whenever a mark is updated.
    - We've stored not-submitted results as a class :python:`NotSubmitted`. We need to decide what to do with these when calculating the overall mark. We will assume that any not-submitted assignments are worth :python:`0` when calculating the overall mark. This lets a running total mark be calculated as assignments are submitted.
 
    Implement the :python:`_set_overall_mark()` method, and update the code to call it and check it works. The overall unit mark is made up 50% from the summed assignment marks, and 50% from the exam mark.

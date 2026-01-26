@@ -8,7 +8,7 @@
 
 Initial setup for the Lab
 =========================
-#. In your Lab G folder, make a new Python project:
+#. In your Lab H folder, make a new Python project:
 
    .. prompt::
       :language: bash
@@ -31,15 +31,10 @@ Initial setup for the Lab
    - We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation. We won't ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it's working!
    - In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
 
-#. Install the required dependencies for this lab by entering the command:
-
-   .. prompt::
-
-      uv add numpy
-
 #. Run 
 
    .. prompt::
+      :language: bash
 
       uv run src/main.py
 
@@ -80,14 +75,14 @@ Raising exceptions
 
    To look at this code:
 
-   - Remember that Python runs from the top to the bottom of the file. We :python:`raise()` the error on Line 9, so the program stops running at that point. Everything before this runs as normal. 
+   - Remember that Python runs from the top to the bottom of the file. We :python:`raise()` the error on Line 9, so the program stops running at that point. Everything before this runs as usual. 
    - The terminology is that we are *raising* an exception. This means that something has gone wrong, and normal program execution cannot continue. There is a command called :python:`raise` to do this. 
-   - Each exception has a *type*. This helps with debugging, we can have different types of exceptions for different problems. Here the code in :python:`class MyError(Exception):` makes a custom type called :python:`MyError`. We could give this any name we like, something informative for whoever is using the code to help them figure out what went wrong.
+   - Each exception has a *type*. This helps with debugging, we can have different types of exceptions for different problems. Here the code in :python:`class MyError(Exception):` makes a custom exception type called :python:`MyError`. We could give this any name we like, something informative for whoever is using the code to help them figure out what went wrong.
    - When the error is displayed to the user, a *traceback* is also shown. This shows where in the code the exception occurred, to help with debugging.
 
-#. To a first approximation, that's it! You can make as many custom exceptions as you like. You can put the raise command wherever you like in your code. It might be common to put it inside an :python:`if` statement, to check if something has gone wrong, and raise an exception if it has. There are a wide range of further behaviors that you can add to your custom exception, but we won't cover these here. For many cases, just giving a meaningful name and message is enough to help with debugging.
+#. To a first approximation, that's it! You can make as many custom exceptions as you like. You can put the :python:`raise` command wherever you like in your code. It might be common to put it inside an :python:`if` statement, to check if something has gone wrong, and raise an exception if it has. There are a wide range of further behaviors that you can add to your custom exceptions, but we won't cover these here. For many cases, just giving a meaningful name and message is enough to help with debugging.
 
-#. Add an if statement to the code so that the exception is only raised if :python:`x` is greater than 100. Display the value of :python:`x` in the message to the user. Try running your code with different values of :python:`x` to check that it works.
+#. Add an :python:`if` statement to the code so that the exception is only raised if :python:`x` is greater than 100. Display the value of :python:`x` in the message to the user. Try running your code with different values of :python:`x` to check that it works.
 
    .. admonition:: Solution
       :class: dropdown
@@ -100,7 +95,7 @@ Raising exceptions
          if x > 100:
              raise MyError(f"x was {x}. It should be 100 or less.")
 
-#. In addition to using custom names for exceptions, there are a wide range of built in ones that you can use. A list is available `online <https://docs.python.org/3/library/exceptions.html>`_, so we won't go through them all here. Probably the some of most common ones you might like to use early on are 
+#. In addition to using custom names for exceptions, there are a wide range of built in named exceptions that you can use without having to make your own. A list is available `online <https://docs.python.org/3/library/exceptions.html>`_, so we won't go through them all here. Probably the some of most common ones you might like to use early on are:
 
    - :python:`ValueError` when a value is not in the expected range.
    - :python:`TypeError` when the data types is wrong, such as you were expecting a string (say to represent a name) but got a number instead.
@@ -117,9 +112,9 @@ Raising warnings
 
       raise DeprecationWarning("This code is deprecated and will be removed in future versions.")
 
-   This is type of warning is tended for other developers using your code. Sometimes we have methods and functions in, say version 1 of the code, that for whatever reason will be removed in version 2. You can add this warning to let other developers know that they should avoid using this code, as it will be removed in future versions.
+   This type of warning is intended for other developers using your code. Sometimes we have methods and functions in, say version 1 of the code, that for whatever reason will be removed in version 2. You can add this warning to let other developers know that they should avoid using this code as it will be removed in future versions.
 
-#. If you want a custom warning, or more control over built in warnings there is a dedicated module in the standard library called :python:`warnings` module. This module provides more control over how warnings are displayed to the user. Replace the code in your file with that given below.
+#. If you want a custom warning, or more control over built in warnings, there is a dedicated module in the standard library called :python:`warnings`. This module provides more control over how warnings are displayed to the user. Replace the code in your file with that given below.
 
    .. code-block:: python
 
@@ -162,50 +157,53 @@ Raising warnings
 
    Add logging to your code and check that you can log your custom warning. 
 
-   .. code-block:: python
+   .. admonition:: Solution
+      :class: dropdown
 
-      import logging
-      import warnings
+      .. code-block:: python
 
-      logging.captureWarnings(True)
-      logger = logging.getLogger(__name__)
+         import logging
+         import warnings
 
-
-      class MyError(Exception):
-          """An example custom exception"""
-
-          pass
+         logging.captureWarnings(True)
+         logger = logging.getLogger(__name__)
 
 
-      class MyWarning(UserWarning):
-          """An example custom warning"""
+         class MyError(Exception):
+             """An example custom exception"""
 
-          pass
-
-
-      def main():
-          print("Hello from lab-h!")
-          x = 99
-          if x > 100:
-              raise ValueError(f"x was {x}. It should be 100 or less.")
-
-          warnings.warn("This is a custom warning from lab-h.", MyWarning)
+             pass
 
 
-      if __name__ == "__main__":
-          # Set up logging
-          log_filename = "log.txt"
-          logging.basicConfig(filename=log_filename, level=logging.WARNING)
+         class MyWarning(UserWarning):
+             """An example custom warning"""
 
-          # Run main function
-          main()
+             pass
+
+
+         def main():
+             print("Hello from lab-h!")
+             x = 99
+             if x > 100:
+                 raise ValueError(f"x was {x}. It should be 100 or less.")
+
+             warnings.warn("This is a custom warning from lab-h.", MyWarning)
+
+
+         if __name__ == "__main__":
+             # Set up logging
+             log_filename = "log.txt"
+             logging.basicConfig(filename=log_filename, level=logging.WARNING)
+
+             # Run main function
+             main()
 
 
 Handling exceptions
 ===================
-Raising an exception is great, but you then need to decide what you want to do. This is known as *handling* the exception. In the examples above we just let the program terminate and display some debug information to the user. This might be what you want, particularly if the error is unrecoverable. However it might be that you want different behavior. For example, you might try and open a file with a particular name, and if it's not present you try and open a different file with a default name instead. Alternatively, you might have a rule saying that if a number is over 100, you just set to 100 as that's the maximum it can be. 
+Raising an exception is great, but you then need to decide what you want to do. This is known as *handling* the exception. In the examples above we just let the program terminate and display some debug information to the user. This might be what you want, particularly if the error is unrecoverable. However it might be that you want different behavior. For example, you might try and open a file with a particular name, and if it's not present you try and open a different file with a default name instead. Alternatively, you might have a rule saying that if a number is over 100, you just automatically reset it to 100 as that's the maximum it can be. 
 
-#. You handle exceptions using a :python:`try` and :python:`except` block. Make a new code file and copy and code below into it. Run the code and see what happens with different values of :python:`x`.
+#. You handle exceptions using a :python:`try` and :python:`except` block. Make a new code file and copy the code below into it. Run the code and see what happens with different values of :python:`x`.
 
    .. code-block:: python
 
@@ -240,8 +238,8 @@ Raising an exception is great, but you then need to decide what you want to do. 
    
    To analyse this code:
 
-   - :python:`try` is the code you want to run. It's in a try block because, for whatever reason, you think it might cause and error that you need to detect and handle. Here it runs the :python:`print_x(x)` function which will raise an if :python:`x` is too large. 
-   - :python:`except` gives the code for what you want to happen if there is an exception. Here we catch the :python:`Over100` exception, and puts it in to a variable :python:`e`. We use :python:`e` to write a nice message to the user, not the full traceback from when we raise the exception.
+   - :python:`try` is the code you want to run. It's in a :python:`try` block because, for whatever reason, you think it might cause an error that you need to detect and handle. Here it runs the :python:`print_x(x)` function which will raise an exception if :python:`x` is too large. 
+   - :python:`except` gives the code for what you want to happen if there is an exception. Here we catch the :python:`Over100` exception, and puts the automatically generated traceback in to a variable :python:`e`. We can then use :python:`e` to write a nice message to the user, not the full traceback from the exception.
    - :python:`else` gives the code you want to run if there were no exceptions. Here we just print a message to say that everything was OK.
    - :python:`finally` gives code that will always run, whether there was an exception or not. Here we just print the value of :python:`x`.
    
@@ -249,17 +247,20 @@ Raising an exception is great, but you then need to decide what you want to do. 
 
 #. Change the code above so that if :python:`x` is greater than 100, it is automatically set to 100 instead of displaying anything to the user.
 
-   .. code-block:: python
+   .. admonition:: Solution
+      :class: dropdown
+   
+      .. code-block:: python
          
-      try:
-          x = 101
-          print_x(x)
-      except Over100 as e:
-          x = 100
-      else:
-          print("No exceptions were raised.")
-      finally:
-          print(f"x is {x}")
+         try:
+             x = 101
+             print_x(x)
+         except Over100 as e:
+             x = 100
+         else:
+             print("No exceptions were raised.")
+         finally:
+             print(f"x is {x}")
 
 #. In the code above, we are specifically handling our custom :python:`Over100` exception. Try running the code with :python:`x = "hello"`.
 
@@ -293,18 +294,19 @@ Raising an exception is great, but you then need to decide what you want to do. 
 
    Then run your code with :python:`x = "hello"`, :python:`x = 99`, :python:`x = 101` and to :python:`x = "101"` to check it works as you expect.
 
-   .. admonition:: Solution
-      :class: dropdown
-
-      :python:`x = "101"` has two errors in it. :python:`x` is too large, and it's a string rather than a number. Our code here will only match one of these. You can put :python:`try` blocks inside other :python:`try` blocks, or in the :python:`except` block call the :python:`print_x` function again after fixing the issue. There are many ways to handle this, depending on what behavior you want.
-
    You can have as many :python:`except` blocks as you like. It depends on how comprehensive you want to be in catching and handling different errors your code might have. 
    
+   .. admonition:: Note
+      :class: dropdown
+
+      :python:`x = "101"` has two errors in it. :python:`x` is too large, and it's a string rather than a number. Our code here will only match one of these. 
+      
+      If you need your code to be able to recover this from double error, you can put :python:`try` blocks inside other :python:`try` blocks, or in the :python:`except` block call the :python:`print_x` function again after fixing the first issue. There are many ways to handle this, depending on what behavior you want.
 
 
 Extending the student class example
 ===================================
-In your Lab H :console:`src` folder we've included two files, :console:`student_example.py` and :console:`my_classes.py`. These are a copy of the example in :ref:`Lab F <lab_f_stage_1>` where we made an object representing student marks. Here we've split the code into two files for better organization.
+In your Lab H :console:`src` folder we've included two files, :console:`student_example.py` and :console:`my_classes.py`. These are a copy of the example in :ref:`Lab G <lab_g_stage_1>` where we made a class for representing student marks. Here we've split the code into two files for better organization.
 
 #. Run :console:`student_example.py` and check it does what you expect. 
 
@@ -314,9 +316,9 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
 
        # student1.set_assignment_mark("c", "apple")  # uncomment to test invalid input
     
-    that you can uncomment to see what happens if invalid input is given.
+   that you can uncomment to see what happens if invalid input is given.
 
-#. A number of the marks assignments are incorrect.
+#. In :console:`student_example.py` a number of the marks assignments are incorrect.
 
    - The mark for an exam must be between 0 and 100.
    - The exam is marked in whole numbers (integers) only.
@@ -610,4 +612,4 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
 
                  return self.overall_mark
 
-#. Optional task (no solution provided). Add logging statments so that any changes to marks are logged to a file so there is a record. (In practice we'd probably error out if we got any issues processing student marks rather than automatically correcting and logging as here, but but there might be cases where an automatic correction, with a log of the correction, is appropriate.)
+#. Optional task (no solution provided). Add logging statments so that any changes to marks are logged to a file so there is a record. (In practice we'd probably error out if we got any issues processing student marks rather than automatically correcting and logging as here, but there might be cases where an automatic correction, with a log of the correction, is appropriate.)

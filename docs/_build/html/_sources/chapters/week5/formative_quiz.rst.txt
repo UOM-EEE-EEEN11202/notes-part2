@@ -11,12 +11,12 @@ Formative quiz 5
        > That's correct!
    1. [ ] A method is for processing data, a function is for storing data.
        > That's not correct. Both methods and functions can process data.
-   1. [ ] A method is a function that is associated with an object.
+   1. [ ] A function is a method that is associated with an object.
        > That's not correct. It's the other way round.
-   1. [x] The two are the same.
+   1. [ ] The two are the same.
        > That's not correct. Both are defined with def statements, but a method sits inside a class definition while a function does not.
 
-   ## What is the intention of using a single underscore _ at the start and end of a method name in a class?
+   ## What is the intention of using a single underscore _ at the start of a method name in a class?
    
    1. [x] It indicates the method is for the class itself to use, not for users of the class.
        > That's correct! This is a common convention in Python.
@@ -103,11 +103,14 @@ Formative quiz 5
 
    ## Which of the below are built in exceptions in Python? Select all that apply.
 
+   > [See the Python documentation](https://docs.python.org/3/library/exceptions.html)
+
    - [x] ValueError
    - [x] FileNotFoundError
    - [x] IndexError
    - [x] ZeroDivisionError
    - [x] ImportError
+
 
 
    ## In a `try`-`except` block you can only have exactly one `except` statement.

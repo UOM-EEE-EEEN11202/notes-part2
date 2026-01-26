@@ -181,15 +181,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Initial setup for the Lab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html#objects">5.2.2. Objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html#a-student-example">5.2.3. A student example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.4. Lab G Stage 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html#another-example">5.2.3. Another example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.4. Multi-file scripts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.5. Assignment G</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Lab H Stage 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Lab H Stage 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Initial setup for the Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html#raising-exceptions">5.3.2. Raising exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html#raising-warnings">5.3.3. Raising warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html#handling-exceptions">5.3.4. Handling exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html#extending-the-student-class-example">5.3.5. Extending the student class example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.6. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.7. Assignment H</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
@@ -198,7 +202,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lab_i.html">6.2. Lab I</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lab_i_stage_1.html">6.2.1. Lab I Stage 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lab_i_stage_2.html">6.2.2. Lab I Stage 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="assignment_i.html">6.2.3. Assignment I</a></li>
 </ul>
@@ -274,6 +278,17 @@
                         <main role="main" id="main">
     <section id="theory">
 <h1><span class="section-number">6.1. </span>Theory<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h1>
+<section id="ai-in-coding">
+<h2><span class="section-number">6.1.1. </span>AI in coding<a class="headerlink" href="#ai-in-coding" title="Link to this heading">¶</a></h2>
+<p>There are two different aspects to AI as we’re going to look at it:</p>
+<ul class="simple">
+<li><p>Writing our own code which makes uses AI models</p></li>
+<li><p>Using AI tools to help us write code</p></li>
+</ul>
+<p>We’ll look at both of these in <a class="reference internal" href="lab_i.html#lab-i"><span class="std std-ref">Lab I</span></a>.</p>
+<p>There are of course lots of courses that cover AI in detail. AI isn’t a single approach, there are lots of different techniques all coming under the same umbrella term. We’re going to look at a <em>classification</em> problem. That is, attempting to identify which group, a class, a particular data item should belong to. For example, we might have pictures of cats and dogs, and use AI to classify whether a new picture is a picture of a cat or a dog. This is a two class classification problem. If we had pictures of cats, dogs and fish, that would be a three class classification problem.</p>
+<p>Python is very commonly used for AI applications. There are lots of libraries available which make it easy to work with AI models. We’re going to use <a class="reference external" href="https://pytorch.org/">pyTorch</a>, which is one of the most popular AI libraries in Python.</p>
+</section>
 </section>
 
 </main>
@@ -286,6 +301,19 @@
     </a>
 </nav>
                     </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">6.1. Theory</a><ul>
+<li><a class="reference internal" href="#ai-in-coding">6.1.1. AI in coding</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
                     
                 </div>
             </div>
