@@ -1,5 +1,5 @@
 Assignment E
 ============
-`Click here to access the assignments part of the course <https://friendly-invention-pr7lnwj.pages.github.io/chapters/assignment_e.html>`_. 
+Now complete the assignment associated with the lab. `Click here to access the assignments part of the course <https://canvas.manchester.ac.uk/courses/45995/modules/items/3999270>`_. 
 
-You will need to be signed in to GitHub with the University of Manchester account you use for the labs for this link to work.
+You will need to be signed in to Canvas using your University of Manchester email address.
