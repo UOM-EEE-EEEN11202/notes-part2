@@ -1,0 +1,16 @@
+[project]
+name = "notes-part2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "Sphinx",
+    "sphinx-copybutton",
+    "sphinx-notfound-page",
+    "sphinx-wagtail-theme",
+    "sphinx-design",
+    "sphinxcontrib-quizdown @ git+https://github.com/bonartm/sphinxcontrib-quizdown",
+    "sphinx-togglebutton",
+    "sphinx-prompt",
+]
