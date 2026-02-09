@@ -10,6 +10,22 @@ Version control
 In this second part of the lab we're going to look at `version control <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/version_control.html>`_. We'll use this a lot as we move through the course, and will look at more features in later labs.
 
 
+Setting up git
+--------------
+Before we get going with Git, there are a couple of settings that are needed. These aren't automatically set when you install Git. You only need to do this once.
+
+At the VSCode terminal enter the two commands:
+
+.. code-block:: console
+
+   git config --global user.name "Your Name"
+   git config --global user.email "your.email@student.manchester.ac.uk"
+
+where you replace these with your details.
+
+If you miss this step, you'll find you get errors later on in the lab. 
+
+
 Checking in files
 -----------------
 In the first part of this lab you made a new file, called either :console:`hello_world.ps1` or :console:`hello_world.sh`. Let's add this to the version control system so that we have a record of it, and can track any changes we make to it in future.
