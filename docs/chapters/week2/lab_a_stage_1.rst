@@ -8,7 +8,7 @@ Shell scripting
 
 Setup
 -----
-`Follow the instructions for getting access to a suitable programming environment on your computer <https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html>`_. If you have any difficulties, ask a demonstrator in a lab session for help.
+`Follow the instructions for getting access to a suitable programming environment on your computer <https://uom-eee-eeen11202.github.io/chapters/getting_started/install.html>`_. If you have any difficulties, ask a demonstrator in a lab session for help.
 
 You don't need to actually start VSCode yet. We're going to start using only the command line interface (also known as the terminal, shell, or console) that's built into your computer.
 
