@@ -582,6 +582,9 @@ To run the script, you have two options. Both options do exactly the same thing,
 
            Screenshot of VSCode, software from `Microsoft <https://code.visualstudio.com/>`_. See `course copyright statement <https://uom-eee-eeen11202.github.io/chapters/about/copyright>`_.
 
+        .. admonition:: Important
+
+           There appears to be a bug with the current VSCode Powershell extension which means nothing happens when you press this button. If you find this, click on the :console:`Extensions` tab on the left of the VSCode window and scroll down to see the Powershell extension. Uninstall the extension, and then install it again. 
 
         Option 2. In a Powershell terminal on the computer enter the command
 
