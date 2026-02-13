@@ -6,8 +6,12 @@
 
 .. _lab_h_stage_1:
 
+
+Exceptions and error handling
+=============================
+
 Initial setup for the Lab
-=========================
+-------------------------
 #. In your Lab H folder, make a new Python project:
 
    .. prompt::
@@ -44,7 +48,7 @@ Initial setup for the Lab
 
 
 Raising exceptions
-==================
+------------------
 #. In your Lab H :console:`src` folder, edit the file :console:`main.py` to contain:
 
    .. code-block:: python
@@ -108,7 +112,7 @@ Raising exceptions
 
 
 Raising warnings
-================
+----------------
 #. Not every exception has to represent an error. You can also represent warnings. Add the code below somewhere in your :console:`main.py` file, and run it.
 
    .. code-block:: python
@@ -203,7 +207,7 @@ Raising warnings
 
 
 Handling exceptions
-===================
+-------------------
 Raising an exception is great, but you then need to decide what you want to do. This is known as *handling* the exception. In the examples above we just let the program terminate and display some debug information to the user. This might be what you want, particularly if the error is unrecoverable. However it might be that you want different behavior. For example, you might try and open a file with a particular name, and if it's not present you try and open a different file with a default name instead. Alternatively, you might have a rule saying that if a number is over 100, you just automatically reset it to 100 as that's the maximum it can be. 
 
 #. You handle exceptions using a :python:`try` and :python:`except` block. Make a new code file and copy the code below into it. Run the code and see what happens with different values of :python:`x`.
@@ -311,7 +315,7 @@ Raising an exception is great, but you then need to decide what you want to do. 
 
 
 Extending the student class example
-===================================
+-----------------------------------
 In your Lab H :console:`src` folder we've included two files, :console:`student_example.py` and :console:`my_classes.py`. These are a copy of the example in :ref:`Lab G <lab_g_stage_1>` where we made a class for representing student marks. Here we've split the code into two files for better organization.
 
 #. Run :console:`student_example.py` and check it does what you expect. 

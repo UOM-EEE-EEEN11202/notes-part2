@@ -6,8 +6,11 @@
 
 .. _lab_d_stage_1:
 
+Tools and techniques for catching coding issues
+===============================================
+
 Initial setup for the Lab
-=========================
+-------------------------
 
 #. In your Lab D folder, make a new Python project:
 
@@ -71,7 +74,7 @@ Initial setup for the Lab
 
 
 Static code analysis
-====================
+--------------------
 You've probably already seen the `static code analysis <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html>`_ at work. It underlines pieces of your code, like a spell checker does, to help spot issues before you run the code. In our `devcontainer <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html>`_ we automatically installed the `Ruff <https://docs.astral.sh/ruff/>`_ analyser for you. We'll just look at static code analysis very briefly here. 
 
 #. Replace the code in your :console:`main.py` file with the code below. 
@@ -127,7 +130,7 @@ You've probably already seen the `static code analysis <https://uom-eee-eeen1120
    
 
 The debugger
-============
+------------
 The debugger lets the program pause during its execution. We can then examine the state of the program, the variables and similar, to see whether they are what we would expect. We can use this to help track down issues with the code. In :ref:`the second part of Lab C <lab_c_stage_2>` we used the Jupyter variable explorer to similarly look at variables, but the debugger is more versatile and flexible for when you move on to more complicated programs. 
 
 .. admonition:: Advanced notes
@@ -137,7 +140,7 @@ The debugger lets the program pause during its execution. We can then examine th
 
 
 General debugging
------------------
+^^^^^^^^^^^^^^^^^
 To use the debugger, you add a *breakpoint*. Execution of the program proceeds as usual, until it reaches a breakpoint. It then stops, and shows a debugging view. You can have as many breakpoints as you would like in different places in your code, we'll just use one below. 
 
 #. Copy the solution :ref:`given above <static_code_analysis_solution>` into your code file. (We suggest you use our given solution rather than your own code because we'll refer to some line number below, which might be different in your code.)
@@ -178,7 +181,7 @@ To use the debugger, you add a *breakpoint*. Execution of the program proceeds a
 
 
 Changing the value of a variable
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #. The debugger is an interactive tool, to help us understand our programs (and why they might not be working). Right click on the :python:`x` variable that's displayed in the debugger. Click on :console:`Set Value`, and you'll be able to change the value of :python:`x`.
 
    .. figure:: ./images/debugger_setting_a_value.png
@@ -201,7 +204,7 @@ Changing the value of a variable
 
 
 Examining the call stack
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 #. Stop the debugger and start it again (so that we have the right value for :python:`x`). 
 
 #. We put our breakpoint on Line 5. This is in a function called :python:`main()`, which is called on Line 18 of the code. The debugger lets us view the status of the program when it was stopped (Line 5), and the status of when :python:`main()` was called (Line 18).
@@ -221,7 +224,7 @@ Examining the call stack
 
 
 Conditional breakpoints
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 We can also have breakpoints that only trigger in certain conditions. This is very useful for tracking down bugs that only occur in some instances.
 
 #. Replace the code in your file with that given below. 
@@ -292,7 +295,7 @@ There's lots that can be done with the debugger, we've just shown a few key feat
 
 
 Logging
-=======
+-------
 The debugger is a very powerful tool when we want to interactively work with our code - typically when we want to see the values of particular items and see whether they are what we expect. However, sometimes we just want to run the code, have it do everything, and then have a look at the end at what happened. For example, maybe the code takes a long time to run, and so we'll leave it running overnight rather than sitting at our computing and waiting for it to reach a breakpoint.  
 
 We can make a *log file* to store values from our program run for later inspection. 

@@ -6,8 +6,12 @@
 
 .. _lab_e_stage_1:
 
+
+Numpy examples
+==============
+
 Initial setup for the Lab
-=========================
+-------------------------
 #. In your Lab E folder, make a new Python project:
 
    .. prompt::
@@ -49,10 +53,6 @@ Initial setup for the Lab
 
 #. When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#>`_ if you're unsure. 
 
-
-
-Numpy examples
-==============
 
 Numerical analysis in Python
 ----------------------------

@@ -6,11 +6,15 @@
 
 .. _lab_b_stage_2:
 
-Starting commands
-=================
+Electronic Engineering examples
+===============================
 In the first part of Lab B we did quite a lot of setup, and not a lot of coding. This was to start forming good habits early on, in terms of using version control, virtual environments, and so on.
 
 In this part we'll look at some basic Python code to get us started with Python.
+
+
+Markdown example
+----------------
 
 #. Make a new Jupyter Notebook, following the same steps as :ref:`in the previous part of the lab <lab_b1>`. Go to the command palette, that is, the search box at the top of the VSCode window. Click :console:`Show and Run Commands`.
 
@@ -110,6 +114,9 @@ In this part we'll look at some basic Python code to get us started with Python.
 
    Not every code editor will display the text with the formatting, some will just display the text. Nevertheless, it's a nice feature for adding emphasis or structure to your comments.
 
+
+Modelling sine waves
+--------------------
 
 #. In Electronic Engineering it's very common that we work with sine waves. Mathematically, this is :math:`V_{out}(t) = A \sin (2\pi f t)` where :math:`A` is the amplitude, :math:`f` is the frequency of the wave in Hz, and :math:`t` is the time in seconds. This is known as a *time series*, as to see a sine wave we need to know the value of :math:`V_{out}(t)` at multiple different points in time, not just at one time.
 
@@ -275,6 +282,9 @@ In this part we'll look at some basic Python code to get us started with Python.
       This is a bit more generous in its checking and should work as you want. 
 
 
+Circuit analysis examples
+-------------------------
+
 #. Python can also do complex maths, as we commonly need for circuit analysis. There is a module :python:`cmath` in the standard library which adds functions for working with complex numbers. Make a new cell and enter the code below.
 
    .. code-block:: python
@@ -302,6 +312,9 @@ In this part we'll look at some basic Python code to get us started with Python.
 
       Screenshot of VSCode, software from `Microsoft <https://code.visualstudio.com/>`_. See `course copyright statement <https://uom-eee-eeen11202.github.io/chapters/about/copyright>`_.
 
+
+Tracking components
+-------------------
 
 #. The examples so far have focused on processing numbers. Python can process text as well.
 
@@ -338,8 +351,8 @@ In this part we'll look at some basic Python code to get us started with Python.
    The syntax in :python:`print(f"{resistors} resistors and {capacitors} capacitors are in the BOM.")` is known as an *f-string*. Notice that the string starts :python:`f"`. In an f-string, items in curly brackets :python:`{}` are replaced with their values. So with :python:`{resistors}` the value of the variable :python:`resistors` is displayed rather than the word resistors. 
 
 
-Electronic engineering problems
-===============================
+Further questions
+-----------------
 
 #. Resistors in parallel add following the equation
 

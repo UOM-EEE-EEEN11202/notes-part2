@@ -15,8 +15,12 @@
 .. _lab_f_stage_1:
 
 
+Plotting with plotly and matplotlib
+===================================
+
+
 Initial setup for the Lab
-=========================
+-------------------------
 #. In your Lab F folder, make a new Python project:
 
    .. prompt::
@@ -773,7 +777,7 @@ For this we'll use the code:
 
 
 Licensing
-^^^^^^^^^
+---------
 Plotly logo is used from `Wikipedia <https://commons.wikimedia.org/wiki/File:Plotly-logo.png>`_ and is licensed under `CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/deed.en>`_.
 
 Matplotlib logo is used from `Wikipedia <https://commons.wikimedia.org/wiki/File:Created_with_Matplotlib-logo.svg>`_ and is unlicensed material.

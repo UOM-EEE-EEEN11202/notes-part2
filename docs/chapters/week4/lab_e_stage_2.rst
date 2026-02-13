@@ -263,7 +263,7 @@ Signal detection example
 
 
 Further (optional) tasks
-========================
+------------------------
 #. Usually we don't want to estimate the heart rate from the entire signal. This would mean waiting a long time to get all of the data. 
 
    It's common (in wearables) that we estimate heart rate using 8 second windows of data. Every 2 s this window moves on, so there's 6 seconds of overlap between each window. This means that every 2 s we get a new estimate of heart rate, based on the last 8 seconds of data. We can then get a plot of heart rate over time. 

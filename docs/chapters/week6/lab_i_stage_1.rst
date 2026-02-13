@@ -7,8 +7,11 @@
 .. _lab_i_stage_1:
 
 
+Writing code for AI
+===================
+
 Initial setup for the Lab
-=========================
+-------------------------
 #. In your Lab I folder, make a new Python project:
 
    .. prompt::
@@ -53,7 +56,7 @@ Initial setup for the Lab
 
 
 Overview
-========
+--------
 Python is very widely used for writing code for AI models. Commands for AI are not part of the standard library, they are added in as external modules. `PyTorch <https://pytorch.org/g/>`_ and `TensorFlow <https://www.tensorflow.org/>`_ are two of the most widely used libraries for AI coding in Python. Here we will use PyTorch.
 
 This is not a course about AI, but there are a few basics that you'll need to know in order to follow along. There are several steps in writing code for AI models. These are:
@@ -73,11 +76,7 @@ This is not a course about AI, but there are a few basics that you'll need to kn
    
    We also won't make a separate validation data set, to make the examples a bit more compact. You almost certainly do want a validation data set if you're working on a real problem.  
 
-A full copy of the code for this lab is given in your Lab I :console:`src` folder as :console:`solution.py` which you can refer to if you're not sure where any individual piece of code should go. 
-
-
-Writing code for AI
-===================
+A full copy of the code for this lab is given in your Lab I :console:`src` folder as :console:`solution.py` which you can refer to if you're not sure where any individual piece of code should go.
 
 Problem statement
 -----------------

@@ -6,8 +6,12 @@
 
 .. _lab_g_stage_1:
 
+
+Objects and classes
+===================
+
 Initial setup for the Lab
-=========================
+-------------------------
 #. In your Lab G folder, make a new Python project:
 
    .. prompt::
@@ -50,7 +54,7 @@ Initial setup for the Lab
 
 
 Objects
-=======
+-------
 #. Make a new Python file, with any suitable name, and copy the code below into it. Then run the code.
 
 .. code-block:: python
@@ -259,7 +263,7 @@ Objects
 
 
 Another example
-===============
+---------------
 
 .. admonition:: Aside
    :class: dropdown

@@ -9,8 +9,12 @@
 
 .. _lab_c_stage_1:
 
+
+Python projects
+===============
+
 Setting up a Python project
-===========================
+---------------------------
 
 #. Start VSCode and make sure you are working in the Lab C folder. If needed, on the menu bar select :console:`Terminal / New Terminal` and select Lab C, to make a terminal in the correct location. 
 
@@ -92,7 +96,7 @@ Setting up a Python project
 
 
 Porting the sine wave example from Lab B
-========================================
+----------------------------------------
 In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. Let's repeat that example, but using the new project structure. 
 
 #. Replace the code in your :console:`main.py` file with the following
@@ -204,7 +208,7 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
 
 
 Porting the RC circuit simulation example from Lab B
-====================================================
+----------------------------------------------------
 Let's now port the other example that we had in :ref:`Lab B <lab_b_stage_2>`, the RC circuit simulation. This was simulating the potential divider shown below 
 
 .. figure:: ./images/potential_divider_capacitor.png

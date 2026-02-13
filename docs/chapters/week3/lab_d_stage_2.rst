@@ -336,7 +336,7 @@ Making tests
 
 
 Test coverage
-=============
+-------------
 When setting up Pytest we also installed :console:`pytest-cov`. cov here is short for *coverage*. This tool lets us measure how much of our code is being tested by our tests. 
 
 #. To run this:

@@ -6,8 +6,8 @@
 
 .. _lab_b1:
 
-Python getting started
-======================
+Virtual environments and Jupyter notebooks
+==========================================
 
 .. _starting_the_environment:
 

@@ -391,7 +391,7 @@ There are also some very basic commands that let you read and write simple files
 
 
 Extending the RC circuit example
-================================
+--------------------------------
 :ref:`In the first part of this lab <lab_c_stage_1>` we finished by making a script that would simulate a simple RC circuit. It asked the user to enter a frequency, and then it calculated the output voltage magnitude and phase at that frequency. The code to do this is repeated below if you need it. 
 
 .. admonition:: Starting code
