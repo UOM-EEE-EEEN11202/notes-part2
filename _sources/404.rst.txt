@@ -1,0 +1,5 @@
+Page not found
+==============
+Please click the navigation links in the menu to get back to a valid page.
+
+If you think this should be a valid page, `please log an issue. <https://github.com/UOM-EEE-EEEN1XXX2/uom-eee-eeen1xxx2.github.io/issues>`_
