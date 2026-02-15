@@ -12,6 +12,10 @@ Tools and techniques for catching coding issues
 Initial setup for the Lab
 -------------------------
 
+#. There are no pre-downloaded files needed for Lab D. Sometimes this means that the Lab D folder isn't downloaded automatically (because it's empty). 
+
+   If you don't have a Lab D folder make one, either by pressing the :console:`New Folder` button in the VSCode file explorer, or by using the command line command :console:`mkdir lab-d`.
+
 #. In your Lab D folder, make a new Python project:
 
    .. prompt::
