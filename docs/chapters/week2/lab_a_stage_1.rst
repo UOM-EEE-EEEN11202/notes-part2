@@ -7,13 +7,13 @@ Shell scripting
 ===============
 
 
-.. admonition:: Important
+.. admonition:: Danger
 
    Lab A is different to all of the other labs in the course. You can run Lab A on your physical computer, OR in our devcontainer/codespace. The notes support both.
 
-   **Remember that our devcontainer/codespace is a Linux environment.** If using the devcontainer/codespace, follow the instructions for macOS/Linux in the notes. 
+   **Remember that our devcontainer/codespace is a Linux environment. If using the devcontainer/codespace, follow the instructions for macOS/Linux in the notes.** 
 
-   This may be a little confusing at first - you need to keep track of which computer (your actual computer or our devcontainer) you're actually working on. 
+   This may be a little confusing at first - you need to keep track of which computer (your actual computer or our devcontainer) you're actually working on. It is probably simpler if everyone uses the devcontainer/codespace and follows the macOS/Linux instructions, but we also wanted to give Windows users the option to make some PowerShell scripts if they would like to. The assignment associated with this lab will accept both :consol:`.sh` and :console:`.ps1` files.
 
 Setup
 -----
