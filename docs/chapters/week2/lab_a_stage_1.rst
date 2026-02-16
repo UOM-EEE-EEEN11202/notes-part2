@@ -7,7 +7,7 @@ Shell scripting
 ===============
 
 
-.. admonition:: Danger
+.. danger::
 
    Lab A is different to all of the other labs in the course. You can run Lab A on your physical computer, OR in our devcontainer/codespace. The notes support both.
 
