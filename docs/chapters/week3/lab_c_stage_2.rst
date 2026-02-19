@@ -497,7 +497,7 @@ We've kept this task fairly open ended for you to think about how you want to ap
           # Calculate input
           w = 2 * math.pi * f  # rad/s
           a = 5  # input amplitude in Volts
-          v_in = a * cmath.exp(1j * 2 * math.pi * 160000)
+          v_in = a * cmath.exp(1j * w)
 
           # Define the circuit
           z1 = 1  # kOhm
