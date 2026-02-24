@@ -143,7 +143,7 @@ In :ref:`Lab B <lab_b_stage_2>` you wrote a Python script to plot a sine wave. L
    .. prompt::
       :language: bash
 
-      uv add plotly numpy pandas ipykernel
+      uv add plotly numpy pandas ipykernel==6.31.0
 
 #. Once the dependencies are installed, you can run the code with
    

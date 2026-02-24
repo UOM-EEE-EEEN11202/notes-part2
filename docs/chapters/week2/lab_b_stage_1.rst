@@ -84,7 +84,7 @@ We make a virtual environment at the command line, as we used in `Lab C <https:/
    .. prompt::
       :language: bash
 
-      uv pip install ipykernel
+      uv pip install ipykernel==6.31.0
 
    This will download some optional Python parts from the Internet and install them into your virtual environment. It's important your virtual environment is turned on before you do this, otherwise it may be installed in the wrong place. :console:`ipykernel` is something that's needed to make the Jupyter Notebooks we'll use later on work. There are lots of optional packages that you can download from the Internet, it's common to find online tutorials that ask you to run :console:`pip install <package-name>`. As we're using :console:`uv`, we actually use :console:`uv pip install <package-name>`.
 

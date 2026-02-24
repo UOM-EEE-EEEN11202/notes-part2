@@ -49,7 +49,7 @@ Initial setup for the Lab
    .. prompt::
       :language: bash
 
-      uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel ipykernel pyarrow nbformat
+      uv add numpy scipy polars pandas matplotlib seaborn plotly fastexcel pyarrow nbformat ipykernel==6.31.0
 
 #. Run 
 
