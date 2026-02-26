@@ -12,20 +12,28 @@ Tools and techniques for catching coding issues
 Initial setup for the Lab
 -------------------------
 
-#. There are no pre-downloaded files needed for Lab D. Sometimes this means that the Lab D folder isn't downloaded automatically (because it's empty). 
-
-   If you don't have a Lab D folder make one, either by pressing the :console:`New Folder` button in the VSCode file explorer, or by using the command line command :console:`mkdir lab-d`.
-
-#. In your Lab D folder, make a new Python project:
+#. In the VSCode terminal enter:
 
    .. prompt::
       :language: bash
-   
-      uv init .
 
-   This will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others. 
+      cd /workspaces/`ls /workspaces` && mkdir -p lab-d
+      cd /workspaces/`ls /workspaces`/lab-d
+      uv init . 
 
-   We're now going to add a bit more structure to our code folder, as we discussed in the `theory part for Week 3 <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/theory.html>`_. We're just going to:
+   Remember to enter these one at a time, not both together.
+
+   This will make a new Python project in the current folder. It will be named automatically after the folder name.
+
+   To analyze these lines:
+
+   - :console:`cd /workspaces/\`ls /workspaces\` && mkdir -p lab-d` makes the lab-d folder. There are no pre-downloaded files needed for Lab D. Sometimes this means that the Lab D folder isn't downloaded automatically (because it's empty). 
+   - :console:`cd /workspaces/\`ls /workspaces\`/lab-d` makes sure we are working in the lab-d folder.
+   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
+
+   The above will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others. 
+
+#. We're now going to add a bit more structure to our code folder, as we discussed in the `theory part for Week 3 <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/theory.html>`_. We're just going to:
 
    #. Make a folder called :console:`src`, and put our code files (just :console:`main.py` at the moment) in there. 
    #. Make a folder called :console:`tests`. At the moment this will be empty, but we'll put some unit tests in there in :ref:`the second part of the lab <lab_d_stage_2>`.

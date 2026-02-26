@@ -12,14 +12,24 @@ Writing code for AI
 
 Initial setup for the Lab
 -------------------------
-#. In your Lab I folder, make a new Python project:
+#. In the VSCode terminal enter:
 
    .. prompt::
       :language: bash
-   
-      uv init .
 
-   This will make a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others.
+      cd /workspaces/`ls /workspaces`/lab-i
+      uv init . 
+
+   Remember to enter these one at a time, not both together.
+
+   This will make a new Python project in the current folder. It will be named automatically after the folder name.
+
+   To analyze these lines:
+
+   - :console:`cd /workspaces/\`ls /workspaces\`/lab-i` makes sure we are working in the lab-i folder.
+   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
+
+   The above will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others. 
 
 #. Add some structure to your folder by entering the commands:
 

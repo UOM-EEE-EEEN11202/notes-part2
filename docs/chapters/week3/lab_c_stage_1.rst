@@ -19,14 +19,22 @@ Setting up a Python project
 #. Start VSCode and make sure you are working in the Lab C folder. If needed, on the menu bar select :console:`Terminal / New Terminal` and select Lab C, to make a terminal in the correct location. 
 
 
-#. In VSCode, at the terminal enter
+#. In the VSCode terminal enter:
 
    .. prompt::
       :language: bash
 
-      uv init .
+      cd /workspaces/`ls /workspaces`/lab-c
+      uv init . 
+
+   Remember to enter these one at a time, not both together.
 
    This will make a new Python project in the current folder. It will be named automatically after the folder name.
+
+   To analyze these lines:
+
+   - :console:`cd /workspaces/\`ls /workspaces\`/lab-c` makes sure we are working in the lab-c folder.
+   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
 
 
 #. You'll see that three files have been automatically created for you:

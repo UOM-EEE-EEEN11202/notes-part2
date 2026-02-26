@@ -58,9 +58,17 @@ We make a virtual environment at the command line, as we used in `Lab C <https:/
    .. prompt::
       :language: bash
 
+      cd /workspaces/`ls /workspaces`/lab-b
       uv venv .venv
 
-   This will make a new virtual environment. The environment is called :console:`.venv`. The information it needs is stored in the current folder together with your code files, but in general you shouldn't need to look at this. They're there in the background to help Python work. 
+   Remember to enter these one at a time, not both together.
+
+   This will make a new virtual environment. The environment is called :console:`.venv`. The information it needs is stored in the current folder together with your code files, but in general you shouldn't need to look at this. They're there in the background to help Python work.
+
+   To analyze these lines:
+
+   - :console:`cd /workspaces/\`ls /workspaces\`/lab-b` makes sure we are working in the lab-b folder.
+   - :console:`uv venv .venv` is the interesting command. This actually sets up our virtual environment.
 
 #. The above command makes a virtual environment, but it doesn't turn it on. In general, you only need to make a virtual environment once. You then just need to use it. To turn on the virtual environment, enter:
 
