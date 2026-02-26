@@ -17,6 +17,7 @@ Initial setup for the Lab
    .. prompt::
       :language: bash
 
+      cd /workspaces/`ls /workspaces` && mkdir -p lab-g
       cd /workspaces/`ls /workspaces`/lab-g
       uv init . 
 
@@ -26,6 +27,7 @@ Initial setup for the Lab
 
    To analyze these lines:
 
+   - :console:`cd /workspaces/\`ls /workspaces\` && mkdir -p lab-g` makes the lab-g folder. There are no pre-downloaded files needed for Lab G. Sometimes this means that the Lab G folder isn't downloaded automatically (because it's empty). 
    - :console:`cd /workspaces/\`ls /workspaces\`/lab-g` makes sure we are working in the lab-g folder.
    - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
 

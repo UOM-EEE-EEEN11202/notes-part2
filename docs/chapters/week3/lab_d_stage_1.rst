@@ -324,7 +324,7 @@ As with the debugger, there's lots of depth that we could go into on logging. We
 We're going to use the :python:`logging` library, which is part of the `standard library <https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library>`_. This means it is avaiable with all Python installations. Logging is such a common need that there are external libraries, such as `loguru <https://loguru.readthedocs.io/en/stable/>`_ which add more functionalty, but we won't look in to these here.
 
 
-#. Make a new Python file, with any suitable name, stored in your :console:`src` folder for Lab D. Put the code below into it.
+#. Make a new Python file, with any suitable name, stored in your :console:`src` folder for Lab D. Put the code below into it. (Note that you can't call your file :console:`logging.py` because this will conflict with the name of the logging library we're importing.)
 
    .. code-block:: python
 

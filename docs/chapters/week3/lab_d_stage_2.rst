@@ -121,6 +121,7 @@ Pytest is not part of the standard library, and so it's not installed by default
       [dependency-groups]
       dev = [
           "pytest>=9.0.2",
+          "pytest-cov>=7.0.0",
       ]
 
 
@@ -159,7 +160,7 @@ Pytest is not part of the standard library, and so it's not installed by default
 
       assert x == 3
 
-   you as the programmer are saying: *as this point in the code I expect* :python:`x` *to be 3*. 
+   you as the programmer are saying: *at this point in the code I expect* :python:`x` *to be 3*. 
    
    The challenge in testing code is that you, the programmer, need to think of a number of *test cases*. These are different situations where you know what the results should be. You can then add these to your test function to check they're actually what to get. It can be quite a lot of work to come up with test cases that cover everything. 
 
@@ -207,7 +208,7 @@ Pytest is not part of the standard library, and so it's not installed by default
 Making tests
 ------------
 
-#. At the moment we only have one test, and it contains :python:`assert False`. As a result, the test will always fail. Try chaning this to :python:`assert True` and re-running the tests to see that it now passes, and the different messages that you get. 
+#. At the moment we only have one test, and it contains :python:`assert False`. As a result, the test will always fail. Try changing this to :python:`assert True` and re-running the tests to see that it now passes, and the different messages that you get. 
 
 #. Replace the code in :python:`test_lab_d_code.py` with the code below to add some actual tests for our two functions. 
 
@@ -256,6 +257,8 @@ Making tests
           assert mark3 == correct_mark3
 
    Here we've made two functions, :python:`test_function_a` and :python:`test_function_b`, to test :python:`calculate_overall_mark_a` and :python:`calculate_overall_mark_b` respectively. In each case we pass the functions some inputs where we have already worked out what the function should do in that case, and then check whether the output is correct. If any of the :python:`assert` statements evaluate to false, the test should fail, flagging the're an issue to fix.
+
+   Make sure you save your changes before proceeding. Pytest will run on the saved version of the file, not what's currently displayed if it hasn't been saved. 
 
    Run the tests again. If you're using the VSCode interface rather than the comamnd line, the output should look like the below. This shows that :python:`test_function_a` passed, but :python:`test_function_b` failed.
 
@@ -332,7 +335,7 @@ Making tests
                  mark = calculate_overall_mark_b(student, EXAM_WEIGHTING, COURSEWORK_WEIGHTING)
                  assert mark == correct_marks[i]
 
-      Here we've put our test patterns in a function called :python:`patterns`, which both tests call. In most cases, where you have lots of tests, it's probably better to put the test inputs and the expected outputs in a seperate file which you read in. This helps you develop your test cases separately from your code, and becomes more import as you have more and more test patterns. 
+      Here we've put our test patterns in a function called :python:`patterns`, which both tests call. In most cases, where you have lots of tests, it's probably better to put the test inputs and the expected outputs in a seperate file which you read in. This helps you develop your test cases separately from your code, and becomes more important as you have more and more test patterns. 
 
 
 Test coverage
