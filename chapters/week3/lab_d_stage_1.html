@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>3.3.1. Tools and techniques for catching coding issues &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="3.3. Lab D" href="lab_d.html" />
+            <link rel="next" title="3.3.2. Unit testing with Pytest" href="lab_d_stage_2.html" />
+            <link rel="prev" title="3.3. Lab D" href="lab_d.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_d.html">3.3. Lab D</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week3_intro.html"><span class="section-number">3. </span>Week 3</a></li>
+            <li class="breadcrumb-item"><a href="lab_d.html"><span class="section-number">3.3. </span>Lab D</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">3.3.1. </span>Tools and techniques for catching coding issues</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week3/lab_d_stage_1.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week3/lab_d_stage_1.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="tools-and-techniques-for-catching-coding-issues">
+<span id="lab-d-stage-1"></span><h1><span class="section-number">3.3.1. </span>Tools and techniques for catching coding issues<a class="headerlink" href="#tools-and-techniques-for-catching-coding-issues" title="Link to this heading">¶</a></h1>
+<section id="initial-setup-for-the-lab">
+<h2><span class="section-number">3.3.1.1. </span>Initial setup for the Lab<a class="headerlink" href="#initial-setup-for-the-lab" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In the VSCode terminal enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>lab-d</span>
+<span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span>/lab-d</span>
+<span class="prompt1">uv<span class="w"> </span>init<span class="w"> </span>.</span>
+</pre></div></div><p>Remember to enter these one at a time, not both together.</p>
+<p>This will make a new Python project in the current folder. It will be named automatically after the folder name.</p>
+<p>To analyze these lines:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces` &amp;&amp; mkdir -p lab-d</span></code> makes the lab-d folder. There are no pre-downloaded files needed for Lab D. Sometimes this means that the Lab D folder isn’t downloaded automatically (because it’s empty).</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces`/lab-d</span></code> makes sure we are working in the lab-d folder.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv init .</span></code> is the interesting command. This actually sets up our virtual environment.</p></li>
+</ul>
+<p>The above will make the a <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file, a <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and a number of others.</p>
+</li>
+<li><p>We’re now going to add a bit more structure to our code folder, as we discussed in the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/theory.html">theory part for Week 3</a>. We’re just going to:</p>
+<ol class="arabic simple">
+<li><p>Make a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code>, and put our code files (just <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> at the moment) in there.</p></li>
+<li><p>Make a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code>. At the moment this will be empty, but we’ll put some unit tests in there in <a class="reference internal" href="lab_d_stage_2.html#lab-d-stage-2"><span class="std std-ref">the second part of the lab</span></a>.</p></li>
+<li><p>Make a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">docs</span></code>. This is where the documentation for the code will live. We’re going to keep this empty, as we won’t focus on writing documentation in this lab. Nevertheless, we’re going to make it to help remind you that for actual projects there should be some documentation files to accompany your code.</p></li>
+<li><p>Make an empty <code class="code highlight console docutils literal highlight-console"><span class="go">__init__.py</span></code> file in the <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder. This is needed for the unit testing setup later on.</p></li>
+<li><p>Run the boilerplate <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file so that a virtual environment gets made.</p></li>
+</ol>
+<p>Make sure that your terminal is in your Lab D folder, and then enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">mkdir<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>docs</span>
+<span class="prompt1">mv<span class="w"> </span>main.py<span class="w"> </span>src</span>
+<span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+<span class="prompt1">touch<span class="w"> </span>tests/__init__.py</span>
+</pre></div></div><div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>To keep our setup slightly simpler, we’re going to put our code directly in the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder. It’s common to actually put the code in a sub-folder within <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> with the same name as the project, e.g. <code class="code highlight console docutils literal highlight-console"><span class="go">lab_d</span></code>. This helps to avoid potential naming conflicts with other packages, but for this lab we’ll keep it simple.</p>
+</div>
+<p>When done, your VSCode should look like the below.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/lab_d_setup1.png"><img alt="Changing the Python interpreter" src="../../_images/lab_d_setup1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Once you’ve opened a Python file, make sure that VSCode says it’s using the <code class="code highlight console docutils literal highlight-console"><span class="go">lab-d</span></code> virtual environment. This will be shown in the bottom right hand corner of the screen. If it’s picked a different virtual environment, you can click on the environment name and select the correct one, as shown below.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/lab_d_setup2.png"><img alt="Changing the Python interpreter" src="../../_images/lab_d_setup2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/lab_d_setup3.png"><img alt="Selecting the wanted interpreter" src="../../_images/lab_d_setup3.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="static-code-analysis">
+<h2><span class="section-number">3.3.1.2. </span>Static code analysis<a class="headerlink" href="#static-code-analysis" title="Link to this heading">¶</a></h2>
+<p>You’ve probably already seen the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html">static code analysis</a> at work. It underlines pieces of your code, like a spell checker does, to help spot issues before you run the code. In our <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/environment_control.html">devcontainer</a> we automatically installed the <a class="reference external" href="https://docs.astral.sh/ruff/">Ruff</a> analyser for you. We’ll just look at static code analysis very briefly here.</p>
+<ol class="arabic">
+<li><p>Replace the code in your <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file with the code below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">Hello</span> <span class="kn">from</span><span class="w"> </span><span class="nn">lab</span><span class="o">-</span><span class="n">d</span><span class="err">!</span><span class="s2">&quot;)</span>
+    <span class="n">x</span> <span class="o">==</span> <span class="mi">9</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is greater than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">elsif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is less than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected comparison result&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This code has quite a few mistakes in it! If you hover over the red underlined sections, VSCode will display help, to try and help you identify the issue(s) with the code.</p>
+<p>Fix this code.</p>
+<div class="dropdown admonition" id="static-code-analysis-solution">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-d!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is greater than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is less than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected comparison result&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">56</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">3.54</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="the-debugger">
+<h2><span class="section-number">3.3.1.3. </span>The debugger<a class="headerlink" href="#the-debugger" title="Link to this heading">¶</a></h2>
+<p>The debugger lets the program pause during its execution. We can then examine the state of the program, the variables and similar, to see whether they are what we would expect. We can use this to help track down issues with the code. In <a class="reference internal" href="lab_c_stage_2.html#lab-c-stage-2"><span class="std std-ref">the second part of Lab C</span></a> we used the Jupyter variable explorer to similarly look at variables, but the debugger is more versatile and flexible for when you move on to more complicated programs.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced notes</p>
+<p>This is because the Jupyter variable explorer can only show what’s in the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html">current scope</a>. It can’t show the values of variables inside different functions, whereas the debugger can. You can turn on a debugger within a Jupyter notebook if you want to, but we won’t look into it here.</p>
+</div>
+<section id="general-debugging">
+<h3><span class="section-number">3.3.1.3.1. </span>General debugging<a class="headerlink" href="#general-debugging" title="Link to this heading">¶</a></h3>
+<p>To use the debugger, you add a <em>breakpoint</em>. Execution of the program proceeds as usual, until it reaches a breakpoint. It then stops, and shows a debugging view. You can have as many breakpoints as you would like in different places in your code, we’ll just use one below.</p>
+<ol class="arabic">
+<li><p>Copy the solution <a class="reference internal" href="#static-code-analysis-solution"><span class="std std-ref">given above</span></a> into your code file. (We suggest you use our given solution rather than your own code because we’ll refer to some line number below, which might be different in your code.)</p></li>
+<li><p>Add a breakpoint on Line 5 of the code (assuming you’ve copied the solution given above). To do this, click next to the line number. A red circle should appear, indicating that the code will stop running when it gets to this point.</p></li>
+<li><p>Ask VSCode to debug the Python file. Click the down arrow next to the <code class="code highlight console docutils literal highlight-console"><span class="go">Run</span></code> button, and then select <code class="code highlight console docutils literal highlight-console"><span class="go">Python Debugger: Debug Python File</span></code>.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/starting_the_debugger.png"><img alt="Setting a breakpoint and starting the debugger" src="../../_images/starting_the_debugger.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>You’ll be presented with a view, highlighting Line 5. Line 5 hasn’t been run yet, all of the code up to this point has been run. Remember, the code doesn’t necessarily run from top-to-bottom. Here the code starts with the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> block, which then called the function <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code>.</p>
+<p>The values of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">y</span></code> are shown. You can compare these against what would you expect them to be.</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../_images/the_debugger.png"><img alt="The VSCode debugger" src="../../_images/the_debugger.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>You’ll also see a set of controls presented. Hover the mouse over these to see what each button does. Briefly:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">Continue</span></code> resumes execution of the program. It will run until it reaches another breakpoint, or until it reaches the end of the program, whichever is sooner.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">Step over</span></code> advances the execution by 1 line. This is really helpful for stepping through the code line by line to find issues.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">Step into</span></code> advances the execution, and if there’s a function, moves the debugger into the function. Otherwise, <code class="code highlight console docutils literal highlight-console"><span class="go">Step over</span></code> just runs the function and puts the results into the debugger without looking inside the function.</p></li>
+</ul>
+<p>There are also buttons to <code class="code highlight console docutils literal highlight-console"><span class="go">Restart</span></code> the debugger and to <code class="code highlight console docutils literal highlight-console"><span class="go">Stop</span></code>.</p>
+<p>Spend some time exploring these different options. Stop the debugger when you’re ready.</p>
+</li>
+</ol>
+</section>
+<section id="changing-the-value-of-a-variable">
+<h3><span class="section-number">3.3.1.3.2. </span>Changing the value of a variable<a class="headerlink" href="#changing-the-value-of-a-variable" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>The debugger is an interactive tool, to help us understand our programs (and why they might not be working). Right click on the <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> variable that’s displayed in the debugger. Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Set Value</span></code>, and you’ll be able to change the value of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code>.</p>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../_images/debugger_setting_a_value.png"><img alt="Changing values in the VSCode debugger" src="../../_images/debugger_setting_a_value.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Set the value of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> to 5 and then press the <code class="code highlight console docutils literal highlight-console"><span class="go">Step Over</span></code> button. You should see that the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement now goes down a different route. This can be very useful for checking different options, without having to re-run all of the code.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../_images/debugger_setting_a_value2.png"><img alt="Changing values in the VSCode debugger" src="../../_images/debugger_setting_a_value2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="examining-the-call-stack">
+<h3><span class="section-number">3.3.1.3.3. </span>Examining the call stack<a class="headerlink" href="#examining-the-call-stack" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Stop the debugger and start it again (so that we have the right value for <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code>).</p></li>
+<li><p>We put our breakpoint on Line 5. This is in a function called <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code>, which is called on Line 18 of the code. The debugger lets us view the status of the program when it was stopped (Line 5), and the status of when <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> was called (Line 18).</p></li>
+<li><p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">&lt;module&gt;</span></code> in the <code class="code highlight console docutils literal highlight-console"><span class="go">CALL STACK</span></code> area. This lets us switch the view of the debugger to where the function was called. If you have a breakpoint in a function, which was called by another function, which was called by another function, there might be several layers to this stack. Here we just have one, with the top layer called <code class="code highlight console docutils literal highlight-console"><span class="go">&lt;module&gt;</span></code> by default.</p>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../_images/call_stack.png"><img alt="Changing the scope of the variables shown" src="../../_images/call_stack.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The debugger now shows which line we’re paused at (in yellow) and where the containing function was called from (in green). As we’re looking at <code class="code highlight console docutils literal highlight-console"><span class="go">&lt;module&gt;</span></code>, the variables shown are the ones that it sees. That is, the value of the variables before we started <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code>. You can see that <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="mf">3.54</span></code> in the debugger. Inside <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="mi">9</span></code>. Both variables have the same name, but as they are in <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html">different scopes</a> they don’t conflict with one another. The debugger can be moved between different scopes to help with our debugging.</p>
+</li>
+</ol>
+</section>
+<section id="conditional-breakpoints">
+<h3><span class="section-number">3.3.1.3.4. </span>Conditional breakpoints<a class="headerlink" href="#conditional-breakpoints" title="Link to this heading">¶</a></h3>
+<p>We can also have breakpoints that only trigger in certain conditions. This is very useful for tracking down bugs that only occur in some instances.</p>
+<ol class="arabic">
+<li><p>Replace the code in your file with that given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">countdown</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-d!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is greater than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is less than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected comparison result&quot;</span><span class="p">)</span>
+
+    <span class="n">countdown</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">56</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">3.54</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This calls a function <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">()</span></code> once the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement has completed.</p>
+</li>
+<li><p>Put a breakpoint on the line <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></code>. Then right click on the red circle, and you’ll be given the option to <code class="code highlight console docutils literal highlight-console"><span class="go">Edit Breakpoint...</span></code></p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../_images/conditional_breakpoint.png"><img alt="Setting a conditional breakpoint" src="../../_images/conditional_breakpoint.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id32" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>You can then set an expression that determines whether the breakpoint triggers. You use the same syntax as in an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement. Type in <code class="code highlight python docutils literal highlight-python"><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span></code> and then press <code class="code highlight console docutils literal highlight-console"><span class="go">Enter</span></code> on the keyboard. (Make sure you understand why we’re triggering on <code class="code highlight python docutils literal highlight-python"><span class="n">i</span></code> and not on <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code>.) Here we’re using a simple conditional statement, but you can build up more complicated ones if you would like.</p>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="../../_images/conditional_breakpoint2.png"><img alt="Setting a conditional breakpoint" src="../../_images/conditional_breakpoint2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id33" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>You should see that the debugger has paused the program when <code class="code highlight python docutils literal highlight-python"><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span></code>. All of the <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop iterations before this have been run. There are now also 3 functions on the call stack.</p>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../../_images/conditional_breakpoint3.png"><img alt="The debugger paused after a conditional breakpoint" src="../../_images/conditional_breakpoint3.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id34" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>There’s lots that can be done with the debugger, we’ve just shown a few key features here. Spend some time exploring different options before moving on. We won’t refer back to the debugger again so much in the rest of course, but assume you’ll make use of it to help fix issues in your code and to help check that your code is working as expected.</p>
+</section>
+</section>
+<section id="logging">
+<h2><span class="section-number">3.3.1.4. </span>Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h2>
+<p>The debugger is a very powerful tool when we want to interactively work with our code - typically when we want to see the values of particular items and see whether they are what we expect. However, sometimes we just want to run the code, have it do everything, and then have a look at the end at what happened. For example, maybe the code takes a long time to run, and so we’ll leave it running overnight rather than sitting at our computing and waiting for it to reach a breakpoint.</p>
+<p>We can make a <em>log file</em> to store values from our program run for later inspection.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>You could just use <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> commands to display the values of variables at different points, e.g. <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></code>, and even save this display to a file. There’s nothing wrong with this per-se, except that:</p>
+<ol class="arabic simple">
+<li><p>Python has built in logging functions to make this process smoother and with more power options without having to do everything yourself.</p></li>
+<li><p>If you have lots of <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> commands for debugging, when you’ve finished debugging you need to remember to remove or comment out all of the <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> commands. Otherwise your code will be creating a load of unnecessary output, and displaying stuff to the screen actually takes a relatively long time which could slow down the program execution. In contrast, logging functions have the ability to be turned on and off via a setting. The code can stay the same regardless of whether you’re debugging it or actually using it, just the setting changes.</p></li>
+</ol>
+</div>
+<p>As with the debugger, there’s lots of depth that we could go into on logging. We’re just going to touch on a few items, so that you have familarity if you need it, and so you don’t always have to resort to using <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> statements.</p>
+<p>We’re going to use the <code class="code highlight python docutils literal highlight-python"><span class="n">logging</span></code> library, which is part of the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library">standard library</a>. This means it is avaiable with all Python installations. Logging is such a common need that there are external libraries, such as <a class="reference external" href="https://loguru.readthedocs.io/en/stable/">loguru</a> which add more functionalty, but we won’t look in to these here.</p>
+<ol class="arabic">
+<li><p>Make a new Python file, with any suitable name, stored in your <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder for Lab D. Put the code below into it. (Note that you can’t call your file <code class="code highlight console docutils literal highlight-console"><span class="go">logging.py</span></code> because this will conflict with the name of the logging library we’re importing.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">countdown</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_x</span><span class="p">():</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello from lab-d!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is greater than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is less than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected comparison result&quot;</span><span class="p">)</span>
+
+    <span class="n">countdown</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Set up logging</span>
+    <span class="n">log_filename</span> <span class="o">=</span> <span class="s2">&quot;log.txt&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Started&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Run wanted functions</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">56</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">3.54</span>  <span class="c1"># used in the next part of the lab</span>
+    <span class="n">check_x</span><span class="p">()</span>
+
+    <span class="c1"># Tidy up logging</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Finished&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This code is fundamentally the same as we’ve been developing so far in this lab, but the functions are now in <code class="code highlight python docutils literal highlight-python"><span class="n">check_x</span><span class="p">()</span></code> rather than <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code>. We’ve also added logging commands. For the logging:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span></code> at the top of the code set up the logging library for use.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">log_filename</span> <span class="o">=</span> <span class="s2">&quot;log.txt&quot;</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span></code> in <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> configure the logging. Here we’ve asked it to store the log in a file called <code class="code highlight console docutils literal highlight-console"><span class="go">log.txt</span></code>. We’ve also set the logging level to <code class="code highlight python docutils literal highlight-python"><span class="n">INFO</span></code>. We’ll discuss this in a minute.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">()</span></code> sets what we record into the log file. We’ve added some start and stop messages, and otherwise replaced various <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> commands with <code class="code highlight python docutils literal highlight-python"><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">()</span></code> commands.</p></li>
+</ul>
+</li>
+<li><p>Run this code. You will find that it creates a file called <code class="code highlight console docutils literal highlight-console"><span class="go">log.txt</span></code> in your Lab D folder. If it doesn’t show up straight away, press the <code class="code highlight console docutils literal highlight-console"><span class="go">Refresh</span></code> button in the VSCode file explorer.</p>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../../_images/log_file.png"><img alt="A log file created by the logging library" src="../../_images/log_file.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id35" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Rather than being displayed to the screen, our messages are now being logged in a file for us to inspect later on.</p>
+<p>If you run the code again, you’ll find that the second run is appended to the end of the log file.</p>
+</li>
+<li><p>Delete the file <code class="code highlight console docutils literal highlight-console"><span class="go">log.txt</span></code> to start afresh.</p>
+<p>Change the code line <code class="code highlight python docutils literal highlight-python"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span></code> to <code class="code highlight python docutils literal highlight-python"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span></code>, and run the code again.</p>
+<p>The log file is now blank. This is because we’ve now asked for only <code class="code highlight python docutils literal highlight-python"><span class="n">WARNING</span></code> level messages to be recorded. Our current code only has <code class="code highlight python docutils literal highlight-python"><span class="n">INFO</span></code> level messages, and so nothing is recorded. We can thus get control over how detailed or otherwise we want our logging to be, without having to make lots of changes to the code.</p>
+<p>The logging library has different levels of logging. From highest to lowest these are:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">CRITICAL</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">ERROR</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">WARNING</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">INFO</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">DEBUG</span></code></p></li>
+</ul>
+<p>When setting the logging level, only messages at that level and above are recorded.</p>
+</li>
+<li><p>In the code you copied for this part of the lab there is a function <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">()</span></code>. Change this so that rather than using <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> statements the countdown is logged at level <code class="code highlight python docutils literal highlight-python"><span class="n">WARNING</span></code>, and the blast off is logged at level <code class="code highlight python docutils literal highlight-python"><span class="n">CRITICAL</span></code>. Run the code with the logging level set to <code class="code highlight python docutils literal highlight-python"><span class="n">WARNING</span></code>. You should see that only the countdown numbers are recorded in the log file.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">countdown</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>There are lots of ways in which you can customize the log file, but we won’t look into these here. The important point is that, generally, <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span></code> statements should be reserved for when you want to display information to the user. For debugging, logging gives more flexibility and control.</p>
+</li>
+<li><p>Check your files into Git before moving on.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_d.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">3.3. </span>Lab D
+    </a>
+    <a class="float-right" href="lab_d_stage_2.html" title="Next">
+        <span class="section-number">3.3.2. </span>Unit testing with Pytest <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">3.3.1. Tools and techniques for catching coding issues</a><ul>
+<li><a class="reference internal" href="#initial-setup-for-the-lab">3.3.1.1. Initial setup for the Lab</a></li>
+<li><a class="reference internal" href="#static-code-analysis">3.3.1.2. Static code analysis</a></li>
+<li><a class="reference internal" href="#the-debugger">3.3.1.3. The debugger</a><ul>
+<li><a class="reference internal" href="#general-debugging">3.3.1.3.1. General debugging</a></li>
+<li><a class="reference internal" href="#changing-the-value-of-a-variable">3.3.1.3.2. Changing the value of a variable</a></li>
+<li><a class="reference internal" href="#examining-the-call-stack">3.3.1.3.3. Examining the call stack</a></li>
+<li><a class="reference internal" href="#conditional-breakpoints">3.3.1.3.4. Conditional breakpoints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logging">3.3.1.4. Logging</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

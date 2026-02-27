@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>6.2.1. Writing code for AI &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="6.2. Lab I" href="lab_i.html" />
+            <link rel="next" title="6.2.2. Using AI for coding" href="lab_i_stage_2.html" />
+            <link rel="prev" title="6.2. Lab I" href="lab_i.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">6.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_i.html">6.2. Lab I</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week6_intro.html"><span class="section-number">6. </span>Week 6</a></li>
+            <li class="breadcrumb-item"><a href="lab_i.html"><span class="section-number">6.2. </span>Lab I</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">6.2.1. </span>Writing code for AI</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week6/lab_i_stage_1.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week6/lab_i_stage_1.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="writing-code-for-ai">
+<span id="lab-i-stage-1"></span><h1><span class="section-number">6.2.1. </span>Writing code for AI<a class="headerlink" href="#writing-code-for-ai" title="Link to this heading">¶</a></h1>
+<section id="initial-setup-for-the-lab">
+<h2><span class="section-number">6.2.1.1. </span>Initial setup for the Lab<a class="headerlink" href="#initial-setup-for-the-lab" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In the VSCode terminal enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span>/lab-i</span>
+<span class="prompt1">uv<span class="w"> </span>init<span class="w"> </span>.</span>
+</pre></div></div><p>Remember to enter these one at a time, not both together.</p>
+<p>This will make a new Python project in the current folder. It will be named automatically after the folder name.</p>
+<p>To analyze these lines:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces`/lab-i</span></code> makes sure we are working in the lab-i folder.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv init .</span></code> is the interesting command. This actually sets up our virtual environment.</p></li>
+</ul>
+<p>The above will make the a <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file, a <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and a number of others.</p>
+</li>
+<li><p>Add some structure to your folder by entering the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">mkdir<span class="w"> </span>tests<span class="w"> </span>docs</span>
+<span class="prompt1">mv<span class="w"> </span>main.py<span class="w"> </span>src</span>
+<span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+<span class="prompt1">touch<span class="w"> </span>tests/__init__.py</span>
+</pre></div></div><ul class="simple">
+<li><p>Here we’ve moved <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> into the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder. You’ll see that the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder contains some code that we’ve written for you.</p></li>
+<li><p>We’ve made a <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder for any tests that we might want to write later, and a <code class="code highlight console docutils literal highlight-console"><span class="go">docs</span></code> folder for any documentation.</p></li>
+<li><p>In the files that were downloaded from Git automatically, you’ll also see there’s a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code>. This contains some files that we’ll analyze during the lab.</p></li>
+</ul>
+</li>
+<li><p>Install the required dependencies for this lab by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>add<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchmetrics<span class="w"> </span>scipy<span class="w"> </span>plotly<span class="w"> </span>pandas<span class="w"> </span>nbformat</span>
+</pre></div></div></li>
+<li><p>Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+</pre></div></div><p>to make sure the virtual environment is built.</p>
+</li>
+<li><p>When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html">in Lab D</a> if you’re unsure.</p></li>
+</ol>
+</section>
+<section id="overview">
+<h2><span class="section-number">6.2.1.2. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Python is very widely used for writing code for AI models. Commands for AI are not part of the standard library, they are added in as external modules. <a class="reference external" href="https://pytorch.org/g/">PyTorch</a> and <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a> are two of the most widely used libraries for AI coding in Python. Here we will use PyTorch.</p>
+<p>This is not a course about AI, but there are a few basics that you’ll need to know in order to follow along. There are several steps in writing code for AI models. These are:</p>
+<ol class="arabic simple">
+<li><p>We need a problem statement. That is, we need to know what we want the AI to do.</p></li>
+<li><p>We need data that the AI can use to tackle the problem statement. E.g. if we want to automatically tell the colour of a car, we’ll need some pictures of cars, ideally labelled with their colours.</p></li>
+<li><p>The data is usually split into three parts <em>training</em>, <em>validation</em>, and <em>testing</em>. Training data is used to make the model in the first place, it gives the AI data that it can learn from. Validation data is used to check the training. The training will be repeated if the validation performance isn’t good enough. Testing data is used to see how well the model works, by giving it data that it hasn’t seen before.</p></li>
+<li><p>We often need to do some <em>pre-processing</em> of the data before passing it to the AI. This might include cleaning the data (e.g. removing missing or invalid entries), normalizing the data (e.g. making sure all values are on a similar scale), or selecting key points (features) so that these are used as the input for the AI rather than all of the raw data. This step might be known as transforming the data, or carrying out feature generation and feature selection. There might be some other factors to take into account, such as making sure that the data is well shuffled so that the training works well, deciding on a batch size (how many data points are used in each step of the training), and so on, which we won’t look into here.</p></li>
+<li><p>We then decide on a model architecture. There are lots of different types of AI, with different advantages and disadvantages for different problem statements and types of data. Often the same architecture has a wide range of choices or parameters that can be adjusted.</p></li>
+<li><p>We train the model.</p></li>
+<li><p>We test the model and obtain some performance metrics for how well it did.</p></li>
+<li><p>When we’re happy, we can deploy the model. That is, actually use it in practice.</p></li>
+</ol>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>We won’t cover model deployment here.</p>
+<p>We also won’t make a separate validation data set, to make the examples a bit more compact. You almost certainly do want a validation data set if you’re working on a real problem.</p>
+</div>
+<p>A full copy of the code for this lab is given in your Lab I <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder as <code class="code highlight console docutils literal highlight-console"><span class="go">solution.py</span></code> which you can refer to if you’re not sure where any individual piece of code should go.</p>
+</section>
+<section id="problem-statement">
+<h2><span class="section-number">6.2.1.3. </span>Problem statement<a class="headerlink" href="#problem-statement" title="Link to this heading">¶</a></h2>
+<p>We’re going to look at a <em>classification problem</em>, which is a very common AI task. We have a database of pictures of flowers, and we want the AI to be able to tell us what type of flower is in a picture. We’ve picked this as an example because it will illustrate all of the key steps for us, and the data required is readily available and doesn’t use a lot of disc space.</p>
+<p>Our problem is going to be <em>supervised</em>. This is, for training the network we have already collected some data where we know what the correct answer is. The AI can use this input and the answer, to learn the relationship between the two.</p>
+</section>
+<section id="data-set">
+<h2><span class="section-number">6.2.1.4. </span>Data set<a class="headerlink" href="#data-set" title="Link to this heading">¶</a></h2>
+<p>In practice when making AI you likely either:</p>
+<ul class="simple">
+<li><p>Already have data that’s been collected for you and you have to work with (possibly regardless of whether it’s a very good fit for your problem statement). The data may be public data from the Internet, which is what we’ll use here.</p></li>
+<li><p>Collect your own data, which may be expensive and time-consuming, but can mean you definitely get the data that you want.</p></li>
+</ul>
+<p>To help people get started, there are a number of public data sets available online and PyTorch includes dedicated commands to download them. Here we’ll use a <a class="reference external" href="https://www.robots.ox.ac.uk/~vgg/data/flowers/102/">Flowers Recognition</a> data set, which contains labelled pictures of flowers of different types. This dataset was made by: Nilsback, M-E. and Zisserman, A. in Automated flower classification over a large number of classes. Proceedings of the Indian Conference on Computer Vision, Graphics and Image Processing (2008). PyTorch contains built in functions to download and use widely used public datasets like this one. If you’re using your own data, it might be a bit more work to first load the data (say from a <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> file as we saw in <a class="reference internal" href="../week4/lab_e.html#lab-e"><span class="std std-ref">Lab E</span></a>), and then convert it into a format that PyTorch can use. We won’t cover this here.</p>
+<ol class="arabic simple">
+<li><p>Edit your <code class="code highlight console docutils literal highlight-console"><span class="go">src/main.py</span></code> file and edit it to be the following:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchmetrics.classification</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">MulticlassAccuracy</span><span class="p">,</span>
+    <span class="n">MulticlassConfusionMatrix</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision.transforms.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Compose</span><span class="p">,</span> <span class="n">Resize</span><span class="p">,</span> <span class="n">ToDtype</span><span class="p">,</span> <span class="n">ToImage</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># Get training data</span>
+    <span class="n">training_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">Flowers102</span><span class="p">(</span>
+        <span class="n">root</span><span class="o">=</span><span class="n">data_folder</span><span class="p">,</span>
+        <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
+        <span class="n">download</span><span class="o">=</span><span class="n">clean_run</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">Compose</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">Resize</span><span class="p">((</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)),</span>
+                <span class="n">ToImage</span><span class="p">(),</span>
+                <span class="n">ToDtype</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Get test data</span>
+    <span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">Flowers102</span><span class="p">(</span>
+        <span class="n">root</span><span class="o">=</span><span class="n">data_folder</span><span class="p">,</span>
+        <span class="n">split</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="n">download</span><span class="o">=</span><span class="n">clean_run</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">Compose</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">Resize</span><span class="p">((</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)),</span>
+                <span class="n">ToImage</span><span class="p">(),</span>
+                <span class="n">ToDtype</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Settings</span>
+    <span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># put in data folder in project root</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># images will be resized to 500x500</span>
+
+    <span class="c1"># Run network steps</span>
+    <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Run this code. It will download the data set into your Lab I <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code> folder. It will likely take a few minutes and you may not see much output while it’s running. When it’s done, you should see that a number of files have been downloaded into the <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code> folder.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/data_download.png"><img alt="VSCode file explorer showing downloaded data files" src="../../_images/data_download.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Open some of the files in the <code class="code highlight console docutils literal highlight-console"><span class="go">jpg</span></code> folder and you should see some flowers.</p>
+<p>The end result is <code class="code highlight python docutils literal highlight-python"><span class="n">training_data</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">test_data</span></code> which are <code class="code highlight python docutils literal highlight-python"><span class="n">Dataset</span></code> objects, dedicated objects for how PyTorch wants the data organized for working with.</p>
+<p>Note that we gave the <code class="code highlight python docutils literal highlight-python"><span class="n">get_data</span><span class="p">()</span></code> function an argument <code class="code highlight python docutils literal highlight-python"><span class="n">clean_run</span><span class="o">=</span><span class="kc">True</span></code>. If this is set to <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code>, the data will be downloaded again each time you run the code. You probably don’t want this once you’ve downloaded the data. To save time you can switch this to <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code> after the first run.</p>
+</li>
+<li><p>The <code class="code highlight python docutils literal highlight-python"><span class="n">get_data</span><span class="p">()</span></code> function actually does several of the AI pipeline steps for us. We downloaded training and test datasets separately. The lines</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transform</span><span class="o">=</span><span class="n">Compose</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">Resize</span><span class="p">((</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)),</span>
+        <span class="n">ToImage</span><span class="p">(),</span>
+        <span class="n">ToDtype</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>do the pre-processing for us.</p>
+<p>If you look closely at the raw images you’ll see that they’re all slightly different sizes. Some have 500 pixels on one size, some 520, and so on. The PyTorch <code class="code highlight python docutils literal highlight-python"><span class="n">Resize</span></code> command makes them all have the same number of pixels, as the AI needs a consistent input. <code class="code highlight python docutils literal highlight-python"><span class="n">Resize</span></code> is a built in pre-processor in PyTorch for working with images. There are others, listed <a class="reference external" href="https://pytorch.org/vision/stable/transforms.html">in the documentation</a>. You can also define your own preprocessor by writing a custom class if you need to.</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">ToImage</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">ToDtype</span></code> are built in transforms that we just need to make everything work in this example. PyTorch expects to work with numbers, and so we need to make sure Python is storing the image as numbers in the correct format, rather than as an image object.</p>
+<p>The end result is <code class="code highlight python docutils literal highlight-python"><span class="n">train_data</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">test_data</span></code>. You can see that we downloaded different data for the training and testing sets, so we don’t need to do anything more here. In practice, it can be quite a lot of work to decide how to best split data into training and test. For example, if you’re working with time series, you don’t want to have data from the future in your training set!</p>
+</li>
+<li><p>Spend some time exploring the dataset. For example, you can see the different classes (types of flower) with <code class="code highlight python docutils literal highlight-python"><span class="n">training_data</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span></code> You can see the label for training image number (say 42) with <code class="code highlight python docutils literal highlight-python"><span class="n">_</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span></code>. Can you make a histogram of the number of images in each class?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_label_histogram</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">label_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">label</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+    <span class="n">fig0</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">label_list</span><span class="p">)</span>
+    <span class="n">fig0</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Flower label&quot;</span><span class="p">,</span>
+            <span class="n">tickmode</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+            <span class="n">tickvals</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">))),</span>
+            <span class="n">ticktext</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>In principle we could start using the above for the machine learning. In practice we nearly always arrange the data into <em>batches</em> first. A batch is a small group of data points that are used together in one step of the training. This is done putting the data into a <code class="code highlight python docutils literal highlight-python"><span class="n">DataLoader</span></code> object. Add the following function to your <code class="code highlight console docutils literal highlight-console"><span class="go">src/main.py</span></code> file, we literally just need to say what batch size we want to use with which piece of data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_data_loaders</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
+    <span class="c1"># Make data loaders</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+    <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span>
+
+<span class="o">...</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Settings</span>
+    <span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># put in data folder in project root</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># images will be resized to 500x500</span>
+
+    <span class="c1"># Run network steps</span>
+    <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plot_training_label_histogram</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">make_data_loaders</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="model-architecture">
+<h2><span class="section-number">6.2.1.5. </span>Model architecture<a class="headerlink" href="#model-architecture" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>There are lots of built in models in PyTorch that you can use directly, or you can use a pre-trained model and fine-tune it for your own data. For example, for this image classification problem you might use a pre-trained <a class="reference external" href="https://docs.pytorch.org/vision/main/models/resnet.html">ResNet</a> model. We will make a simple model by hand (which won’t actually get very good performance, but illustrates the key steps and is quick to train).</p></li>
+<li><p>Add the function below to your <code class="code highlight console docutils literal highlight-console"><span class="go">src/main.py</span></code> file, and call it in the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> section after getting the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_model_architecture</span><span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">):</span>
+    <span class="c1"># Use GPU acceleration if available</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">accelerator</span><span class="o">.</span><span class="n">current_accelerator</span><span class="p">()</span><span class="o">.</span><span class="n">type</span>
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">accelerator</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+        <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Define neural network model</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">NeuralNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span>
+                    <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span>
+                <span class="p">),</span>  <span class="c1"># image size times 3 color channels</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span>  <span class="c1"># 102 flower classes</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">logits</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">device</span>
+
+<span class="o">...</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Settings</span>
+    <span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># put in data folder in project root</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># images will be resized to 500x500</span>
+
+    <span class="c1"># Run network steps</span>
+    <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plot_training_label_histogram</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">make_data_loaders</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="n">make_model_architecture</span><span class="p">(</span>
+        <span class="n">image_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">training_data</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Fundamentally, a model is defined by a class, as we learnt about in <a class="reference internal" href="../week5/lab_g_stage_1.html#lab-g-stage-1"><span class="std std-ref">Lab G</span></a>. It has two methods. The <code class="code highlight python docutils literal highlight-python"><span class="fm">__init__</span><span class="p">()</span></code> method defines the AI model that we want. It is made up of a number of <em>layers</em> and the connections between these layers.The <code class="code highlight python docutils literal highlight-python"><span class="n">forward</span><span class="p">()</span></code> method defines how data passes through the model.</p>
+<p>As this isn’t a course on AI, and so we’ll just stick with these choices for the number of layers, the types of layers, values and so on, and move on. Of course these values are extremely important to the overall performance of the network, and will require some design and tuning to get them right for a real problem.</p>
+</li>
+<li><p>Run the code. You should see a summary of the model printed out like the below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NeuralNetwork(</span>
+<span class="go">  (flatten): Flatten(start_dim=1, end_dim=-1)</span>
+<span class="go">  (linear_relu_stack): Sequential(</span>
+<span class="go">    (0): Linear(in_features=750000, out_features=128, bias=True)</span>
+<span class="go">    (1): ReLU()</span>
+<span class="go">    (2): Linear(in_features=128, out_features=128, bias=True)</span>
+<span class="go">    (3): ReLU()</span>
+<span class="go">    (4): Linear(in_features=128, out_features=102, bias=True)</span>
+<span class="go">  )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="training-the-model">
+<h2><span class="section-number">6.2.1.6. </span>Training the model<a class="headerlink" href="#training-the-model" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>As noted earlier, we don’t usually train a model all in one go, we split the data into batches. Our training is thus in a <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop. There are again many choices for how we do the training. We are carrying out <em>supervised</em> learning and so generally the network will try to generate an answer from an input, compare this to the known correct answer, and then adjust the model to try and reduce the number of times there is a difference between its answer and the correct answer. This is done using an <em>optimizer</em> and a <em>loss function</em>. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">CrossEntropyLoss</span></code> as the loss function and <code class="code highlight python docutils literal highlight-python"><span class="n">SGD</span></code> (Stochastic Gradient Descent) as the optimizer.</p></li>
+<li><p>Add the function below to your <code class="code highlight console docutils literal highlight-console"><span class="go">src/main.py</span></code> file, and call it in the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> section after defining the model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+        <span class="c1"># Print progress - generally want to see loss decreasing</span>
+        <span class="c1"># We wouldn&#39;t usually print every batch, but this is a small dataset</span>
+        <span class="n">loss</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch: </span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2">, loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">&gt;7f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training complete.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">model</span>
+
+<span class="o">...</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Settings</span>
+    <span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># put in data folder in project root</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># images will be resized to 500x500</span>
+
+    <span class="c1"># Run network steps</span>
+    <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plot_training_label_histogram</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">make_data_loaders</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="n">make_model_architecture</span><span class="p">(</span>
+        <span class="n">image_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">training_data</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="testing-the-model">
+<h2><span class="section-number">6.2.1.7. </span>Testing the model<a class="headerlink" href="#testing-the-model" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Testing the model is in many ways similar to how we train the model. We again use a <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop to go through the test data in batches. As this is a supervised problem, we can compare the model’s output (known as a <em>prediction</em>) to the true label or <em>target</em> for the data file being analyzed. We can then generate stats to summarize how well the model did. There are built in functions for doing this. We’re going to use <code class="code highlight python docutils literal highlight-python"><span class="n">MulticlassAccuracy</span></code> to get the overall accuracy, and <code class="code highlight python docutils literal highlight-python"><span class="n">MulticlassConfusionMatrix</span></code> to get a <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a>, which is a more visual illustration.</p></li>
+<li><p>Add the function below to your <code class="code highlight console docutils literal highlight-console"><span class="go">src/main.py</span></code> file, and call it in the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> section after defining the model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+    <span class="c1"># Go through each image in the test set in turn, pass it to the model with model(image)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># used for generating the confusion matrix later</span>
+    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">pred_output</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">predicted</span><span class="p">,</span> <span class="n">actual</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">classes</span><span class="p">[</span><span class="n">pred_output</span><span class="p">],</span>
+                <span class="n">classes</span><span class="p">[</span><span class="n">y</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image no.: </span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2"> Predicted: </span><span class="si">{</span><span class="n">predicted</span><span class="si">}</span><span class="s2">, Actual: </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">pred_output</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+
+    <span class="c1"># Combine all predictions and actual labels into tensors for calculating overall metrics on</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span><span class="p">])</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span><span class="p">])</span>
+
+    <span class="c1"># Generate confusion matrix</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">MulticlassConfusionMatrix</span><span class="p">(</span><span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">))</span>
+
+    <span class="c1"># Calculate overall accuracy</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">MulticlassAccuracy</span><span class="p">(</span><span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">))</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>  <span class="c1"># overall accuracy</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy over test set: </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">MulticlassAccuracy</span><span class="p">(</span><span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">),</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">per_class_acc</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">)</span>  <span class="c1"># per-class accuracy</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Per-class accuracy: </span><span class="si">{</span><span class="n">per_class_acc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Settings</span>
+    <span class="n">data_folder</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>  <span class="c1"># put in data folder in project root</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># images will be resized to 500x500</span>
+
+    <span class="c1"># Run network steps</span>
+    <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">clean_run</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plot_training_label_histogram</span><span class="p">(</span><span class="n">training_data</span><span class="p">)</span>
+    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">make_data_loaders</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">device</span> <span class="o">=</span> <span class="n">make_model_architecture</span><span class="p">(</span>
+        <span class="n">image_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">training_data</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+    <span class="n">test_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">,</span> <span class="n">test_data</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the code. Your final output should look similar to the below.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/test_output.png"><img alt="VSCode terminal showing test output" src="../../_images/test_output.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The overall accuracy (in this screenshot) is 0.6%.</p>
+</li>
+<li><p>You might notice two things. Firstly, if you run the code again, you’ll get a slightly different output. To start the training, the model parameters are usually randomly initialized. Each time you run the code you’ll get different random numbers as the starting point. In practice you might want to set a fixed random seed so that you can get repeatable results.</p>
+<p>Secondly, this is accuracy is very low! Indeed, there are things we can do to check, but it’s probably chance level. We have 102 classes in this problem, and a roughly equal number of examples of each class. Thus, if we just used a random number generator we’d expect it to pick the right class 1/102 of the time on average, which is about 0.98%. If you look closely at the output, you’ll see that nearly everything is being put into the same class, it thinks it is the same type of flower every time. This is quite common with simple small networks like this, it hasn’t actually learnt anything useful yet.</p>
+</li>
+</ol>
+</section>
+<section id="making-the-network-better">
+<h2><span class="section-number">6.2.1.8. </span>Making the network better<a class="headerlink" href="#making-the-network-better" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Fundamentally, we’ve been through all of the different steps needed for AI in Python using PyTorch. For most practical problems, you will just need to spend much more time on each one of the steps. For example, processing the data, normalizing the data, deciding on the model architecture, tuning the model hyperparameters, and so on. We don’t know what computers students are using, and so we deliberately kept the model small so that it would run in a reasonable amount of time on most machines. The negative of this is that it gets very poor performance.</p></li>
+<li><p>We’ll leave it as an open ended problem for you to explore for how to get better performance. It shouldn’t be too hard to get accuracies of 90% or more for this dataset, with some effort. (Again we’ll leave you to decide how long you want to spend on this. There are no marks for it.) If you get particularly good performance, come and show us in the lab and maybe we’ll make your code an example for next year. Two things you might explore are:</p>
+<ul class="simple">
+<li><p>Using a pre-trained model such as ResNet rather than making your own from scratch. With this, you wouldn’t necessarily need to do your own training step. Information for this is <a class="reference external" href="https://pytorch.org/hub/pytorch_vision_resnet/">online</a>.</p></li>
+<li><p>Using a Convolutional Neural Network (CNN) architecture rather than a simple feed-forward network. CNNs are very widely used for image data. There are built in layers for CNNs in PyTorch, see <a class="reference external" href="https://pytorch.org/docs/stable/nn.html#convolution-layers">here</a> for more information.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_i.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">6.2. </span>Lab I
+    </a>
+    <a class="float-right" href="lab_i_stage_2.html" title="Next">
+        <span class="section-number">6.2.2. </span>Using AI for coding <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">6.2.1. Writing code for AI</a><ul>
+<li><a class="reference internal" href="#initial-setup-for-the-lab">6.2.1.1. Initial setup for the Lab</a></li>
+<li><a class="reference internal" href="#overview">6.2.1.2. Overview</a></li>
+<li><a class="reference internal" href="#problem-statement">6.2.1.3. Problem statement</a></li>
+<li><a class="reference internal" href="#data-set">6.2.1.4. Data set</a></li>
+<li><a class="reference internal" href="#model-architecture">6.2.1.5. Model architecture</a></li>
+<li><a class="reference internal" href="#training-the-model">6.2.1.6. Training the model</a></li>
+<li><a class="reference internal" href="#testing-the-model">6.2.1.7. Testing the model</a></li>
+<li><a class="reference internal" href="#making-the-network-better">6.2.1.8. Making the network better</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

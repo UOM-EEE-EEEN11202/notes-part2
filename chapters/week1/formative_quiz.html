@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>1.2. Formative quiz 1 &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="1. Week 1" href="../week1_intro.html" />
+            <link rel="next" title="2. Week 2" href="../week2_intro.html" />
+            <link rel="prev" title="1.1. Theory" href="theory.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">1.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week1_intro.html"><span class="section-number">1. </span>Week 1</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">1.2. </span>Formative quiz 1</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week1/formative_quiz.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week1/formative_quiz.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="formative-quiz-1">
+<h1><span class="section-number">1.2. </span>Formative quiz 1<a class="headerlink" href="#formative-quiz-1" title="Link to this heading">¶</a></h1>
+<p>Below is a quiz testing the learning points covered so far in the course. Responses are anonymous and there is no mark given to this. The questions give you an opportunity to test your knowledge before moving on to later parts of the course.</p>
+<p>If you get a low score, you may like to go back over some of the material, and do the quiz again, before moving on to the next week. You can submit as many times as you would like.</p>
+<div class="quizdown">#### The diagram below, showing the parts of a computer system, is missing a central part. What is this part?
+
+![](../../_images/computer_parts_missing.png)
+
+&gt; See the lecture notes on [computer hardware](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_hardware.html)
+
+1. [ ] The core
+    &gt; That&#x27;s not correct. A core is part of a processor, but it&#x27;s not a complete processor, and all computers need a processor.
+1. [ ] The soundcard
+    &gt; That&#x27;s not correct. Most computers will have soundcards, allowing audio to be played, but they&#x27;re not the central part of the computer drawn here.
+1. [ ] Touch input
+    &gt; That&#x27;s not correct. Touch input is widely used in some computer systems, but it&#x27;s not the central part of the computer drawn here.
+1. [x] The processor
+    &gt; That&#x27;s correct!
+1. [ ] The cache
+    &gt; That&#x27;s not correct. Cache is memory very local to the processor, typically on the same microchip. Cache is part of a processor, but it&#x27;s not a complete processor, and all computers need a processor.
+
+
+
+#### Sustainability is an important to think about in programming.
+
+&gt; See the lecture notes on [wider factors to consider](https://uom-eee-eeen11202.github.io/notes-part1/chapters/wider_factors.html)
+
+
+1. [x] True
+    &gt; That&#x27;s correct! When starting out, we tend to focus on making programs that are functionally correct - ones that do what we want. Once they are working, there are a wide range of other factors, such as security and sustainability we may need to take into account.
+1. [ ] False
+    &gt; That&#x27;s not correct. Computer systems use large amounts of energy and water, and inefficient coding can waste lots of resources.
+
+
+
+#### What is the name of the Integrated Development Environment that we&#x27;ll use in this course?
+
+&gt; See the lecture notes on [installing a programming environment](https://uom-eee-eeen11202.github.io/chapters/useful_information/install.html)
+
+1. [x] VSCode
+    &gt; That&#x27;s correct!
+1. [ ] Visual Studio
+    &gt; That&#x27;s not correct. Visual Studio is a popular, powerful, and widely used Integrated Development Environment, but it only runs on Windows. We don&#x27;t make use of it on this course as we use platforms that are accessible on macOS and Linux too. We will use VSCode. VSCode is short for Visual Studio Code. Visual Studio and Visual Studio Code are very similar names! They are very different Integrated Development Environments though.
+1. [ ] Xcode
+    &gt; That&#x27;s not correct. Xcode is a popular, powerful, and widely used Integrated Development Environment, but it only runs on macOS. We don&#x27;t make use of it on this course as we use platforms that are accessible on Windows and Linux too.
+1. [ ] Eclipse
+    &gt; That&#x27;s not correct. Eclipse is a popular, powerful, and widely used Integrated Development Environment. However we&#x27;ve chosen to use VSCode as it integrates well with other tools we&#x27;ll use in the course, such as GitHub.
+1. [ ] Pycharm
+    &gt; That&#x27;s not correct. Pycharm is a popular, powerful, and widely used Integrated Development Environment, but only for Python development. We&#x27;ve chosen to use VSCode as it lets us use the same Integrated Development Environment for all of the different programming languages that we&#x27;ll consider.
+
+
+
+#### What is the function of static code analysis in an integrated development environment?
+
+&gt; See the lecture notes on [static code analysis](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/static_code_analysis.html)
+
+1. [ ] To analyze code after it has executed to detect errors that occurred.
+    &gt; That&#x27;s not correct. Although sometimes we can&#x27;t detect an error until after the code has run, in general if possible we want to detect potential issues as early as possible, before the code is ever run.
+1. [ ] To analyze code while it is running to debug and detect errors.
+    &gt; That&#x27;s not correct. This is known as [debugging](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/debugger.html)
+1. [x] To analyze code before it is run or compiled to pre-detect potential errors.
+    &gt; That&#x27;s correct!
+1. [ ] To analyze our requirements and generate code for us using generative artificial intelligence.
+    &gt; That&#x27;s not correct. Static code analysis is for analyzing code that we already have in place, not generating new code.
+1. [ ] To carry out all tasks listed here.
+    &gt; That&#x27;s not correct. Try again.
+
+
+
+#### What is meant by a conditional break point?
+
+&gt; See the lecture notes on [debugging](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/debugger.html)
+
+1. [ ] A line of code that changes the flow of the program
+    &gt; That&#x27;s not correct. This would be an if statement, or similar.
+1. [x] A debugger setting that pauses the program execution in certain cases
+    &gt; That&#x27;s correct!
+1. [ ] A comment that explains which code is relevant to different situations
+    &gt; That&#x27;s not correct. Comments are used to help document and understand the code, but aren&#x27;t directly when when debugging the code
+1. [ ] An assert statement that stops the execution of the program when triggered
+    &gt; That&#x27;s not correct. Assert statements are used with automated testing to detect when errors have occurred.
+1. [ ] A setting used to control when the code is checked into a version control repository
+    &gt; That&#x27;s not correct. Version control does not make use of break points.
+
+
+
+#### You have been working on a Python code file called `my_work`, with extension `.py`. The username is `me`, and the work is stored in a folder called `eeen11202`. You are working on Windows. Re-arrange the entries below to give the likely absolute path to this Python file.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
+1. C:\
+2. Users
+3. \
+4. me
+5. \
+6. eeen11202
+7. \
+8. my_work
+9. .py
+ &gt; File paths on Windows are separated by backslash characters `\\`. They start with a drive letter, usually `C:\\`. User files are, by default, put in a folder called `Users`.
+
+
+
+#### The figure below shows two folders in the File Explorer. The `docs` folder contains a file `index.rst` and a folder called `chapters`. In the `chapters` folder there is a file called `motivation.rst`. Using backslashes `\\` as if on Windows, from `motivation.rst`, what is the relative address of the `index.rst` file?
+
+![](../../_images/windows_folders.png)
+
+1. [x] ..\\index.rst
+    &gt; That&#x27;s correct!
+1. [ ] .\\.\\index.rst
+    &gt; That&#x27;s not correct. `.\\` refers to the current folder, so this just refers to the same place twice.
+1. [ ] .\\index.rst
+    &gt; That&#x27;s not correct. `.\\` refers to a file in the current folder.
+1. [ ] ..\\..\\index.rst
+    &gt; That&#x27;s not correct. This moves up two folder levels, but the file is only up one level.
+1. [ ] ...\\index.rst
+    &gt; That&#x27;s not correct. `...\\` is not a valid address. To move more than one level, you use `..\` multiple times.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
+
+
+#### A folder called `docs` contains a file `index.rst` and a folder called `chapters`. In the `chapters` folder there is a file called `motivation.rst`. Using forward slashes `/` as if on macOS or Linux, from `index.rst`, what is the relative address of the `motivation.rst` file?
+
+![](../../_images/windows_folders.png)
+
+1. [x] ./chapters/motivation.rst
+    &gt; That&#x27;s correct!
+1. [ ] ./docs/motivation.rst
+    That&#x27;s not correct. The file is in the `chapters` folder.
+1. [ ] ../chapters/motivation.rst
+    &gt; That&#x27;s not correct. `../` moves up a level, before entering the `chapters` folder, but that isn&#x27;t needed here.
+1. [ ] ../docs/motivation.rst
+    &gt; That&#x27;s not correct. `../` moves up a level, before entering the `docs` folder, but that&#x27;s not the correct address. The file is in the `chapters` folder.
+1. [ ] ./index.rst/chapters/motivation.rst
+    &gt; That&#x27;s not correct. `index.rst` is a file rather than a folder. It can&#x27;t have folders *under* it.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
+
+
+#### Drag the stages of the software lifecycle given below into the correct order.
+
+&gt; See the lecture notes on [files and folders](https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html)
+
+1. Requirements capture
+2. Software architecture
+3. Testing and debugging
+4. Release, support, maintenance, and bug fixes
+5. Documentation
+6. Quality management
+ &gt; See the lecture notes on [software lifecycle](https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_lifecycle.html)
+
+
+#### What is the entrypoint function in a program usually called?
+
+1. [x] main
+    &gt; That&#x27;s correct!
+1. [ ] start
+    &gt; That&#x27;s not correct. The term start is most commonly used on Windows to refer to the start menu, the interface for starting programs.
+1. [ ] head
+    &gt; That&#x27;s not correct. Try again.
+1. [ ] def
+    &gt; That&#x27;s not correct. In Python, def is used to indicate you&#x27;re writing a function, but it&#x27;s not the name of the function.
+1. [ ] fn
+    &gt; That&#x27;s not correct. In Rust, fn is used to indicate you&#x27;re writing a function, but it&#x27;s not the name of the function.
+
+&gt; See the lecture notes on [functions](https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/functions.html)</div><a class="reference internal image-reference" href="../../_images/computer_parts_missing.png"><img alt="Component parts of a computer" src="../../_images/computer_parts_missing.png" width="1" />
+</a>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="theory.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">1.1. </span>Theory
+    </a>
+    <a class="float-right" href="../week2_intro.html" title="Next">
+        <span class="section-number">2. </span>Week 2 <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

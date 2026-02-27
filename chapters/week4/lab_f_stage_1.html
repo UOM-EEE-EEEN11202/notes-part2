@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>4.3.1. Plotting with plotly and matplotlib &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="4.3. Lab F" href="lab_f.html" />
+            <link rel="next" title="4.3.2. Polars examples" href="lab_f_stage_2.html" />
+            <link rel="prev" title="4.3. Lab F" href="lab_f.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_f.html">4.3. Lab F</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week4_intro.html"><span class="section-number">4. </span>Week 4</a></li>
+            <li class="breadcrumb-item"><a href="lab_f.html"><span class="section-number">4.3. </span>Lab F</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">4.3.1. </span>Plotting with plotly and matplotlib</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week4/lab_f_stage_1.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week4/lab_f_stage_1.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="plotting-with-plotly-and-matplotlib">
+<span id="lab-f-stage-1"></span><h1><span class="section-number">4.3.1. </span>Plotting with plotly and matplotlib<a class="headerlink" href="#plotting-with-plotly-and-matplotlib" title="Link to this heading">¶</a></h1>
+<section id="initial-setup-for-the-lab">
+<h2><span class="section-number">4.3.1.1. </span>Initial setup for the Lab<a class="headerlink" href="#initial-setup-for-the-lab" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In the VSCode terminal enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span>/lab-f</span>
+<span class="prompt1">uv<span class="w"> </span>init<span class="w"> </span>.</span>
+</pre></div></div><p>Remember to enter these one at a time, not both together.</p>
+<p>This will make a new Python project in the current folder. It will be named automatically after the folder name.</p>
+<p>To analyze these lines:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces`/lab-f</span></code> makes sure we are working in the lab-f folder.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv init .</span></code> is the interesting command. This actually sets up our virtual environment.</p></li>
+</ul>
+<p>The above will make the a <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file, a <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and a number of others.</p>
+</li>
+<li><p>Add some structure to your folder by entering the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">mkdir<span class="w"> </span>tests<span class="w"> </span>docs</span>
+<span class="prompt1">mv<span class="w"> </span>main.py<span class="w"> </span>src</span>
+<span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+<span class="prompt1">touch<span class="w"> </span>tests/__init__.py</span>
+</pre></div></div><ul class="simple">
+<li><p>Here we’ve moved <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> into the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder. You’ll see that the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder contains some code that we’ve written for you.</p></li>
+<li><p>We’ve made a <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder for any tests that we might want to write later, and a <code class="code highlight console docutils literal highlight-console"><span class="go">docs</span></code> folder for any documentation. We won’t ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it’s working!</p></li>
+<li><p>In the files that were downloaded from Git automatically, you’ll also see there’s a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code>. This contains some files that we’ll analyze during the lab.</p></li>
+</ul>
+</li>
+<li><p>Install the required dependencies for this lab by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>add<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>polars<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>seaborn<span class="w"> </span>plotly<span class="w"> </span>fastexcel<span class="w"> </span>pyarrow<span class="w"> </span>nbformat<span class="w"> </span><span class="nv">ipykernel</span><span class="o">==</span><span class="m">6</span>.31.0</span>
+</pre></div></div></li>
+<li><p>Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+</pre></div></div><p>to make sure the virtual environment is built.</p>
+</li>
+<li><p>When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html#">in Lab D</a> if you’re unsure.</p></li>
+</ol>
+</section>
+<section id="plotting-examples">
+<h2><span class="section-number">4.3.1.2. </span>Plotting examples<a class="headerlink" href="#plotting-examples" title="Link to this heading">¶</a></h2>
+<p>If there’s one thing that AI is good at, it’s helping to generate code for plotting data, remembering all of the different options that might be used to customize the display. As such, we’re not going to spend too long exploring lots of options. You’ll naturally pick up different ones as you use plotting libraries more often, and you can readily refer to documentation and AI tools to help with the details. Here we’ll look at a few examples to build some familiarity.</p>
+<p>For this we’ll use the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_example_signal</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make an example signal that rises exponentially</span>
+<span class="sd">    Returns: t: time samples</span>
+<span class="sd">    v: voltage samples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># sampling frequency in Hz</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="n">tau</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_student_marks</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Some example student marks for two courses &#39;&#39;&#39;</span>
+    <span class="n">marks_course_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="mf">81.0</span><span class="p">,</span> <span class="mf">47.5</span><span class="p">,</span> <span class="mf">76.1</span><span class="p">,</span> <span class="mf">77.1</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mf">77.0</span><span class="p">,</span> <span class="mf">67.2</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">99.0</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span>
+        <span class="mf">77.3</span><span class="p">,</span> <span class="mf">72.4</span><span class="p">,</span> <span class="mf">69.2</span><span class="p">,</span> <span class="mf">66.2</span><span class="p">,</span> <span class="mf">58.4</span><span class="p">,</span> <span class="mf">58.5</span><span class="p">,</span> <span class="mf">61.6</span><span class="p">,</span> <span class="mf">66.0</span><span class="p">,</span> <span class="mf">55.1</span><span class="p">,</span> <span class="mf">61.5</span><span class="p">,</span>
+        <span class="mf">81.0</span><span class="p">,</span> <span class="mf">38.6</span><span class="p">,</span> <span class="mf">68.9</span><span class="p">,</span> <span class="mf">51.7</span><span class="p">,</span> <span class="mf">62.7</span><span class="p">,</span> <span class="mf">26.3</span><span class="p">,</span> <span class="mf">86.0</span><span class="p">,</span> <span class="mf">78.1</span><span class="p">,</span> <span class="mf">81.1</span><span class="p">,</span> <span class="mf">34.7</span><span class="p">,</span>
+        <span class="mf">50.6</span><span class="p">,</span> <span class="mf">69.0</span><span class="p">,</span> <span class="mf">43.0</span><span class="p">,</span> <span class="mf">52.3</span><span class="p">,</span> <span class="mf">49.9</span><span class="p">,</span> <span class="mf">29.1</span><span class="p">,</span> <span class="mf">08.1</span><span class="p">,</span> <span class="mf">93.1</span><span class="p">,</span> <span class="mf">92.1</span><span class="p">,</span> <span class="mf">55.2</span><span class="p">,</span>
+        <span class="mf">56.1</span><span class="p">,</span> <span class="mf">45.2</span><span class="p">,</span> <span class="mf">49.6</span><span class="p">,</span> <span class="mf">87.8</span><span class="p">,</span> <span class="mf">65.0</span><span class="p">,</span> <span class="mf">85.6</span><span class="p">,</span> <span class="mf">40.4</span><span class="p">,</span> <span class="mf">58.9</span><span class="p">,</span> <span class="mf">89.6</span><span class="p">,</span> <span class="mf">59.8</span><span class="p">,</span>
+        <span class="mf">75.4</span><span class="p">,</span> <span class="mf">62.6</span><span class="p">,</span> <span class="mf">81.1</span><span class="p">,</span> <span class="mf">58.9</span><span class="p">,</span> <span class="mf">73.7</span><span class="p">,</span> <span class="mf">56.8</span><span class="p">,</span> <span class="mf">77.6</span><span class="p">,</span> <span class="mf">53.5</span><span class="p">,</span> <span class="mf">38.2</span><span class="p">,</span> <span class="mf">56.5</span><span class="p">,</span>
+        <span class="mf">80.5</span><span class="p">,</span> <span class="mf">78.1</span><span class="p">,</span> <span class="mf">73.6</span><span class="p">,</span> <span class="mf">73.6</span><span class="p">,</span> <span class="mf">67.8</span><span class="p">,</span> <span class="mf">60.4</span><span class="p">,</span> <span class="mf">81.2</span><span class="p">,</span> <span class="mf">61.2</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">,</span> <span class="mf">35.1</span><span class="p">,</span>
+        <span class="mf">65.5</span><span class="p">,</span> <span class="mf">85.6</span><span class="p">,</span> <span class="mf">65.5</span><span class="p">,</span> <span class="mf">26.9</span><span class="p">,</span> <span class="mf">75.6</span><span class="p">,</span> <span class="mf">65.1</span><span class="p">,</span> <span class="mf">54.4</span><span class="p">,</span> <span class="mf">72.9</span><span class="p">,</span> <span class="mf">44.9</span><span class="p">,</span> <span class="mf">92.9</span><span class="p">,</span>
+        <span class="mf">49.2</span><span class="p">,</span> <span class="mf">59.2</span><span class="p">,</span> <span class="mf">45.6</span><span class="p">,</span> <span class="mf">32.5</span><span class="p">,</span> <span class="mf">89.5</span><span class="p">,</span> <span class="mf">57.4</span><span class="p">,</span> <span class="mf">73.2</span><span class="p">,</span> <span class="mf">80.9</span><span class="p">,</span> <span class="mf">68.1</span><span class="p">,</span> <span class="mf">71.8</span><span class="p">,</span>
+        <span class="mf">54.2</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">69.8</span><span class="p">,</span> <span class="mf">31.1</span><span class="p">,</span> <span class="mf">70.7</span><span class="p">,</span> <span class="mf">81.1</span><span class="p">,</span> <span class="mf">74.1</span><span class="p">,</span> <span class="mf">48.2</span><span class="p">,</span> <span class="mf">65.7</span><span class="p">,</span> <span class="mf">80.4</span><span class="p">,</span>
+    <span class="p">])</span>
+
+    <span class="n">marks_course_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="mf">15.3</span><span class="p">,</span> <span class="mf">45.2</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">57.9</span><span class="p">,</span> <span class="mf">71.7</span><span class="p">,</span> <span class="mf">93.4</span><span class="p">,</span> <span class="mf">38.4</span><span class="p">,</span> <span class="mf">86.4</span><span class="p">,</span> <span class="mf">43.3</span><span class="p">,</span> <span class="mf">52.2</span><span class="p">,</span>
+        <span class="mf">56.8</span><span class="p">,</span> <span class="mf">82.5</span><span class="p">,</span> <span class="mf">51.8</span><span class="p">,</span> <span class="mf">52.8</span><span class="p">,</span> <span class="mf">76.2</span><span class="p">,</span> <span class="mf">08.1</span><span class="p">,</span> <span class="mf">70.3</span><span class="p">,</span> <span class="mf">25.5</span><span class="p">,</span> <span class="mf">27.1</span><span class="p">,</span> <span class="mf">83.8</span><span class="p">,</span>
+        <span class="mf">49.6</span><span class="p">,</span> <span class="mf">52.5</span><span class="p">,</span> <span class="mf">27.7</span><span class="p">,</span> <span class="mf">82.9</span><span class="p">,</span> <span class="mf">42.3</span><span class="p">,</span> <span class="mf">62.7</span><span class="p">,</span> <span class="mf">63.8</span><span class="p">,</span> <span class="mf">83.0</span><span class="p">,</span> <span class="mf">37.4</span><span class="p">,</span> <span class="mf">51.0</span><span class="p">,</span>
+        <span class="mf">20.9</span><span class="p">,</span> <span class="mf">21.8</span><span class="p">,</span> <span class="mf">68.8</span><span class="p">,</span> <span class="mf">95.1</span><span class="p">,</span> <span class="mf">76.5</span><span class="p">,</span> <span class="mf">27.6</span><span class="p">,</span> <span class="mf">61.5</span><span class="p">,</span> <span class="mf">53.0</span><span class="p">,</span> <span class="mf">04.3</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span>
+        <span class="mf">100.0</span><span class="p">,</span><span class="mf">20.5</span><span class="p">,</span> <span class="mf">00.0</span><span class="p">,</span> <span class="mf">31.6</span><span class="p">,</span> <span class="mf">12.6</span><span class="p">,</span> <span class="mf">48.1</span><span class="p">,</span> <span class="mf">44.0</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">,</span> <span class="mf">45.1</span><span class="p">,</span> <span class="mf">12.1</span><span class="p">,</span>
+        <span class="mf">82.9</span><span class="p">,</span> <span class="mf">48.7</span><span class="p">,</span> <span class="mf">73.7</span><span class="p">,</span> <span class="mf">35.2</span><span class="p">,</span> <span class="mf">58.7</span><span class="p">,</span> <span class="mf">32.7</span><span class="p">,</span> <span class="mf">09.7</span><span class="p">,</span> <span class="mf">32.1</span><span class="p">,</span> <span class="mf">52.0</span><span class="p">,</span> <span class="mf">69.0</span><span class="p">,</span>
+        <span class="mf">72.2</span><span class="p">,</span> <span class="mf">91.4</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">57.6</span><span class="p">,</span> <span class="mf">41.0</span><span class="p">,</span> <span class="mf">82.6</span><span class="p">,</span> <span class="mf">43.5</span><span class="p">,</span> <span class="mf">40.2</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">,</span> <span class="mf">32.9</span><span class="p">,</span>
+        <span class="mf">41.0</span><span class="p">,</span> <span class="mf">76.6</span><span class="p">,</span> <span class="mf">74.6</span><span class="p">,</span> <span class="mf">49.9</span><span class="p">,</span> <span class="mf">60.7</span><span class="p">,</span> <span class="mf">29.0</span><span class="p">,</span> <span class="mf">48.3</span><span class="p">,</span> <span class="mf">58.8</span><span class="p">,</span> <span class="mf">46.0</span><span class="p">,</span> <span class="mf">40.4</span><span class="p">,</span>
+        <span class="mf">49.0</span><span class="p">,</span> <span class="mf">02.5</span><span class="p">,</span> <span class="mf">77.6</span><span class="p">,</span> <span class="mf">86.8</span><span class="p">,</span> <span class="mf">75.3</span><span class="p">,</span> <span class="mf">00.0</span><span class="p">,</span> <span class="mf">89.0</span><span class="p">,</span> <span class="mf">75.9</span><span class="p">,</span> <span class="mf">60.3</span><span class="p">,</span> <span class="mf">90.2</span><span class="p">,</span>
+        <span class="mf">88.8</span><span class="p">,</span> <span class="mf">03.0</span><span class="p">,</span> <span class="mf">38.0</span><span class="p">,</span> <span class="mf">43.0</span><span class="p">,</span> <span class="mf">59.3</span><span class="p">,</span> <span class="mf">30.8</span><span class="p">,</span> <span class="mf">96.0</span><span class="p">,</span> <span class="mf">42.5</span><span class="p">,</span> <span class="mf">57.8</span><span class="p">,</span> <span class="mf">74.9</span><span class="p">,</span>
+    <span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># put code here</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="plotting" data-sync-id="key6" for="sd-tab-item-0">
+<a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/Plotly-logo.png"><img alt="plotly logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Plotly-logo.png" style="height: 24px;" /></a> Plotly</label><div class="sd-tab-content docutils">
+<p><strong>Setup</strong></p>
+<ol class="arabic">
+<li><p>Make a new Python file in your Lab F <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder called <code class="file docutils literal notranslate"><span class="pre">plotly_examples.py</span></code> or similar. Copy the code given above into this.</p></li>
+<li><p>We’ve already added plotly as a dependency in the virtual environment, so in the code we only need to add the relevant import statements at the top of the file. To your code add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotly.subplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_subplots</span>
+</pre></div>
+</div>
+<p>We’re going to refer to plotly functions via the name <code class="code highlight python docutils literal highlight-python"><span class="n">px</span></code>.</p>
+</li>
+<li><p>Run your code to check that there are no errors before proceeding. It won’t produce any outputs yet.</p></li>
+</ol>
+<p><strong>Notes</strong></p>
+<p>Before we get started, a few notes:</p>
+<ul class="simple">
+<li><p>Plotly works very well with <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">dataframes</a>, which we’ll cover in <a class="reference internal" href="lab_f_stage_2.html#lab-f-stage-2"><span class="std std-ref">the second part of the lab</span></a>. We thus won’t use them here, but you’ll find that many online examples using Plotly just ask it to plot different columns in a dataframe. Plotly can then pick up the column heading (for example) for the legend automatically.</p></li>
+<li><p>Below we’re using <em>Plotly Express</em>, abbreviated to <code class="code highlight python docutils literal highlight-python"><span class="n">px</span></code>, which provides a simple syntax for creating plots. To get more control over a figure you can use a <em>graph object</em> using <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span></code>. We won’t cover these here, apart from very briefly at the end when we look at subplots. More information is in the documentation at <a class="reference external" href="https://plotly.com/python/graph-objects/">Plotly Graph Objects</a> if you need to make more complicated plots. The general advice would be to make a basic plot using Plotly Express first, as we do below, and then if you need more control modify it using graph objects.</p></li>
+<li><p>We also won’t look at saving plotly plots to files here. We’ll cover that only for matplotlib. This reflects our approach of using plotly for interactive exploration of data, and matplotlib for making publication quality figures. If saving your plotly figures for a report or presentation, remember that you might want to adjust the font sizes and the resolution of the saved figure to make sure they look good.</p></li>
+</ul>
+<p><strong>Line plots</strong></p>
+<ol class="arabic">
+<li><p>For electronic engineering, we’re often working with signals that vary over time, and so we plot these as a <em>line</em> so they look like traces on an oscilloscope. Add the code below to your Python file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">make_example_signal</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">fig0</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;Voltage [V]&quot;</span><span class="p">})</span>
+    <span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You’ll get a plot that shows a curve, similar to a capacitor charging up.</p>
+<p>The basic syntax is fairly straightforwards. You need to explicitly call <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> to display the plot. (This let you build up more complicated plots, and only display them when you’re ready.)</p>
+</li>
+<li><p>The plot controls are hidden by default, but if you move the mouse to the top right of the plot, a number of controls will appear.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/plotly_line.png"><img alt="An exponential curve plotted with plotly" src="../../_images/plotly_line.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Try zooming in on the plot to see more detail. You can also hover over the line to see the exact values at each point. When you’re done, press the home button (the house icon) to return to the original view.</p>
+</li>
+<li><p>To add a second line, you use the <code class="code highlight python docutils literal highlight-python"><span class="n">fig0</span></code> object, and call <code class="code highlight python docutils literal highlight-python"><span class="n">add_scatter</span><span class="p">()</span></code>. This adds the data points, and we’ll set the mode to <code class="code highlight python docutils literal highlight-python"><span class="n">lines</span></code> so that it draws a line between the points.</p>
+<p>Remember to call <code class="code highlight python docutils literal highlight-python"><span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> to actually draw the updated plot. We also have to add a legend for the first line that we had.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add legend for first line</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">showlegend</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;tau = 0.2 s&quot;</span>
+
+<span class="c1"># Add second line with different tau</span>
+<span class="n">t1</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">make_example_signal</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tau = 0.1 s&quot;</span>
+<span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Your figure should look like the below.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/plotly_two_lines.png"><img alt="Two exponential curves plotted with plotly" src="../../_images/plotly_two_lines.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>By searching the Internet, asking AI, or similar, modify your plot to change the line style and markers so that it looks like the below.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/plotly_target_plot.png"><img alt="Two exponential curves plotted with plotly, now with one in green" src="../../_images/plotly_target_plot.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In this plot, the second line is green, and uses circle symbols to mark each data point. The code below modifies the existing line to change its style.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the line style</span>
+<span class="c1"># data[1] as we want the second line and we start counting from 0</span>
+<span class="c1"># Could also look at fig0.update_traces()</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">marker</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;circle&quot;</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;lines+markers&quot;</span>  <span class="c1"># show both lines and markers</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>By searching the Internet, asking AI, or similar, add a vertical line at the time constant of each line (0.2 s and 0.1 s). You can do this using <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">add_vline</span><span class="p">()</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Add vertical lines at the time constants</span>
+ <span class="n">fig0</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">),</span>
+    <span class="n">annotation_text</span><span class="o">=</span><span class="s2">&quot;0.2 s&quot;</span><span class="p">,</span>
+    <span class="n">annotation_position</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">),</span>
+    <span class="n">annotation_text</span><span class="o">=</span><span class="s2">&quot;0.1 s&quot;</span><span class="p">,</span>
+    <span class="n">annotation_position</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+    <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
+<span class="p">)</span>  <span class="c1"># line is drawn below 0 by default, so set y-axis range manually back to start at 0</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p><strong>Other plot types</strong></p>
+<p>There are many different types of plot that you might want to make. Here are a few examples using the student marks data defined above.</p>
+<ol class="arabic">
+<li><p>Copy and paste the code below into your file to plot a histogram of the course 1 marks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get student marks</span>
+<span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span> <span class="o">=</span> <span class="n">get_student_marks</span><span class="p">()</span>
+
+<span class="c1"># Plot histogram of student marks</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
+    <span class="n">marks_course_1</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Marks&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">yaxis_title_text</span><span class="o">=</span><span class="s2">&quot;Number of students&quot;</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>Copy and paste the below to make a box plot comparing the marks for course 1 and course 2. Which course did the students do generally better in?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make box plot comparing the two courses</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">box</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;Course&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">yaxis_title_text</span><span class="o">=</span><span class="s2">&quot;Marks&quot;</span><span class="p">,</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickmode</span><span class="o">=</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+        <span class="n">tickvals</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">ticktext</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Course 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Course 2&quot;</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Course 1</p>
+</div>
+</li>
+<li><p>Using <code class="code highlight python docutils literal highlight-python"><span class="n">px</span><span class="o">.</span><span class="n">pie</span><span class="p">()</span></code> make a pie chart like the below, showing the distribution of classifications in course 1.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../_images/plotly_pie.png"><img alt="Pie chart showing distribution of student marks" src="../../_images/plotly_pie.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a pie chart for grade distribution in course 1</span>
+<span class="n">boundaries</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">fig3</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;1st (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;2:1 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;2:2 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;3rd (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;Fail (&lt;</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">values</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>There are lots of <a class="reference external" href="https://plotly.com/python/plotly-express/">plotly examples online</a>. Try some of these out.</p></li>
+</ol>
+<p><strong>Subplots</strong></p>
+<p>Having more than one plot in a figure is often useful to compare different data.</p>
+<p>If you add <code class="code highlight python docutils literal highlight-python"><span class="kn">from</span><span class="w"> </span><span class="nn">plotly.subplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_subplots</span></code> to your code, there is a function <code class="code highlight python docutils literal highlight-python"><span class="n">make_subplots</span><span class="p">()</span></code> for building up subplots. There are two ways of doing this.</p>
+<ol class="arabic">
+<li><p>(The non-preferred method.) You can make a subplot, and then copy existing traces to this. Add the code below to your file and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+      <span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+      <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+      <span class="n">specs</span><span class="o">=</span><span class="p">[[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">}],</span> <span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;domain&quot;</span><span class="p">}]],</span>
+  <span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">fig0</span><span class="o">.</span><span class="n">select_traces</span><span class="p">():</span>
+      <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">fig1</span><span class="o">.</span><span class="n">select_traces</span><span class="p">():</span>
+      <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">fig2</span><span class="o">.</span><span class="n">select_traces</span><span class="p">():</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">fig3</span><span class="o">.</span><span class="n">select_traces</span><span class="p">():</span>
+      <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should get a plot like the below.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../_images/plotly_subplots.png"><img alt="Subplots in plotly" src="../../_images/plotly_subplots.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Here we’ve made a 2x2 grid of plots, and added the traces of each of the previous plots to one of the subplots. We haven’t copied the labels over, so these are missing at the moment.</p>
+<p>Note that you need to tell plotly what type of plot each subplot is, using the <code class="code highlight python docutils literal highlight-python"><span class="n">specs</span></code> argument to <code class="code highlight python docutils literal highlight-python"><span class="n">make_subplots</span><span class="p">()</span></code>. <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;xy&quot;</span></code> is for line plots, histograms, box plots, etc., while <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;domain&quot;</span></code> is for pie charts.</p>
+</li>
+<li><p>(The preferred method.) You can make a subplot, and then use <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">add_trace</span><span class="p">()</span></code> to add data to each subplot directly. So far we’ve been using Plotly Express <code class="code highlight python docutils literal highlight-python"><span class="n">px</span></code> to quickly build graphs. Unfortunately these aren’t compatible with <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">add_trace</span><span class="p">()</span></code>. Instead we need to use Plotly Graph Objects <code class="code highlight python docutils literal highlight-python"><span class="n">go</span></code> to give more control. We’re not going to cover them in a lot of detail here, but add the code below to your file as an example creating two Pie charts next to each other.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig5</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+    <span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">subplot_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Course 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Course 2&quot;</span><span class="p">),</span>
+    <span class="n">specs</span><span class="o">=</span><span class="p">[[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;domain&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;domain&quot;</span><span class="p">}]],</span>
+<span class="p">)</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Pie</span><span class="p">(</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;1st (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;2:1 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;2:2 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;3rd (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Fail (&lt;</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_1</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+        <span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Pie</span><span class="p">(</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;1st (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;2:1 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;2:2 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;3rd (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Fail (&lt;</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&gt;=</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">marks_course_2</span> <span class="o">&lt;</span> <span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+        <span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../_images/plotly_two_pie_charts.png"><img alt="Subplots in plotly" src="../../_images/plotly_two_pie_charts.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The plotting syntax using <code class="code highlight python docutils literal highlight-python"><span class="n">go</span></code> is very similar, but different to what we’ve used before. We won’t go into any more depth here, but this should give you enough of a starting point to build up your own plots to explore data.</p>
+</li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="plotting" data-sync-id="key7" for="sd-tab-item-1">
+<a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg"><img alt="matplotlib logo" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" style="height: 24px;" /></a> Matplotlib</label><div class="sd-tab-content docutils">
+<p><strong>Setup</strong></p>
+<ol class="arabic">
+<li><p>Make a new Python file in your Lab F <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder called <code class="file docutils literal notranslate"><span class="pre">matplotlib_examples.py</span></code> or similar. Copy the code given above into this.</p></li>
+<li><p>We’ve already added matplotlib and seaborn as dependencies in the virtual environment, so in the code we only need to add the relevant import statements at the top of the file. To your code add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+<p>We’re going to refer to matplotlib functions via the name <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span></code>.</p>
+</li>
+<li><p>Then also add the code below to the file. This sets up some style defaults for the plots we’ll make. Broadly, these are selected to make a figure as you might see in an IEEE paper. We using a theme called seaborn, denoted by <code class="code highlight python docutils literal highlight-python"><span class="n">sns</span></code> to set the default colours.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set style defaults</span>
+<span class="n">fsize</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;axes.labelsize&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">,</span>
+        <span class="s2">&quot;font.family&quot;</span><span class="p">:</span> <span class="s2">&quot;sans-serif&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">,</span>
+        <span class="s2">&quot;figure.constrained_layout.use&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;figure.dpi&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+        <span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.16</span><span class="p">],</span>  <span class="c1"># ieee single column is 3.5 inches wide</span>
+        <span class="s2">&quot;legend.fontsize&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">,</span>
+        <span class="s2">&quot;pdf.fonttype&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>  <span class="c1"># for vector fonts in plots</span>
+        <span class="s2">&quot;ps.fonttype&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>  <span class="c1"># for vector fonts in plots</span>
+        <span class="s2">&quot;text.usetex&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;xtick.labelsize&quot;</span><span class="p">:</span> <span class="n">fsize</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;ytick.labelsize&quot;</span><span class="p">:</span> <span class="n">fsize</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>  <span class="c1"># close any open figures</span>
+</pre></div>
+</div>
+<p>Feel free to change some of these settings if you would like.</p>
+<p>If you are making lots of plots for reports or for scientific papers, you might like to look at packages such as <a class="reference external" href="https://pypi.org/project/SciencePlots/">SciencePlots</a> that set defaults for a wide range of different publishers, including the IEEE.</p>
+</li>
+<li><p>Run your code to check that there are no errors before proceeding. It won’t produce any outputs yet.</p></li>
+</ol>
+<p><strong>Line plots</strong></p>
+<ol class="arabic">
+<li><p>For electronic engineering, we’re often working with signals that vary over time, and so we plot these as a <em>line</em> so they look like traces on an oscilloscope. Add the code below to your Python file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+   <span class="c1"># Make first line</span>
+   <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">make_example_signal</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+   <span class="c1"># Plot first line</span>
+   <span class="n">fig0</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># make a new figure, no. 0</span>
+   <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+   <span class="n">ax0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Time [s]&quot;</span><span class="p">)</span>
+   <span class="n">ax0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Voltage [V]&quot;</span><span class="p">)</span>
+   <span class="n">ax0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># set the default zoom</span>
+   <span class="n">ax0</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">))</span>
+   <span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+   <span class="c1"># Put this at the end of the code - further examples below should be above this</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You’ll get a plot that shows a curve, similar to a capacitor charging up.</p>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../_images/matplotlib_line.png"><img alt="An exponential curve plotted with matplotlib" src="../../_images/matplotlib_line.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The basic matplotlib syntax is fairly straightforwards, if it takes quite a few lines of code to do everything.</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">fig0</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span></code> makes a new figure and an axis in this figure.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span></code> plots a line on the axis we ask for.</p></li>
+<li><p>There are then a number of commands to control the formatting of the plot.</p></li>
+<li><p>You need to explicitly call <code class="code highlight python docutils literal highlight-python"><span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> to display the plot. (This let you build up more complicated plots, and only display them when you’re ready.)</p></li>
+<li><p>Finally, we call <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code>. This stops the program from completing until all of the figures have been closed. Without this, the program will display the figures, and then quickly close them rather than waiting until you’ve finished looking at them. For how we’re using matplotlib here, we only want one <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> at the end of the code, so further plots should be above this line.</p></li>
+</ul>
+<p>The plot controls are in the bottom left of the figure. Try zooming in on the plot to see more detail. You can also hover over the line to see the exact values at each point. When you’re done, press the home button (the house icon) to return to the original view.</p>
+</li>
+<li><p>To add a second line, you just call <code class="code highlight python docutils literal highlight-python"><span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span></code> again with the new data. A new line will automatically be added to the existing axis.</p>
+<p>Remember to call <code class="code highlight python docutils literal highlight-python"><span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> to actually draw the updated plot.</p>
+<p>The code below also adds a legend to the plot, so you can tell which line is which.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make and plot second line</span>
+<span class="n">t1</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">make_example_signal</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">&quot;$\tau$ = 0.2 s&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\tau$ = 0.1 s&quot;</span><span class="p">])</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Your figure should look like the below.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/matplotlib_two_lines.png"><img alt="Two exponential curves plotted with matplotlib" src="../../_images/matplotlib_two_lines.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>By searching the Internet, asking AI, or similar, modify your plot to change the line style and markers so that it looks like the below.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/matplotlib_target_plot.png"><img alt="Two exponential curves plotted with matplotlib, now with one in green" src="../../_images/matplotlib_target_plot.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In this plot, the second line is green, and uses circle symbols to mark each data point. To achieve this, change the plot command to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>By searching the Internet, asking AI, or similar, add a vertical line at the time constant of each line (0.2 s and 0.1 s). You can do this using <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">()</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p><strong>Other plot types</strong></p>
+<p>There are many different types of plot that you might want to make. Here are a few examples using the student marks data defined above.</p>
+<ol class="arabic">
+<li><p>Copy and paste the code below into your file to plot a histogram of the course 1 marks. Remember to put this above the final <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></code> line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get student marks</span>
+<span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span> <span class="o">=</span> <span class="n">get_student_marks</span><span class="p">()</span>
+
+<span class="c1"># Plot histogram of student marks</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># make a new figure, no. 1</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">marks_course_1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Marks&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Number of students&quot;</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>Copy and paste the below to make a box plot comparing the marks for course 1 and course 2. Which course did the students do generally better in?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot boxplot of student marks</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># make a new figure, no. 2</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">&quot;Course 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Course 2&quot;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Marks&quot;</span><span class="p">)</span>
+<span class="n">fig2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Course 1</p>
+</div>
+</li>
+<li><p>Using <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">pie</span><span class="p">()</span></code> make a pie chart like the below, showing the distribution of classifications in course 1.</p>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/matplotlib_pie.png"><img alt="Pie chart showing distribution of student marks" src="../../_images/matplotlib_pie.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make pie chart of student marks in course 1</span>
+<span class="n">fig3</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># make a new figure, no. 3</span>
+<span class="n">boundaries</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">marks_course_1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">boundaries</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="sa">f</span><span class="s2">&quot;Fail (&lt;</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;3rd (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;2:2 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;2:1 (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;1st (</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">boundaries</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>There are lots of <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">matplotlib examples online</a>. Try some of these out.</p></li>
+</ol>
+<p><strong>Subplots</strong></p>
+<p>Having more than one plot in a figure is often useful to compare different data.</p>
+<p>So far we’ve used <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span></code> to make a signle figure with a single axis on it. You can also use <code class="code highlight python docutils literal highlight-python"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span></code> to make multiple subplots in a single figure.</p>
+<ol class="arabic">
+<li><p>The code below makes 4 subplots. The axis in each subplot is given an address, <code class="code highlight python docutils literal highlight-python"><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span></code> and so on. We then plot, exactly as we have before, but onto the axis that we want. Copy to code below. You should get a plot like that below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make subplot combining existing figures</span>
+<span class="n">fig4</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">marks_course_1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig4</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/matplotlib_subplots.png"><img alt="Four subplots showing the graphs made previous on a single figure" src="../../_images/matplotlib_subplots.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>We still need to add the various labels to the plots, exactly as before. The text is also too large and needs reducing. See if you can tidy the plot up.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig5</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fsize</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Voltage [V]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">&quot;$\tau$ = 0.2 s&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\tau$ = 0.1 s&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># set the default zoom</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">marks_course_1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Marks&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of students&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">marks_course_1</span><span class="p">,</span> <span class="n">marks_course_2</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">&quot;Course 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Course 2&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Marks&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">textprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">fig5</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Make a figure that looks like the below, plotting pie charts for the two sets of student marks next to one another.</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../_images/matplotlib_pie_subplots.png"><img alt="Two pie charts showing student marks for the two courses" src="../../_images/matplotlib_pie_subplots.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a figure made using <a class="reference external" href="https://matplotlib.org/">matlplotlib</a>.</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make pie charts for both courses side by side</span>
+<span class="n">fig6</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">textprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">})</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Course 1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">counts_2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">marks_course_2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">boundaries</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="n">counts_2</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">textprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="n">fsize</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Course 2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fsize</span><span class="p">)</span>
+<span class="n">fig6</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+<p><strong>Saving plots to files</strong></p>
+<p>We can save a figure to a file using the <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">savefig</span><span class="p">()</span></code> method on the figure. Run the free examples below, and compare the saved files, particularly when you zoom in. You should see that the low resolution one doesn’t look very good.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save figures</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;line_plots_low_resolution.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+    <span class="s2">&quot;line_plots_high_resolution.png&quot;</span>
+<span class="p">)</span>  <span class="c1"># uses the default, set to be 600 earlier</span>
+<span class="n">fig0</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;line_plots_vector_format.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="licensing">
+<h2><span class="section-number">4.3.1.3. </span>Licensing<a class="headerlink" href="#licensing" title="Link to this heading">¶</a></h2>
+<p>Plotly logo is used from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Plotly-logo.png">Wikipedia</a> and is licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.</p>
+<p>Matplotlib logo is used from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Created_with_Matplotlib-logo.svg">Wikipedia</a> and is unlicensed material.</p>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_f.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">4.3. </span>Lab F
+    </a>
+    <a class="float-right" href="lab_f_stage_2.html" title="Next">
+        <span class="section-number">4.3.2. </span>Polars examples <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">4.3.1. Plotting with plotly and matplotlib</a><ul>
+<li><a class="reference internal" href="#initial-setup-for-the-lab">4.3.1.1. Initial setup for the Lab</a></li>
+<li><a class="reference internal" href="#plotting-examples">4.3.1.2. Plotting examples</a></li>
+<li><a class="reference internal" href="#licensing">4.3.1.3. Licensing</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

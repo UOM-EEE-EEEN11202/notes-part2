@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>5.3.1. Exceptions and error handling &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="5.3. Lab H" href="lab_h.html" />
+            <link rel="next" title="5.3.2. Git branches" href="lab_h_stage_2.html" />
+            <link rel="prev" title="5.3. Lab H" href="lab_h.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_h.html">5.3. Lab H</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week5_intro.html"><span class="section-number">5. </span>Week 5</a></li>
+            <li class="breadcrumb-item"><a href="lab_h.html"><span class="section-number">5.3. </span>Lab H</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">5.3.1. </span>Exceptions and error handling</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week5/lab_h_stage_1.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week5/lab_h_stage_1.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="exceptions-and-error-handling">
+<span id="lab-h-stage-1"></span><h1><span class="section-number">5.3.1. </span>Exceptions and error handling<a class="headerlink" href="#exceptions-and-error-handling" title="Link to this heading">¶</a></h1>
+<section id="initial-setup-for-the-lab">
+<h2><span class="section-number">5.3.1.1. </span>Initial setup for the Lab<a class="headerlink" href="#initial-setup-for-the-lab" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In the VSCode terminal enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span>/lab-h</span>
+<span class="prompt1">uv<span class="w"> </span>init<span class="w"> </span>.</span>
+</pre></div></div><p>Remember to enter these one at a time, not both together.</p>
+<p>This will make a new Python project in the current folder. It will be named automatically after the folder name.</p>
+<p>To analyze these lines:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces`/lab-h</span></code> makes sure we are working in the lab-h folder.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv init .</span></code> is the interesting command. This actually sets up our virtual environment.</p></li>
+</ul>
+<p>The above will make the a <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file, a <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and a number of others.</p>
+</li>
+<li><p>Add some structure to your folder by entering the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">mkdir<span class="w"> </span>tests<span class="w"> </span>docs</span>
+<span class="prompt1">mv<span class="w"> </span>main.py<span class="w"> </span>src</span>
+<span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+<span class="prompt1">touch<span class="w"> </span>tests/__init__.py</span>
+</pre></div></div><ul class="simple">
+<li><p>Here we’ve moved <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> into the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder. You’ll see that the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder contains some code that we’ve written for you.</p></li>
+<li><p>We’ve made a <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder for any tests that we might want to write later, and a <code class="code highlight console docutils literal highlight-console"><span class="go">docs</span></code> folder for any documentation. We won’t ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it’s working!</p></li>
+<li><p>In the files that were downloaded from Git automatically, you’ll also see there’s a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code>. This contains some files that we’ll analyze during the lab.</p></li>
+</ul>
+</li>
+<li><p>Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+</pre></div></div><p>to make sure the virtual environment is built.</p>
+</li>
+<li><p>When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html">in Lab D</a> if you’re unsure.</p></li>
+</ol>
+</section>
+<section id="raising-exceptions">
+<h2><span class="section-number">5.3.1.2. </span>Raising exceptions<a class="headerlink" href="#raising-exceptions" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In your Lab H <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder, edit the file <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> to contain:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom exception&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">101</span>
+    <span class="k">raise</span> <span class="n">MyError</span><span class="p">(</span><span class="s2">&quot;Message to display to the user&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run this code.</p>
+</li>
+<li><p>You should see that the code runs, <code class="code highlight console docutils literal highlight-console"><span class="go">Hello from lab-h!</span></code> is displayed, and then the programs ends with an error. This error has a custom name and message, the ones we asked for in the code. This is shown in the screenshot below.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/raising_an_exception.png"><img alt="VSCode showing a Python exception being raised" src="../../_images/raising_an_exception.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To look at this code:</p>
+<ul class="simple">
+<li><p>Remember that Python runs from the top to the bottom of the file. We <code class="code highlight python docutils literal highlight-python"><span class="k">raise</span><span class="p">()</span></code> the error on Line 9, so the program stops running at that point. Everything before this runs as usual.</p></li>
+<li><p>The terminology is that we are <em>raising</em> an exception. This means that something has gone wrong, and normal program execution cannot continue. There is a command called <code class="code highlight python docutils literal highlight-python"><span class="k">raise</span></code> to do this.</p></li>
+<li><p>Each exception has a <em>type</em>. This helps with debugging, we can have different types of exceptions for different problems. Here the code in <code class="code highlight python docutils literal highlight-python"><span class="k">class</span><span class="w"> </span><span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span></code> makes a custom exception type called <code class="code highlight python docutils literal highlight-python"><span class="n">MyError</span></code>. We could give this any name we like, something informative for whoever is using the code to help them figure out what went wrong.</p></li>
+<li><p>When the error is displayed to the user, a <em>traceback</em> is also shown. This shows where in the code the exception occurred, to help with debugging.</p></li>
+</ul>
+</li>
+<li><p>To a first approximation, that’s it! You can make as many custom exceptions as you like. You can put the <code class="code highlight python docutils literal highlight-python"><span class="k">raise</span></code> command wherever you like in your code. It might be common to put it inside an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement, to check if something has gone wrong, and raise an exception if it has. There are a wide range of further behaviors that you can add to your custom exceptions, but we won’t cover these here. For many cases, just giving a meaningful name and message is enough to help with debugging.</p></li>
+<li><p>Add an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement to the code so that the exception is only raised if <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> is greater than 100. Display the value of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> in the message to the user. Try running your code with different values of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> to check that it works.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">MyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x was </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">. It should be 100 or less.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>In addition to using custom names for exceptions, there are a wide range of built in named exceptions that you can use without having to make your own. A list is available <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">online</a>, so we won’t go through them all here. Probably the some of most common ones you might like to use early on are:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="ne">ValueError</span></code> when a value is not in the expected range.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="ne">TypeError</span></code> when the data types is wrong, such as you were expecting a string (say to represent a name) but got a number instead.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="ne">FileNotFoundError</span></code> when you try to open a file that can’t be found in the location you specified.</p></li>
+</ul>
+<p>In your code, change <code class="code highlight python docutils literal highlight-python"><span class="k">raise</span> <span class="n">MyError</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code> to raise <code class="code highlight python docutils literal highlight-python"><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code> instead. See how the output differs between the two types of exception.</p>
+</li>
+</ol>
+</section>
+<section id="raising-warnings">
+<h2><span class="section-number">5.3.1.3. </span>Raising warnings<a class="headerlink" href="#raising-warnings" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Not every exception has to represent an error. You can also represent warnings. Add the code below somewhere in your <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">DeprecationWarning</span><span class="p">(</span><span class="s2">&quot;This code is deprecated and will be removed in future versions.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This type of warning is intended for other developers using your code. Sometimes we have methods and functions in, say version 1 of the code, that for whatever reason will be removed in version 2. You can add this warning to let other developers know that they should avoid using this code as it will be removed in future versions.</p>
+</li>
+<li><p>If you want a custom warning, or more control over built in warnings, there is a dedicated module in the standard library called <code class="code highlight python docutils literal highlight-python"><span class="n">warnings</span></code>. This module provides more control over how warnings are displayed to the user. Replace the code in your file with that given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom exception&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyWarning</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom warning&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">99</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x was </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">. It should be 100 or less.&quot;</span><span class="p">)</span>
+
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This is a custom warning from lab-h.&quot;</span><span class="p">,</span> <span class="n">MyWarning</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here we’ve made a custom warning type with <code class="code highlight python docutils literal highlight-python"><span class="k">class</span><span class="w"> </span><span class="nc">MyWarning</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">)</span></code>. We then called the warning with <code class="code highlight python docutils literal highlight-python"><span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code>. Run this code, and see how the warning is displayed to the user.</p>
+</li>
+<li><p>Refer back to <a class="reference internal" href="../week3/lab_d_stage_1.html#lab-d-stage-1"><span class="std std-ref">Lab D</span></a> where we covered the <code class="code highlight python docutils literal highlight-python"><span class="n">logging</span></code> module. If you add the line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">captureWarnings</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(in addition to the other logging setup steps in Lab D) then your warnings will be automatically in the log file.</p>
+<p>Add logging to your code and check that you can log your custom warning.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">captureWarnings</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom exception&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyWarning</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom warning&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">99</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x was </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">. It should be 100 or less.&quot;</span><span class="p">)</span>
+
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;This is a custom warning from lab-h.&quot;</span><span class="p">,</span> <span class="n">MyWarning</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Set up logging</span>
+    <span class="n">log_filename</span> <span class="o">=</span> <span class="s2">&quot;log.txt&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+    <span class="c1"># Run main function</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="handling-exceptions">
+<h2><span class="section-number">5.3.1.4. </span>Handling exceptions<a class="headerlink" href="#handling-exceptions" title="Link to this heading">¶</a></h2>
+<p>Raising an exception is great, but you then need to decide what you want to do. This is known as <em>handling</em> the exception. In the examples above we just let the program terminate and display some debug information to the user. This might be what you want, particularly if the error is unrecoverable. However it might be that you want different behavior. For example, you might try and open a file with a particular name, and if it’s not present you try and open a different file with a default name instead. Alternatively, you might have a rule saying that if a number is over 100, you just automatically reset it to 100 as that’s the maximum it can be.</p>
+<ol class="arabic">
+<li><p>You handle exceptions using a <code class="code highlight python docutils literal highlight-python"><span class="k">try</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> block. Make a new code file and copy the code below into it. Run the code and see what happens with different values of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Over100</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An example custom exception&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print x, but only if it is less than 100&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Over100</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x was </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">. It should be 100 or less.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">101</span>
+        <span class="n">print_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Over100</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caught an exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No exceptions were raised.&quot;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To analyse this code:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">try</span></code> is the code you want to run. It’s in a <code class="code highlight python docutils literal highlight-python"><span class="k">try</span></code> block because, for whatever reason, you think it might cause an error that you need to detect and handle. Here it runs the <code class="code highlight python docutils literal highlight-python"><span class="n">print_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code> function which will raise an exception if <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> is too large.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> gives the code for what you want to happen if there is an exception. Here we catch the <code class="code highlight python docutils literal highlight-python"><span class="n">Over100</span></code> exception, and puts the automatically generated traceback in to a variable <code class="code highlight python docutils literal highlight-python"><span class="n">e</span></code>. We can then use <code class="code highlight python docutils literal highlight-python"><span class="n">e</span></code> to write a nice message to the user, not the full traceback from the exception.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">else</span></code> gives the code you want to run if there were no exceptions. Here we just print a message to say that everything was OK.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">finally</span></code> gives code that will always run, whether there was an exception or not. Here we just print the value of <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code>.</p></li>
+</ul>
+<p>You don’t have to have the <code class="code highlight python docutils literal highlight-python"><span class="k">else</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="k">finally</span></code> blocks if you don’t want to, but they help give a lot of control over what happens in different situations.</p>
+</li>
+<li><p>Change the code above so that if <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> is greater than 100, it is automatically set to 100 instead of displaying anything to the user.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">101</span>
+    <span class="n">print_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">Over100</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No exceptions were raised.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>In the code above, we are specifically handling our custom <code class="code highlight python docutils literal highlight-python"><span class="n">Over100</span></code> exception. Try running the code with <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span></code>.</p>
+<p>You’ll find that the program still crashes, and Python displays a <code class="code highlight python docutils literal highlight-python"><span class="ne">TypeError</span></code> because we tried to compare a string to a number in the <code class="code highlight python docutils literal highlight-python"><span class="n">print_x</span></code> function.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/multiple_exceptions.png"><img alt="VSCode showing a different type of exception not being handled" src="../../_images/multiple_exceptions.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To handle this, you can do one of two things.</p>
+<ol class="arabic simple">
+<li><p>You can change the <code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> block to be just <code class="code highlight python docutils literal highlight-python"><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span></code>. This will catch essentially all exceptions.</p></li>
+<li><p>(The better approach) you can add another <code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> block to handle the <code class="code highlight python docutils literal highlight-python"><span class="ne">TypeError</span></code> specifically.</p></li>
+</ol>
+<p>Change your <code class="code highlight python docutils literal highlight-python"><span class="k">try</span> <span class="k">except</span></code> block to be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">101</span>
+    <span class="n">print_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">Over100</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I was expecting x to be a number!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No exceptions were raised.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then run your code with <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="mi">99</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="mi">101</span></code> and to <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;101&quot;</span></code> to check it works as you expect.</p>
+<p>You can have as many <code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> blocks as you like. It depends on how comprehensive you want to be in catching and handling different errors your code might have.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Note</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;101&quot;</span></code> has two errors in it. <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> is too large, and it’s a string rather than a number. Our code here will only match one of these.</p>
+<p>If you need your code to be able to recover this from double error, you can put <code class="code highlight python docutils literal highlight-python"><span class="k">try</span></code> blocks inside other <code class="code highlight python docutils literal highlight-python"><span class="k">try</span></code> blocks, or in the <code class="code highlight python docutils literal highlight-python"><span class="k">except</span></code> block call the <code class="code highlight python docutils literal highlight-python"><span class="n">print_x</span></code> function again after fixing the first issue. There are many ways to handle this, depending on what behavior you want.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="extending-the-student-class-example">
+<h2><span class="section-number">5.3.1.5. </span>Extending the student class example<a class="headerlink" href="#extending-the-student-class-example" title="Link to this heading">¶</a></h2>
+<p>In your Lab H <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder we’ve included two files, <code class="code highlight console docutils literal highlight-console"><span class="go">student_example.py</span></code> and <code class="code highlight console docutils literal highlight-console"><span class="go">my_classes.py</span></code>. These are a copy of the example in <a class="reference internal" href="lab_g_stage_1.html#lab-g-stage-1"><span class="std std-ref">Lab G</span></a> where we made a class for representing student marks. Here we’ve split the code into two files for better organization.</p>
+<ol class="arabic">
+<li><p>Run <code class="code highlight console docutils literal highlight-console"><span class="go">student_example.py</span></code> and check it does what you expect.</p>
+<p>There is a commented out line</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># student1.set_assignment_mark(&quot;c&quot;, &quot;apple&quot;)  # uncomment to test invalid input</span>
+</pre></div>
+</div>
+<p>that you can uncomment to see what happens if invalid input is given.</p>
+</li>
+<li><p>In <code class="code highlight console docutils literal highlight-console"><span class="go">student_example.py</span></code> a number of the marks assignments are incorrect.</p>
+<ul class="simple">
+<li><p>The mark for an exam must be between 0 and 100.</p></li>
+<li><p>The exam is marked in whole numbers (integers) only.</p></li>
+<li><p>The mark for an assignment must be between 0 and 5.</p></li>
+<li><p>Assignments are marked in whole numbers (integers) only.</p></li>
+</ul>
+<p>Modify <code class="code highlight python docutils literal highlight-python"><span class="n">my_classes</span><span class="o">.</span><span class="n">py</span></code> to raise appropriate exceptions if any of these rules are broken. You can use built in exceptions such as <code class="code highlight python docutils literal highlight-python"><span class="ne">ValueError</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="ne">TypeError</span></code>, or make your own custom exceptions.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="c1"># %% Set up custom exceptions and error checking functions</span>
+<span class="c1"># These are called from the object classes below</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MarkIsText</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with exam mark not being a number&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExamMarkOutOfRange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with exam mark not being between 0 and 100&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AssignmentMarkOutOfRange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with assignment mark not being 0, 1, 2, 3, 4, or 5&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_exam_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">MarkIsText</span><span class="p">(</span><span class="s2">&quot;Exam mark must be a number.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">mark</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ExamMarkOutOfRange</span><span class="p">(</span><span class="s2">&quot;Exam mark must be between 0 and 100.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exam mark must be an integer.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_assignment_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">):</span>
+    <span class="c1"># This is basically the same as check_exam_mark_validity() but with different valid ranges</span>
+    <span class="c1"># Probably better to put both into a single function with parameters, but this is clearer for now</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">MarkIsText</span><span class="p">(</span><span class="s2">&quot;Exam mark must be a number.&quot;</span><span class="p">)</span>
+    <span class="n">valid_marks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># end value not included, so is 6 rather than 5</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_marks</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ExamMarkOutOfRange</span><span class="p">(</span><span class="s2">&quot;Exam mark must be between 0 and 100.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exam mark must be an integer.&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># %% Object classes</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NoSubmission</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to represent no submission made.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">NoSubmission</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_exam_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+        <span class="n">check_exam_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">mark</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_assignment_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+        <span class="n">check_assignment_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">assignment_letter</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>  <span class="c1"># adjust for 0-based indexing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_overall_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">assignment_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">exam_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+        <span class="c1"># Set exam to zero if no submission</span>
+        <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tmp_exam_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+            <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Set assignments to zero if no submission, and sum</span>
+        <span class="n">tmp_assignment_mark</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">assignment_mark</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">assignment_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+                <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="n">assignment_mark</span>
+
+        <span class="c1"># Calculate overall mark</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">assignment_weight</span> <span class="o">*</span> <span class="n">tmp_assignment_mark</span> <span class="o">+</span> <span class="n">exam_weight</span> <span class="o">*</span> <span class="n">tmp_exam_mark</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Further modify <code class="code highlight python docutils literal highlight-python"><span class="n">my_classes</span><span class="o">.</span><span class="n">py</span></code> to catch and handle any exceptions that are raised when setting marks. These should be corrected with the rules:</p>
+<ul class="simple">
+<li><p>Any exam marks above 100 or below 0 should be set to 100 or 0 respectively.</p></li>
+<li><p>Any assignment marks above 5 or below 0 should be set to 5 or 0 respectively.</p></li>
+<li><p>Any non-integer marks should be rounded to the nearest integer.</p></li>
+<li><p>Any non-numeric marks should cause the code to terminate and display a message to the user (not the full traceback).</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># %% Define constants for valid mark ranges</span>
+<span class="n">EXAM_MARK_MIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">EXAM_MARK_MAX</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ASSIGNMENT_MARK_MIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ASSIGNMENT_MARK_MAX</span> <span class="o">=</span> <span class="mi">5</span>
+
+
+<span class="c1"># %% Set up custom exceptions and error checking functions</span>
+<span class="c1"># These are called from the object classes below</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MarkIsText</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with exam mark not being a number&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExamMarkOutOfRange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with exam mark not being between 0 and 100&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AssignmentMarkOutOfRange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error with assignment mark not being 0, 1, 2, 3, 4, or 5&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_exam_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">MarkIsText</span><span class="p">(</span><span class="s2">&quot;Exam mark must be a number.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="o">&lt;</span> <span class="n">EXAM_MARK_MIN</span> <span class="ow">or</span> <span class="n">mark</span> <span class="o">&gt;</span> <span class="n">EXAM_MARK_MAX</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ExamMarkOutOfRange</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Exam mark must be between </span><span class="si">{</span><span class="n">EXAM_MARK_MIN</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">EXAM_MARK_MAX</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exam mark must be an integer.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_assignment_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">):</span>
+    <span class="c1"># This is basically the same as check_exam_mark_validity() but with different valid ranges</span>
+    <span class="c1"># Probably better to put both into a single function with parameters, but this is clearer for now</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">MarkIsText</span><span class="p">(</span><span class="s2">&quot;Exam mark must be a number.&quot;</span><span class="p">)</span>
+    <span class="n">valid_marks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span>
+        <span class="n">ASSIGNMENT_MARK_MIN</span><span class="p">,</span> <span class="n">ASSIGNMENT_MARK_MAX</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">)</span>  <span class="c1"># end value not included, so is 6 rather than 5</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_marks</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">AssignmentMarkOutOfRange</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Assignment mark must be between </span><span class="si">{</span><span class="n">ASSIGNMENT_MARK_MIN</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">ASSIGNMENT_MARK_MAX</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mark</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Exam mark must be an integer.&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># %% Object classes</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NoSubmission</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to represent no submission made.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">NoSubmission</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_exam_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">check_exam_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">MarkIsText</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error setting exam mark. Asked for value: </span><span class="si">{</span><span class="n">mark</span><span class="si">}</span><span class="s2">. It should be a number.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># stops the program</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">mark</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>  <span class="c1"># try to set again with new mark</span>
+        <span class="k">except</span> <span class="n">ExamMarkOutOfRange</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="o">&lt;</span> <span class="n">EXAM_MARK_MIN</span><span class="p">:</span>
+                <span class="n">mark</span> <span class="o">=</span> <span class="n">EXAM_MARK_MIN</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mark</span> <span class="o">=</span> <span class="n">EXAM_MARK_MAX</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>  <span class="c1"># try to set again with new mark</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">mark</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_assignment_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">check_assignment_mark_validity</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">MarkIsText</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error setting exam mark. Asked for value: </span><span class="si">{</span><span class="n">mark</span><span class="si">}</span><span class="s2">. It should be a number.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># stops the program</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">mark</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span>
+                <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span>
+            <span class="p">)</span>  <span class="c1"># try to set again with new mark</span>
+        <span class="k">except</span> <span class="n">AssignmentMarkOutOfRange</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="o">&lt;</span> <span class="n">ASSIGNMENT_MARK_MIN</span><span class="p">:</span>
+                <span class="n">mark</span> <span class="o">=</span> <span class="n">ASSIGNMENT_MARK_MIN</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mark</span> <span class="o">=</span> <span class="n">ASSIGNMENT_MARK_MAX</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span>
+                <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span>
+            <span class="p">)</span>  <span class="c1"># try to set again with new mark</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">assignment_letter</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span>
+                <span class="s2">&quot;a&quot;</span>
+            <span class="p">)</span>  <span class="c1"># adjust for 0-based indexing</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_overall_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">assignment_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">exam_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+        <span class="c1"># Set exam to zero if no submission</span>
+        <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tmp_exam_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+            <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Set assignments to zero if no submission, and sum</span>
+        <span class="n">tmp_assignment_mark</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">assignment_mark</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">assignment_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+                <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="n">assignment_mark</span>
+
+        <span class="c1"># Calculate overall mark</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">assignment_weight</span> <span class="o">*</span> <span class="n">tmp_assignment_mark</span> <span class="o">+</span> <span class="n">exam_weight</span> <span class="o">*</span> <span class="n">tmp_exam_mark</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Optional task (no solution provided). Add logging statments so that any changes to marks are logged to a file so there is a record. (In practice we’d probably error out if we got any issues processing student marks rather than automatically correcting and logging as here, but there might be cases where an automatic correction, with a log of the correction, is appropriate.)</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_h.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">5.3. </span>Lab H
+    </a>
+    <a class="float-right" href="lab_h_stage_2.html" title="Next">
+        <span class="section-number">5.3.2. </span>Git branches <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">5.3.1. Exceptions and error handling</a><ul>
+<li><a class="reference internal" href="#initial-setup-for-the-lab">5.3.1.1. Initial setup for the Lab</a></li>
+<li><a class="reference internal" href="#raising-exceptions">5.3.1.2. Raising exceptions</a></li>
+<li><a class="reference internal" href="#raising-warnings">5.3.1.3. Raising warnings</a></li>
+<li><a class="reference internal" href="#handling-exceptions">5.3.1.4. Handling exceptions</a></li>
+<li><a class="reference internal" href="#extending-the-student-class-example">5.3.1.5. Extending the student class example</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

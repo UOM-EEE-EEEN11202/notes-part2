@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>2.3.2. Electronic Engineering examples &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="2.3. Lab B" href="lab_b.html" />
+            <link rel="next" title="2.3.3. Assignment B" href="assignment_b.html" />
+            <link rel="prev" title="2.3.1. Virtual environments and Jupyter notebooks" href="lab_b_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_b.html">2.3. Lab B</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week2_intro.html"><span class="section-number">2. </span>Week 2</a></li>
+            <li class="breadcrumb-item"><a href="lab_b.html"><span class="section-number">2.3. </span>Lab B</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">2.3.2. </span>Electronic Engineering examples</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week2/lab_b_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week2/lab_b_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="electronic-engineering-examples">
+<span id="lab-b-stage-2"></span><h1><span class="section-number">2.3.2. </span>Electronic Engineering examples<a class="headerlink" href="#electronic-engineering-examples" title="Link to this heading">¶</a></h1>
+<p>In the first part of Lab B we did quite a lot of setup, and not a lot of coding. This was to start forming good habits early on, in terms of using version control, virtual environments, and so on.</p>
+<p>In this part we’ll look at some basic Python code to get us started with Python.</p>
+<section id="markdown-example">
+<h2><span class="section-number">2.3.2.1. </span>Markdown example<a class="headerlink" href="#markdown-example" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Make a new Jupyter Notebook, following the same steps as <a class="reference internal" href="lab_b_stage_1.html#lab-b1"><span class="std std-ref">in the previous part of the lab</span></a>. Go to the command palette, that is, the search box at the top of the VSCode window. Click <code class="code highlight console docutils literal highlight-console"><span class="go">Show and Run Commands</span></code>.</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../_images/vscode_show_and_run_commands.png"><img alt="The VSCode command palette" src="../../_images/vscode_show_and_run_commands.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Search for <code class="code highlight console docutils literal highlight-console"><span class="go">Create: New Jupyter Notebook</span></code> and click on this option. Or, scroll down and select it from the list of available commands.</p>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../_images/vscode_create_new_notebook.png"><img alt="Create new notebook command" src="../../_images/vscode_create_new_notebook.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This opens a blank file, like that shown below.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/blank_notebook.png"><img alt="An empty Jupyter Notebook" src="../../_images/blank_notebook.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Save this to give it a name by clicking on <code class="code highlight console docutils literal highlight-console"><span class="go">File / Save As...</span></code>. Pick any name that you would like. Make sure you save it in your <code class="code highlight console docutils literal highlight-console"><span class="go">lab_b</span></code> folder.</p>
+</li>
+<li><p>Copy and paste the code below into a cell and run the cell. To do this, you may need to tell VSCode which Python virtual environment you want to use, in which case you should select <code class="code highlight console docutils literal highlight-console"><span class="go">.venv</span></code>, the one we made <a class="reference internal" href="lab_b_stage_1.html#lab-b1"><span class="std std-ref">in the previous part of the lab</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example for loop</span>
+<span class="n">mult</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">lim_low</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">lim_high</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lim_low</span><span class="p">,</span> <span class="n">lim_high</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">mult</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/python_for_loop.png"><img alt="Example of a Python for loop" src="../../_images/python_for_loop.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Notice how <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">mult</span><span class="p">)</span></code> is indented. This is how Python determines which parts of the code <em>belong</em> to the <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop.</p>
+<p>Does the code do as you would expect? Ask a demonstrator to help explain the operation if it would be useful.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>This code will display the numbers 0, 11, 22, 33, and 44.</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">lim_low</span></code> is 0, and <code class="code highlight python docutils literal highlight-python"><span class="n">lim_high</span></code> is 5. <code class="code highlight console docutils literal highlight-console"><span class="go">range(lim_low, lim_high)</span></code> makes a list of numbers between these, i.e. 0, 1, 2, 3, and 4. 5 is the stopping point, this isn’t included. <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> is a loop which goes through each of these numbers in turn, putting them in the variable <code class="code highlight python docutils literal highlight-python"><span class="n">i</span></code>. The code then carries out the multiplication <code class="code highlight python docutils literal highlight-python"><span class="n">i</span> <span class="o">*</span> <span class="n">mult</span></code>.</p>
+<p>Even in this simple example, there are no <em>hard coded</em> values. It’s tempting to write <code class="code highlight python docutils literal highlight-python"><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code> or similar. However, this can give very fragile code. If we want to use the 5 somewhere else in the code as well as here, it’s better to put the number in a variable and use the variable everywhere. That way, if the number changes at some point in the future the new value will automatically be used everywhere that the variable is used.</p>
+</div>
+</li>
+<li><p>Add a new <em>Markdown cell</em> by clicking on the <code class="code highlight console docutils literal highlight-console"><span class="go">+ Markdown</span></code> button.</p>
+<p>Enter the text below in the the cell that’s made. When you’ve finished editing, click on the <code class="code highlight console docutils literal highlight-console"><span class="go">✓</span></code> button (the <code class="code highlight console docutils literal highlight-console"><span class="go">Stop Editing Cell</span></code> button).</p>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/markdown1.png"><img alt="VSCode button to make a Markdown cell" src="../../_images/markdown1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Introduction</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">a</span> <span class="o">*</span><span class="n">Markdown</span> <span class="n">comment</span><span class="o">*.</span> <span class="n">It</span> <span class="n">allows</span> <span class="n">simple</span> <span class="n">formatting</span> <span class="n">to</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">comments</span> <span class="n">such</span> <span class="k">as</span> <span class="o">**</span><span class="n">making</span> <span class="n">things</span> <span class="n">bold</span><span class="o">**.</span>
+
+<span class="c1">## More information</span>
+<span class="n">Not</span> <span class="n">every</span> <span class="n">code</span> <span class="n">editor</span> <span class="n">will</span> <span class="n">display</span> <span class="n">this</span> <span class="k">with</span> <span class="n">the</span> <span class="n">formatting</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">can</span> <span class="n">help</span> <span class="n">make</span> <span class="n">your</span> <span class="n">comments</span> <span class="n">more</span> <span class="n">readable</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This is a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/comments.html">comment</a>, but as it’s flagged as being in a markdown cell VSCode has displayed it with formatting. Markdown is a simple way of taking plain text, and indicating which parts should be displayed with some formatting. You can find a full list of Markdown formatting options at <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheatsheet</a>.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/markdown2.png"><img alt="A formatted comment using Markdown" src="../../_images/markdown2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Not every code editor will display the text with the formatting, some will just display the text. Nevertheless, it’s a nice feature for adding emphasis or structure to your comments.</p>
+</li>
+</ol>
+</section>
+<section id="modelling-sine-waves">
+<h2><span class="section-number">2.3.2.2. </span>Modelling sine waves<a class="headerlink" href="#modelling-sine-waves" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In Electronic Engineering it’s very common that we work with sine waves. Mathematically, this is <span class="math notranslate nohighlight">\(V_{out}(t) = A \sin (2\pi f t)\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude, <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave in Hz, and <span class="math notranslate nohighlight">\(t\)</span> is the time in seconds. This is known as a <em>time series</em>, as to see a sine wave we need to know the value of <span class="math notranslate nohighlight">\(V_{out}(t)\)</span> at multiple different points in time, not just at one time.</p>
+<p>Make a new cell and copy and paste the below into it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a sine wave</span>
+<span class="n">sample_start</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sample_stop</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample_start</span><span class="p">,</span> <span class="n">sample_stop</span><span class="p">)</span>  <span class="c1"># interpret as representing 1 s, 2 s, 3 s, ...</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">t</span></code> will produce numbers 0, 1, 2, 3, up to <code class="code highlight python docutils literal highlight-python"><span class="n">sample_stop</span><span class="o">-</span><span class="mi">1</span></code>, and we as humans can think of these as representing time points, 0 second, 1 second, and so on.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>There is a better way of doing this! The <code class="code highlight python docutils literal highlight-python"><span class="nb">range</span></code> function can only make integer time points (1 s, 2 s, 3 s, and so on). In <a class="reference internal" href="../week4/lab_e.html#lab-e"><span class="std std-ref">Lab E</span></a> we’ll use <code class="code highlight python docutils literal highlight-python"><span class="n">numpy</span></code> arrays to do the same thing, with a number of other benefits. Using <code class="code highlight python docutils literal highlight-python"><span class="n">numpy</span></code>  is probably nearly always what you should actually do. We’ve included this example here to give an Electronic Engineering example early on, even if you learn better ways of achieving the same functionality later.</p>
+</div>
+<p>To implement the equation <span class="math notranslate nohighlight">\(V_{out}(t) = A \sin (2\pi f t)\)</span> we need a <span class="math notranslate nohighlight">\(\sin\)</span> function, and the number <span class="math notranslate nohighlight">\(\pi\)</span>. These are available in the Python <code class="code highlight python docutils literal highlight-python"><span class="n">math</span></code> module. This is the part of the Python <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library">standard library</a>. This is a built-in part of Python, but you need to explicitly add it to your code with the <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span></code> function.</p>
+<p>Add the code below to your function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the sine wave</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Volts</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Hz</span>
+<span class="n">v_out</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">math</span><span class="o">.</span><span class="n">pi</span></code> contains 3.1415…, the value of <span class="math notranslate nohighlight">\(\pi\)</span>. Here there is a small <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop which goes through each value in <code class="code highlight python docutils literal highlight-python"><span class="n">t</span></code>, puts it in a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#lists">list</a> called <code class="code highlight python docutils literal highlight-python"><span class="n">time</span></code>, and calculates the value of <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code> for each value of <code class="code highlight python docutils literal highlight-python"><span class="n">time</span></code>.</p>
+<p>Run the code. In the variable explorer you should be able to see a range of values for <code class="code highlight python docutils literal highlight-python"><span class="n">time</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code>.</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../_images/variable_explorer.png"><img alt="Variables in the variable explorer" src="../../_images/variable_explorer.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>The variable explorer is very useful for examining the results of calculations, checking that variables contain the correct thing, and so on. It has more functionality, but we need to install a Python <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#packages-from-online-repositories">module</a> called Pandas to add this functionality. Pandas is very widely used, but it’s not part of the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/libraries.html#standard-library">standard library</a> so we need to ensure it’s in the virtual environment by installing it ourselves.</p>
+<p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Terminal</span></code> tab in VSCode. It should look like the below. You should see that <code class="code highlight console docutils literal highlight-console"><span class="gp gp-VirtualEnv">(.venv)</span></code> is present, indicating the virtual environment we’re working in is active. (If not, make sure the terminal is in the <code class="code highlight console docutils literal highlight-console"><span class="go">lab_b</span></code> folder, and then activate the <code class="code highlight console docutils literal highlight-console"><span class="go">.venv</span></code> with <code class="code highlight console docutils literal highlight-console"><span class="go">source .venv/bin/activate</span></code>.) You should also see that the command prompt looks like <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span></code>, indicating that this is the computer’s terminal, not a Python terminal (which would be <code class="code highlight console docutils literal highlight-console"><span class="go">&gt;&gt;&gt;</span></code>).</p>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../_images/vscode_integrated_terminal.png"><img alt="The integrated terminal in VSCode used to install modules" src="../../_images/vscode_integrated_terminal.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>At the computer terminal enter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: " ";
+}
+</style><span class="prompt1"><span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span></span>
+</pre></div></div><p>This will install Pandas into the virtual environment. It may take a minute. It’s only been installed in the virtual environment that’s currently active. When you make or use a new or different virtual environment, you may need to install it again. (Which is one of the aims of using virtual environments, we could install different versions of Pandas in different virtual environments if we wanted to.)</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>In the next lab we’ll look at how to list <em>dependencies</em> in a file so we have a list of what needs to be installed in order for our code to run.</p>
+</div>
+<p>VSCode won’t pick up the installation of Pandas automatically if you install it while VSCode is running. Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Restart</span></code> button, and then <code class="code highlight console docutils literal highlight-console"><span class="go">Restart</span></code> again to confirm. This restarts the Python kernel so that it will pick up any changes to the virtual environment.</p>
+<p>Then press <code class="code highlight console docutils literal highlight-console"><span class="go">Run All</span></code> to re-run the code and it will be picked up.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../_images/restart_kernel.png"><img alt="Restarting the Python kernel to pick up the new installed module" src="../../_images/restart_kernel.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Jupyter</span></code> tab in VSCode. Then double click on <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code> to open a more detailed view of what’s stored in the variable. (You may need to scroll down in the variable explorer to see <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code>.) You should have a view similar to the below. Check some of the values using your calculator to check that they’re what you expect.</p>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../_images/data_wrangler.png"><img alt="More detailed view of the variable in VSCode" src="../../_images/data_wrangler.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>For this example, probably an even better way to exploring the data is to plot it. Again, we need internal an external module to do this.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>We’re going to look at data visualization more in <a class="reference internal" href="../week4/lab_f.html#lab-f"><span class="std std-ref">Lab F</span></a>. There are lots of options beyond what we’re going to look at here. This example is just something to get started with.</p>
+</div>
+<p>At the computer terminal enter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1"><span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">plotly</span> <span class="n">jupyterlab</span> <span class="n">anywidget</span></span>
+</pre></div></div><p>Then restart the Python kernel as before.</p>
+<p>In your code cell add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the sine wave</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v_out</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;Time [s]&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;Voltage [V]&#39;</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This adds a module called <code class="code highlight python docutils literal highlight-python"><span class="n">plotly</span></code> to your code, and asks it to plot <code class="code highlight python docutils literal highlight-python"><span class="n">t</span></code> on the x-axis and <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code> on the y-axis. When you run the code, it will display a plot similar to the below. There are a number of controls to zoom in and out, and similar. Explore these.</p>
+<p>Try changing the values of <code class="code highlight python docutils literal highlight-python"><span class="n">A</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">f</span></code> to see how the plot changes. In particular, try <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="mf">0.01</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="mi">10</span></code>. Do you see what you expect?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>When <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="mf">0.01</span></code> you see a sine wave as you expect. It’s quite a low frequency sine wave, and so we don’t see many oscillations present in 100 seconds. When <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="mi">10</span></code> we don’t see a sine wave. <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="mi">10</span></code> means were expecting 10 oscillations per second. However our time points are only at 0 s, 1 s, 2 s, and so on. (We’re sampling at 1 Hz.) We’re not sampling quickly enough to see the oscillations. Indeed in this case we’re sampling so slowly that we get a very strange shape indeed.</p>
+<p>You’ll learn about the <em>Nyquist theory</em> later in your degree. In general, we need the sampling frequency to be at least twice as fast as the highest frequency we want to plot. (This is nothing to do with Python, it applies to all cases of plotting a waveform.) If we’re sampling at 1 Hz, the largest <code class="code highlight python docutils literal highlight-python"><span class="n">f</span></code> we can have is 0.5 Hz. In practice, the ratio needs to be more like 10-30 times the highest frequency to get a good plot.</p>
+</div>
+<p>Set</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Volts</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Hz</span>
+</pre></div>
+</div>
+<p>again and re-run the code before proceeding.</p>
+</li>
+<li><p>We can use an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement to check whether a condition is true or not. Make a new cell and enter to the code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find zero crossings</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v_out</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero crossing at time:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is intended to display the times at which the sine wave crosses zero. It passes through each value in <code class="code highlight python docutils literal highlight-python"><span class="n">v_out</span></code>, puts it in a temporary variable called <code class="code highlight python docutils literal highlight-python"><span class="n">v</span></code> and checks whether this is equal to 0.</p>
+<p>Run the code. Does it display what you expect? If not, why not?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In the plot we can clearly see the sine wave crossing 0. Have a look in the variable explorer however. You’ll see it’s only 0 at the time point 0. After this, it gets very close to 0, for example <span class="math notranslate nohighlight">\(1.22 \times 10^{-16}\)</span>. This is a very small number, but it’s not exactly 0! The <code class="code highlight python docutils literal highlight-python"><span class="o">==</span> <span class="mi">0</span></code> is checking for exactly zero. We’re seeing the impact of <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/floating_point_numbers.html">floating point numbers</a>. Rather than getting exactly 0 were getting a little bit of rounding error. This is negligible in any practical sense (if this was a voltage we’ve measured from a circuit, it’s very hard to measure <span class="math notranslate nohighlight">\(1.22 \times 10^{-16}\)</span> Volts. However it means that our code doesn’t do what we want in this case. Try</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find zero crossings</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v_out</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">1e-15</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">1e-15</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero crossing at time:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a bit more generous in its checking and should work as you want.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="circuit-analysis-examples">
+<h2><span class="section-number">2.3.2.3. </span>Circuit analysis examples<a class="headerlink" href="#circuit-analysis-examples" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Python can also do complex maths, as we commonly need for circuit analysis. There is a module <code class="code highlight python docutils literal highlight-python"><span class="n">cmath</span></code> in the standard library which adds functions for working with complex numbers. Make a new cell and enter the code below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples of complex sums</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+
+<span class="c1"># Simple sums</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">real</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">imag</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code> is <span class="math notranslate nohighlight">\(1 + 1j\)</span>. <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> is <span class="math notranslate nohighlight">\(2 e^{4j}\)</span>. That is, <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code> is in Cartesian form, and <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> is in polar form. This is fine. Python can work with either, and automatically convert between the two as needed. You can enter a complex number in whichever form is easiest for you. There are then built in functions to find the magnitude (the <code class="code highlight python docutils literal highlight-python"><span class="nb">abs</span></code> function), and then for the phase, the real part, the imaginary part, and the complex conjugate. Run the code and view these results in the variable explorer and check they are what you expect.</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../_images/complex_numbers.png"><img alt="Example of doing complex sums in Python" src="../../_images/complex_numbers.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id32" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="tracking-components">
+<h2><span class="section-number">2.3.2.4. </span>Tracking components<a class="headerlink" href="#tracking-components" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>The examples so far have focused on processing numbers. Python can process text as well.</p>
+<p>Make a new cell and enter the code below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make bill of materials</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;component_number&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;resistor&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;ohm&quot;</span><span class="p">}</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;component_number&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;resistor&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">10e3</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;ohm&quot;</span><span class="p">}</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;component_number&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;capacitor&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">}</span>
+<span class="n">bom</span> <span class="o">=</span> <span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This makes a simple Bill Of Materials (BOM), for example for if we were making a circuit. The BOM is stored in a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#tuples">tuple</a>. A tuple is <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/mutability.html">immutable</a> so we can’t accidentally change the components. The details on each component are stored in a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#dictionaries">dictionary</a>. This lets us store a range of information about the component, both text and numbers.</p>
+<p>We can then start to automatically process this list. Add the code below to the cell and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count components in the BOM</span>
+<span class="n">resistors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">capacitors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">bom</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">component</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;resistor&quot;</span><span class="p">:</span>
+        <span class="n">resistors</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">component</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;capacitor&quot;</span><span class="p">:</span>
+        <span class="n">capacitors</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected component. Was expecting only resistors or capacitors&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">resistors</span><span class="si">}</span><span class="s2"> resistors and </span><span class="si">{</span><span class="n">capacitors</span><span class="si">}</span><span class="s2"> capacitors are in the BOM.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code combines a <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop with an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement to count the number of resistors and capacitors in the BOM. Make sure you understand how this works before you move on. Note the different levels of indentation to show which code belongs to which part of the structure.</p>
+<p>The syntax in <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">resistors</span><span class="si">}</span><span class="s2"> resistors and </span><span class="si">{</span><span class="n">capacitors</span><span class="si">}</span><span class="s2"> capacitors are in the BOM.&quot;</span><span class="p">)</span></code> is known as an <em>f-string</em>. Notice that the string starts <code class="code highlight python docutils literal highlight-python"><span class="sa">f</span><span class="s2">&quot;</span></code>. In an f-string, items in curly brackets <code class="code highlight python docutils literal highlight-python"><span class="p">{}</span></code> are replaced with their values. So with <code class="code highlight python docutils literal highlight-python"><span class="p">{</span><span class="n">resistors</span><span class="p">}</span></code> the value of the variable <code class="code highlight python docutils literal highlight-python"><span class="n">resistors</span></code> is displayed rather than the word resistors.</p>
+</li>
+</ol>
+</section>
+<section id="further-questions">
+<h2><span class="section-number">2.3.2.5. </span>Further questions<a class="headerlink" href="#further-questions" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Resistors in parallel add following the equation</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{R_{T}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \ldots\]</div>
+<p>where <span class="math notranslate nohighlight">\(R_{T}\)</span> is the total resistance and <span class="math notranslate nohighlight">\(R_{1}\)</span> (and similar) are the value of each individual resistor being connected in parallel.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/resistors_in_parallel.png"><img alt="Drawing of three resistors in parallel" src="../../_images/resistors_in_parallel.png" width="500" />
+</a>
+</figure>
+<p>You are given 10 resistors connected in parallel, values: 10 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 20 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 30 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 40 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 50 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 60 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 70 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 80 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, 90 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, and 100 k <span class="math notranslate nohighlight">\({\Omega}\)</span>. Write a code cell to calculate <span class="math notranslate nohighlight">\(R_{T}\)</span>, the total effective resistance present. View your calculated value in the variable explorer.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the total resistance</span>
+<span class="n">r_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># kOhm values</span>
+<span class="n">r_intermediate</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">r_values</span><span class="p">]</span>  <span class="c1"># broken into two lines for readability</span>
+<span class="n">r_t</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">r_intermediate</span><span class="p">)</span>  <span class="c1"># kOhm values</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>A potential divider is made when the output voltage is taken from a point between two impedances, labelled <span class="math notranslate nohighlight">\(Z_{1}\)</span> and <span class="math notranslate nohighlight">\(Z_{2}\)</span> in the figure below.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/potential_divider.png"><img alt="Drawing of a potential divider" src="../../_images/potential_divider.png" width="500" />
+</a>
+</figure>
+<p>Recall from your circuit analysis course that the relationship between the input and output voltages is given by</p>
+<div class="math notranslate nohighlight">
+\[V_{out} = \frac{Z_{2}V_{in}}{Z_{1} + Z_{2}}\]</div>
+<p>If both impedances are resistors, <span class="math notranslate nohighlight">\(Z_{1}\)</span> and <span class="math notranslate nohighlight">\(Z_{2}\)</span> will be real numbers. Use the Python code below to calculate the output voltage for the case when:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_{in}\)</span> = 10 V (d.c.).</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{1}\)</span> = 1 k <span class="math notranslate nohighlight">\({\Omega}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{2}\)</span> = 10 k <span class="math notranslate nohighlight">\({\Omega}\)</span>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Potential divider example</span>
+<span class="n">v_in</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">z1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># kOhm</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># kOhm</span>
+<span class="n">v_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">*</span> <span class="n">v_in</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span><span class="p">)</span>  <span class="c1"># Volts</span>
+</pre></div>
+</div>
+</li>
+<li><p><span class="math notranslate nohighlight">\(Z_{1}\)</span> is kept as a resistor of value 1 k <span class="math notranslate nohighlight">\({\Omega}\)</span>, and <span class="math notranslate nohighlight">\(Z_{2}\)</span> is replaced by a capacitor.</p>
+<p>A capacitor has an impedance (in <span class="math notranslate nohighlight">\({\Omega}\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[Z = \frac{1}{j\omega C}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega\)</span> is the angular frequency</p>
+<div class="math notranslate nohighlight">
+\[\omega = 2\pi f\]</div>
+<p><span class="math notranslate nohighlight">\(f\)</span> is the frequency of the a.c. source in Hz, and <span class="math notranslate nohighlight">\(C\)</span> is the capacitance in Farads. When considering the impedance of the capacitor (not its capacitance in Farads, its impedance in Ohms) the same potential divider equation as in Step 2 is valid without modification.</p>
+<p>Make a copy of your code from Step 2. Change the definition of <span class="math notranslate nohighlight">\(Z_{2}\)</span> to be a complex number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="code highlight python docutils literal highlight-python"><span class="n">w</span></code> is the angular frequency and <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> is the value of the capacitance. Make suitable variables for these, assuming a capacitor of value 1 nF and frequency of 160 kHz.</p>
+<p>Modify the <code class="code highlight python docutils literal highlight-python"><span class="n">v_in</span></code> in your code to be an a.c., sinusoidal signal with a frequency of 160 kHz, phase of 0, and amplitude of 5 V. Mathematically, you can represent this as a phasor, that is, a complex exponential. Recall that from your circuit theory you would represent such an input as <span class="math notranslate nohighlight">\(5e^{j\omega}\)</span> where <span class="math notranslate nohighlight">\(\omega = 2\pi \times 160,000\)</span>.</p>
+<p>In Python you can represent this as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v_in</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">160000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(assuming that you already have <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span><span class="w"> </span><span class="nn">math</span></code> in your code).</p>
+<p>With these two changes, find the magnitude and phase of the output voltage, <span class="math notranslate nohighlight">\(V_{out}\)</span>. You can do this with the <code class="code highlight python docutils literal highlight-python"><span class="nb">abs</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">cmath</span><span class="o">.</span><span class="n">phase</span></code> commands.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># Potential divider where z2 is a capacitor</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">160000</span>  <span class="c1"># Hz</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>  <span class="c1"># rad/s</span>
+
+<span class="n">v_in</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+
+<span class="n">z1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># kOhm</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">1e-9</span>  <span class="c1"># Farads</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">v_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">*</span> <span class="n">v_in</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span><span class="p">)</span>  <span class="c1"># Volts</span>
+<span class="n">vout_mag</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+<span class="n">vout_phase</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Using your code from above, change the frequency of the input (and the one used in the <code class="code highlight python docutils literal highlight-python"><span class="n">z2</span></code> equation). Pick some frequency values and see how the magnitude of <span class="math notranslate nohighlight">\(V_{out}\)</span> changes. (We suggest making quite big steps in frequency, go up and down from 160 kHz by factors of 10, and then 100.)</p>
+<p>Based on the results of your simulation, does this circuit act as a high pass filter (where low frequency signals are blocked but high frequency signals passed through) or a low pass filter (where low frequency signals are passed through but high frequency signals are blocked)?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Low pass filter.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_b_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">2.3.1. </span>Virtual environments and Jupyter notebooks
+    </a>
+    <a class="float-right" href="assignment_b.html" title="Next">
+        <span class="section-number">2.3.3. </span>Assignment B <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">2.3.2. Electronic Engineering examples</a><ul>
+<li><a class="reference internal" href="#markdown-example">2.3.2.1. Markdown example</a></li>
+<li><a class="reference internal" href="#modelling-sine-waves">2.3.2.2. Modelling sine waves</a></li>
+<li><a class="reference internal" href="#circuit-analysis-examples">2.3.2.3. Circuit analysis examples</a></li>
+<li><a class="reference internal" href="#tracking-components">2.3.2.4. Tracking components</a></li>
+<li><a class="reference internal" href="#further-questions">2.3.2.5. Further questions</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>5.2.1. Objects and classes &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="5.2. Lab G" href="lab_g.html" />
+            <link rel="next" title="5.2.2. Multi-file scripts" href="lab_g_stage_2.html" />
+            <link rel="prev" title="5.2. Lab G" href="lab_g.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">5.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_g.html">5.2. Lab G</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week5_intro.html"><span class="section-number">5. </span>Week 5</a></li>
+            <li class="breadcrumb-item"><a href="lab_g.html"><span class="section-number">5.2. </span>Lab G</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">5.2.1. </span>Objects and classes</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week5/lab_g_stage_1.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week5/lab_g_stage_1.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="objects-and-classes">
+<span id="lab-g-stage-1"></span><h1><span class="section-number">5.2.1. </span>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Link to this heading">¶</a></h1>
+<section id="initial-setup-for-the-lab">
+<h2><span class="section-number">5.2.1.1. </span>Initial setup for the Lab<a class="headerlink" href="#initial-setup-for-the-lab" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In the VSCode terminal enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>lab-g</span>
+<span class="prompt1"><span class="nb">cd</span><span class="w"> </span>/workspaces/<span class="sb">`</span>ls<span class="w"> </span>/workspaces<span class="sb">`</span>/lab-g</span>
+<span class="prompt1">uv<span class="w"> </span>init<span class="w"> </span>.</span>
+</pre></div></div><p>Remember to enter these one at a time, not both together.</p>
+<p>This will make a new Python project in the current folder. It will be named automatically after the folder name.</p>
+<p>To analyze these lines:</p>
+<ul class="simple">
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces` &amp;&amp; mkdir -p lab-g</span></code> makes the lab-g folder. There are no pre-downloaded files needed for Lab G. Sometimes this means that the Lab G folder isn’t downloaded automatically (because it’s empty).</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">cd /workspaces/`ls /workspaces`/lab-g</span></code> makes sure we are working in the lab-g folder.</p></li>
+<li><p><code class="code highlight console docutils literal highlight-console"><span class="go">uv init .</span></code> is the interesting command. This actually sets up our virtual environment.</p></li>
+</ul>
+<p>The above will make the a <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file, a <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> file, and a number of others.</p>
+</li>
+<li><p>Add some structure to your folder by entering the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">mkdir<span class="w"> </span>tests<span class="w"> </span>docs<span class="w"> </span>src</span>
+<span class="prompt1">mv<span class="w"> </span>main.py<span class="w"> </span>src</span>
+<span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+<span class="prompt1">touch<span class="w"> </span>tests/__init__.py</span>
+</pre></div></div><ul class="simple">
+<li><p>Here we’ve moved <code class="code highlight console docutils literal highlight-console"><span class="go">main.py</span></code> into the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder.</p></li>
+<li><p>We’ve made a <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder for any tests that we might want to write later, and a <code class="code highlight console docutils literal highlight-console"><span class="go">docs</span></code> folder for any documentation. We won’t ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it’s working!</p></li>
+</ul>
+</li>
+<li><p>Install the required dependencies for this lab by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>add<span class="w"> </span>numpy</span>
+</pre></div></div></li>
+<li><p>Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1"><span class="w">  </span>uv<span class="w"> </span>run<span class="w"> </span>src/main.py</span>
+</pre></div></div><p>to make sure the virtual environment is built.</p>
+</li>
+<li><p>When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html">in Lab D</a> if you’re unsure.</p></li>
+</ol>
+</section>
+<section id="objects">
+<h2><span class="section-number">5.2.1.2. </span>Objects<a class="headerlink" href="#objects" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Make a new Python file, with any suitable name, and copy the code below into it. Then run the code.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleClass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for ExampleClass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create instances of ExampleClass</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Print values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>This has defined a new class called <code class="code highlight python docutils literal highlight-python"><span class="n">ExampleClass</span></code>. To analyze the code:</p>
+<ul class="simple">
+<li><p>The class is defined using the <code class="code highlight python docutils literal highlight-python"><span class="k">class</span></code> keyword, followed by the name of the class.</p></li>
+<li><p>The body of the class is indented below this line.</p></li>
+<li><p>The class has one method, <code class="code highlight python docutils literal highlight-python"><span class="fm">__init__</span><span class="p">()</span></code> which defines what happens when a new instance of the class is created.</p>
+<ul>
+<li><p>A method is defined using the <code class="code highlight python docutils literal highlight-python"><span class="k">def</span></code> keyword, just like a function. We just call it a method because the definition is inside a class.</p></li>
+<li><p>The <code class="code highlight python docutils literal highlight-python"><span class="fm">__init__</span></code> method name starts and ends with a double underscore <code class="code highlight python docutils literal highlight-python"><span class="n">__</span></code>. This is known as a <em>dunder</em> method. All classes will have a range of built in dunder methods which provide default functionality. We don’t have to use them all, but they are there if we want to.</p></li>
+<li><p>The <code class="code highlight python docutils literal highlight-python"><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code> method takes two inputs, <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">value</span></code>. A method always takes <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> as its first input. <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> means take the name of the current object. That is, if we have <code class="code highlight python docutils literal highlight-python"><span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> represents <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>. When we have <code class="code highlight python docutils literal highlight-python"><span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> represents <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code>. The class definition doesn’t know what we’re going to call any particular object that we might make, and so it uses <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> instead.</p></li>
+<li><p>Any inputs after <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code> are just whatever we want to provide to get the behaviour that we want. Here we’re just making a class that holds a single value.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Fundamentally that’s it! We now just need to make the class as simple or as complicated as we need it to be for whatever problem we’re trying to solve. We’ll make this example a bit more detailed before moving on to something possibly more realistic.</p></li>
+<li><p>Add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to your <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> function, and run the code again. You’ll see something like the below displayed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&lt;__main__.ExampleClass object at 0x7fc9ca73cc20&gt;</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/python_classes1.png"><img alt="View of a simple class in VSCode" src="../../_images/python_classes1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>A method <code class="code highlight python docutils literal highlight-python"><span class="fm">__str__</span><span class="p">()</span></code> in a class defines what happens when we try and print an object of that class. Add the method below to your class definition and run the code again. You should see it displays something more useful now.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">def __str__(self):</span>
+<span class="go">    return &quot;Hello from ExampleClass&quot;</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/python_classes2.png"><img alt="View of a simple class in VSCode with a __str__ method" src="../../_images/python_classes2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Modify the <code class="code highlight python docutils literal highlight-python"><span class="fm">__str__</span><span class="p">()</span></code> method to display the value the object is storing.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;ExampleClass object with value: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>So far we’ve only used some of the built-in dunder methods that Python provides. We can of course add our own methods, in order to add whatever functionality we want.</p>
+<p>Add to the class definition the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">factor</span>
+</pre></div>
+</div>
+<p>Then in the <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> function, add the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Your overall code should look like that in the box below. Run the code to see the results.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleClass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for ExampleClass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;ExampleClass object with value: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">factor</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create instances of ExampleClass</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Print values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># Print a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># Multiply values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="code highlight python docutils literal highlight-python"><span class="n">multiply</span><span class="p">()</span></code> method has its own input, called <code class="code highlight python docutils literal highlight-python"><span class="n">factor</span></code>. This is just a normal input to a function, except that the first input is always <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span></code>, which represents the object that the method is being called on. This method multiples the stored value in the object by the input <code class="code highlight python docutils literal highlight-python"><span class="n">factor</span></code>.</p>
+</li>
+<li><p>Add a new method called <code class="code highlight python docutils literal highlight-python"><span class="nb">pow</span><span class="p">()</span></code> which returns the square of the value stored in the object, if that value is even, and the cube of the value if the value is odd. Test your method by calling it on each of the three objects <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> in the <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> function, and printing the results.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleClass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for ExampleClass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;ExampleClass object with value: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">factor</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># determine if value is even</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">**</span><span class="mi">3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create instances of ExampleClass</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">ExampleClass</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Print values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># Print a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># Multiply values</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Use pow method</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pow</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">pow</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">pow</span><span class="p">())</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="another-example">
+<h2><span class="section-number">5.2.1.3. </span>Another example<a class="headerlink" href="#another-example" title="Link to this heading">¶</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>In the below we’re going to store marks for a student, as we did using Polars dataframes in <a class="reference internal" href="../week4/lab_f_stage_2.html#lab-f-stage-2"><span class="std std-ref">Lab F</span></a>. This is just an example to illustrate how to make a class, in an accessible way by using an example you’re already familiar with. In practice, for storing tabular data like student marks using a dataframe might be more appropriate, but it will depend on what you’re trying to do.</p>
+</div>
+<ol class="arabic">
+<li><p>Let’s make an object that stores information about a student. Firstly, think about what information we want it to store.</p>
+<p>This is a really important question that gets to the heart of why we want to make our own objects. The object is <em>tailored</em> to the problem that we’re trying to solve. We’ll store:</p>
+<ul class="simple">
+<li><p>The student’s name</p></li>
+<li><p>The student’s ID number</p></li>
+<li><p>The assignment marks (for Labs A to T)</p></li>
+<li><p>The exam mark</p></li>
+<li><p>The overall course mark</p></li>
+</ul>
+<p>We could imagine storing attendance information, which degree program the student is on, and other things. We won’t here to keep it compact.</p>
+</li>
+<li><p>In a new Python file, copy the code below to define a <code class="code highlight python docutils literal highlight-python"><span class="n">StudentMarksEEEN11202</span></code> class. Then run the code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create instance of StudentMarksEEEN11202</span>
+    <span class="n">student1</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+    <span class="n">student2</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Casson&quot;</span><span class="p">,</span> <span class="s2">&quot;67890&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Print contents</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="p">(</span><span class="n">student1</span><span class="p">,</span> <span class="n">student2</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Student Name: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Assignment marks: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">assignment_marks</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Exam mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">exam_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Overall mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">overall_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This uses a slightly different approach for the <code class="code highlight python docutils literal highlight-python"><span class="fm">__init__</span><span class="p">()</span></code> method. We’ve told it explicitly that when we create a new instance of the class, we need to provide the student’s name and ID number. The other data (assignment marks, exam mark and overall mark) can’t be set when the object is made, they will require methods to set the value. When an object is first made, these values are set to a default value of <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>. (<a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#none-null">See None in our discussion on datatypes</a>. We’re actually going to change this in the next step.)</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Note that we’ve used <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code> rather than <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code> as the default mark. Using <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code> lets us differentiate between a mark that hasn’t been set yet, and a student who has submitted work but got <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code> for it. In turn, this lets us follow up with students who haven’t submitted yet to make sure they do so before the deadline, and to follow up with students who tried the assignment but got <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>, to offer them more support. We can’t do these if we just initialize all of the marks to <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>. Of course, at the end of the course any remaining <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code> marks need to be set to <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>. This use of different data types is part of our <em>data model</em> for this problem.</p>
+</div>
+</li>
+<li><p>The above isn’t quite a good enough starting point. There are 20 assignments in this course (Assignments A to T) and so we need an array of some form to put these in rather than a single value. We could use a list. We’ll actually use a numpy array, because we’ll want to do some sums on these to get the overall mark.</p>
+<p>For a numpy array, rather than <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code> we use NaN (<a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/none_some.html#nan">see NaN in our discussion on datatypes</a>) via np.nan() to represent missing numerical data. This is just the choice we’re making here. You could chose a different data model if you wanted to.</p>
+<p>Modify the class definition to be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></code> makes an array with 20 elements (<code class="code highlight python docutils literal highlight-python"><span class="n">no_assignments</span></code>), each set to <code class="code highlight python docutils literal highlight-python"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></code>. The output of the overall code will now look like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Student Name: Alex</span>
+<span class="go">ID: 12345</span>
+<span class="go">Assignment marks: [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan]</span>
+<span class="go">Overall mark: nan</span>
+<span class="go">Exam mark: nan</span>
+</pre></div>
+</div>
+</li>
+<li><p>Let’s make one more improvement before continuing. Using <code class="code highlight python docutils literal highlight-python"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></code> to represent missing data is fine, but it relies on us remembering that <code class="code highlight python docutils literal highlight-python"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></code> means “<em>no submission has been made</em>”.</p>
+<p>We can make the code more readable by making another class, <code class="code highlight python docutils literal highlight-python"><span class="n">NoSubmission</span></code> to represent no submission. This will just a be wrapper for <code class="code highlight python docutils literal highlight-python"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></code>, but it makes the code more readable.</p>
+<p>Add the following code above the <code class="code highlight python docutils literal highlight-python"><span class="n">StudentMarksEEEN11202</span></code> class definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NoSubmission</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to represent no submission made.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="code highlight python docutils literal highlight-python"><span class="fm">__repr__</span><span class="p">()</span></code> method is similar to the <code class="code highlight python docutils literal highlight-python"><span class="fm">__str__</span><span class="p">()</span></code> method, but is used when the object is displayed in a list or array or similar.</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">StudentMarksEEEN11202</span></code> can then become:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">NoSubmission</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here, it’s a bit clearer that we’re setting the default to represent no submission being made. If you run the code now, the output will look like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Student Name: Alex</span>
+<span class="go">ID: 12345</span>
+<span class="go">Assignment marks: [No Submission No Submission No Submission No Submission No Submission No Submission</span>
+<span class="go"> No Submission No Submission No Submission No Submission No Submission No Submission</span>
+<span class="go"> No Submission No Submission No Submission No Submission No Submission No Submission</span>
+<span class="go"> No Submission No Submission]</span>
+<span class="go">Overall mark: No Submission</span>
+<span class="go">Exam mark: No Submission</span>
+</pre></div>
+</div>
+<p>which again is a bit clearer.</p>
+</li>
+<li><p>To complete the class we want to add three methods.</p>
+<ul class="simple">
+<li><p>To set the exam mark. Say, <code class="code highlight python docutils literal highlight-python"><span class="n">set_exam_mark</span><span class="p">()</span></code></p></li>
+<li><p>To set an assignment mark. Say, <code class="code highlight python docutils literal highlight-python"><span class="n">set_assignment_mark</span><span class="p">()</span></code></p></li>
+<li><p>To compute the overall mark. Say, <code class="code highlight python docutils literal highlight-python"><span class="n">_set_overall_mark</span><span class="p">()</span></code></p></li>
+</ul>
+<p>We could add more, but this will be sufficient for now. We’ll do the first one in full, and then leave a few steps for you to complete in the other two.</p>
+</li>
+<li><p>Add another <code class="code highlight python docutils literal highlight-python"><span class="k">def</span></code> block to the <code class="code highlight python docutils literal highlight-python"><span class="n">StudentMarksEEEN11202</span></code> class definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_exam_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">mark</span>
+</pre></div>
+</div>
+<p>This is hopefully fairly clear now. In your <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> function, add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+<span class="n">student2</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check this does what you expect. The current complete code is given below.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NoSubmission</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to represent no submission made.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Docstring for StudentMarksEEEN11202</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">NoSubmission</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_exam_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">mark</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create instance of StudentMarksEEEN11202</span>
+    <span class="n">student1</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+    <span class="n">student2</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Casson&quot;</span><span class="p">,</span> <span class="s2">&quot;67890&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Set exam marks</span>
+    <span class="n">student1</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+    <span class="n">student2</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+    <span class="c1"># Print contents</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="p">(</span><span class="n">student1</span><span class="p">,</span> <span class="n">student2</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Student Name: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Assignment marks: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">assignment_marks</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Exam mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">exam_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Overall mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">overall_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Setting an assignment mark is a little more complicated because we need to provide both a mark, and which assignment to set the mark for.</p>
+<p>We want to call the method like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make a new method in the <code class="code highlight python docutils literal highlight-python"><span class="n">StudentMarksEEEN11202</span></code> class called <code class="code highlight python docutils literal highlight-python"><span class="n">set_assignment_mark</span><span class="p">()</span></code> which takes two inputs, the assignment letter (a string) and the mark (a number), and sets the appropriate element in the <code class="code highlight python docutils literal highlight-python"><span class="n">assignment_marks</span></code> array to the provided mark.</p>
+<p>You will need to convert the letter to an index in the <code class="code highlight python docutils literal highlight-python"><span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span></code> array. That is, so that <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;a&quot;</span></code> corresponds to index <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;b&quot;</span></code> to index <code class="code highlight python docutils literal highlight-python"><span class="mi">1</span></code> and so on. You can use the <code class="code highlight python docutils literal highlight-python"><span class="nb">ord</span><span class="p">()</span></code> function to get the position of a letter in the alphabet.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_assignment_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+   <span class="n">index</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">assignment_letter</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>  <span class="c1"># adjust for 0-based indexing</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Make your method case insensitive, so it can be called as either</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_assignment_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+   <span class="n">index</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">assignment_letter</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>  <span class="c1"># adjust for 0-based indexing</span>
+   <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>The final method, <code class="code highlight python docutils literal highlight-python"><span class="n">_set_overall_mark</span><span class="p">()</span></code> is slightly complicated for two reasons.</p>
+<ul class="simple">
+<li><p>We <em>don’t</em> want the main code to call this as <code class="code highlight python docutils literal highlight-python"><span class="n">student1</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span></code> or similar. That’s not how the overall mark works. The overall mark is a result of the combined assessment and exam marks, not something that can be set directly. Instead, <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span></code> should be called automatically whenever an assignment or exam mark is updated. Thus, it’s the class itself that calls <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span></code>. This is known as a <em>private method</em>. By convention, private methods start with an underscore <code class="code highlight python docutils literal highlight-python"><span class="n">_</span></code> to indicate that they shouldn’t be called directly from outside the class. Also as a result, implementing <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span></code> requires updating <code class="code highlight python docutils literal highlight-python"><span class="n">set_assignment_mark</span><span class="p">()</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">set_exam_mark</span><span class="p">()</span></code> to call it whenever a mark is updated.</p></li>
+<li><p>We’ve stored not-submitted results as a class <code class="code highlight python docutils literal highlight-python"><span class="n">NotSubmitted</span></code>. We need to decide what to do with these when calculating the overall mark. We will assume that any not-submitted assignments are worth <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code> when calculating the overall mark. This lets a running total mark be calculated as assignments are submitted.</p></li>
+</ul>
+<p>Implement the <code class="code highlight python docutils literal highlight-python"><span class="n">_set_overall_mark</span><span class="p">()</span></code> method, and update the code to call it and check it works. The overall unit mark is made up 50% from the summed assignment marks, and 50% from the exam mark.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+ <span class="k">class</span><span class="w"> </span><span class="nc">NoSubmission</span><span class="p">:</span>
+<span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Class to represent no submission made.</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="s2">&quot;No Submission&quot;</span>
+
+
+ <span class="k">class</span><span class="w"> </span><span class="nc">StudentMarksEEEN11202</span><span class="p">:</span>
+<span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Docstring for StudentMarksEEEN11202</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+         <span class="n">no_assignments</span> <span class="o">=</span> <span class="mi">20</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">no_assignments</span><span class="p">,),</span> <span class="n">NoSubmission</span><span class="p">())</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="n">NoSubmission</span><span class="p">()</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="nf">set_exam_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span> <span class="o">=</span> <span class="n">mark</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="nf">set_assignment_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">assignment_letter</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+         <span class="n">index</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">assignment_letter</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>  <span class="c1"># adjust for 0-based indexing</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">_set_overall_mark</span><span class="p">()</span>
+
+     <span class="k">def</span><span class="w"> </span><span class="nf">_set_overall_mark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="n">assignment_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+         <span class="n">exam_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+         <span class="c1"># Set exam to zero if no submission</span>
+         <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exam_mark</span>
+         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tmp_exam_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+             <span class="n">tmp_exam_mark</span> <span class="o">=</span> <span class="mi">0</span>
+
+         <span class="c1"># Set assignments to zero if no submission, and sum</span>
+         <span class="n">tmp_assignment_mark</span> <span class="o">=</span> <span class="mi">0</span>
+         <span class="k">for</span> <span class="n">assignment_mark</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">assignment_marks</span><span class="p">:</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">assignment_mark</span><span class="p">,</span> <span class="n">NoSubmission</span><span class="p">):</span>
+                 <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="mi">0</span>
+             <span class="k">else</span><span class="p">:</span>
+                 <span class="n">tmp_assignment_mark</span> <span class="o">+=</span> <span class="n">assignment_mark</span>
+
+         <span class="c1"># Calculate overall mark</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">overall_mark</span> <span class="o">=</span> <span class="p">(</span>
+             <span class="n">assignment_weight</span> <span class="o">*</span> <span class="n">tmp_assignment_mark</span> <span class="o">+</span> <span class="n">exam_weight</span> <span class="o">*</span> <span class="n">tmp_exam_mark</span>
+         <span class="p">)</span>
+
+
+ <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+     <span class="c1"># Create instance of StudentMarksEEEN11202</span>
+     <span class="n">student1</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">)</span>
+     <span class="n">student2</span> <span class="o">=</span> <span class="n">StudentMarksEEEN11202</span><span class="p">(</span><span class="s2">&quot;Casson&quot;</span><span class="p">,</span> <span class="s2">&quot;67890&quot;</span><span class="p">)</span>
+
+     <span class="c1"># Set assignment marks for student1</span>
+     <span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+     <span class="n">student1</span><span class="o">.</span><span class="n">set_assignment_mark</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+     <span class="c1"># Set exam marks</span>
+     <span class="n">student1</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+     <span class="n">student2</span><span class="o">.</span><span class="n">set_exam_mark</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+
+     <span class="c1"># Print contents</span>
+     <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="p">(</span><span class="n">student1</span><span class="p">,</span> <span class="n">student2</span><span class="p">):</span>
+         <span class="nb">print</span><span class="p">(</span>
+             <span class="sa">f</span><span class="s2">&quot;Student Name: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;Assignment marks: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">assignment_marks</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;Exam mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">exam_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="sa">f</span><span class="s2">&quot;Overall mark: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">overall_mark</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+         <span class="p">)</span>
+
+
+ <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+     <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_g.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">5.2. </span>Lab G
+    </a>
+    <a class="float-right" href="lab_g_stage_2.html" title="Next">
+        <span class="section-number">5.2.2. </span>Multi-file scripts <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">5.2.1. Objects and classes</a><ul>
+<li><a class="reference internal" href="#initial-setup-for-the-lab">5.2.1.1. Initial setup for the Lab</a></li>
+<li><a class="reference internal" href="#objects">5.2.1.2. Objects</a></li>
+<li><a class="reference internal" href="#another-example">5.2.1.3. Another example</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

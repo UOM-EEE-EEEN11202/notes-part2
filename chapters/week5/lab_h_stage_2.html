@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>5.3.2. Git branches &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="5.3. Lab H" href="lab_h.html" />
+            <link rel="next" title="5.3.3. Assignment H" href="assignment_h.html" />
+            <link rel="prev" title="5.3.1. Exceptions and error handling" href="lab_h_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_h.html">5.3. Lab H</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week5_intro.html"><span class="section-number">5. </span>Week 5</a></li>
+            <li class="breadcrumb-item"><a href="lab_h.html"><span class="section-number">5.3. </span>Lab H</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">5.3.2. </span>Git branches</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week5/lab_h_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week5/lab_h_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="git-branches">
+<span id="lab-h-stage-2"></span><h1><span class="section-number">5.3.2. </span>Git branches<a class="headerlink" href="#git-branches" title="Link to this heading">¶</a></h1>
+<p>We learnt about version control using Git <a class="reference internal" href="../week2/lab_a_stage_2.html#lab-a-stage-2"><span class="std std-ref">back in Lab A</span></a>. Since then, you’ve been using Git to submit your assignments, and you’ve been regularly checking in your working code as you go along (you have haven’t you?), but we’ve not said much more about version control. There are lots of features and functions. We’re going to look at one of these here, known as <em>branches</em>.</p>
+<p>In one repository, we can have multiple copies of the same code. These are known as branches. Each branch is version controlled separately and can be worked on separately. The default branch is usually called <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code>. VSCode will likely be displaying that you’re working on the <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> branch.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/git_branch.png"><img alt="VSCode window with the current Git branch name highlighted" src="../../_images/git_branch.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Working directly in the <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> branch is fine for small projects. However, it doesn’t give a space for experimentation. Essentially, the code in main is your end product. Every time you update this, you’re updating the final version. If you’re fixing a bug, or adding a new feature, it can be beneficial to make a dedicated branch for this work. You can then get the code working in this branch, and only update main once everything is working. This can help compartmentalize development, and avoid breaking the main code during day-to-day working.</p>
+<section id="making-a-new-branch">
+<h2><span class="section-number">5.3.2.1. </span>Making a new branch<a class="headerlink" href="#making-a-new-branch" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In your Lab H workspace, make a new branch called <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-0">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> in the bottom left of the VSCode window and then <code class="code highlight console docutils literal highlight-console"><span class="go">+ Create new branch</span></code></p>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../../_images/vscode_make_branch1.png"><img alt="Making a new branch in VSCode" src="../../_images/vscode_make_branch1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Type in <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> as the branch name and press enter.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../../_images/vscode_make_branch2.png"><img alt="Entering the name of the branch in VSCode" src="../../_images/vscode_make_branch2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>VSCode will automatically switch to the new branch once it’s created.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-1">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git branch dev</span>
+<span class="go">git checkout dev</span>
+</pre></div>
+</div>
+<p>The <code class="code highlight console docutils literal highlight-console"><span class="go">git branch dev</span></code> command makes a new branch, based upon the current branch. The <code class="code highlight console docutils literal highlight-console"><span class="go">git checkout dev</span></code> command switches the branch. Remember that you can use <code class="code highlight console docutils literal highlight-console"><span class="go">git status</span></code> to check which branch you’re on.</p>
+</div>
+</div>
+<p>You should see the branch name change to <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> in the bottom left of the VSCode window.</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../../_images/vscode_new_branch_display.png"><img alt="VSCode window with the current Git branch name highlighted" src="../../_images/vscode_new_branch_display.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="using-and-switching-branches">
+<h2><span class="section-number">5.3.2.2. </span>Using and switching branches<a class="headerlink" href="#using-and-switching-branches" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In your Lab H <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder make a new file called <code class="code highlight console docutils literal highlight-console"><span class="go">branches.py</span></code>. You can put some code into it, or it can be empty for now.</p>
+<p>As you’re working in the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch, this file exists in the current branch, <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code>, as shown in the view below. (You might need to press the <code class="code highlight console docutils literal highlight-console"><span class="go">Refresh</span></code> button for the display of files to be updated.)</p>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../../_images/file_in_dev.png"><img alt="VSCode window showing a file in the dev branch" src="../../_images/file_in_dev.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Check this new file into Git:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-2">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>On the <code class="code highlight console docutils literal highlight-console"><span class="go">Source Control</span></code> tab, you should see <code class="code highlight console docutils literal highlight-console"><span class="go">branches.py</span></code> listed as a new file. Hover over it and click the <code class="code highlight console docutils literal highlight-console"><span class="go">+</span></code> icon to add it to be tracked. Then enter a commit message in the box at the top and click the <code class="code highlight console docutils literal highlight-console"><span class="go">✓ Commit</span></code> icon to commit it.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../../_images/vscode_git_commit.png"><img alt="Committing changes in VSCode" src="../../_images/vscode_git_commit.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-3">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<p>Assuming your terminal is in the <code class="code highlight console docutils literal highlight-console"><span class="go">lab-h</span></code> folder (not <code class="code highlight console docutils literal highlight-console"><span class="go">lab-h/src</span></code>) run</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add src/branches.py</span>
+<span class="go">git commit -a -m &quot;Added branches.py in dev branch&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+<li><p>Switch back to the main branch:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-4">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> in the bottom left of the VSCode window and then click on the <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> branch (i.e. the branch you want to switch to).</p>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../../_images/vscode_switch_branch.png"><img alt="Switching branches in VSCode" src="../../_images/vscode_switch_branch.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-5">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ll see that the file <code class="code highlight console docutils literal highlight-console"><span class="go">branches.py</span></code> is no longer present in the file explorer. This is because it only exists in the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch. (Again you might need to press the <code class="code highlight console docutils literal highlight-console"><span class="go">Refresh</span></code> button for the display of files to be updated.)</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../../_images/file_in_main.png"><img alt="VSCode window showing the file is not present in the main branch" src="../../_images/file_in_main.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id32" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You can see how this lets us work on code in the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch without affecting the code in the <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> branch.</p>
+</li>
+<li><p>Follow the steps above again to switch back to the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch. You should see that <code class="code highlight console docutils literal highlight-console"><span class="go">branches.py</span></code> is back again.</p></li>
+<li><p>In your Lab H <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder you will find a file called <code class="code highlight console docutils literal highlight-console"><span class="go">practice.py</span></code>. When run, it displays <code class="code highlight console docutils literal highlight-console"><span class="go">Hello from lab-h!</span></code> to the screen.</p>
+<p>Make sure you’re in the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch, and then add some additional code to this file. For example, change the message that is displayed to the screen. You could make it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-h!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from branch dev!&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Check your changes in to Git. (Follow the instructions above if you’re not sure how to do this.)</p>
+<p>Switch back to the main branch (again following the instructions above) and you should see that the same file in the two different branches contains different code. The figure below show the same file in the two different branches.</p>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="../../_images/practice_in_main.png"><img alt="VSCode window showing the contents of a file in branch main" src="../../_images/practice_in_main.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id33" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../../_images/practice_in_dev.png"><img alt="VSCode window showing the contents of a file in branch dev" src="../../_images/practice_in_dev.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id34" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="merging-branches">
+<h2><span class="section-number">5.3.2.3. </span>Merging branches<a class="headerlink" href="#merging-branches" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>When you’re ready, you can <em>merge</em> branches together to combine the code.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-6">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Make sure you are in branch <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code>. Then, on the <code class="code highlight console docutils literal highlight-console"><span class="go">Source Control</span></code> tab, click on the three dots <code class="code highlight console docutils literal highlight-console"><span class="go">...</span></code> at the top right to open the menu. Select <code class="code highlight console docutils literal highlight-console"><span class="go">Branch / Merge ...</span></code>.</p>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../../_images/vscode_merge1.png"><img alt="Switching branches in VSCode" src="../../_images/vscode_merge1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id35" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Select the branch that you want to merge into <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code>. We only have one other branch, <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code>, in our example.</p>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="../../_images/vscode_merge2.png"><img alt="Switching branches in VSCode" src="../../_images/vscode_merge2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id36" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-7">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout main</span>
+<span class="go">git merge dev</span>
+</pre></div>
+</div>
+<p>This merges the changes from branch <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> into branch <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code>.</p>
+</div>
+</div>
+<p>You should see that the code in the <code class="code highlight console docutils literal highlight-console"><span class="go">main</span></code> branch has now been updated to include the changes you made in the <code class="code highlight console docutils literal highlight-console"><span class="go">dev</span></code> branch.</p>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="../../_images/vscode_merged_branches.png"><img alt="VSCode showing updated code in the main branch" src="../../_images/vscode_merged_branches.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id37" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>The above was a nice simple example, we only changed a small bit of code.</p>
+<p>When making larger changes you can have <em>conflicts</em> when you try to merge branches. These occur if the same code has been edited in two different ways in the two branches. Git won’t automatically know which version to keep and so you have to <em>resolve</em> conflicts manually. We won’t cover resolving conflicts here, but as you move on to more advanced version control this might be something you want to look in to.</p>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_h_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">5.3.1. </span>Exceptions and error handling
+    </a>
+    <a class="float-right" href="assignment_h.html" title="Next">
+        <span class="section-number">5.3.3. </span>Assignment H <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">5.3.2. Git branches</a><ul>
+<li><a class="reference internal" href="#making-a-new-branch">5.3.2.1. Making a new branch</a></li>
+<li><a class="reference internal" href="#using-and-switching-branches">5.3.2.2. Using and switching branches</a></li>
+<li><a class="reference internal" href="#merging-branches">5.3.2.3. Merging branches</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

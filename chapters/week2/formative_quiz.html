@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>2.4. Formative quiz 2 &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="2. Week 2" href="../week2_intro.html" />
+            <link rel="next" title="3. Week 3" href="../week3_intro.html" />
+            <link rel="prev" title="2.3.3. Assignment B" href="assignment_b.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week2_intro.html"><span class="section-number">2. </span>Week 2</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">2.4. </span>Formative quiz 2</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week2/formative_quiz.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week2/formative_quiz.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="formative-quiz-2">
+<h1><span class="section-number">2.4. </span>Formative quiz 2<a class="headerlink" href="#formative-quiz-2" title="Link to this heading">¶</a></h1>
+<div class="quizdown">## Why do we use a virtual environment with our Python code?
+
+1. [ ] To help the code run faster.
+    &gt; That&#x27;s not correct. Virtual environments are not about performance.
+1. [x] To manage dependencies and control which version of Python and external libraries are used.
+    &gt; That&#x27;s correct!
+1. [ ] To use a virtual computer in the cloud rather than a physical computer.
+    &gt; That&#x27;s not correct. You can run a virtual environment on a cloud computer, but *virtual* doesn&#x27;t mean it can only be on the cloud.
+1. [ ] To obscure the code so that it can&#x27;t be read be copied by others.
+    &gt; That&#x27;s not correct. In general virtual environments help make the code easier for others to use, as they know exactly which versions of Python and external libraries are needed to make it work.
+1. [ ] To provide an Integrated Development Environment (IDE) for writing and running Python code.
+    &gt; That&#x27;s not correct. An IDE brings together all of the different tools we use for writing, testing, and running our code. A virtual environment is one of the tools we access, from within VSCode (the IDE) in our case.
+
+
+## Which command activates a virtual environment called `venv`?
+
+1. [x] `source .venv/bin/activate`
+    &gt; That&#x27;s correct! This assumes the terminal is in the same folder as the virtual environment. It also assumes you&#x27;re using Linux or macOS as the development environment (which we do in the devcontainer). If using Windows, the command is a bit different. e
+1. [ ] `start .venv`
+    &gt; That&#x27;s not correct.
+
+
+## Python code will work without a virtual environment.
+
+1. [x] True
+    &gt; That&#x27;s correct! Python code will work as long as you have a Python interpreter installed on the computer. You&#x27;ll find lots of examples and tutorials that don&#x27;t go very deep into virtual environments, or assume you&#x27;ve already activated one. While you don&#x27;t have to have a virtual environment, for all but very trivial projects you will almost certainly have lots of external libraries that you need to install, and a virtual environment is the best way to manage these.
+1. [ ] False
+    &gt; That&#x27;s not correct. Python code will work without a virtual environment, but it&#x27;s not good practice in general.
+
+
+## Why can we use `import math` in our Python code directly, whereas to use `import pandas` we first need to add a module to the virtual environment?
+
+1. [ ] This is incorrect. Both `import math` and `import pandas` can be used without any further actions.
+    &gt; That&#x27;s not correct. The statement in the question is right Try again.
+1. [ ] This is incorrect. Both `import math` and `import pandas` need to be added to a virtual environment before they can be used.
+    &gt; That&#x27;s not correct. The statement in the question is right Try again.
+1. [ ] `import math` doesn&#x27;t actually do anything, the same functions are present even without this line of code.
+    &gt; That&#x27;s not correct. `import math` adds the ability for Python to use a wide number of common mathematical functions, such as `math.sin()`, which couldn&#x27;t be used in the code without this statement.
+1. [ ] `pandas` is only available on some computer platforms.
+      &gt; That&#x27;s not correct. `pandas` is available on all platforms that support Python, but it is not part of the standard library.
+1. [X] `math` is part of the standard library installed with Python, and `pandas` is not.
+    &gt; That&#x27;s correct!
+
+
+## What does the `print()` function do?
+
+1. [x] It displays a string that&#x27;s within the brackets to the standard output, usually the terminal.
+    &gt; That&#x27;s correct!
+1. [ ] It displays text that&#x27;s within the brackets to the standard error, usually the terminal.
+    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. `print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
+1. [ ] It displays anything that&#x27;s within the brackets to the standard output, usually the terminal.
+    &gt; That&#x27;s not correct. In general `print()` displays text. TO display something else it first needs to be converted to text, for example with `str()` or an f-string.
+1. [ ] It displays anything that&#x27;s within the brackets to the standard error, usually the terminal.
+    &gt; That&#x27;s not correct. The standard error and standard output are conceptually different. One is for displaying output from code, the other is for displaying error messages. We may set them to be the same, but they are different. `print()` displays text to the standard output by default. It requires additional arguments to display text to the standard error.
+1. [ ] If a printer is connected to the computer, it prints out the Python file.
+    &gt; That&#x27;s not correct. `print()` doesn&#x27;t have any relationship with using a physical printer.
+
+
+## Why will the code below not run?
+
+`mult = 11` &lt;br /&gt;
+`lim_low = 0` &lt;br /&gt;
+`lim_high = 5` &lt;br /&gt;
+`for i in range(lim_low,lim_high):` &lt;br /&gt;
+`    print(i*mult)`
+
+1. [ ] It is not valid Python to do the sum `i*mult` within the `print()` statement.
+    &gt; That&#x27;s not correct. You can nest commands like this, as long as you think the code is sufficiently readable.
+1. [x] The print statement is not indented. In Python, indentation is used to define blocks of code, such as the body of a loop or function.
+    &gt; That&#x27;s correct!
+1. [ ] There should not be a colon `:` at the end of the `for` statement.
+    &gt; That&#x27;s not correct. This is required Python syntax.
+1. [ ] `range()` is not a built-in Python function and so an `import` statement is needed.
+    &gt; That&#x27;s not correct. `range()` is a core Python function and can be used without an `import` statement.
+1. [ ] `i` represents a complex number, it can&#x27;t be used to represent something else.
+    &gt; That&#x27;s not correct. `1i` represents a complex number, to differentiate it from `i` which can be the name of a variable if you want. Indeed `i` is commonly used to count how many times a loop has run.
+
+
+## Is the data below stored in a tuple or in a list?
+
+`v = (1, 2, 3, 4, 5)`
+
+1. [ ] List
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
+1. [x] Tuple
+    &gt; That&#x27;s correct!
+
+
+## What type of data structure is being used in the code below?
+
+`l1 = {&quot;component_number&quot;: 4, &quot;type&quot;: &quot;inductor&quot;, &quot;value&quot;: 1e-3, &quot;units&quot;: &quot;H&quot;}`
+
+1. [ ] List
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
+1. [ ] Tuple
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
+1. [x] Dictionary
+    &gt; That&#x27;s correct!
+1. [ ] DataFrame
+    &gt; That&#x27;s not correct. Refresh yourself on storing multiple values.
+1. [ ] Object
+    &gt; That&#x27;s not correct (for the purposes of this quiz). This code defines a dictionary, which is the answer we want. A dictionary is a type of object, and has methods that can be applied to the data stored in the dictionary. Object is a less specific answer than dictionary for this example though.
+
+
+## How do you enter a complex number in Python? Select all that apply.
+
+- [x] `1i`
+- [x] `1j`
+- [x] `complex(0,1)`
+- [x] `cmath.exp(1i)`
+- [x] `cmath.exp(1j)`
+
+
+## What will be the output of the code below? Select all that apply.
+
+`x = 1` &lt;br /&gt;
+`if x &lt; 0:` &lt;br /&gt;
+`   x = 2` &lt;br /&gt;
+`print(&quot;x is less than 0&quot;)`
+
+- [x] It will display &quot;x is less than 0&quot;
+   &gt; That&#x27;s correct! It&#x27;s probably not what the writer wanted the code to do, because `x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the `x = 2` command.
+- [ ] It won&#x27;t display anything
+   &gt; That&#x27;s not correct It&#x27;s probably what the writer wanted the code to do, because `x` is 1 here! The print statement should probably be indented to make it part of the if statement. At the moment the if statement only contains the `x = 2` command.
+- [ ] It will set `x` to 2.
+   &gt; That&#x27;s not correct. `x = 2` is within the if statment, which won&#x27;t run in this case because `x = 1`.
+- [x] The value of `x` will stay at 1
+   &gt; That&#x27;s correct!
+- [ ] It will set `x` to a number less than 0.
+   &gt; That&#x27;s not correct. `if x &lt; 0` compares `x` to 0, but doesn&#x27;t change the value of `x`</div></section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="assignment_b.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">2.3.3. </span>Assignment B
+    </a>
+    <a class="float-right" href="../week3_intro.html" title="Next">
+        <span class="section-number">3. </span>Week 3 <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

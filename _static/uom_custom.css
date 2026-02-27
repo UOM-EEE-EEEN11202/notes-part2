@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto");
+
+
+@font-face { 
+    font-family: "OpenDyslexic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./fonts/opendyslexic-0.91.12/OpenDyslexic-Regular.woff2") format('woff2');
+}
+
+
+@font-face { 
+    font-family: "OpenDyslexic";
+    font-style: italic;
+    font-weight: normal;
+    src: url("./fonts/opendyslexic-0.91.12/OpenDyslexic-Italic.woff2") format('woff2');
+}
+
+
+@font-face { 
+    font-family: "OpenDyslexic";
+    font-style: bold;
+    font-weight: normal;
+    src: url("./fonts/opendyslexic-0.91.12/OpenDyslexic-Bold.woff2") format('woff2');
+}
+
+
+@font-face { 
+    font-family: "OpenDyslexic";
+    font-style: bold;
+    font-weight: italic;
+    src: url("./fonts/opendyslexic-0.91.12/OpenDyslexic-Bold-Italic.woff2") format('woff2');
+}
+
+
+@font-face { 
+  font-family: "OpenDyslexicMono";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/OpenDyslexicMono-Regular.otf") format('opentype');
+}
+
+
+:root {
+    --uom-purple: #660099;
+    --uom-font: "Roboto", sans-serif;
+    --uom-font-alt: OpenDyslexic;
+    --uom-font-alt-mono: OpenDyslexicMono;
+}
+
+html{
+  font-family: var(--uom-font);
+}
+
+html.font-alt {
+  font-family: var(--uom-font-alt);
+}
+
+body{
+  font-family: var(--uom-font);
+}
+
+body.font-alt {
+  font-family: var(--uom-font-alt);
+}
+body.font-alt .default-only{
+  display:none;
+}
+
+body.font-alt .alt-only{
+  display:inline-block;
+}
+
+.default-only{
+  display:inline-block;
+}
+
+.alt-only{
+  display:none;
+}
+
+
+.font-alt pre { line-height: 175%; }
+
+.font-alt pre{
+  font-family: var(--uom-font-alt-mono);
+}
+.font-alt .code{
+  font-family: var(--uom-font-alt-mono);
+}
+
+/* May need to add kbd and sample. Will see if comes up
+.font-alt pre, code, kbd, samp{
+  font-family: var(--uom-font-alt-mono);
+  line-height: 175%;
+}
+*/
+
+.theme-light pre{
+  background-color: #f8f8f8;
+}
+
+.theme-dark pre{
+  background-color: #2e1f5e;
+}
+
+
+p{
+  line-height: 1.5;
+}
+
+
+.bg-primary{background-color: var(--uom-purple) !important}
+
+
+.breadcrumb {
+    display: flex;
+    /* display: none; */
+}
+
+
+a {
+    text-decoration-color: var(--uom-purple);
+}
+
+
+a:hover {
+  color: var(--uom-purple) !important;
+}
+
+
+.navbar-brand{
+  color: #FFF !important;
+}
+
+
+.navbar-brand:hover{
+  color: #6c6c6c !important;
+}
+
+
+.admonition{
+  background-color: #f4ebf9;
+}
+
+body.theme-dark .admonition{
+  background-color: #4f2066;
+}
+
+.admonition-title {
+  color: #fff;
+  background-color: #a456c9;
+}

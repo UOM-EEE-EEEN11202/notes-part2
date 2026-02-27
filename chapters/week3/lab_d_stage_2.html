@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>3.3.2. Unit testing with Pytest &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="3.3. Lab D" href="lab_d.html" />
+            <link rel="next" title="3.3.3. Assignment D" href="assignment_d.html" />
+            <link rel="prev" title="3.3.1. Tools and techniques for catching coding issues" href="lab_d_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_d.html">3.3. Lab D</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week3_intro.html"><span class="section-number">3. </span>Week 3</a></li>
+            <li class="breadcrumb-item"><a href="lab_d.html"><span class="section-number">3.3. </span>Lab D</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">3.3.2. </span>Unit testing with Pytest</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week3/lab_d_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week3/lab_d_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="unit-testing-with-pytest">
+<span id="lab-d-stage-2"></span><h1><span class="section-number">3.3.2. </span>Unit testing with Pytest<a class="headerlink" href="#unit-testing-with-pytest" title="Link to this heading">¶</a></h1>
+<p>The tools that we covered in <a class="reference internal" href="lab_d_stage_1.html#lab-d-stage-1"><span class="std std-ref">the first part of the lab</span></a> are generally for debugging: getting the code fundamentally working in the first place, and when it’s not working tracking down what’s going wrong. They are less for <em>formal testing</em>. At some point, you need to be able to convince yourself, and then others, that the code is working as intended. You probably need some documented evidence of this, rather than just asking people to take your word for it.</p>
+<p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/automated_testing.html">Unit testing</a> is a standard approach for making a <em>test suite</em>. That is, a series of tests that the code can be run through and which it will either pass or fail. This is why we are generally putting all of our code into functions - it makes it easier to test each function in isolation.</p>
+<p>There are a number of unit testing frameworks available for Python. We’re going to use one called <a class="reference external" href="https://docs.pytest.org/">Pytest</a>, which is very widely used.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Our Pytest setup, using default settings, makes a number of assumptions about how you structured your project in <a class="reference internal" href="lab_d_stage_1.html#lab-d-stage-1"><span class="std std-ref">the first part of the lab</span></a>, and what some of your files and functions are called. If you find that Pytest is not working as expected, go back through the lab to make sure that you haven’t missed any steps. Ask a demonstrator for help if Pytest isn’t working for you.</p>
+</div>
+<section id="starter-code">
+<h2><span class="section-number">3.3.2.1. </span>Starter code<a class="headerlink" href="#starter-code" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Make a new Python file in your Lab D <code class="docutils literal notranslate"><span class="pre">src</span></code> folder called <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code> and copy the code below into it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_overall_mark_a</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">):</span>
+    <span class="n">final_mark</span> <span class="o">=</span> <span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">EXAM_WEIGHTING</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span>
+    <span class="n">student</span><span class="p">[</span><span class="s2">&quot;coursework_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">COURSEWORK_WEIGHTING</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">final_mark</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_overall_mark_b</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">):</span>
+    <span class="n">final_mark</span> <span class="o">=</span> <span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">EXAM_WEIGHTING</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="n">student</span><span class="p">[</span><span class="s2">&quot;coursework_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">COURSEWORK_WEIGHTING</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">final_mark</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_whether_passed</span><span class="p">(</span><span class="n">marks</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">marks</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">pass_status</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
+        <span class="k">elif</span> <span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">pass_status</span> <span class="o">=</span> <span class="s2">&quot;passed&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Something must have gone wrong!&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="n">pass_status</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="si">}</span><span class="s2"> marks.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Student information</span>
+    <span class="c1"># Probably read from a file or database in practice</span>
+    <span class="n">student1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">}</span>
+    <span class="n">student2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">}</span>
+
+    <span class="c1"># Constants for weightings</span>
+    <span class="n">EXAM_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.8</span>
+    <span class="n">COURSEWORK_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+    <span class="c1"># Calculate final marks</span>
+    <span class="n">final_mark1</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span>
+        <span class="n">student1</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span>
+    <span class="p">)</span>
+    <span class="n">final_mark2</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span>
+        <span class="n">student2</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final mark for student 1: </span><span class="si">{</span><span class="n">final_mark1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final mark for student 2: </span><span class="si">{</span><span class="n">final_mark2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check whether passed or failed</span>
+    <span class="n">overall_marks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;student1&quot;</span><span class="p">:</span> <span class="n">final_mark1</span><span class="p">,</span> <span class="s2">&quot;student2&quot;</span><span class="p">:</span> <span class="n">final_mark2</span><span class="p">}</span>
+    <span class="n">check_whether_passed</span><span class="p">(</span><span class="n">overall_marks</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This has two different functions, <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_b</span></code>, for calculating a student’s overall mark for the course based on their exam and their coursework marks. One of these functions is correct, and one deliberately has a bug in it. Hopefully you can tell which is which.</p>
+<p>It also has a function, <code class="code highlight python docutils literal highlight-python"><span class="n">check_whether_passed</span></code> which we’ll use later.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_a</span></code> is correct.</p>
+</div>
+<p>We’ll use <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_b</span></code> as examples to show how unit testing works.</p>
+</li>
+</ol>
+</section>
+<section id="setting-up-pytest">
+<h2><span class="section-number">3.3.2.2. </span>Setting up Pytest<a class="headerlink" href="#setting-up-pytest" title="Link to this heading">¶</a></h2>
+<p>Pytest is not part of the standard library, and so it’s not installed by default. We’ll need to add it to our virtual environment.</p>
+<ol class="arabic">
+<li><p>At the terminal in your Lab D folder run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1">uv<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>pytest<span class="w"> </span>pytest-cov</span>
+</pre></div></div><p>In <a class="reference internal" href="lab_c_stage_1.html#lab-c-stage-1"><span class="std std-ref">Lab C</span></a> we just used <code class="code highlight console docutils literal highlight-console"><span class="go">uv add</span></code> to add external packages to the virtual environment. We’ve now added <code class="code highlight console docutils literal highlight-console"><span class="go">--dev</span></code> to this command. This switch indicates that the packages being added are only needed for development of our code, and not for running the final program. A user who only runs the final code won’t need to install them.</p>
+<p>Open your <code class="code highlight console docutils literal highlight-console"><span class="go">pyproject.toml</span></code> file to see how this information is stored.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lab-d&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Add your description here&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;README.md&quot;</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.14&quot;</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+
+<span class="k">[dependency-groups]</span>
+<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;pytest&gt;=9.0.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pytest-cov&gt;=7.0.0&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Next, we want to add a Python file containing our tests to the <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder.</p>
+<p>Create a new file in there called <code class="code highlight python docutils literal highlight-python"><span class="n">test_lab_d_code</span><span class="o">.</span><span class="n">py</span></code>. It is important that the file name starts with <code class="code highlight python docutils literal highlight-python"><span class="n">test_</span></code>. By default, Pytest will detect and run tests that are stored in a Python file starting with <code class="code highlight python docutils literal highlight-python"><span class="n">test_</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Note</p>
+<p>In our <code class="code highlight console docutils literal highlight-console"><span class="go">tests</span></code> folder there is an empty file called <code class="code highlight console docutils literal highlight-console"><span class="go">__init__.py</span></code>. This needs to be present for the setup to work, even though the file itself is empty.</p>
+</div>
+</li>
+<li><p>Enter the following into your <code class="code highlight python docutils literal highlight-python"><span class="n">test_lab_d_code</span><span class="o">.</span><span class="n">py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.lab_part2</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function_a</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>To understand this:</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span></code> sets up Pytest.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="kn">from</span><span class="w"> </span><span class="nn">src.lab_part2</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span></code> tells this file where our code to test is. It’s in the <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder, in a file called <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code>. (Python uses a dot <code class="code highlight console docutils literal highlight-console"><span class="go">.</span></code> in the address rather than the slash <code class="code highlight console docutils literal highlight-console"><span class="go">/</span></code> the terminal uses.) <code class="code highlight python docutils literal highlight-python"><span class="o">*</span></code> tells Python to import everything from that file. We can use only parts of the file if we’d like.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">def</span><span class="w"> </span><span class="nf">test_function_a</span><span class="p">():</span></code> is the code for our test. Here we have only test, and indeed one test that will alway fail. We’ll make it actually do something useful soon. Pytest will automatically find any function that starts with <code class="code highlight python docutils literal highlight-python"><span class="n">test_</span></code> and run it as a test.</p></li>
+</ul>
+<p>The <em>building block</em> of unit testing is the <code class="code highlight python docutils literal highlight-python"><span class="k">assert</span></code> statement. It is a bit like an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement: if whatever comes after the statement is true, the test passes. If whatever comes after the statement is false, the test fails.</p>
+<p>So, if you have</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>you as the programmer are saying: <em>at this point in the code I expect</em> <code class="code highlight python docutils literal highlight-python"><span class="n">x</span></code> <em>to be 3</em>.</p>
+<p>The challenge in testing code is that you, the programmer, need to think of a number of <em>test cases</em>. These are different situations where you know what the results should be. You can then add these to your test function to check they’re actually what to get. It can be quite a lot of work to come up with test cases that cover everything.</p>
+</li>
+<li><p>To run Pytest</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-0">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>VSCode has a built-in interface for running Pytest tests. Click on the test tube icon in the left-hand menu bar to open this.</p>
+<p>VSCode will automatically search for tests in your project and display these here. It can take a minute for tests to show up. If they don’t, check that you have named your test file and test functions correctly, and ask a demonstrator in the lab for help if needed.</p>
+<p>You can press the <code class="code highlight console docutils literal highlight-console"><span class="go">Run Tests</span></code> button to run the tests.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/vscode_run_pytest.png"><img alt="VSCode Pytest interface" src="../../_images/vscode_run_pytest.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Note</p>
+<p>Note that our <code class="code highlight console docutils literal highlight-console"><span class="go">devcontainer.json</span></code> file, which we made for your and was automatically downloaded from GitHub, configures VSCode to use Pytest for you.</p>
+<p>If you are not using our devcontainer for some reason, for example you’re using your own local Python installation, you may need to configure VSCode to use Pytest manually. See <a class="reference external" href="https://code.visualstudio.com/docs/python/testing#_pytest">here</a> for more information.</p>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-1">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<p>Enter the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>pytest</span>
+</pre></div></div></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="making-tests">
+<h2><span class="section-number">3.3.2.3. </span>Making tests<a class="headerlink" href="#making-tests" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>At the moment we only have one test, and it contains <code class="code highlight python docutils literal highlight-python"><span class="k">assert</span> <span class="kc">False</span></code>. As a result, the test will always fail. Try changing this to <code class="code highlight python docutils literal highlight-python"><span class="k">assert</span> <span class="kc">True</span></code> and re-running the tests to see that it now passes, and the different messages that you get.</p></li>
+<li><p>Replace the code in <code class="code highlight python docutils literal highlight-python"><span class="n">test_lab_d_code</span><span class="o">.</span><span class="n">py</span></code> with the code below to add some actual tests for our two functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.lab_part2</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Constants for weightings</span>
+<span class="n">EXAM_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">COURSEWORK_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function_a</span><span class="p">():</span>
+    <span class="n">student1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">}</span>
+    <span class="n">correct_mark1</span> <span class="o">=</span> <span class="mf">58.8</span>
+    <span class="n">mark1</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span><span class="n">student1</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark1</span> <span class="o">==</span> <span class="n">correct_mark1</span>
+
+    <span class="n">student2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">}</span>
+    <span class="n">correct_mark2</span> <span class="o">=</span> <span class="mf">26.0</span>
+    <span class="n">mark2</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span><span class="n">student2</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark2</span> <span class="o">==</span> <span class="n">correct_mark2</span>
+
+    <span class="n">student3</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+    <span class="n">correct_mark3</span> <span class="o">=</span> <span class="mf">82.0</span>
+    <span class="n">mark3</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span><span class="n">student3</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark3</span> <span class="o">==</span> <span class="n">correct_mark3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function_b</span><span class="p">():</span>
+    <span class="n">student1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">}</span>
+    <span class="n">correct_mark1</span> <span class="o">=</span> <span class="mf">58.8</span>
+    <span class="n">mark1</span> <span class="o">=</span> <span class="n">calculate_overall_mark_b</span><span class="p">(</span><span class="n">student1</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark1</span> <span class="o">==</span> <span class="n">correct_mark1</span>
+
+    <span class="n">student2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">}</span>
+    <span class="n">correct_mark2</span> <span class="o">=</span> <span class="mf">26.0</span>
+    <span class="n">mark2</span> <span class="o">=</span> <span class="n">calculate_overall_mark_b</span><span class="p">(</span><span class="n">student2</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark2</span> <span class="o">==</span> <span class="n">correct_mark2</span>
+
+    <span class="n">student3</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+    <span class="n">correct_mark3</span> <span class="o">=</span> <span class="mf">82.0</span>
+    <span class="n">mark3</span> <span class="o">=</span> <span class="n">calculate_overall_mark_b</span><span class="p">(</span><span class="n">student3</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">mark3</span> <span class="o">==</span> <span class="n">correct_mark3</span>
+</pre></div>
+</div>
+<p>Here we’ve made two functions, <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_b</span></code>, to test <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_b</span></code> respectively. In each case we pass the functions some inputs where we have already worked out what the function should do in that case, and then check whether the output is correct. If any of the <code class="code highlight python docutils literal highlight-python"><span class="k">assert</span></code> statements evaluate to false, the test should fail, flagging the’re an issue to fix.</p>
+<p>Make sure you save your changes before proceeding. Pytest will run on the saved version of the file, not what’s currently displayed if it hasn’t been saved.</p>
+<p>Run the tests again. If you’re using the VSCode interface rather than the comamnd line, the output should look like the below. This shows that <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_a</span></code> passed, but <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_b</span></code> failed.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../_images/vscode_pytest2.png"><img alt="VSCode Pytest interface" src="../../_images/vscode_pytest2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Here we’ve passed three different test cases to each function. We could have passed more, or less. A key part of testing is deciding which inputs you need to pass to a function in order to be confident that it’s working correctly.</p>
+</li>
+<li><p>Fix the bug in <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_b</span></code> so that both tests pass.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In function <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_overall_mark_b</span></code> change</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">final_mark</span> <span class="o">=</span> <span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">EXAM_WEIGHTING</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+    <span class="n">student</span><span class="p">[</span><span class="s2">&quot;coursework_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">COURSEWORK_WEIGHTING</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">final_mark</span> <span class="o">=</span> <span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">EXAM_WEIGHTING</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span>
+    <span class="n">student</span><span class="p">[</span><span class="s2">&quot;coursework_mark&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">COURSEWORK_WEIGHTING</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Our test functions <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">test_function_b</span></code> are very repetitive. They are doing the same thing three times - passing in different inputs and checking the output. Re-write the functions to put the into a for loop.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.lab_part2</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Constants for weightings</span>
+<span class="n">EXAM_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">COURSEWORK_WEIGHTING</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">patterns</span><span class="p">():</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;exam_mark&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;coursework_mark&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">correct_marks</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.8</span><span class="p">,</span> <span class="mf">26.0</span><span class="p">,</span> <span class="mf">82.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">students</span><span class="p">,</span> <span class="n">correct_marks</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function_a</span><span class="p">():</span>
+    <span class="n">students</span><span class="p">,</span> <span class="n">correct_marks</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">student</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">students</span><span class="p">):</span>
+        <span class="n">mark</span> <span class="o">=</span> <span class="n">calculate_overall_mark_a</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">mark</span> <span class="o">==</span> <span class="n">correct_marks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function_b</span><span class="p">():</span>
+    <span class="n">students</span><span class="p">,</span> <span class="n">correct_marks</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">student</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">students</span><span class="p">):</span>
+        <span class="n">mark</span> <span class="o">=</span> <span class="n">calculate_overall_mark_b</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">EXAM_WEIGHTING</span><span class="p">,</span> <span class="n">COURSEWORK_WEIGHTING</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">mark</span> <span class="o">==</span> <span class="n">correct_marks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Here we’ve put our test patterns in a function called <code class="code highlight python docutils literal highlight-python"><span class="n">patterns</span></code>, which both tests call. In most cases, where you have lots of tests, it’s probably better to put the test inputs and the expected outputs in a seperate file which you read in. This helps you develop your test cases separately from your code, and becomes more important as you have more and more test patterns.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="test-coverage">
+<h2><span class="section-number">3.3.2.4. </span>Test coverage<a class="headerlink" href="#test-coverage" title="Link to this heading">¶</a></h2>
+<p>When setting up Pytest we also installed <code class="code highlight console docutils literal highlight-console"><span class="go">pytest-cov</span></code>. cov here is short for <em>coverage</em>. This tool lets us measure how much of our code is being tested by our tests.</p>
+<ol class="arabic">
+<li><p>To run this:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key4" for="sd-tab-item-2">
+<span class="fa fa-tv"></span> GUI</label><div class="sd-tab-content docutils">
+<p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Run Tests with Coverage</span></code> button.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../../_images/vscode_coverage.png"><img alt="VSCode Pytest coverage interface" src="../../_images/vscode_coverage.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="gui_cli" data-sync-id="key5" for="sd-tab-item-3">
+<span class="fa fa-terminal"></span> CLI</label><div class="sd-tab-content docutils">
+<p>Enter the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>--cov</span>
+</pre></div></div></div>
+</div>
+<p>If you used the VSCode GUI, you should see a coverage report like the below. Our tests are currently only testing around 29% of the code in this file. Your test coverage number might vary a bit depending on coding style and the formatting of your code.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../_images/vscode_coverage2.png"><img alt="VSCode Pytest coverage report" src="../../_images/vscode_coverage2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>VSCode has also highlighted which lines of code are not being tested.</p>
+<p>At the moment we’re not testing the <code class="code highlight python docutils literal highlight-python"><span class="n">check_whether_passed</span><span class="p">()</span></code> function. This is a copy of the function that we had in <a class="reference internal" href="lab_c_stage_2.html#lab-c-stage-2"><span class="std std-ref">the second part of Lab C</span></a> which has a bug in it.</p>
+<p>In your <code class="code highlight console docutils literal highlight-console"><span class="go">test_lab_d_code.py</span></code> file, add a new test function to test <code class="code highlight python docutils literal highlight-python"><span class="n">check_whether_passed</span><span class="p">()</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_check_whether_passed</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+        <span class="c1"># Simulated mark</span>
+        <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;student&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">}</span>
+
+        <span class="c1"># Expected pass status</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">expected_status</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">expected_status</span> <span class="o">=</span> <span class="s2">&quot;passed&quot;</span>
+
+        <span class="c1"># Run function</span>
+        <span class="n">pass_status</span> <span class="o">=</span> <span class="n">check_whether_passed</span><span class="p">(</span><span class="n">marks</span><span class="p">)</span>
+
+        <span class="c1"># Run check</span>
+        <span class="k">assert</span> <span class="n">pass_status</span> <span class="o">==</span> <span class="n">expected_status</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="a-final-example">
+<h2><span class="section-number">3.3.2.5. </span>A final example<a class="headerlink" href="#a-final-example" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Add the function below to your <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code> file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_sine_wave</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a sine wave signal</span>
+<span class="sd">    TO DO: replace range with a numpy array</span>
+
+<span class="sd">    Returns: t: time samples</span>
+<span class="sd">    v_out: voltage samples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sample_start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sample_stop</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Volts</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Hz</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample_start</span><span class="p">,</span> <span class="n">sample_stop</span><span class="p">)</span>  <span class="c1"># interpret as representing 1 s, 2 s, 3 s, ...</span>
+    <span class="n">v_out</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">v_out</span>
+</pre></div>
+</div>
+<p>This is code that we first used in <a class="reference internal" href="../week2/lab_b_stage_2.html#lab-b-stage-2"><span class="std std-ref">Lab B</span></a>, and we turned it into a function in the first part of <a class="reference internal" href="lab_c_stage_1.html#lab-c-stage-1"><span class="std std-ref">Lab C</span></a>. It makes a sine wave signal.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>We noted in <a class="reference internal" href="../week2/lab_b_stage_2.html#lab-b-stage-2"><span class="std std-ref">Lab B</span></a> that this isn’t a particularly good way of making a sine wave, using a <code class="code highlight python docutils literal highlight-python"><span class="nb">range</span><span class="p">()</span></code> function. It will be better, and more common, to use a NumPy array. We’ll finally learn about these in <a class="reference internal" href="../week4/lab_e.html#lab-e"><span class="std std-ref">Lab E</span></a>. Nevertheless, as we have this function, we’ll make a unit test for it.</p>
+</div>
+</li>
+<li><p>Write a test function in your <code class="code highlight console docutils literal highlight-console"><span class="go">test_lab_d_code.py</span></code> file to test <code class="code highlight python docutils literal highlight-python"><span class="n">make_sine_wave</span><span class="p">()</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>There are probably some choices to make in how comprehensively to test this function. We don’t want to just use the <code class="code highlight python docutils literal highlight-python"><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">()</span></code> function in our test, as that’s what the function uses so it isn’t really testing anything. Instead, in the below we pass three known values of the the result. We selected three arbitrarily, more values would provide more comprehensive testing, at the cost of time to write more test cases.</p>
+<p>Note that we also use <code class="code highlight python docutils literal highlight-python"><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">()</span></code> to compare the numbers. This allows for some <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/floating_point_numbers.html">floating point errors</a>. We don’t need the output from the function and the output we expect to match exactly, as long as they’re close enough we’ll let the test pass.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_make_sine_wave</span><span class="p">():</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">v_out</span> <span class="o">=</span> <span class="n">make_sine_wave</span><span class="p">()</span>
+
+    <span class="c1"># Check first few values</span>
+    <span class="n">expected_v_out</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.587785</span><span class="p">,</span> <span class="mf">0.9510565</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">expected_v_out</span><span class="p">)):</span>
+        <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">v_out</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">expected_v_out</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Optional challenge: Can you get the test coverage of your <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code> file to 100% (or to close to 100%)?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>We don’t have a full solution to share for this, it’s a challenge for you to try.</p>
+<p>The best approach probably isn’t to add lots of more test cases, but to think about how the code is structured. We’ve already added test cases for all of the functions, except <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code>. However, <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> is just calling the other functions that we’ve already tested, so it’s hard to make test functions for <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> itself. You could try capturing the printed output and checking that it matches what you expect.</p>
+<p>Instead you can re-factor your code into a <em>library</em> of functions that do the work, putting these in one file. Then, in a separate file, have a script (the current <code class="code highlight python docutils literal highlight-python"><span class="n">main</span><span class="p">()</span></code> function) that calls the library functions.</p>
+<p>This lets you test the library functions in isolation and get 100% (or close to this) coverage of the library functions in <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code>. The testing task for <code class="code highlight console docutils literal highlight-console"><span class="go">lab_part2.py</span></code> then switches from, <em>are my functions correct</em> to <em>am I using my functions to correctly do what I want to</em>. This still needs testing, but it’s a higher level test.</p>
+<p>We’ll cover splitting code across multiple files in <a class="reference internal" href="../week5/lab_h_stage_2.html#lab-h-stage-2"><span class="std std-ref">Lab H</span></a>.</p>
+</div>
+</li>
+<li><p>As with many of the things we’ve looked at so far in the course, there’s much more that you can do with testing, and many ways to customize the tests and make them more powerful. At the moment we’re just building familiarity. In your wider reading, explore some of the other things you can do with Pytest.</p>
+<p>The Lab D assignment focuses on asking you to write a test quite. A later assignment will do the same. In between, we won’t explicitly ask you to write a test suite in every lab, but in every lab you should be thinking about how you’re testing your code.</p>
+</li>
+<li><p>Check your code in to Git before proceeding.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_d_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">3.3.1. </span>Tools and techniques for catching coding issues
+    </a>
+    <a class="float-right" href="assignment_d.html" title="Next">
+        <span class="section-number">3.3.3. </span>Assignment D <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">3.3.2. Unit testing with Pytest</a><ul>
+<li><a class="reference internal" href="#starter-code">3.3.2.1. Starter code</a></li>
+<li><a class="reference internal" href="#setting-up-pytest">3.3.2.2. Setting up Pytest</a></li>
+<li><a class="reference internal" href="#making-tests">3.3.2.3. Making tests</a></li>
+<li><a class="reference internal" href="#test-coverage">3.3.2.4. Test coverage</a></li>
+<li><a class="reference internal" href="#a-final-example">3.3.2.5. A final example</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

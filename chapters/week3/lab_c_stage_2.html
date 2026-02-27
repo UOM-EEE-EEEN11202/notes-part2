@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>3.2.2. Common Python commands &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="3.2. Lab C" href="lab_c.html" />
+            <link rel="next" title="3.2.3. Assignment C" href="assignment_c.html" />
+            <link rel="prev" title="3.2.1. Python projects" href="lab_c_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">3.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_c.html">3.2. Lab C</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week3_intro.html"><span class="section-number">3. </span>Week 3</a></li>
+            <li class="breadcrumb-item"><a href="lab_c.html"><span class="section-number">3.2. </span>Lab C</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">3.2.2. </span>Common Python commands</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week3/lab_c_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week3/lab_c_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="common-python-commands">
+<span id="lab-c-stage-2"></span><h1><span class="section-number">3.2.2. </span>Common Python commands<a class="headerlink" href="#common-python-commands" title="Link to this heading">¶</a></h1>
+<p>We’ve now learnt how to make and use a virtual environment, and have written some simple Python programs.</p>
+<p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals.html">Part 1 of the notes</a> introduced a wide range of fundamental programming concepts, often giving examples using Python code. We’ve already seen some of these concepts, such as functions. In this part of the Lab we’ll take a look at some of the others.</p>
+<section id="variables">
+<h2><span class="section-number">3.2.2.1. </span>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Make a new Python file with any suitable name. Make sure you save it in your Lab C folder.</p></li>
+<li><p>Enter the commands below into this file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Define variables of different types</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pi_ish</span> <span class="o">=</span> <span class="mf">3.1415</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;alex&quot;</span>
+<span class="n">check</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">blank</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>These were the first examples of <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html">variables</a> we introduced in Part 1 of the notes.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Note</p>
+<p>Note that we didn’t ask you to enter</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">pi_ish</span> <span class="o">=</span> <span class="mf">3.1415</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;alex&quot;</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">blank</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Placing the code inside a <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> isn’t mandatory. Indeed for data analysis tasks and simple automation scripts it’s fairly common not to use a <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> block. However, not having a <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> block makes unit testing, which we’ll learn about in <a class="reference internal" href="lab_d.html#lab-d"><span class="std std-ref">Lab D</span></a>, harder. It also makes it more difficult to reuse code in other programs via <code class="code highlight python docutils literal highlight-python"><span class="kn">import</span></code> statements. For these reasons, it’s generally good practice to include a <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> and place your code under this. This is what we will do for most of the course.</p>
+<p>However, we’ve not learnt about the debugger yet. We’ll learn about that in <a class="reference internal" href="lab_d.html#lab-d"><span class="std std-ref">Lab D</span></a> too. Without the debugger, it’s easier to place things outside of a <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> block for now. We can then use the Jupyter variable explorer to see the values of variables, as we did in <a class="reference internal" href="../week2/lab_b_stage_2.html#lab-b-stage-2"><span class="std std-ref">Lab B</span></a>.</p>
+</div>
+</li>
+<li><p>A hash <code class="code highlight python docutils literal highlight-python"><span class="c1">#</span></code> in Python indicates the start of a comment. <code class="code highlight python docutils literal highlight-python"><span class="c1"># %%</span></code> is a special type of comment that indicates the start of a <em>code cell</em> in some Python editors, such as Visual Studio Code. This is exactly the same as the cells we encountered in <a class="reference internal" href="../week2/lab_b_stage_2.html#lab-b-stage-2"><span class="std std-ref">Lab B</span></a>. We can run each cell independently. This is useful for testing small sections of code without having to run the entire program.</p>
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Run Cell</span></code> which appears above the <code class="code highlight python docutils literal highlight-python"><span class="c1"># %%</span></code>.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../../_images/vscode_run_cell.png"><img alt="Running a Python cell in VSCode" src="../../_images/vscode_run_cell.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This will start an interactive session, and once the code has finished running it will display the values of the variables in the Jupyter variable explorer.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../../_images/vscode_variable_explorer.png"><img alt="Variables in VSCode" src="../../_images/vscode_variable_explorer.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Add the code below to your file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Simple variable combinations</span>
+<span class="n">five_ish</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">pi_ish</span>
+<span class="n">full_name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; casson&quot;</span>
+
+<span class="n">logical_and</span> <span class="o">=</span> <span class="n">check</span> <span class="ow">and</span> <span class="kc">False</span>
+<span class="n">logical_and2</span> <span class="o">=</span> <span class="n">check</span> <span class="ow">and</span> <span class="kc">True</span>
+<span class="n">logical_or</span> <span class="o">=</span> <span class="n">check</span> <span class="ow">or</span> <span class="kc">False</span>
+<span class="n">logical_or2</span> <span class="o">=</span> <span class="n">check</span> <span class="ow">or</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Run the cell and view the results in the variable explorer, which should look like the below.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../_images/python_simple_operators.png"><img alt="Operations in Python" src="../../_images/python_simple_operators.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The operator <code class="code highlight python docutils literal highlight-python"><span class="o">+</span></code> does different things depending on the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html">data type</a> of the data given to it.</p>
+<ul class="simple">
+<li><p>When given two numbers, <code class="code highlight python docutils literal highlight-python"><span class="n">num</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">pi_ish</span></code>, it adds them together. If you look closely at the variable explorer, you’ll see that <code class="code highlight python docutils literal highlight-python"><span class="n">five_ish</span></code> is a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/floating_point_numbers.html">float</a> data type, because one of the inputs was a float. <code class="code highlight python docutils literal highlight-python"><span class="n">num</span></code> is an <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/integers.html">integer</a> data type, but an int can be automatically converted to a float when needed. (Remember that an int can’t store numbers with decimal places.)</p></li>
+<li><p>When given two strings, <code class="code highlight python docutils literal highlight-python"><span class="n">name</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot; casson&quot;</span></code>, it concatenates (joins) them together. You get one longer string, <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;alex casson&quot;</span></code> here.</p></li>
+</ul>
+<p>The operators <code class="code highlight python docutils literal highlight-python"><span class="ow">and</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="ow">or</span></code> are logical operators that operate on <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html#boolean">boolean</a> data types. They work in exactly the same way as the logic gates that you’ve learnt about in your digital electronic course.</p>
+</li>
+<li><p>Add code to your Python file to work out the output <code class="code highlight python docutils literal highlight-python"><span class="n">q</span></code> of the digital circuit below when <code class="code highlight python docutils literal highlight-python"><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">d</span> <span class="o">=</span> <span class="mi">0</span></code>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/digital_logic_circuit.png"><img alt="Digital logic circuit" src="../../_images/digital_logic_circuit.png" width="500" />
+</a>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Digital logic circuit</span>
+<span class="n">a</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">d</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">c</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">e</span> <span class="ow">or</span> <span class="n">f</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">f</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">g</span> <span class="ow">and</span> <span class="n">h</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="objects">
+<h2><span class="section-number">3.2.2.2. </span>Objects<a class="headerlink" href="#objects" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In your Python file, make a list by adding the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Lists</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>A list is a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_structures.html">data structure</a> that can hold multiple values. The values in a list can be of any data type, and can even be other lists.</p>
+<p>A list storing items is also an <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/objects.html">object</a>. There are a number of built-in <em>methods</em> that can be apply to the list. This may tell us information about it, or help us to add or remove data, or so on.</p>
+<p>We’ll learn about making our own objects in <a class="reference internal" href="../week5/lab_g.html#lab-g"><span class="std std-ref">Lab G</span></a>. For now, we just want to remember that pretty much everything we enter into Python is actually an object and has built-in methods that we can use with it.</p>
+</li>
+<li><p>In VSCode, enter the below, but don’t try to run the code yet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Lists</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>You should see that the auto-complete appears and displays a list of the available methods for this object called <code class="code highlight python docutils literal highlight-python"><span class="n">my_list</span></code>. For example there are methods to add items to the list, or to change the order of items in the list.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../../_images/vscode_autocomplete.png"><img alt="Autocomplete in VSCode showing the methods available for an item" src="../../_images/vscode_autocomplete.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Advanced notes</p>
+<p>You’ll see that some of the available methods start/end with either a single underscore <code class="code highlight python docutils literal highlight-python"><span class="n">_</span></code> or double underscore <code class="code highlight python docutils literal highlight-python"><span class="n">__</span></code>. These have particular meanings in Python.</p>
+<p>Briefly, a single underscore <code class="code highlight python docutils literal highlight-python"><span class="n">_</span></code> indicates that the method isn’t for you the user, it’s for use by the object itself. Some programming languages allow <em>private</em> methods which are hidden from users. Python doesn’t, it uses an underscore <code class="code highlight python docutils literal highlight-python"><span class="n">_</span></code> in the method name to indicate methods for the object itself.</p>
+<p>A double underscore <code class="code highlight python docutils literal highlight-python"><span class="n">__</span></code> is known as a <em>dunder</em>. All objects will have a range of built in dunder methods which provide default functionality. For example <code class="code highlight python docutils literal highlight-python"><span class="fm">__init__</span></code> controls how an object is initialized when it is created. These are needed when defining your own objects, which we’ll learn about in <a class="reference internal" href="../week5/lab_g.html#lab-g"><span class="std std-ref">Lab G</span></a>.</p>
+</div>
+</li>
+<li><p>Now enter the code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Lists</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Run it, and see the results in the variable explorer. Check the contents of <code class="code highlight python docutils literal highlight-python"><span class="n">my_list</span></code> match what you expect.</p>
+</li>
+<li><p>There’s much more that you can do, and likely will need to do, with objects. The aim here is just a brief introduction. Remember that pretty much everything in Python is an object, and has methods that you can use with it.</p>
+<p>From earlier in the lab, your code file should contain a variable called <code class="code highlight python docutils literal highlight-python"><span class="n">five_ish</span></code>. This is a variable, which is actually stored as an object and so has methods associated with it. Enter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">five_ish</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>to let the autocomplete show the methods that are available for manipulating this data. Experiment with a few before moving on.</p>
+</li>
+</ol>
+</section>
+<section id="conditionals">
+<h2><span class="section-number">3.2.2.3. </span>Conditionals<a class="headerlink" href="#conditionals" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html">Conditionals</a> let us change the flow of a program based on the values of variables and objects.</p>
+<ol class="arabic">
+<li><p>Add the code below to your Python file and run it. What value of <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> do you get, and is it what you would expect?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Conditionals</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="n">a</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Something must have gone wrong!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are a few points to note with this example.</p>
+<ol class="arabic simple">
+<li><p>There are four different branches here, comparing the values of <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code>. Only one branch will execute, the first one which is matched.</p></li>
+<li><p>To check whether <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code> are equal, we need to use two equals signs <code class="code highlight python docutils literal highlight-python"><span class="o">==</span></code>. A single equals sign <code class="code highlight python docutils literal highlight-python"><span class="o">=</span></code> is used to assign a value to a variable, not to compare two values. Try changing the line to <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">:</span></code> and see what happens when you run the code.</p></li>
+<li><p>We’ll cover error handling in <a class="reference internal" href="../week5/lab_h.html#lab-h"><span class="std std-ref">Lab H</span></a>. In general, we would recommend using <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="k">elif</span></code> to cover every case you might be interested in, and then <code class="code highlight python docutils literal highlight-python"><span class="k">else</span></code> to catch any unexpected cases and raise an error.</p></li>
+<li><p>Note that in the solution to the digital logic circuit above, we already used variables names <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code>. There they were used to store <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code> rather than numbers. Remember that Python is <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html">dynamically typed</a>, we can change what’s stored in our variables at any time. However, this can lead to confusing code - if you later write a block of code that is still expecting <code class="code highlight python docutils literal highlight-python"><span class="n">a</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">b</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">c</span></code> to store logic values, and they now store numbers, you might get strange behavior. Either give your variables unique names, or ensure variables with the same name are in different <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html">scopes</a> so they don’t interfer with one another.</p></li>
+</ol>
+</li>
+<li><p>The example above compares numbers, but you can compare lots of different things. Add the code below to your script and run it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;alex&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>By searching the Internet or otherwise, add an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statement to your code that displays <code class="code highlight python docutils literal highlight-python"><span class="n">Also</span> <span class="n">true</span></code> if <code class="code highlight python docutils literal highlight-python"><span class="n">name</span></code> contains an <code class="code highlight console docutils literal highlight-console"><span class="go">x</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;x&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Also true&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>You can also use logical statements such as <code class="code highlight python docutils literal highlight-python"><span class="ow">and</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="ow">or</span></code>, and <code class="code highlight python docutils literal highlight-python"><span class="ow">not</span></code> to build up more complicated comparison cases. Add the code below to your script and run it. (This assumes that the result from your digital logic example above is stored in a variable called <code class="code highlight python docutils literal highlight-python"><span class="n">q</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;alex&quot;</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Both true&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;alex&quot;</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One true&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="ow">not</span> <span class="n">q</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;q is 0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the <code class="code highlight python docutils literal highlight-python"><span class="k">elif</span></code> statements are only checked if the previous <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="k">elif</span></code> statement was not true. Only one of these outputs will ever be displayed.</p>
+</li>
+<li><p>When you have lots of comparisons to do, using lots of <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="k">elif</span></code> statements can be quite cumbersome. Python provides a <code class="code highlight python docutils literal highlight-python"><span class="k">match</span></code> syntax to allow some cases to be written more simply. For example, add the code below to your code and run it. Does it do what you expect?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
+
+<span class="k">match</span> <span class="n">day</span><span class="p">:</span>
+    <span class="k">case</span> <span class="s2">&quot;Saturday&quot;</span> <span class="o">|</span> <span class="s2">&quot;Sunday&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a weekend.&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s2">&quot;Monday&quot;</span> <span class="o">|</span> <span class="s2">&quot;Tuesday&quot;</span> <span class="o">|</span> <span class="s2">&quot;Wednesday&quot;</span> <span class="o">|</span> <span class="s2">&quot;Thursday&quot;</span> <span class="o">|</span> <span class="s2">&quot;Friday&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a weekday.&quot;</span><span class="p">)</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>  <span class="c1"># default case, runs if no others match</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Something must have gone wrong!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Exactly what this code displays will vary depending on which day of the week the code is run. <code class="code highlight python docutils literal highlight-python"><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span></code> gets the current day of the week and stores it in <code class="code highlight python docutils literal highlight-python"><span class="n">day</span></code>. This is then used with the <code class="code highlight python docutils literal highlight-python"><span class="k">match</span></code> statement.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="loops">
+<span id="countdown"></span><h2><span class="section-number">3.2.2.4. </span>Loops<a class="headerlink" href="#loops" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/conditionals_and_loops.html#for-loops">Loops</a> let us perform the same operation multiple times. This is very common in programming, with a common aim being to automate repetitive tasks.</p>
+<ol class="arabic">
+<li><p>Add the code below to your Python file and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% For loops</span>
+<span class="n">countdown</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a fairly simple loop. <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span></code> contains the numbers from 10 to 0. The <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop iterates through each of these in turn, gets the current number and puts it in a variable called <code class="code highlight python docutils literal highlight-python"><span class="n">i</span></code>, and prints out the number.</p>
+<p>The <code class="code highlight python docutils literal highlight-python"><span class="ow">in</span></code> syntax can be a little confusing at first, as some of the operation is hidden behind the scenes. For any data type that stores multiple values Python has a rule for iterating over these multiple values. For a list, or range, or series of numbers or similar, this rule is built in and you don’t see it. The <em>iterator</em> simply says, get the first entry, e.g. <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code>, then <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code>, then <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></code>, and so on. Essentially, Python just knows that it needs to go through each item in the list or range in turn. This is in contrast to some other programming languages (particularly C/C++) where you need to tell the program explicitly what to do differently on each loop, which element to get, and so on.</p>
+<p>You can make your own custom <em>iterators</em> if you want different behavior, or are working with your own data types, but we won’t cover those here.</p>
+</li>
+<li><p>Make a for loop that displays the numbers 0 to 10 going upwards. That is, displays, 0, 1, … 10.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simplest approach is likely to change the range, rather than to change the loop</span>
+<span class="n">countup</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countup</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>For a more complicated loop, copy and paste the code below into your file and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">marks</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="n">pass_status</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
+    <span class="k">elif</span> <span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="n">pass_status</span> <span class="o">=</span> <span class="s2">&quot;passed&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Something must have gone wrong!&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="n">pass_status</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="si">}</span><span class="s2"> marks.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pass_status</span>
+</pre></div>
+</div>
+<p>The <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop iterates through each student, and the <code class="code highlight python docutils literal highlight-python"><span class="k">if</span></code> statements check whether they passed or failed the course, changing the message that is displayed as appropriate.</p>
+<p>This uses a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html#dictionaries">dictionary</a> to store student names (here <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;a&quot;</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;b&quot;</span></code>, etc.) and their marks. The name is the key, and the mark is the data stored associated with that key. The iteration rule for a dictionary is to go through each key in turn.</p>
+<p>Make sure that you understand this code before moving on.</p>
+</li>
+<li><p>The code above contains a <em>logic</em> error. There is no bug in the code, it will do exactly what it is told to do, but there is a mistake in what we’ve asked it to do. It can be hard for our debugging tools to spot such issues, because the issue is more with <em>us</em> rather than with the code. Identify this issue and fix it.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>There is no explicit coverage of what happens if the student mark is 40. This is a pass mark, and so the condition should be <code class="code highlight python docutils literal highlight-python"><span class="k">elif</span></code> to be <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="n">marks</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">:</span></code>.</p>
+<p>Note that we also don’t have any checks that ensure the mark is <code class="code highlight python docutils literal highlight-python"><span class="o">&gt;</span><span class="mi">0</span></code>, or <code class="code highlight python docutils literal highlight-python"><span class="o">&lt;</span><span class="mi">100</span></code>. It would probably be sensible to add such checks, at some point in the code, to help detect any errors that might have crept in. Or, and probably better, create a custom data type/object which only accepts numbers 0 to 100 as a valid input.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="reading-and-writing-data-to-from-files">
+<h2><span class="section-number">3.2.2.5. </span>Reading and writing data to/from files<a class="headerlink" href="#reading-and-writing-data-to-from-files" title="Link to this heading">¶</a></h2>
+<p>So far we’ve mainly interacted with our Python programs by typing things in. It’s very common that we also want our Python to read information from other files. For example, maybe we’ve run an experiment in the lab and saved the results. We want to load these in to Python to analyze them. Equally, it’s very common that we want to save the results generated by our Python program to a file. Later on, this lets us see the results just by opening the file, rather than by having to re-run the code.</p>
+<p>There are lots of different <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files">file formats</a>, for a example Word files, Excel files, and so on. Python has specialist functions for working with many of these particular types of file, and we’ll see a number of these as we work through the course.</p>
+<p>There are also some very basic commands that let you read and write simple files, which we’ll look at here.</p>
+<ol class="arabic">
+<li><p>In your Lab C files you will see that we’ve included a file called <code class="code highlight console docutils literal highlight-console"><span class="go">data.txt</span></code>. Add the code below to your Python file and run it. The code will open the file, and read the contents into a variable called <code class="code highlight python docutils literal highlight-python"><span class="n">data</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Read data from a file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;data.txt&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>View <code class="code highlight python docutils literal highlight-python"><span class="n">data</span></code> in the variable explorer to check that it contains what you would expect.</p>
+<p>To go over this code:</p>
+<ol class="arabic simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="k">with</span></code> is known as a <em>context manager</em>. We <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/lifetimes.html">discussed previously</a> that if we use a resource on a computer, when we finish we have to give it back. Otherwise we’ll keep using up system resources we don’t need. Here we’re opening a file, and so we need to close it when we’re finished with it. The context manger takes care of doing this for us. If you don’t use a context manager, you need to remember to call <code class="code highlight python docutils literal highlight-python"><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code> when you’re finished with the file.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span></code> opens the file, and here we’ve asked to read <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;r&quot;</span></code> from the file. <code class="code highlight python docutils literal highlight-python"><span class="n">f</span></code> is the name of where we’re storing the opened file to interact with it. You can call this whatever you like, but we’ve chosen <code class="code highlight python docutils literal highlight-python"><span class="n">f</span></code>.</p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span></code> reads the contents of the file, and splits them into a list where each entry is one line from the file. We don’t have to use <code class="code highlight python docutils literal highlight-python"><span class="n">splitlines</span><span class="p">()</span></code>. There are other methods such as <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">readlines</span><span class="p">()</span></code> which return similar but slightly different results.</p></li>
+</ol>
+</li>
+<li><p>When you run the code above, what are the contents of data[2]?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;100&#39;</span></code></p>
+<p>Remember that Python starts counting from 0, so <code class="code highlight python docutils literal highlight-python"><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code> is the first line in the file, <code class="code highlight python docutils literal highlight-python"><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code> is the second line, and <code class="code highlight python docutils literal highlight-python"><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span></code> is the third line, and so on.</p>
+<p>You’ll notice that this is <code class="code highlight python docutils literal highlight-python"><span class="s1">&#39;100&#39;</span></code>, not <code class="code highlight python docutils literal highlight-python"><span class="mi">100</span></code>. That is, it’s been stored as a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/data_types.html">string</a>, not as a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/integers.html">number</a>.</p>
+</div>
+<p>You can convert between data types using built-in functions such as <code class="code highlight python docutils literal highlight-python"><span class="nb">int</span><span class="p">()</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="nb">float</span><span class="p">()</span></code>, and <code class="code highlight python docutils literal highlight-python"><span class="nb">str</span><span class="p">()</span></code>. For example, to convert the third line of the file to an integer, you would use <code class="code highlight python docutils literal highlight-python"><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></code>.</p>
+</li>
+<li><p>To write data to a file, the process is very similar. Add the code below to your Python file and run it. This will write some text to a new file called <code class="code highlight console docutils literal highlight-console"><span class="go">output.txt</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% Write data to a file</span>
+<span class="n">output_filename</span> <span class="o">=</span> <span class="s2">&quot;output.txt&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check that the file <code class="code highlight console docutils literal highlight-console"><span class="go">output.txt</span></code> has been created in your Lab C folder, and that it contains what you would expect.</p>
+</li>
+</ol>
+</section>
+<section id="extending-the-rc-circuit-example">
+<h2><span class="section-number">3.2.2.6. </span>Extending the RC circuit example<a class="headerlink" href="#extending-the-rc-circuit-example" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="lab_c_stage_1.html#lab-c-stage-1"><span class="std std-ref">In the first part of this lab</span></a> we finished by making a script that would simulate a simple RC circuit. It asked the user to enter a frequency, and then it calculated the output voltage magnitude and phase at that frequency. The code to do this is repeated below if you need it.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Starting code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Calculate the output voltage magnitude and phase of an RC low-pass filter</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_circuit_output</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the output voltage magnitude and phase of an RC low-pass filter</span>
+<span class="sd">    given an input frequency f in Hz.</span>
+<span class="sd">    Returns: vout_mag: output voltage magnitude in Volts</span>
+<span class="sd">             vout_phase: output voltage phase in radians</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Calculate input</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>  <span class="c1"># rad/s</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># input amplitude in Volts</span>
+    <span class="n">v_in</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">160000</span><span class="p">)</span>
+
+    <span class="c1"># Define the circuit</span>
+    <span class="n">z1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># kOhm</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">1e-9</span>  <span class="c1"># Farads</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">v_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">*</span> <span class="n">v_in</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span><span class="p">)</span>  <span class="c1"># Volts</span>
+
+    <span class="c1"># Calculate magnitude and phase</span>
+    <span class="n">vout_mag</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+    <span class="n">vout_mag_db</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
+        <span class="n">vout_mag</span> <span class="o">/</span> <span class="n">a</span>
+    <span class="p">)</span>  <span class="c1"># remember to divide by the input amplitude</span>
+    <span class="n">vout_phase</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">vout_mag_db</span><span class="p">,</span> <span class="n">vout_phase</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">display_results</span><span class="p">(</span><span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display the output voltage magnitude and phase using an f string&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output voltage magnitude: </span><span class="si">{</span><span class="n">vout_mag</span><span class="si">}</span><span class="s2"> dB&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output voltage phase: </span><span class="si">{</span><span class="n">vout_phase</span><span class="si">}</span><span class="s2"> radians&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter frequency in Hz: &quot;</span><span class="p">)</span>  <span class="c1"># remember f will be a string</span>
+    <span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span> <span class="o">=</span> <span class="n">calculate_circuit_output</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="n">display_results</span><span class="p">(</span><span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p>Make a new Python file with any suitable name.</p></li>
+<li><p>Modify the code above so that instead of asking the user to enter a single frequency, it reads the information from a file.</p>
+<ol class="arabic simple">
+<li><p>In your Lab C folder you’ll find a file called <code class="code highlight console docutils literal highlight-console"><span class="go">frequencies.txt</span></code> which contains a frequency to start at, a frequency to end at, and a step size to take between each frequency to test. (It also contains some text indicating which number is which.) Read these values from the file.</p></li>
+<li><p>You can assume that the numbers will always be integers.</p></li>
+</ol>
+</li>
+<li><p>For each frequency tested, have Python display the frequency, and the magnitude and phase of the output voltage. Display the frequency to 1 decimal place, and the magnitude and phase to 3 decimal places.</p></li>
+</ol>
+<p>We’ve kept this task fairly open ended for you to think about how you want to approach it. You’ll likely need to look up some functions, on the Internet or via AI, to figure out how to carry out each step. A number of different modifications will be needed in order to achieve the functionality.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>If you don’t know where to start, or are struggling, before starting to make any changes to the code, think about the steps that are going to be needed. You can then make each step work in turn. You probably need to work along the lines of:</p>
+<ol class="arabic simple">
+<li><p>In the starter code <code class="code highlight python docutils literal highlight-python"><span class="n">f</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter frequency in Hz: &quot;</span><span class="p">)</span></code> is used to ask the user to enter a single frequency. We want to replace this with code that reads the information from the file <code class="code highlight console docutils literal highlight-console"><span class="go">frequencies.txt</span></code>.</p></li>
+<li><p>Once you’ve read in the contents of <code class="code highlight console docutils literal highlight-console"><span class="go">frequencies.txt</span></code> you need to extract the parts that you want. It contains text, which we can ignore, we just need to get the numbers.</p></li>
+<li><p>One you have the start frequency, stop frequency, and step size you can then put <code class="code highlight python docutils literal highlight-python"><span class="n">calculate_circuit_output</span><span class="p">()</span></code> in a <code class="code highlight python docutils literal highlight-python"><span class="k">for</span></code> loop to run it as many times as needed.</p></li>
+<li><p>Modify <code class="code highlight python docutils literal highlight-python"><span class="n">display_results</span><span class="p">()</span></code> as appropriate.</p></li>
+</ol>
+</div>
+<div class="dropdown admonition" id="lab-c-stage-2-solution">
+<p class="admonition-title">Solution and optional challenge</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Calculate the output voltage magnitude and phase of an RC low-pass filter</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_circuit_output</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the output voltage magnitude and phase of an RC low-pass filter</span>
+<span class="sd">    given an input frequency f in Hz.</span>
+<span class="sd">    Returns: vout_mag: output voltage magnitude in Volts</span>
+<span class="sd">             vout_phase: output voltage phase in radians</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Calculate input</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>  <span class="c1"># rad/s</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># input amplitude in Volts</span>
+    <span class="n">v_in</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+
+    <span class="c1"># Define the circuit</span>
+    <span class="n">z1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># kOhm</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">1e-9</span>  <span class="c1"># Farads</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">v_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">*</span> <span class="n">v_in</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">z1</span> <span class="o">+</span> <span class="n">z2</span><span class="p">)</span>  <span class="c1"># Volts</span>
+
+    <span class="c1"># Calculate magnitude and phase</span>
+    <span class="n">vout_mag</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+    <span class="n">vout_mag_db</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
+        <span class="n">vout_mag</span> <span class="o">/</span> <span class="n">a</span>
+    <span class="p">)</span>  <span class="c1"># remember to divide by the input amplitude</span>
+    <span class="n">vout_phase</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">v_out</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">vout_mag_db</span><span class="p">,</span> <span class="n">vout_phase</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">display_results</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display the output voltage magnitude and phase using an f string&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Frequency: </span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Hz, Magnitude: </span><span class="si">{</span><span class="n">vout_mag</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> dB, Phase: </span><span class="si">{</span><span class="n">vout_phase</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> radians&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_frequencies</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load frequencies from a file and return them&quot;&quot;&quot;</span>
+
+    <span class="c1"># Load data from file</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;frequencies.txt&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+    <span class="c1"># Extract number part of each string</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># preallocate</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()][</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Put into output format - this is the part that needs changing for the optional challenge</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="n">load_frequencies</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+        <span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span> <span class="o">=</span> <span class="n">calculate_circuit_output</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">display_results</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">vout_mag</span><span class="p">,</span> <span class="n">vout_phase</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above code will work, but is a little <em>fragile</em>. The lines</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">step</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>are <em>hard coded</em>. They assume that the first line of the file will have the start frequency, the second line the stop frequency, and the third line the step size. If the file format changes, or the user doesn’t create that file correctly, the code will break.</p>
+<p>As an optional challenge, add a <code class="code highlight python docutils literal highlight-python"><span class="k">match</span></code> statement that uses the text part of the file loaded in to assign the correct value to the correct variable, whatever order they are in in the file. (We won’t provide a solution for this optional challenge, but feel free to ask a demonstrator to look at your solution.)</p>
+</div>
+<ol class="arabic simple">
+<li><p>Check in your code to Git before moving on. The instructions are the same as <a class="reference internal" href="lab_c_stage_1.html#lab-c-stage-1"><span class="std std-ref">in the first part of this lab</span></a>.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_c_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">3.2.1. </span>Python projects
+    </a>
+    <a class="float-right" href="assignment_c.html" title="Next">
+        <span class="section-number">3.2.3. </span>Assignment C <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">3.2.2. Common Python commands</a><ul>
+<li><a class="reference internal" href="#variables">3.2.2.1. Variables</a></li>
+<li><a class="reference internal" href="#objects">3.2.2.2. Objects</a></li>
+<li><a class="reference internal" href="#conditionals">3.2.2.3. Conditionals</a></li>
+<li><a class="reference internal" href="#loops">3.2.2.4. Loops</a></li>
+<li><a class="reference internal" href="#reading-and-writing-data-to-from-files">3.2.2.5. Reading and writing data to/from files</a></li>
+<li><a class="reference internal" href="#extending-the-rc-circuit-example">3.2.2.6. Extending the RC circuit example</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

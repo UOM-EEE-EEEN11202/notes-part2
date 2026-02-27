@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>4.2.2. Scipy examples &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="4.2. Lab E" href="lab_e.html" />
+            <link rel="next" title="4.2.3. Assignment E" href="assignment_e.html" />
+            <link rel="prev" title="4.2.1. Numpy examples" href="lab_e_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">4.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_e.html">4.2. Lab E</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week4_intro.html"><span class="section-number">4. </span>Week 4</a></li>
+            <li class="breadcrumb-item"><a href="lab_e.html"><span class="section-number">4.2. </span>Lab E</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">4.2.2. </span>Scipy examples</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week4/lab_e_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week4/lab_e_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="scipy-examples">
+<span id="lab-e-stage-2"></span><h1><span class="section-number">4.2.2. </span>Scipy examples<a class="headerlink" href="#scipy-examples" title="Link to this heading">¶</a></h1>
+<p>Scipy provides lots of useful functions for scientific computing, such as analyzing signals. This forms the starting point for implementing <em>signal processing</em>, which is a very common topic in electronic engineering. For example, as we had <a class="reference internal" href="lab_e_stage_1.html#lab-e-stage-1"><span class="std std-ref">the first part of the lab</span></a>, most things that we measure in the lab are subject to interference and noise from other sources. Signal processing can help us filter and remove this noise.</p>
+<section id="signal-filtering-example">
+<h2><span class="section-number">4.2.2.1. </span>Signal filtering example<a class="headerlink" href="#signal-filtering-example" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>In your Lab E folder you will see there is also a folder called <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code>. Here we’ve put some files that contain pre-saved data for us. For example, this might be a recording we did in the lab using an oscilloscope or data acquisition system.</p>
+<p>We’ve stored the data in Matlab format, with an extension <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code>. This is a very dense data format that lets us store lots of data in a relatively small file size.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p><code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> format is a proprietary implementation of the open source <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">hierarchical data format (HDF5)</a>. We could work with HDF5 files directly using the <code class="code highlight python docutils literal highlight-python"><span class="n">h5py</span></code> library, but it’s easier to use the <code class="code highlight python docutils literal highlight-python"><span class="n">scipy</span><span class="o">.</span><span class="n">io</span></code> functions that can read and write <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> files, and <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> files are widely used and inter-operable with open source tools.</p>
+</div>
+<p>Scipy has a function that can read these <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> files for us, called <code class="code highlight python docutils literal highlight-python"><span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">()</span></code>. You can read its <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html">documentation online</a>.</p>
+</li>
+<li><p>Start a new Python file in your Lab E <code class="code highlight console docutils literal highlight-console"><span class="go">src</span></code> folder. Call it something like <code class="code highlight console docutils literal highlight-console"><span class="go">signal_filtering.py</span></code>. Write a function that loads the file <code class="code highlight console docutils literal highlight-console"><span class="go">data/signal_data.mat</span></code>, and extracts the time vector and signal vector from it, and then plots it.</p>
+<ul class="simple">
+<li><p>The variable names in the file are <code class="code highlight python docutils literal highlight-python"><span class="n">t</span></code> for the time vector, and <code class="code highlight python docutils literal highlight-python"><span class="n">v</span></code> for the signal vector.</p></li>
+<li><p>You might need to think about where the data file is located relative to your code file. In the solution below we’ve used the <code class="code highlight python docutils literal highlight-python"><span class="n">pathlib</span></code> library to find this automatically, but you can just type in the address by hand if you prefer.</p></li>
+<li><p>Think about what type of variables you want to store your output in. <code class="code highlight python docutils literal highlight-python"><span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">()</span></code> will load the data into a dictionary, so you probably want to extract the variables from this dictionary and put them in numpy arrays.</p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_signal_from_matfile</span><span class="p">():</span>
+    <span class="c1"># Get the path to the .mat file</span>
+    <span class="c1"># This uses pathlib to automatically get the folder where this script is located and navigates from there</span>
+    <span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">mat_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s2">&quot;sin.mat&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">mat_fname</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">load_signal_from_matfile</span><span class="p">()</span>
+    <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;Voltage [V]&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Your plot should look similar to the below, where we’ve zoomed-in a bit.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/scipy_sine.png"><img alt="Sine wave with noise plotted with plotly" src="../../_images/scipy_sine.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This is a 10 Hz sine wave, corrupted by some high frequency noise. It’s the same as the signal we made <a class="reference internal" href="lab_e_stage_1.html#lab-e-stage-1"><span class="std std-ref">the first part of the lab</span></a> by adding random noise to a 10 Hz sine wave, we’ve now just loaded it in from a file.</p>
+</li>
+<li><p>Scipy contains functions for filtering this noise out. Add the function below to your code, edit the rest of the code to call this function, and plot the filtered signal. You’ll need to work out the correct parameters to pass to <code class="code highlight python docutils literal highlight-python"><span class="n">filter_data</span><span class="p">()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_filter_coefficients</span><span class="p">(</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">ftype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate filter coefficients for a Butterworth filter&quot;&quot;&quot;</span>
+    <span class="n">nyq</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">fs</span>  <span class="c1"># expects the cutoff frequency to be given in Hz, it then scales this to be in the range 0 to 1, where 1 is half the sampling frequency</span>
+    <span class="n">normalized_cutoff</span> <span class="o">=</span> <span class="n">cutoff</span> <span class="o">/</span> <span class="n">nyq</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">normalized_cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="n">ftype</span><span class="p">,</span> <span class="n">analog</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">ftype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter the data&quot;&quot;&quot;</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">generate_filter_coefficients</span><span class="p">(</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">ftype</span><span class="p">)</span>
+    <span class="n">signal_filtered</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signal_filtered</span>
+</pre></div>
+</div>
+<p>This is implementing a <em>Butterworth</em> filter, which you will have learnt about in your electronics courses. It attenuates frequencies higher than the cutoff.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">load_signal_from_matfile</span><span class="p">()</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">v_filtered</span> <span class="o">=</span> <span class="n">filter_data</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">)</span>
+    <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">v_filtered</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;Voltage [V]&quot;</span><span class="p">}</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here the cut-off is set to be 50 Hz. The filtered signal will look like the below.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/scipy_sine_filtered.png"><img alt="A filtered sine wave plotted with plotly" src="../../_images/scipy_sine_filtered.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+</li>
+<li><p>Assuming you’ve implemented the filtering as in the solution above, the sine wave still looks quite noisy. By using different filtering functions as given in the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html#">scipy signal documentation</a>, or otherwise, try and clean the signal more to make it look like a pure sine wave.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The simplest approach will just be to change the order of the filter, and the cut-off. Our example code uses a first order filter with a cut-off of 50 Hz. We know the sine wave is at 10 Hz, so the cut-off can probably be a bit lower. First order is quite low for a filter. Taking the order too high will introduce a different type of distortion (covered in your filters courses), but it can probably be second or fourth order without issue.</p>
+<p>There are also lots of different filtering functions in scipy that you can try here, and we’ll leave you to experiment.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="signal-detection-example">
+<h2><span class="section-number">4.2.2.2. </span>Signal detection example<a class="headerlink" href="#signal-detection-example" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Your Lab E <code class="code highlight console docutils literal highlight-console"><span class="go">data</span></code> folder also contains a file called <code class="code highlight console docutils literal highlight-console"><span class="go">ecg.mat</span></code>, which contains vectors <code class="code highlight python docutils literal highlight-python"><span class="n">time</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">ecg</span></code>. Write a Python script that loads and plots this data. The start of the plot will look like the below.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/ecg_clean.png"><img alt="An ECG trace plotted with plotly" src="../../_images/ecg_clean.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_signal_from_matfile</span><span class="p">():</span>
+    <span class="c1"># Get the path to the .mat file</span>
+    <span class="c1"># This uses pathlib to automatically get the folder where this script is located and navigates from there</span>
+    <span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">mat_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s2">&quot;ecg.mat&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">mat_fname</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;ecg&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;ecg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">time</span><span class="p">,</span> <span class="n">ecg</span> <span class="o">=</span> <span class="n">load_signal_from_matfile</span><span class="p">()</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plot_duration</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># seconds</span>
+    <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">)],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">ecg</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">)],</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;ECG [mV]&quot;</span><span class="p">},</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Aside</p>
+<p>This is an <a class="reference external" href="https://en.wikipedia.org/wiki/Electrocardiography">electrocardiography (ECG) signal</a>. It represents the electrical activity of the heart. Many smartwatches now include ECG monitors as part of their health and wellbeing features. Clinically, the ECG is regularly used to diagnose a wide number of heart related conditions.</p>
+<p>The example in our labs is simulated, using the code from <a class="reference external" href="https://physionet.org/content/ecgsyn/1.0.0">ecgsyn</a>, but there are many real ECG recordings on <a class="reference external" href="https://physionet.org/about/database/">PhysioNet</a> that you can explore if you’re interested.</p>
+<p>Scipy also includes an example ECG dataset that you can load directly using <code class="code highlight python docutils literal highlight-python"><span class="n">scipy</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">electrocardiogram</span><span class="p">()</span></code>.</p>
+</div>
+</li>
+<li><p>In the ECG signal there are some clear, sharp, peaks. These correspond to heart beats. Write code to automatically detect these peaks using the <code class="code highlight python docutils literal highlight-python"><span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">()</span></code> function. As such, calculate the average heart rate in beats per minute (bpm) over the duration of the recording.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>You’ll find that too many peaks are detected using the default settings for <code class="code highlight python docutils literal highlight-python"><span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">()</span></code>. To get a good estimation you’ll need to change the settings for how a peak is detected. See the documentation for <code class="code highlight python docutils literal highlight-python"><span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">()</span></code> <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html">here</a> to see the options available.</p>
+<p>You might find it helpful to plot the detected peaks on top of the ECG signal to see which points have been detected. This requires plotting two lines on the same graph, which we’ll cover in <a class="reference internal" href="lab_f_stage_1.html#lab-f-stage-1"><span class="std std-ref">Lab F</span></a> if you want to skip ahead.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The average heart rate for this record is 60 beats per minute (bpm).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_signal_from_matfile</span><span class="p">():</span>
+    <span class="c1"># Get the path to the .mat file</span>
+    <span class="c1"># This uses pathlib to automatically get the folder where this script is located and navigates from there</span>
+    <span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">mat_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s2">&quot;ecg.mat&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">mat_fname</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;ecg&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;ecg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Load data</span>
+    <span class="n">time</span><span class="p">,</span> <span class="n">ecg</span> <span class="o">=</span> <span class="n">load_signal_from_matfile</span><span class="p">()</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Detect peaks</span>
+    <span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span>
+        <span class="n">ecg</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># minimum height of peaks - will work for this record, but don&#39;t be very robust for different traces with differnt amplitudes</span>
+    <span class="p">)</span>  <span class="c1"># _ indicates we ignore the second output from find_peaksS</span>
+
+    <span class="c1"># Calculate heart rate</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># total duration in seconds is the last value in time</span>
+    <span class="n">num_beats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">/</span> <span class="n">duration</span>  <span class="c1"># average beats per second</span>
+    <span class="n">bpm</span> <span class="o">=</span> <span class="n">num_beats</span> <span class="o">*</span> <span class="mi">60</span>  <span class="c1"># convert to beats per minute</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average heart rate: </span><span class="si">{</span><span class="n">bpm</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> bpm&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Do plots</span>
+    <span class="n">plot_duration</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># seconds</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">)],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">ecg</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">)],</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;ECG [mV]&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">time</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="n">peaks</span> <span class="o">&lt;</span> <span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">]],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">ecg</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="n">peaks</span> <span class="o">&lt;</span> <span class="n">fs</span> <span class="o">*</span> <span class="n">plot_duration</span><span class="p">]],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;markers&quot;</span><span class="p">,</span>
+        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Detected Peaks&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Check your code in to Git before proceeding.</p></li>
+</ol>
+</section>
+<section id="further-optional-tasks">
+<h2><span class="section-number">4.2.2.3. </span>Further (optional) tasks<a class="headerlink" href="#further-optional-tasks" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Usually we don’t want to estimate the heart rate from the entire signal. This would mean waiting a long time to get all of the data.</p>
+<p>It’s common (in wearables) that we estimate heart rate using 8 second windows of data. Every 2 s this window moves on, so there’s 6 seconds of overlap between each window. This means that every 2 s we get a new estimate of heart rate, based on the last 8 seconds of data. We can then get a plot of heart rate over time.</p>
+<p>Within each window of data we calculate the heart rate with the equation</p>
+<div class="math notranslate nohighlight">
+\[hr = 60 \times \frac{n_{beats} - 1 }{t_{last} - t_{first}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_{beats}\)</span> is the number of detected beats in the window, and <span class="math notranslate nohighlight">\(t_{last}\)</span> and <span class="math notranslate nohighlight">\(t_{first}\)</span> are the times of the last and first detected beats in the window respectively.</p>
+<p>Write code to implement this sliding window heart rate estimation, and plot the resulting heart rate over time.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_signal_from_matfile</span><span class="p">():</span>
+    <span class="c1"># Get the path to the .mat file</span>
+    <span class="c1"># This uses pathlib to automatically get the folder where this script is located and navigates from there</span>
+    <span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+    <span class="n">mat_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s2">&quot;ecg.mat&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">mat_fname</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;ecg&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;ecg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">detect_ecg_peaks</span><span class="p">(</span><span class="n">ecg</span><span class="p">):</span>
+    <span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span>
+        <span class="n">ecg</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># minimum height of peaks - will work for this record, but don&#39;t be very robust for different traces with differnt amplitudes</span>
+    <span class="p">)</span>  <span class="c1"># _ indicates we ignore the second output from find_peaks</span>
+    <span class="k">return</span> <span class="n">peaks</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_ecg_window</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">ecg</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+    <span class="c1"># Calculate number of windows</span>
+    <span class="n">window_size</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># seconds</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># seconds</span>
+    <span class="n">num_windows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">)</span> <span class="o">//</span> <span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Preallocate heart rate array</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_windows</span><span class="p">)</span>
+    <span class="n">time_hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_windows</span><span class="p">)</span>
+
+    <span class="c1"># Process each window of data in turn</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_windows</span><span class="p">):</span>
+        <span class="c1"># Get window of data</span>
+        <span class="n">start_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">step</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span>
+        <span class="n">end_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span>
+        <span class="n">ecg_window</span> <span class="o">=</span> <span class="n">ecg</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+        <span class="n">time_window</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">start_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+
+        <span class="c1"># Detect peaks in the window</span>
+        <span class="n">peaks</span> <span class="o">=</span> <span class="n">detect_ecg_peaks</span><span class="p">(</span><span class="n">ecg_window</span><span class="p">)</span>
+
+        <span class="c1"># Calculate heart rate for the window</span>
+        <span class="n">hr</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">time_window</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">time_window</span><span class="p">[</span><span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">time_hr</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_window</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span>
+
+    <span class="k">return</span> <span class="n">time_hr</span><span class="p">,</span> <span class="n">hr</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Load data</span>
+    <span class="n">time</span><span class="p">,</span> <span class="n">ecg</span> <span class="o">=</span> <span class="n">load_signal_from_matfile</span><span class="p">()</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Detect peaks</span>
+    <span class="n">time_hr</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">process_ecg_window</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">ecg</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+    <span class="c1"># Plot heart rate</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">time_hr</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">hr</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;Time [s]&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;Heart Rate [bpm]&quot;</span><span class="p">},</span>
+        <span class="n">line_shape</span><span class="o">=</span><span class="s2">&quot;hv&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>In <code class="code highlight console docutils literal highlight-console"><span class="go">ecg.mat</span></code> there is another variable called <code class="code highlight python docutils literal highlight-python"><span class="n">ecg_noise</span></code>, which is a noisier version of the ECG signal. Try and detect the peaks in this noisier signal. You might need to do some filtering first to clean up the signal before peak detection will work well, and/or make your peak detection function more robust.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>We don’t have example code for this task, it’s one for you to try and experiment with. The underlying ECG signal is exactly the same as in the earlier example, just with more noise, so you can compare your estimates from the two signals to see how well you’re doing.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_e_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">4.2.1. </span>Numpy examples
+    </a>
+    <a class="float-right" href="assignment_e.html" title="Next">
+        <span class="section-number">4.2.3. </span>Assignment E <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">4.2.2. Scipy examples</a><ul>
+<li><a class="reference internal" href="#signal-filtering-example">4.2.2.1. Signal filtering example</a></li>
+<li><a class="reference internal" href="#signal-detection-example">4.2.2.2. Signal detection example</a></li>
+<li><a class="reference internal" href="#further-optional-tasks">4.2.2.3. Further (optional) tasks</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

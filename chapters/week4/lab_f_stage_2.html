@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>4.3.2. Polars examples &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="4.3. Lab F" href="lab_f.html" />
+            <link rel="next" title="4.3.3. Assignment F" href="assignment_f.html" />
+            <link rel="prev" title="4.3.1. Plotting with plotly and matplotlib" href="lab_f_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_f.html">4.3. Lab F</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week4_intro.html"><span class="section-number">4. </span>Week 4</a></li>
+            <li class="breadcrumb-item"><a href="lab_f.html"><span class="section-number">4.3. </span>Lab F</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">4.3.2. </span>Polars examples</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week4/lab_f_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week4/lab_f_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="polars-examples">
+<span id="lab-f-stage-2"></span><h1><span class="section-number">4.3.2. </span>Polars examples<a class="headerlink" href="#polars-examples" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/dataframes.html">Dataframes</a> provide a way of representing tabular data in Python, for example the kind of data that you might have analyzed in Excel previously. We’ll look at two different types of data here:</p>
+<ul class="simple">
+<li><p>Data stored in an Excel spreadsheet. We’ll use student marks as an example that you’ll be familiar with, but you’ve probably used spreadsheets for storing lots of different types of data previously. Here we can use polars and Python to give a repeatable, code based, analysis that can be run, and re-run on multiple different spreadsheets, and produce high quality graphs.</p></li>
+<li><p>Timeseries data. These might be recordings from sensors in an experiment, or an oscilloscope in the lab. Like in <a class="reference internal" href="lab_e.html#lab-e"><span class="std std-ref">Lab E</span></a> we’ll generate some synthetic data, and put this into a dataframe, but we could equally load in data from an external <code class="code highlight console docutils literal highlight-console"><span class="go">.mat</span></code> or <code class="code highlight console docutils literal highlight-console"><span class="go">.csv</span></code> file or similar.</p></li>
+</ul>
+<p>Also, we’ll run this file interactively. That is, we wont’ use an <code class="code highlight python docutils literal highlight-python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span></code> block, but instead put everything in the global scope. We covered this in <a class="reference internal" href="../week2/lab_b_stage_2.html#lab-b-stage-2"><span class="std std-ref">Lab B</span></a>. This style is quite common with data science type programmers. We’re going to use it here as it means we can use the Jupyter variable explorer to see the contents of the dataframe, which is useful when just starting out as the debugger doesn’t have as good a way of visualizing dataframes yet.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>In the below you’ll see we’ve <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/wider_factors/common_mistakes.html#hard-coding">hard coded</a> the column names. This is to make the examples more readable. In practice, you might want to put the column names into variables to minimize the chances of a typo meaning part of the code uses a wrong column.</p>
+</div>
+<section id="tabular-data">
+<h2><span class="section-number">4.3.2.1. </span>Tabular data<a class="headerlink" href="#tabular-data" title="Link to this heading">¶</a></h2>
+<section id="loading-data-from-excel">
+<h3><span class="section-number">4.3.2.1.1. </span>Loading data from Excel<a class="headerlink" href="#loading-data-from-excel" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part2/_static/marks.xlsx">Click here</a> to download an Excel spreadsheet containing student marks for two courses. Save it in your Lab F <cite>data</cite> folder. You can ignore any <code class="code highlight console docutils literal highlight-console"><span class="go">marks.xlsx</span></code> file that is already in the folder.</p>
+<p>This Excel spreadsheet contains the same marks as we used in <a class="reference internal" href="lab_f_stage_1.html#lab-f-stage-1"><span class="std std-ref">the first part of the lab</span></a>, but stored in a more helpful format. (Usually we want to separate out data from code, rather than hardcoding data into the code itself.) It also contains a few more columns.</p>
+</li>
+<li><p>Make a new Python file with any suitable name, and add the code below to this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Set file to load</span>
+<span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">data_dir_from_script_folder</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">xls_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir_from_script_folder</span><span class="p">,</span> <span class="s2">&quot;marks.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">xls_fname</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Just <code class="code highlight python docutils literal highlight-python"><span class="n">pl</span><span class="o">.</span><span class="n">read_excel</span><span class="p">()</span></code> is actually loading the data into a dataframe. The rest of the code is just to find the correct path to the data file.</p>
+</li>
+<li><p>Run this code interactively. That is, click on the down arrow next to the <code class="code highlight console docutils literal highlight-console"><span class="go">Run</span></code> button in VSCode and select <code class="code highlight console docutils literal highlight-console"><span class="go">Run Current File in Interactive Window</span></code>.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../../_images/interactive_python.png"><img alt="VSCode with the Run Interactive button shown" src="../../_images/interactive_python.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>When the script has run, you’ll see a view similar to the one below. The dataframe is stored in an object called <code class="code highlight python docutils literal highlight-python"><span class="n">df</span></code>. Either enter <code class="code highlight python docutils literal highlight-python"><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></code> into the interactive window, or double click on <code class="code highlight python docutils literal highlight-python"><span class="n">df</span></code> in the variable explorer to see the contents of the dataframe.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../../_images/df_interactive.png"><img alt="VSCode showing the dataframe in an interactive window" src="../../_images/df_interactive.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>If using the graphical view (known as the data wrangler), your view will be like the below, where it’s automatically worked out some statistics and plotted histograms of the data columns.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../../_images/df_wrangler.png"><img alt="VSCode showing the dataframe in the data wrangler" src="../../_images/df_wrangler.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="selecting-data">
+<h3><span class="section-number">4.3.2.1.2. </span>Selecting data<a class="headerlink" href="#selecting-data" title="Link to this heading">¶</a></h3>
+<p>Work through the examples below to get a feel for how to access data in a Polars dataframe.</p>
+<ol class="arabic">
+<li><p>To access a column of data you use the <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">select</span><span class="p">()</span></code> method. For example, to get the <code class="code highlight python docutils literal highlight-python"><span class="n">Course</span> <span class="mi">1</span> <span class="n">mark</span></code> column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/df_column.png"><img alt="Selecting a column from a Polars dataframe" src="../../_images/df_column.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>To access a row of data you use the <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">filter</span><span class="p">()</span></code> method. For example, to get the data for the student with ID <code class="code highlight python docutils literal highlight-python"><span class="mi">12345</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12345</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can do both of these at the same time. For example, to get the <code class="code highlight python docutils literal highlight-python"><span class="n">Course</span> <span class="mi">1</span> <span class="n">mark</span></code> for the student with ID <code class="code highlight python docutils literal highlight-python"><span class="mi">12345</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12345</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>What did student <code class="code highlight python docutils literal highlight-python"><span class="mi">12437</span></code> get for <code class="code highlight python docutils literal highlight-python"><span class="n">Course</span> <span class="mi">2</span> <span class="n">mark</span></code>?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>38</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12437</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>You can add conditions to the above. For example, to get the IDs for all students who failed Course 1 (i.e. got less than 40):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Again, you can combine this with other selections. For example to get the IDs of all students who failed both Course 1 and Course 2:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">))</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>To get the student ID and the mark for those who failed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">))</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">),</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">),</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>You can also put the results into a new dataframe. For example, to get a dataframe of all the students who got a first in Course 1 (i.e. 70 or more):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">firsts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>How many students got a first in both Course 1 and Course 2?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>17</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">firsts_both</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">))</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">firsts_both</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="operations">
+<h3><span class="section-number">4.3.2.1.3. </span>Operations<a class="headerlink" href="#operations" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>A wide range of operations are built in to polars, particularly for generating statistics about the data. For example, to get the mean and standard deviation of the marks in Course 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>What was the mean in Course 1 amongst students who got a first?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>80.42</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">firsts</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">with_columns</span><span class="p">()</span></code> is used when we want to make changes to the dataframe.</p>
+<p>If you look at our dataframe more closely, you’ll see that there is also information on whether students submitted late, and so should receive a late penalty. For Course 1, this data has been filled in for every student. For Course 2, the data was left blank, unless the student submitted late. (If you load the <code class="code highlight console docutils literal highlight-console"><span class="go">marks.xlsx</span></code> file into Excel you’ll see that many cells in this column have just been left blank.) It’s quite common to have missing data in datasets, where for whatever reason it’s not been filled in completely, or a measurement was missed.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/df_missing.png"><img alt="Example of missing data in a dataframe" src="../../_images/df_missing.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Here, the default number of days late is <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>, i.e. on time. To fill in the missing data for Course 2 you can use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 days late&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This replaces the missing data in the <code class="code highlight python docutils literal highlight-python"><span class="n">Course</span> <span class="mi">2</span> <span class="n">late</span> <span class="n">days</span></code> column with <code class="code highlight python docutils literal highlight-python"><span class="mi">0</span></code>:</p>
+</li>
+<li><p>Changing one value in the dataframe has a slightly complicated syntax. To set the mark of student 12345 for Course 1 to 100:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Student ID&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12345</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This:</p>
+<ul class="simple">
+<li><p>Uses <code class="code highlight python docutils literal highlight-python"><span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">()</span></code> to find the rows where the student ID is <code class="code highlight python docutils literal highlight-python"><span class="mi">12345</span></code>.</p></li>
+<li><p>Uses <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">then</span><span class="p">()</span></code> to set the value to <code class="code highlight python docutils literal highlight-python"><span class="mi">100</span></code></p></li>
+<li><p>Uses <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">otherwise</span><span class="p">()</span></code> to leave all other rows unchanged by setting them to what is already in <code class="code highlight python docutils literal highlight-python"><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark&quot;</span><span class="p">)</span></code>.</p></li>
+<li><p>Uses <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">alias</span><span class="p">()</span></code> to specify which column is being changed.</p></li>
+</ul>
+</li>
+<li><p>This same syntax can be used to make new columns. For example, to apply a 10% late penalty to students who submitted late for Course 2 and put this in a new column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 days late&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 2 mark&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;Course 2 mark late penalty applied&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">alias</span><span class="p">()</span></code> now contains the name of a new column that we want creating to put the result in.</p>
+</li>
+<li><p>The actual University of Manchester late policy is that students receive a 10% reduction for every day a submission is late by. Write code to apply this late penalty to both courses, and to display the mean marks with and without the penalty.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply late penalty</span>
+<span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="n">days_late</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Course </span><span class="si">{</span><span class="n">course</span><span class="si">}</span><span class="s2"> days late&quot;</span>
+    <span class="n">raw_mark</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Course </span><span class="si">{</span><span class="n">course</span><span class="si">}</span><span class="s2"> mark&quot;</span>
+    <span class="n">penalty_mark</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Course </span><span class="si">{</span><span class="n">course</span><span class="si">}</span><span class="s2"> mark late penalty applied&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">days_late</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">raw_mark</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">days_late</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)))</span>
+        <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">raw_mark</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">penalty_mark</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">raw_mark</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">penalty_mark</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">group_by</span><span class="p">()</span></code> can be used to group data together. This is commonly used with <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">agg</span><span class="p">()</span></code> (aggregate) to calculate statistics for different groups of data. For example, to get the mean mark for Course 1 grouped by the number of days late:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;Course 1 days late&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course 1 mark late penalty applied&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="a-second-example">
+<h2><span class="section-number">4.3.2.2. </span>A second example<a class="headerlink" href="#a-second-example" title="Link to this heading">¶</a></h2>
+<p>The Lab F data folder also contains a file called <code class="code highlight console docutils literal highlight-console"><span class="go">choices.xlsx</span></code>. This represents student responses for individual final year project choices:</p>
+<ul class="simple">
+<li><p>Each project has a unique ID number. For example: Project 1: Design a heart rate estimation algorithm in Python.</p></li>
+<li><p>There are a couple of hundred different project IDs.</p></li>
+<li><p>Each student is asked to select 5 choices from the list of projects, giving projects that they would be happy to do.</p></li>
+<li><p>They have to select 5 different projects.</p></li>
+</ul>
+<p>Load the data into a polars dataframe, and then answer the following questions. The first one you should be able to do using only the notes above. The latter ones will require some external research and might be quite hard.</p>
+<ol class="arabic">
+<li><p>What did student mchabc80 select as their 3rd choice?</p></li>
+<li><p>What was the most popular first choice project?</p></li>
+<li><p>What was the most popular 5th choice project for students on the MEng course?</p></li>
+<li><p>What was the most popular overall project (i.e. counting all choices)?</p></li>
+<li><p>If the minimum project ID is 1 and the maximum is 208, which projects were not selected by any student?</p></li>
+<li><p>How many (and which) students submitted the form more than once?</p></li>
+<li><p>Optional challenge: How many students selected the same project for more than one of their 5 choices (which is against the rules)?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p>47</p></li>
+<li><p>202</p></li>
+<li><p>69</p></li>
+<li><p>202</p></li>
+<li><p>11,  19,  25,  43,  85,  89,  90,  95,  98,  99, 100, 101, 106, 107, 133, 142, 143, 159, 160, 161, 164, 171, 176, 181, 190, 198</p></li>
+<li><p>Two students. mchabc82 and mchabc202</p></li>
+<li><p>2 (we’ll leave the code for you to write for this one)</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Set file to load</span>
+<span class="n">script_folder</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">data_dir_from_script_folder</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">script_folder</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">xls_fname</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_dir_from_script_folder</span><span class="p">,</span> <span class="s2">&quot;choices.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">xls_fname</span><span class="p">)</span>
+
+<span class="c1"># What did student mchabc80 select as their 3rd choice?</span>
+<span class="n">stu</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Username&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;mchabc80&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Answer 3&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stu</span><span class="p">)</span>
+
+<span class="c1"># What was the most popular first choice project?</span>
+<span class="n">mode1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Answer 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode1</span><span class="p">)</span>
+
+<span class="c1"># What was the most popular first choice project for students on the MEng course?</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Course&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">starts_with</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">))</span>
+<span class="n">mode2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Answer 5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode2</span><span class="p">)</span>
+
+<span class="c1"># What was the most popular overall project (i.e. counting all choices)?</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">unpivot</span><span class="p">(</span>
+    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Answer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Answer 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Answer 3&quot;</span><span class="p">,</span> <span class="s2">&quot;Answer 4&quot;</span><span class="p">,</span> <span class="s2">&quot;Answer 5&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Username&quot;</span>
+<span class="p">)</span>
+<span class="n">mode3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mode3</span><span class="p">)</span>
+
+<span class="c1"># If the minimum project ID is 1 and the maximum is 208, which projects were not selected by any student?</span>
+<span class="n">unique_choices</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">all_choices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">209</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_choices</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">all_choices</span><span class="p">,</span> <span class="n">unique_choices</span><span class="p">)])</span>
+
+<span class="c1"># How many (and which) submitted the form more than once?</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">is_duplicated</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df4</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Username&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df4</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;Username&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="time-series-data">
+<h2><span class="section-number">4.3.2.3. </span>Time series data<a class="headerlink" href="#time-series-data" title="Link to this heading">¶</a></h2>
+<p>Polars can load data from lots of different sources, not only Excel spreadsheets. In this last example though we’ll look at making a time series and putting this into a dataframe. We’ll use sine waves as a simple starting point, but these could be representing stock prices, energy usage in a building, or any data source that varies over time.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>For time series, Polars is probably at its best when the time stamp is <em>clock time</em>. That is, timestamps that represent a particular, unique, time and date. For example, a sensor reading recorded at exactly 10:04 pm on the 5th November 1955. This isn’t what we look at below, we start counting time from an arbitrary zero point. It doesn’t change anything that we’re going to look at, but might affect your decision on whether to use a dataframe for your own time series data.</p>
+</div>
+<ol class="arabic">
+<li><p>Copy the code below into a new file and run it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">time</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># %% This is us making a simulated time series.</span>
+<span class="c1"># Could imagine loading this in from a file instead, or downloading from the Internet</span>
+
+<span class="c1"># Make sine waves in numpy</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># sampling frequency in Hz</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># Frequency of the sine wave</span>
+<span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># start time in seconds</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># stop time in seconds</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">v_noise</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Make time base</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">time_range</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">time</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="n">start</span><span class="p">),</span>
+    <span class="n">end</span><span class="o">=</span><span class="n">time</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="n">stop</span><span class="p">),</span>
+    <span class="n">interval</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">),</span>
+    <span class="n">eager</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="c1"># Make dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s2">&quot;clean&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s2">&quot;noisy&quot;</span><span class="p">,</span> <span class="n">v_noise</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;clean&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Voltage [V]&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;noisy&quot;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">showlegend</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will produce an output like the below.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/polars_timeseries1.png"><img alt="View of a dataframe with time series data" src="../../_images/polars_timeseries1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../_images/polars_timeseries2.png"><img alt="Plotly plot of a sine wave with noise" src="../../_images/polars_timeseries2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The dataframe is storing times as a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/datetimes.html">datetime data type</a>. This is quite a high time resolution time series, the sampling rate is 1000 Hz. Some time series might update much more slowly than this. For example, stock prices might update every second, some sensors take a reading once an hour or once a day.</p>
+<p>For a simple time series like this, it’s probably not too important, other than that it’s now clear both <code class="code highlight python docutils literal highlight-python"><span class="n">v</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">v_noise</span></code> have things happening at the same time points. For more complicated series, the sampling rate might not be a constant. Or, might be different for different sensors. Having a time column makes it clear when each measurement was taken.</p>
+</li>
+<li><p>Polars provides a number of <em>rolling</em> functions for time series data, which apply to a window of data. For example, a moving average filter averages the points in a window to smooth out short term fluctuations. An 11 tap moving average filter can be applied with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;noisy&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rolling_mean</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;filtered&quot;</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;filtered&quot;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">showlegend</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This adds another column to the dataframe, now called <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;filtered&quot;</span></code>. The filtered signal will look like</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../_images/polars_timeseries3.png"><img alt="Plotly plot of a filtered sine wave" src="../../_images/polars_timeseries3.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of a web browser, software from <a class="reference external" href="https://brave.com/">Brave</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Try changing the <code class="code highlight python docutils literal highlight-python"><span class="n">window_size</span></code> parameter to see how this affects the filtering. What happens if you make it very small, e.g. <code class="code highlight python docutils literal highlight-python"><span class="mi">3</span></code>? What about very large, e.g. <code class="code highlight python docutils literal highlight-python"><span class="mi">101</span></code>?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>A very small window means that the signal isn’t smoothed very much. We need a good number of samples in order to be able to tell what the true underlying average actually is. Too many samples however, and we start averaging out the underlying sine wave. It has an average of zero, and so if we take a mean of lots of points, we end up with something close to zero.</p>
+</div>
+</li>
+<li><p>There are a number of rolling functions available in polars. Using <code class="code highlight python docutils literal highlight-python"><span class="o">.</span><span class="n">rolling_max</span><span class="p">()</span></code>, find the maximum value of <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;noisy&quot;</span></code> in a 1 second moving window.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">secs</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="n">fs</span> <span class="o">*</span> <span class="n">secs</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;noisy&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rolling_max</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;rolling max&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rolling max&quot;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;longdash&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">showlegend</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_f_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">4.3.1. </span>Plotting with plotly and matplotlib
+    </a>
+    <a class="float-right" href="assignment_f.html" title="Next">
+        <span class="section-number">4.3.3. </span>Assignment F <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">4.3.2. Polars examples</a><ul>
+<li><a class="reference internal" href="#tabular-data">4.3.2.1. Tabular data</a><ul>
+<li><a class="reference internal" href="#loading-data-from-excel">4.3.2.1.1. Loading data from Excel</a></li>
+<li><a class="reference internal" href="#selecting-data">4.3.2.1.2. Selecting data</a></li>
+<li><a class="reference internal" href="#operations">4.3.2.1.3. Operations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-second-example">4.3.2.2. A second example</a></li>
+<li><a class="reference internal" href="#time-series-data">4.3.2.3. Time series data</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
