@@ -26,7 +26,9 @@ Tabular data
 
 Loading data from Excel
 ^^^^^^^^^^^^^^^^^^^^^^^
-In your Lab F data folder there is a file called :console:`marks.xlsx`. This contains the same marks as we used in :ref:`the first part of the lab <lab_f_stage_1>`, but stored in a more helpful format. (Usually we want to separate out data from code, rather than hardcoding data into the code itself).
+#. `Click here <https://uom-eee-eeen11202.github.io/notes-part2/_images/marks.xlsx>`_ to download an Excel spreadsheet containing student marks for two courses. Save it in your Lab F `data` folder. You can ignore any :console:`marks.xlsx` file that is already in the folder. 
+
+    This Excel spreadsheet contains the same marks as we used in :ref:`the first part of the lab <lab_f_stage_1>`, but stored in a more helpful format. (Usually we want to separate out data from code, rather than hardcoding data into the code itself.) It also contains a few more columns. 
 
 #. Make a new Python file with any suitable name, and add the code below to this.
 

@@ -76,7 +76,7 @@ Initial setup for the Lab
 
 
 Plotting examples
-=================
+-----------------
 If there's one thing that AI is good at, it's helping to generate code for plotting data, remembering all of the different options that might be used to customize the display. As such, we're not going to spend too long exploring lots of options. You'll naturally pick up different ones as you use plotting libraries more often, and you can readily refer to documentation and AI tools to help with the details. Here we'll look at a few examples to build some familiarity. 
 
 For this we'll use the code: 
