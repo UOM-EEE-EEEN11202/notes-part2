@@ -41,7 +41,7 @@ Polars
 
    - It has a reputation for being faster than Pandas, especially for larger datasets.
    - It has a reputation for being easier to use, with a more consistent interface than Pandas.
-   - Polars also supports Rust, and so we can use the same dataframes and interface with the Rust code we'll develop later in the course.
+   - Polars also supports Rust, and so we can use the same dataframes and interface with other high performance languages.
 
    If you're joining an existing project which already uses Pandas, or you're using code from elsewhere which uses Pandas, essentially all of the concepts are the same as we'll cover here with Polars, just with a different syntax.
 

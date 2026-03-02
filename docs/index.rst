@@ -27,8 +27,8 @@ Links to the other parts of the course:
 
 - `Part 0 on course administration <https://uom-eee-eeen11202.github.io/>`_. 
 
-- `Part 1 on underlying theory of how computers operate <https://uom-eee-eeen11202.github.io/notes-part1/>`_. 
+- `Part 1 on underlying theory of programming and software engineering <https://uom-eee-eeen11202.github.io/notes-part1/>`_. 
 
-- `Part 2 (this part) on general purpose computing, mainly with Python <https://uom-eee-eeen11202.github.io/notes-part2/>`_. 
+- `Part 2 (this part) on general purpose computing <https://uom-eee-eeen11202.github.io/notes-part2/>`_. 
 
-- `Part 3 on higher performance computing, mainly with Rust <https://uom-eee-eeen11202.github.io/notes-part3/>`_.
+- `Part 3 on higher performance computing <https://uom-eee-eeen11202.github.io/notes-part3/>`_.

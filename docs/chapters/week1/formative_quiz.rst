@@ -172,8 +172,8 @@ If you get a low score, you may like to go back over some of the material, and d
        > That's not correct. Try again.
    1. [ ] def
        > That's not correct. In Python, def is used to indicate you're writing a function, but it's not the name of the function. 
-   1. [ ] fn
-       > That's not correct. In Rust, fn is used to indicate you're writing a function, but it's not the name of the function. 
+   1. [ ] int
+       > That's not correct. In C, int is commonly used as part of a function definition, but it's not the name of the function. 
 
    > See the lecture notes on [functions](https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/functions.html)
 
