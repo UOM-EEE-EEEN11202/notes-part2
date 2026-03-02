@@ -45,6 +45,15 @@ Initial setup for the Lab
    - We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation. We won't ask you to put anything into these as part of the lab instructions, but you might want to write some tests for your code to check that it's working!
    - In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
 
+
+#. Install the required dependencies for this lab by entering the command:
+
+   .. prompt::
+      :language: bash
+
+      uv add numpy
+
+
 #. Run 
 
    .. prompt::
