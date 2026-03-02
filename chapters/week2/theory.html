@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>2.1. Theory &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="2. Week 2" href="../week2_intro.html" />
+            <link rel="next" title="2.2. Lab A" href="lab_a.html" />
+            <link rel="prev" title="2. Week 2" href="../week2_intro.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week6/theory.html">6.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_i.html">6.2. Lab I</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_i_stage_2.html">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week6/lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week6/assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week6/formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week2_intro.html"><span class="section-number">2. </span>Week 2</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">2.1. </span>Theory</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week2/theory.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week2/theory.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="theory">
+<h1><span class="section-number">2.1. </span>Theory<a class="headerlink" href="#theory" title="Link to this heading">¶</a></h1>
+<section id="security-settings">
+<h2><span class="section-number">2.1.1. </span>Security settings<a class="headerlink" href="#security-settings" title="Link to this heading">¶</a></h2>
+<p>In <a class="reference internal" href="lab_a.html#lab-a"><span class="std std-ref">Lab A</span></a> we will look at <em>shell scripts</em>. These let us collect together multiple commands for the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/gui_and_cli.html">command line</a> to run them all at once, rather than one command at a time.</p>
+<p>For security purposes, your computer will almost certainly block scripts from running by default. We need to take some additional steps to tell the computer the script is OK to run. This is important, because otherwise anything you download from the Internet could have a script hidden inside it. If they weren’t blocked from running by default, they might try and do nefarious things to your computer.</p>
+<p>To prevent this, there is a process known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Access-control_list">active control list</a> which sets what permissions a user has for working with any particular file. Briefly (and there can be more verbose settings which are not important here), a user may:</p>
+<ul class="simple">
+<li><p>Have permission to <em>read</em> a file. That is, to view the contents, but not do anything else.</p></li>
+<li><p>Have permission to <em>write</em> to a file. That is, to edit the contents of the file. Note you don’t necessarily need read permissions to have write permissions, you can just forcefully overwrite whatever is present.</p></li>
+<li><p>Have permission to <em>execute</em> a file. That is, to run the file if it is a script or program.</p></li>
+</ul>
+<p>You can have any mixture combination of these permissions.</p>
+<p>The permissions are also separated out per-user. You can give one user specific permissions. Or set the same permissions for a group of users. Or give a default level of permissions for everyone. As you’re working by yourself we won’t worry about anything other that giving permissions so that you can run our scripts.</p>
+<p>If you type:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-0">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "PS C:\\> ";
+}
+</style><span class="prompt1"><span class="nb">Get-ChildItem</span></span>
+<span class="prompt1"><span class="nb">Get-Acl</span> <span class="p">*</span></span>
+</pre></div></div></div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-1">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt2:before {
+  content: "$ ";
+}
+</style><span class="prompt2">ls<span class="w"> </span>-la</span>
+</pre></div></div></div>
+</div>
+<p>into the command line you will get a display of the permissions that are present. (Remember the <code class="code highlight console docutils literal highlight-console"><span class="go">&gt;</span></code> or <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span></code> is displayed by the terminal for you. You don’t need to enter it, it’s to show you each command.) This display is slightly different depending on your operating system. Examples are shown below. We won’t worry about the exact syntax of these here.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key1" for="sd-tab-item-2">
+<span class="fab fa-windows"></span> Windows</label><div class="sd-tab-content docutils">
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/windows_permissions.png"><img alt="Windows terminal showing file permissions" src="../../_images/windows_permissions.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of the Windows terminal, software from <a class="reference external" href="https://www.microsoft.com/en-gb/windows">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="os" data-sync-id="key2" for="sd-tab-item-3">
+<span class="fab fa-apple"></span> macOS / <span class="fab fa-linux"></span> Linux</label><div class="sd-tab-content docutils">
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/linux_permissions.png"><img alt="Linux terminal showing file permissions" src="../../_images/linux_permissions.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of the Windows terminal, software from <a class="reference external" href="https://www.microsoft.com/en-gb/windows">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>In order to run a script directly at the command line the user must have execute permissions for that file. They don’t necessarily need other permissions. We won’t go into any more depth on this here. We’ll see how to give our scripts the permissions they need to run as part of the lab.</p>
+<p>Note that we generally only need to worry about permissions when looking at shell scripts. With other programming files, they are automatically given execute permissions behind the scenes because they’re not started directly from the command line, due to the details of how a program is <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scripts.html">compiled</a>.</p>
+</section>
+<section id="python-virtual-environments">
+<span id="virtual-environments"></span><h2><span class="section-number">2.1.2. </span>Python virtual environments<a class="headerlink" href="#python-virtual-environments" title="Link to this heading">¶</a></h2>
+<p>In <a class="reference internal" href="lab_b.html#lab-b"><span class="std std-ref">Lab B</span></a> we will start looking at Python. We’ll do this over multiple labs, as there are many different things to learn. <a class="reference internal" href="lab_b.html#lab-b"><span class="std std-ref">Lab B</span></a> will focus on getting up and running. To do this <em>virtual environments</em> are a key thing to understand. You can use Python without using virtual environments, but it makes it very hard to maintain your code and to share it with others.</p>
+<p>Your computer probably has Python already installed on it. It will be being used by various different programs that you have installed. <em>We don’t want to use this Python</em>. It will be a particular version, whatever is needed to make your computer work. It will have a number of external libraries installed, again whatever is needed to make your computer work. If we change the version of one of these, say because we need a newer version for our code, then everything else on the computer might break. You’ll quickly find that there are lots of different versions of Python, and lots of different external libraries that you might use. Having <em>one</em> installed copy of Python for everything you might want to do quickly leads to incompatibilities between different programs needing different versions.</p>
+<p>To overcome this, Python uses <em>virtual environments</em>. Essentially, having a different copy of Python installed in each different virtual environment. Different sets of Python code can thus be completely isolated from each other, and can have different versions of Python installed. The rule of thumb would be that you should never use the computer Python, you should always use one which is in a virtual environment.</p>
+<p>We create these virtual environments with a command that involves <code class="code highlight console docutils literal highlight-console"><span class="go">venv</span></code>, which we’ll see in the labs. In general, we have one virtual environment per <em>project</em>. There’s no hard rule for what a project is. You could have one larger virtual environment you do all of your work in, or lots of smaller ones. We’ve set up the course such that one lab is one project. This gives you more chance to practice making and working with virtual environments, and less chance of having incompatibilities between the different labs if you want to install different versions of libraries for some reason.</p>
+<p>Having a good understanding of virtual environments is the key first step in writing maintainable Python code, rather than just writing Python code that works but is hard to share with others.</p>
+</section>
+<section id="different-ways-of-running-python">
+<span id="python-modes"></span><h2><span class="section-number">2.1.3. </span>Different ways of running Python<a class="headerlink" href="#different-ways-of-running-python" title="Link to this heading">¶</a></h2>
+<p>Writing Python refers to the process of entering Python commands into the computer, and getting the computer to run these commands. There are multiple different ways in which we can do this. We go over the four main ones below. In this course we’re going to focus on (2) and (3).</p>
+<ol class="arabic">
+<li><p><strong>Interactively</strong>. Here we enter Python commands one at a time. You start Python at the command line with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">python3<span class="w"> </span>-I</span>
+</pre></div></div><p>(This example is using Linux, as we’ll use in the labs.) The <code class="code highlight console docutils literal highlight-console"><span class="go">-I</span></code> tells Python to start in interactive mode.)</p>
+<p>If you enter this command, you’ll see that the command prompt changes from <code class="code highlight console docutils literal highlight-console"><span class="gp">$</span></code> to <code class="code highlight console docutils literal highlight-console"><span class="go">&gt;&gt;&gt;</span></code> as shown in the figure below. This is the <em>Python command prompt</em>. It works much like the computer command prompt that you’ll learn about in <a class="reference internal" href="lab_a.html#lab-a"><span class="std std-ref">Lab A</span></a>, but it accepts Python commands.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/python_interactive.png"><img alt="Python interactive mode command prompt" src="../../_images/python_interactive.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of the Windows terminal, software from <a class="reference external" href="https://www.microsoft.com/en-gb/windows">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Interactive mode can be extremely useful, but it’s not very scalable entering one command at a time.</p>
+</li>
+<li><p><strong>Jupyter notebooks</strong>. Here we store multiple commands in a <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/computer_software/files_and_folders.html#files">file</a>. These files have a <code class="code highlight console docutils literal highlight-console"><span class="go">.ipynb</span></code> extension to indicate they are a Jupyter Notebook.</p>
+<p>The Python commands in the file are automatically run one after another. Importantly, the <em>file</em> is still run interactively. That is, information in the file is displayed on the screen for us as it is being run. This lets us inspect the values of variables <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/variables.html">variables</a>, and to re-run parts of the file if we want to. It’s very useful, and widely used in data science applications of Python. Often data science analyses are <em>exploratory</em>. We don’t necessarily know in advance exactly what we want to do, we need to load the data and have to look at it and explore different things. Nevertheless, in this mode the commands are saved in a file, so we can run lots of commands in sequence, and run the same sequence again if we come back to the data later. Some people refer to a <em>REPL</em> loop in Python: Read, Evaluate, Print, and Loop; that is, to interactive work with your data and changing the code to get the behavior you want.</p>
+</li>
+<li><p><strong>Cell based interactively</strong>. By convention Python code files have a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> extension. We can run these files in different ways, one of which is to run it interactively, very similar to how Jupyter Notebooks work. Here we can run the code one section, <em>cell</em>, at a time, inspecting variables as we go along. This is very useful for development and debugging of code. Nevertheless the code is in a standard Python code file rather than a special Jupyter Notebook file. Having a standard <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> file is likely preferable for large projects once you’ve moved past the data exploration stage.</p>
+<p>We’ll see some examples of this type of working in the second part of <a class="reference internal" href="../week3/lab_c_stage_2.html#lab-c-stage-2"><span class="std std-ref">Lab C</span></a>.</p>
+</li>
+<li><p><strong>In a development environment</strong>. Here we write code into a standard Python file, with a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> extension. We run the code all at once, rather than interactively. However, to help with development we can pause the code in the <a class="reference external" href="https://uom-eee-eeen11202.github.io/notes-part1/chapters/software_development_tools/debugger.html">debugger</a>. This lets us inspect variables at particular points in the code, and step through the code one line at a time to see how it works. This is probably the most scalable way of working with Python code, and is widely used in professional software development.</p>
+<p>This is the approach we’ll use for most of the course.</p>
+</li>
+<li><p><strong>As a script</strong> Here the commands are stored in a file, and we just ask for all of the commands to be run and get the end result. This is useful once we’ve got our finalized code and, say, want to run it hundreds or thousands of time on different data sets. If your Python code is stored in a file called <code class="code highlight console docutils literal highlight-console"><span class="go">my_code.py</span></code>, then you can run it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">python3<span class="w"> </span>my_code.py</span>
+</pre></div></div><p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt2">uv<span class="w"> </span>run<span class="w"> </span>my_code.py</span>
+</pre></div></div><p>Again, VSCode has a number of different buttons for starting this code from the graphical interface rather than the command line if that’s what you prefer. (The difference between the above commands is that <code class="code highlight console docutils literal highlight-console"><span class="go">uv run</span></code> will automatically start (and make if needed) a virtual environment. <code class="code highlight console docutils literal highlight-console"><span class="go">python3</span></code> assumes you’ve already activated one, or have a default Python installation setup.)</p>
+<p>You won’t be able to view the intermediate results, but you can see the final result. (Unless there’s an error and the script stops running part way through.)</p>
+<p>You’ll see some examples of this in the course, but as we’re more focused on developing code rather than just running finalized code, it doesn’t come up that much.</p>
+</li>
+<li><p><strong>As a package or module</strong>. For all of the above our code will be in a file, mainly with a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> extension. We can share this file with others and they’ll be able to run it (as long as their <a class="reference internal" href="#virtual-environments"><span class="std std-ref">virtual environment</span></a> has a suitable Python version and libraries installed). You’ll find that we often use code from others, not by sharing a <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code> file, but by installing it using a tool called <code class="code highlight console docutils literal highlight-console"><span class="go">pip</span></code>. This is a more formal way of sharing code, and adding it to a Python installation. It is an easier way of sharing code with lots of people, especially if the code is split into lots of different files. There are repositories, such as <a class="reference external" href="https://pypi.org/">PyPI</a>, where people have uploaded their code to be installed by others. To share code like this we need to make a <em>package</em> from the <code class="code highlight console docutils literal highlight-console"><span class="go">.py</span></code>.</p></li>
+</ol>
+<p>We won’t cover how to make a Python package in this course. You can find out more in the <a class="reference external" href="https://packaging.python.org/tutorials/packaging-projects/">Python documentation</a> if you are interested.</p>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="../week2_intro.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">2. </span>Week 2
+    </a>
+    <a class="float-right" href="lab_a.html" title="Next">
+        <span class="section-number">2.2. </span>Lab A <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">2.1. Theory</a><ul>
+<li><a class="reference internal" href="#security-settings">2.1.1. Security settings</a></li>
+<li><a class="reference internal" href="#python-virtual-environments">2.1.2. Python virtual environments</a></li>
+<li><a class="reference internal" href="#different-ways-of-running-python">2.1.3. Different ways of running Python</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

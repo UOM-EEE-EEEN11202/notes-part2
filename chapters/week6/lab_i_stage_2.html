@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-GB" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>6.2.2. Using AI for coding &mdash; notes-part2 0.1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/uom_custom.css?v=79662979" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-light.css?v=5c77cf45" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments-theme-dark.css?v=54fad279" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="notes-part2 0.1 documentation" href="#" />
+            <link rel="up" title="6.2. Lab I" href="lab_i.html" />
+            <link rel="next" title="6.2.3. Assignment I" href="assignment_i.html" />
+            <link rel="prev" title="6.2.1. Writing code for AI" href="lab_i_stage_1.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script>
+        try {
+            var font_store = localStorage.getItem('uom-sphinx-font');
+            if (font_store.startsWith('"') && font_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-font', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+        try {
+            var theme_store = localStorage.getItem('uom-sphinx-theme');
+            if (theme_store.startsWith('"') && theme_store.endsWith('"')) {
+                localStorage.setItem('uom-sphinx-theme', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>   
+    <!-- Set font/code theme before content loads to prevent a flash --> 
+    <script>
+        var html = document.querySelector('html');
+        var body   = document.querySelector('body');
+        var font;
+        try { font = localStorage.getItem('uom-sphinx-font'); } catch(e) { }
+        if (font === null || font === undefined) { font = "font-roboto"; }
+        if (font === "font-opendyslexic") {
+            html.classList.remove('font-alt');
+            body.classList.remove('font-alt');
+        } else {
+            html.classList.add('font-alt');
+            body.classList.add('font-alt');
+        }
+        try { theme = localStorage.getItem('uom-sphinx-theme'); } catch(e) { }
+        if (theme === null || theme === undefined) { theme = "theme-light"; }
+        if (theme === "theme-dark") {
+                html.classList.remove('theme-light');
+                body.classList.remove('theme-light');
+                html.classList.add('theme-dark');
+                body.classList.add('theme-dark');
+            } else {
+                html.classList.remove('theme-dark');
+                body.classList.remove('theme-dark');
+                html.classList.add('theme-light');
+                body.classList.add('theme-light');
+            }
+        </script>
+    <header id="uom_header_title" class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="/"
+                        title="University of Manchester logo"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/./img/uom_logo_white.png" width="88" alt="University of Manchester logo"
+                            class="logo-img"
+                        />
+                        EEEN11202 course notes
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search notes part 2" aria-label="Search notes" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">0. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../week1_intro.html">1. Week 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week1/theory.html">1.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week1/formative_quiz.html">1.2. Formative quiz 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week2_intro.html">2. Week 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week2/theory.html">2.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_a.html">2.2. Lab A</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_1.html">2.2.1. Shell scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_a_stage_2.html">2.2.2. Version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_a.html">2.2.3. Assignment A</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/lab_b.html">2.3. Lab B</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_1.html">2.3.1. Virtual environments and Jupyter notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/lab_b_stage_2.html">2.3.2. Electronic Engineering examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week2/assignment_b.html">2.3.3. Assignment B</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week2/formative_quiz.html">2.4. Formative quiz 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week3_intro.html">3. Week 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week3/theory.html">3.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_c.html">3.2. Lab C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_1.html">3.2.1. Python projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_c_stage_2.html">3.2.2. Common Python commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_c.html">3.2.3. Assignment C</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/lab_d.html">3.3. Lab D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_1.html">3.3.1. Tools and techniques for catching coding issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/lab_d_stage_2.html">3.3.2. Unit testing with Pytest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week3/assignment_d.html">3.3.3. Assignment D</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week3/formative_quiz.html">3.4. Formative quiz 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week4_intro.html">4. Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week4/theory.html">4.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_e.html">4.2. Lab E</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_1.html">4.2.1. Numpy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_e_stage_2.html">4.2.2. Scipy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_e.html">4.2.3. Assignment E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/lab_f.html">4.3. Lab F</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_1.html">4.3.1. Plotting with plotly and matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/lab_f_stage_2.html">4.3.2. Polars examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week4/assignment_f.html">4.3.3. Assignment F</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week4/formative_quiz.html">4.4. Formative quiz 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../week5_intro.html">5. Week 5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../week5/theory.html">5.1. Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_g.html">5.2. Lab G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_1.html">5.2.1. Objects and classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_g_stage_2.html">5.2.2. Multi-file scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_g.html">5.2.3. Assignment G</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/lab_h.html">5.3. Lab H</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_1.html">5.3.1. Exceptions and error handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/lab_h_stage_2.html">5.3.2. Git branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../week5/assignment_h.html">5.3.3. Assignment H</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../week5/formative_quiz.html">5.4. Formative quiz 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../week6_intro.html">6. Week 6</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="theory.html">6.1. Theory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lab_i.html">6.2. Lab I</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lab_i_stage_1.html">6.2.1. Writing code for AI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.2.2. Using AI for coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_i.html">6.2.3. Assignment I</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab_j.html">6.3. Lab J</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab_j_stage_1.html">6.3.1. What comes next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assignment_j.html">6.3.2. Assignment J</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formative_quiz.html">6.4. Formative quiz 6</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div><div>
+  <p>
+    <img src="https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png" alt="University of Manchester logo" style="width: 100vw; min-width: 100px;">
+  </p>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header id="uom_header_buttons" class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Part 2</a></li>
+            <li class="breadcrumb-item"><a href="../week6_intro.html"><span class="section-number">6. </span>Week 6</a></li>
+            <li class="breadcrumb-item"><a href="lab_i.html"><span class="section-number">6.2. </span>Lab I</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span class="section-number">6.2.2. </span>Using AI for coding</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+                        <button id="uom_alt_font_button" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="alt-only"><i class="fas fa-strikethrough"></i> Default font</span>
+                            <span class="default-only"><i class="fas fa-font"></i> OpenDyslexic font</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/UOM-EEE-EEEN11202/notes-part2/tree/main/docs/chapters/week6/lab_i_stage_2.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/chapters/week6/lab_i_stage_2.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="using-ai-for-coding">
+<span id="lab-i-stage-2"></span><h1><span class="section-number">6.2.2. </span>Using AI for coding<a class="headerlink" href="#using-ai-for-coding" title="Link to this heading">¶</a></h1>
+<p>The second aspect of AI is using it to help us write code. Clearly AI can generate code from scratch, and this is changing how we carry out our programming.</p>
+<p>We’re going to attempt to do a few things with AI in this part of the lab. Note however that AI is a fast moving field. The material here might be out of date by the time you read it! AI also isn’t deterministic. The responses you get back will be specific to you. They will depend on your history of prompts, the exact wording you use, and the version of the AI model being used (with new models being released all the time). Moreover, if lots of students start asking the same things, the AI might learn the correct response. So your experience may differ from what is described here. We will give it a go anyway and hope that it’s useful.</p>
+<p>We’re going to use GitHub Copilot as our AI tool, as it’s well integrated into VSCode and <a class="reference external" href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro">is available for free for students</a>. You can use a different tool if you prefer, but the instructions here will be specific to Copilot.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Make sure you are familiar with the <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/course_policies/ai_use.html">course policy and University regulations on the use of AI</a>.</p>
+<p>We’re using AI in this lab, but AI tools will not be available in the closed book exam.</p>
+</div>
+<section id="what-should-i-use-ai-for">
+<h2><span class="section-number">6.2.2.1. </span>What should I use AI for<a class="headerlink" href="#what-should-i-use-ai-for" title="Link to this heading">¶</a></h2>
+<p>The first step is thinking about what you want to use AI for. When we start a new code file, we’re presented with a blank text file for us to type in, as shown below.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/vscode_blank.png"><img alt="VSCode showing an empty file with a copilot prompt" src="../../_images/vscode_blank.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>One use of AI, probably the first that comes to mind, is to get AI to fill this blank screen with code for us. (Indeed, this is what VSCode now prompts us to do.) It’s fine, but it’s not the only possible use or approach to AI. It may, or may not, be the most effective way for you.</p>
+<p>There are possibly quite a few more possible ways of using AI:</p>
+<ul class="simple">
+<li><p>Generating code from scratch, starting with a blank file.</p></li>
+<li><p>Adding specific functions to an existing file.</p></li>
+<li><p>Explaining code that is already in place to help us understand it.</p></li>
+<li><p>Prompting to help fix/debug code that isn’t working.</p></li>
+<li><p>Generating testing code for existing code.</p></li>
+<li><p>Generate test inputs and outputs to check our code.</p></li>
+<li><p>Generating documentation for the code.</p></li>
+<li><p>Helping us to refactor code. That is, to take code that already fundamentally works, but re-arrange it to make it clearer and more scalable.</p></li>
+</ul>
+<p>Can you think of any others?</p>
+<p>Fundamentally, we’ll focus on using AI tools to help us write code, but you should think holistically about where and how you want to use it in your coding. We’ll look at two (and just two) ways of using AI for your code.</p>
+</section>
+<section id="auto-complete-suggestions">
+<h2><span class="section-number">6.2.2.2. </span>Auto-complete suggestions<a class="headerlink" href="#auto-complete-suggestions" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Make a new Python file with any suitable name. Copy the code below into this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-i!&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you have GitHub Copilot turned on, you should see an icon in the bottom right of the VSCode window that looks like a robot head. If you click on this, you can see the status of Copilot. If it’s not already enabled, enable it now. Make sure that <code class="code highlight console docutils literal highlight-console"><span class="go">Inline Suggestions</span></code> are enabled.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/vscode_inline_suggestions.png"><img alt="VSCode showing the GitHub Copilot status window" src="../../_images/vscode_inline_suggestions.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the Python file, start entering the code below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">co</span>
+</pre></div>
+</div>
+<p>You should see that a suggestion pops up, as shown below.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/vscode_autocomplete1.png"><img alt="VSCode showing an AI generated function suggestion" src="../../_images/vscode_autocomplete1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>On my computer it suggests making a function called <code class="code highlight python docutils literal highlight-python"><span class="n">compute_square</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>If that’s what you want it to do, great. You can press the <code class="code highlight console docutils literal highlight-console"><span class="go">tab</span></code> button, and the code will be inserted. If you don’t want the suggestion, you can just keep typing, or press <code class="code highlight console docutils literal highlight-console"><span class="go">Esc</span></code> on your keyboard.</p>
+<p>However, there are then a number of things to think about.</p>
+</li>
+<li><p><strong>Is this what you want?</strong> Only you know that. You need to have some understanding of your program and how it’s structured and what it’s trying to do, in order to know the answer to that. Saving some typing is great, especially for boilerplate code, but it’s not helping with the other parts of the <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/software_development/software_life_cycle.html">software life cycle</a>.</p></li>
+<li><p><strong>Is the code correct?</strong> For a simple example like this, it’s easy to check by eye. Moreover, it’s easy to check because you’re doing this in Lab H rather than Lab B. You’ve already got a lot of familiarity with Python, and so know (for example) that <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">*</span> <span class="n">x</span></code> is how we do a multiplication. If you were new to Python, you might not know that.</p>
+<p>Checking might not be so easy for longer code. We have methods for dealing with that - primarily writing <a class="reference internal" href="../week3/lab_d_stage_2.html#lab-d-stage-2"><span class="std std-ref">unit tests</span></a>. You can of course use the same AI to help write the tests, but then you have to ask the same questions again, now about the testing code.</p>
+</li>
+<li><p><strong>Is this the best way to do it?</strong> There are often many ways to do the same thing in code. It might be good enough for your needs. Not everything necessarily has to be perfect all of the time. Equally, it might be that using <code class="code highlight python docutils literal highlight-python"><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span></code> is a better way to compute the square. For complex algorithms, some code might run much more quickly than others and the first suggestion may or may not be the best one. You need to be able to provide some evaluation of that.</p></li>
+<li><p><strong>Does this meet my standards</strong>. For example, here are no comments or docstrings in the suggested code. Is that acceptable to you? If not, you need to add them in yourself. Again for a simple example, this code is pretty self-documenting via it’s name.</p></li>
+<li><p>What other factors might you want to consider? Security? Scalability? Maintainability? Anything else?</p></li>
+</ol>
+</section>
+<section id="agent-based-coding">
+<h2><span class="section-number">6.2.2.3. </span>Agent based coding<a class="headerlink" href="#agent-based-coding" title="Link to this heading">¶</a></h2>
+<p>The second common way of using AI to generate code is to use an agent or prompt. Here you start by giving a description of what you want the code to do, and AI generates the code for you. This is the heart of <a class="reference external" href="https://en.wikipedia.org/wiki/Vibe_coding">vibe coding</a> where you focus more on describing what you want, and less on the code needed to do it.</p>
+<ol class="arabic">
+<li><p>Click on the <code class="code highlight console docutils literal highlight-console"><span class="go">Toggle Chat</span></code> icon in the top menu bar in VSCode. This will open a chat window where you can enter your prompt.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../../_images/vscode_agent.png"><img alt="VSCode agent chat window" src="../../_images/vscode_agent.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In <a class="reference internal" href="../week3/lab_c_stage_2.html#countdown"><span class="std std-ref">Lab C</span></a>, when we introduced loops, we had an example of a simple countdown function. The code for this is copied below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %% For loops</span>
+<span class="n">countdown</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ask the AI to generate this code for you. You can enter a prompt such as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Write a Python function that counts down from 10 to 0 and then prints &quot;Blast off&quot;
+</pre></div>
+</div>
+<p>or however you would phrase this. (The above is quite a simple prompt.)</p>
+<p>The result is shown below.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../../_images/vscode_agent_response.png"><img alt="VSCode file file containing AI generated code highlighted in green" src="../../_images/vscode_agent_response.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>For me it generates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Counts down from a given positive integer to 0 and prints &#39;Blast off&#39;&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Keep</span></code> to accept the code.</p>
+<p>The style of the print statement is a little different to what we wrote by hand, but there’s no manifest change from this. (I might argue that using an f-string makes it easier to add text into the print statement later if were to want to change what’s displayed, but it’s very minor)</p>
+</li>
+<li><p>In the <code class="code highlight python docutils literal highlight-python"><span class="n">main</span></code> function add the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and run the code. You should see the countdown printed out as expected.</p>
+</li>
+<li><p>Let’s change this to a (mildly) more complicated function. Ask the agent to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Write a Python function that counts down from a number given at the input to 0 and then prints &quot;Blast off&quot;
+</pre></div>
+</div>
+<p>or however you would phrase this.</p>
+<p>Again, the output I get is below.</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../../_images/vscode_agent_response_updated.png"><img alt="VSCode file file containing AI generated code highlighted in green, with changes from the previous code in red" src="../../_images/vscode_agent_response_updated.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Counts down from a given number to 0 and prints &#39;Blast off&#39;&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">Keep</span></code> to accept the code.</p>
+</li>
+<li><p>We can tell by inspection that this code looks correct. Add the following code to the <code class="code highlight python docutils literal highlight-python"><span class="n">main</span></code> function to use the new countdown function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countdown</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">countdown</span><span class="p">(</span><span class="mf">10.1</span><span class="p">)</span>
+<span class="n">countdown</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">countdown</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and run the code. (You’ll probably need to do these one at a time.)</p>
+</li>
+<li><p>None of the bottom three work correctly. They cause the program to crash or to not display all of the wanted output. Our function is expecting an integer, and indeed a positive integer, in order to work correctly.</p>
+<p>We studied <a class="reference internal" href="../week5/lab_h_stage_1.html#lab-h-stage-1"><span class="std std-ref">exceptions in Lab H</span></a>, which we can use to write code that is robust to incorrect inputs.  You might argue we’re being a bit unfair on the AI. It did what we asked it to do. This is certainly the case, but the result is code that isn’t very robust. Really, we need to ask AI a better question. It becomes even more important if you ask AI to help with more complicated code. This is partly why we have the AI lab now, you had to cover enough background material first to help you ask AI the best questions.</p>
+</li>
+<li><p>Let’s try again. Ask the agent to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Write a Python function that counts down from a positive integer given at the input to 0 and then prints &quot;Blast off&quot;. If the input is not a positive integer, raise a ValueError exception. Handle this exception to display the ValueError message but not the full traceback.
+</pre></div>
+</div>
+</li>
+<li><p>The code I get for this is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">countdown</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Counts down from a given positive integer to 0 and prints &#39;Blast off&#39;&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be a positive integer&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be a positive integer&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from lab-i!&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">countdown</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">countdown</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This looks fairly reasonable. It deleted the cases that were in there with <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">(</span><span class="mf">10.1</span><span class="p">)</span></code>, <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span></code>, and <code class="code highlight python docutils literal highlight-python"><span class="n">countdown</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span></code>, for some reason, but these were error cases anyway.</p>
+</li>
+<li><p>It’s probably quite cumbersome to have to remember all of the different factors that you might want to include in your prompt for the agent to take into account. Instead, you can make custom agents that have specific instructions built in.</p>
+<p>In the <code class="code highlight console docutils literal highlight-console"><span class="go">Agent</span></code> window click on <code class="code highlight console docutils literal highlight-console"><span class="go">Agent</span></code> and then <code class="code highlight console docutils literal highlight-console"><span class="go">Configure Custom Agents</span></code>.</p>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../../_images/vscode_custom_agent1.png"><img alt="VSCode showing the custom agent configuration menu" src="../../_images/vscode_custom_agent1.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Click on <code class="code highlight console docutils literal highlight-console"><span class="go">+ Create new custom agent...</span></code>.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../../_images/vscode_custom_agent2.png"><img alt="VSCode showing the custom agent creation menu" src="../../_images/vscode_custom_agent2.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Attach it to Lab I, and give it a name <code class="code highlight console docutils literal highlight-console"><span class="go">test</span></code> (you’ll need to remember this name later). This will automatically make a file called <code class="code highlight console docutils literal highlight-console"><span class="go">test.agent.md</span></code>.</p>
+<p>This will open a new file where you can define the fixed instructions you want your agent to have.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/vscode_custom_agent3.png"><img alt="VSCode showing the custom agent settings file" src="../../_images/vscode_custom_agent3.png" width="800" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot of VSCode, software from <a class="reference external" href="https://code.visualstudio.com/">Microsoft</a>. See <a class="reference external" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright">course copyright statement</a>.</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Look at some of the <a class="reference external" href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents#example-agent-profiles">examples that GitHub provides</a>. There are lots more examples <a class="reference external" href="https://github.com/github/awesome-copilot/tree/main/agents">here</a>.</p>
+<p>Pick your favourite example. Some of them are quite detailed, and show the level of prompting design needed to get good performance. You’ll also see there are lots! There isn’t a single one that is optimal for all situations.</p>
+<p>Save your updated file with your custom agent.</p>
+</li>
+<li><p>I picked one focused on testing. The prompt needs to be updated to refer to the wanted agent. For <code class="code highlight console docutils literal highlight-console"><span class="go">my_agent</span></code>, the prompt becomes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@workspace/test Write unit tests for the countdown function.
+</pre></div>
+</div>
+<p>to ask VSCode to use a specific agent.</p>
+</li>
+<li><p>The above is just an example. Try some of your own prompts with your custom agent. See what code it generates for you. You might want to try some of the other uses of AI mentioned earlier, such as generating documentation, refactoring code, or explaining code.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="lab_i_stage_1.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span><span class="section-number">6.2.1. </span>Writing code for AI
+    </a>
+    <a class="float-right" href="assignment_i.html" title="Next">
+        <span class="section-number">6.2.3. </span>Assignment I <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">6.2.2. Using AI for coding</a><ul>
+<li><a class="reference internal" href="#what-should-i-use-ai-for">6.2.2.1. What should I use AI for</a></li>
+<li><a class="reference internal" href="#auto-complete-suggestions">6.2.2.2. Auto-complete suggestions</a></li>
+<li><a class="reference internal" href="#agent-based-coding">6.2.2.3. Agent based coding</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="uom_footer_info" class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://www.manchester.ac.uk/">The University of Manchester</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://canvas.manchester.ac.uk/">Canvas</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2026 The University of Manchester. <a class="nav-link text-light" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Released under CC-BY-NC-ND 4.0 license.</a> <a class="nav-link text-light" href="https://uom-eee-eeen11202.github.io/chapters/about/copyright.html">Course copyright statement.</a>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=818a811f"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script src="../../_static/translations.js?v=8fd896e3"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js"></script>
+        <script>quizdown.init({"quizdown_js": "https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js", "start_on_load": true, "shuffle_answers": true, "shuffle_questions": false, "primary_color": "#660099", "secondary_color": "#DDDDDD", "text_color": "black", "locale": "en_GB", "enableRetry": true});</script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/uom_custom.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
