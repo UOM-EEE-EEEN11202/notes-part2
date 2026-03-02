@@ -375,7 +375,7 @@ Further questions
       .. code-block:: python
 
          # Calculate the total resistance
-         r_values = range(10, 100, 10)  # kOhm values
+         r_values = range(10, 110, 10)  # kOhm values. Note last point (110) isn't included in the range
          r_intermediate = [1 / r for r in r_values]  # broken into two lines for readability
          r_t = 1 / sum(r_intermediate)  # kOhm values
 
@@ -403,8 +403,8 @@ Further questions
     
       # Potential divider example
       v_in = 10
-      z1 = 1  # kOhm
-      z2 = 10  # kOhm
+      z1 = 1e3  # Ohm
+      z2 = 10e3  # Ohm
       v_out = (z2 * v_in) / (z1 + z2)  # Volts
 
 
@@ -432,13 +432,13 @@ Further questions
     
    where :python:`w` is the angular frequency and :python:`c` is the value of the capacitance. Make suitable variables for these, assuming a capacitor of value 1 nF and frequency of 160 kHz.
 
-   Modify the :python:`v_in` in your code to be an a.c., sinusoidal signal with a frequency of 160 kHz, phase of 0, and amplitude of 5 V. Mathematically, you can represent this as a phasor, that is, a complex exponential. Recall that from your circuit theory you would represent such an input as :math:`5e^{j\omega}` where :math:`\omega = 2\pi \times 160,000`.
+   Modify the :python:`v_in` in your code to be an a.c., sinusoidal signal with a frequency of 160 kHz, phase of 0, and amplitude of 5 V. Mathematically, you can represent this as a phasor, that is, a complex exponential. Recall that from your circuit theory you would represent such an input as :math:`5e^{j\phi}` where :math:`\phi` is the phase present. (We don't have to set the frequency, that comes in when we do a sum using the phasor.)
 
    In Python you can represent this as 
 
    .. code-block:: python
 
-      v_in = 5 * cmath.exp(1j * 2 * math.pi * 160000)
+      v_in = 5 * cmath.exp(0j)
 
    (assuming that you already have :python:`import cmath` and :python:`import math` in your code).
 
@@ -456,9 +456,9 @@ Further questions
          f = 160000  # Hz
          w = 2 * math.pi * f  # rad/s
 
-         v_in = 5 * cmath.exp(1j * w)
+         v_in = 5 * cmath.exp(0j)
 
-         z1 = 1  # kOhm
+         z1 = 1000  # Ohm
          c = 1e-9  # Farads
          z2 = 1 / (1j * w * c)
 

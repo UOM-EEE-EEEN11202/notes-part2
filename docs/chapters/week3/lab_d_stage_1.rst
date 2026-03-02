@@ -29,7 +29,7 @@ Initial setup for the Lab
 
    - :console:`cd /workspaces/\`ls /workspaces\` && mkdir -p lab-d` makes the lab-d folder. There are no pre-downloaded files needed for Lab D. Sometimes this means that the Lab D folder isn't downloaded automatically (because it's empty). 
    - :console:`cd /workspaces/\`ls /workspaces\`/lab-d` makes sure we are working in the lab-d folder.
-   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
+   - :console:`uv init .` is the interesting command. It makes a simple `pyproject.toml` file to define the project. (The actual virtual environment is made automatically when we run code.)
 
    The above will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others. 
 

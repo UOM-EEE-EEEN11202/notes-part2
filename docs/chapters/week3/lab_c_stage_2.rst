@@ -319,7 +319,7 @@ Loops
               raise Exception("Something must have gone wrong!")
 
           print(f"{student} has {pass_status} with {marks[student]} marks.")
-          return pass_status
+
 
    The :python:`for` loop iterates through each student, and the :python:`if` statements check whether they passed or failed the course, changing the message that is displayed as appropriate. 
     

@@ -34,7 +34,9 @@ Setting up a Python project
    To analyze these lines:
 
    - :console:`cd /workspaces/\`ls /workspaces\`/lab-c` makes sure we are working in the lab-c folder.
-   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
+   - :console:`uv init .` is the interesting command. It makes a simple `pyproject.toml` file to define the project.
+
+   Note that we haven't made a virtual environment yet. :console:`uv init .` just defines a new project. The virtual environment is made later, when we try to run code. 
 
 
 #. You'll see that three files have been automatically created for you:
@@ -242,7 +244,7 @@ The output voltage is given by
 
    V_{out} = \frac{Z_{2}V_{in}}{Z_{1} + Z_{2}}
 
-Your code in Lab B will have looked like the below.
+Your code in Lab B will have looked like the below. This is for :math:`V_{in}` of 5 V, :math:`Z_{1}` being a resistor of 1 k:math:`\Omega`, and :math:`Z_{2}` being a capacitor of 1 nF. 
 
 .. code-block:: python
 
@@ -253,9 +255,9 @@ Your code in Lab B will have looked like the below.
    f = 160000  # Hz
    w = 2 * math.pi * f  # rad/s
 
-   v_in = 5 * cmath.exp(1j * w)
+   v_in = 5 * cmath.exp(0j)  # phasor representation. 0 degree signal
 
-   z1 = 1  # kOhm
+   z1 = 1000  # Ohms
    c = 1e-9  # Farads
    z2 = 1 / (1j * w * c)
 

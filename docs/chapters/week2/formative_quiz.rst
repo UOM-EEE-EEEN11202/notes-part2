@@ -74,7 +74,7 @@ Formative quiz 2
    `lim_low = 0` <br />
    `lim_high = 5` <br />
    `for i in range(lim_low,lim_high):` <br />
-   `    print(i*mult)`
+   `print(i*mult)`
 
    1. [ ] It is not valid Python to do the sum `i*mult` within the `print()` statement.
        > That's not correct. You can nest commands like this, as long as you think the code is sufficiently readable.

@@ -27,7 +27,7 @@ Initial setup for the Lab
    To analyze these lines:
 
    - :console:`cd /workspaces/\`ls /workspaces\`/lab-h` makes sure we are working in the lab-h folder.
-   - :console:`uv init .` is the interesting command. This actually sets up our virtual environment.
+   - :console:`uv init .` is the interesting command. It makes a simple `pyproject.toml` file to define the project. (The actual virtual environment is made automatically when we run code.)
 
    The above will make the a :console:`pyproject.toml` file, a :console:`main.py` file, and a number of others. 
 
