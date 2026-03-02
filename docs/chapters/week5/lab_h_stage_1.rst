@@ -107,10 +107,10 @@ Raising exceptions
       .. code-block:: python
 
          def main():
-         print("Hello from lab-h!")
-         x = 101
-         if x > 100:
-             raise MyError(f"x was {x}. It should be 100 or less.")
+             print("Hello from lab-h!")
+             x = 101
+             if x > 100:
+                 raise MyError(f"x was {x}. It should be 100 or less.")
 
 #. In addition to using custom names for exceptions, there are a wide range of built in named exceptions that you can use without having to make your own. A list is available `online <https://docs.python.org/3/library/exceptions.html>`_, so we won't go through them all here. Probably the some of most common ones you might like to use early on are:
 
@@ -248,7 +248,7 @@ Raising an exception is great, but you then need to decide what you want to do. 
           else:
               print("No exceptions were raised.")
           finally:
-              print(f"x is {x}")
+              print(f"Done")
 
 
       if __name__ == "__main__":
