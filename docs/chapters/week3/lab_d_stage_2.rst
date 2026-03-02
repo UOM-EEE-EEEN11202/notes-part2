@@ -129,6 +129,10 @@ Pytest is not part of the standard library, and so it's not installed by default
 
    Create a new file in there called :python:`test_lab_d_code.py`. It is important that the file name starts with :python:`test_`. By default, Pytest will detect and run tests that are stored in a Python file starting with :python:`test_`.
 
+   .. caution::
+
+      Make sure your file is called :python:`test_lab_d_code.py` and not :python:` test_lab_d_code.py`. Some students accidentally add a space before the file name, which means that Pytest won't find the file and won't run any tests.
+
    .. admonition:: Note
       :class: dropdown
 
