@@ -127,7 +127,7 @@ Modelling sine waves
       # Make a sine wave
       sample_start = 0
       sample_stop = 100
-      t = range(sample_start, sample_stop)  # interpret as representing 1 s, 2 s, 3 s, ...
+      t = list(range(sample_start, sample_stop))  # interpret as representing 1 s, 2 s, 3 s, ...
 
    :python:`t` will produce numbers 0, 1, 2, 3, up to :python:`sample_stop-1`, and we as humans can think of these as representing time points, 0 second, 1 second, and so on. 
 
@@ -280,6 +280,15 @@ Modelling sine waves
                  print("Zero crossing at time:", i)
 
       This is a bit more generous in its checking and should work as you want. 
+
+      Alternatively, more robust would be to can use a :python:`for` loop to check for when the sign of the voltage changes. For example:
+
+      .. code-block:: python
+
+         # Find zero crossings
+         for i in range(1, len(v_out)): # note that starts a 1, not 0, as we need to check the previous value
+             if (v_out[i-1] < 0 and v_out[i] >= 0) or (v_out[i-1] >= 0 and v_out[i] < 0):
+                 print("Zero crossing at time:", i)
 
 
 Circuit analysis examples
