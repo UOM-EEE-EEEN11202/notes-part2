@@ -456,9 +456,10 @@ Further questions
          f = 160000  # Hz
          w = 2 * math.pi * f  # rad/s
 
-         v_in = 5 * cmath.exp(0j)
+         a = 5  # input amplitude in Volts
+         v_in = a * cmath.exp(0j)
 
-         z1 = 1000  # Ohm
+         z1 = 1e3  # Ohm
          c = 1e-9  # Farads
          z2 = 1 / (1j * w * c)
 

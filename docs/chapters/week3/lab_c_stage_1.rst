@@ -255,9 +255,10 @@ Your code in Lab B will have looked like the below. This is for :math:`V_{in}` o
    f = 160000  # Hz
    w = 2 * math.pi * f  # rad/s
 
-   v_in = 5 * cmath.exp(0j)  # phasor representation. 0 degree signal
+   a = 5 # input amplitude in Volts
+   v_in = a * cmath.exp(0j)  # phasor representation. 0 degree signal
 
-   z1 = 1000  # Ohms
+   z1 = 1e3  # Ohms
    c = 1e-9  # Farads
    z2 = 1 / (1j * w * c)
 
@@ -293,10 +294,11 @@ Your code in Lab B will have looked like the below. This is for :math:`V_{in}` o
 
              # Calculate input
              w = 2 * math.pi * f  # rad/s
-             v_in = 5 * cmath.exp(1j * w)
+             a = 5 # input amplitude in Volts
+             v_in = a * cmath.exp(0j)  # phasor representation. 0 degree signal
 
              # Define the circuit
-             z1 = 1  # kOhm
+             z1 = 1e3  # Ohms
              c = 1e-9  # Farads
              z2 = 1 / (1j * w * c)
              v_out = (z2 * v_in) / (z1 + z2)  # Volts
@@ -358,10 +360,10 @@ Your code in Lab B will have looked like the below. This is for :math:`V_{in}` o
              # Calculate input
              w = 2 * math.pi * f  # rad/s
              a = 5  # input amplitude in Volts
-             v_in = a * cmath.exp(1j * 2 * math.pi * 160000)
+             v_in = a * cmath.exp(0j)  # phasor representation. 0 degree signal
 
              # Define the circuit
-             z1 = 1  # kOhm
+             z1 = 1e3  # Ohms
              c = 1e-9  # Farads
              z2 = 1 / (1j * w * c)
              v_out = (z2 * v_in) / (z1 + z2)  # Volts
