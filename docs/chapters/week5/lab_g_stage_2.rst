@@ -140,8 +140,9 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
 
    The problem with this approach is that if :console:`my_lib.py` and :console:`process_student_marks.py` both have functions or classes with the same names, there will be a conflict. Python won't know which one to use.
 
+   **As such, the above isn't the recommended approach.**
 
-#. Change the import statement to be
+#. Instead, change the import statement to be
 
    .. code-block:: python
 
@@ -170,7 +171,20 @@ We'll continue to use the :python:`StudentMarksEEEN11202` example from :ref:`the
 
    This has imported everything from :console:`my_lib.py`, and put it into a `namespace <https://uom-eee-eeen11202.github.io/notes-part1/chapters/programming_fundamentals/scope.html#namespaces>`_ called :python:`my`. To access things from :console:`my_lib.py` we now have to use the namespace. 
    
-   So, :python:`StudentMarksEEEN11202` becomes :python:`my.StudentMarksEEEN11202`, and :python:`display_student_info()` becomes :python:`my.display_student_info()`. This is very useful when we're importing lots of functions and classes from different sources which might have similar names. 
+   So, :python:`StudentMarksEEEN11202` becomes :python:`my.StudentMarksEEEN11202`, and :python:`display_student_info()` becomes :python:`my.display_student_info()`. 
+   
+   .. code-block:: python
+
+      # Create instance of StudentMarksEEEN11202
+      student1 = my.StudentMarksEEEN11202("Alex", "12345")
+      student2 = my.StudentMarksEEEN11202("Casson", "67890")
+      
+      ...
+      
+      my.display_student_info(student)
+
+   
+   This is very useful when we're importing lots of functions and classes from different sources which might have similar names. 
 
    Make these changes and check the code still runs as before.
 

@@ -156,6 +156,7 @@ Raising warnings
           if x > 100:
               raise ValueError(f"x was {x}. It should be 100 or less.")
 
+          # Remember the code only gets to this point if there were no exceptions raised above.
           warnings.warn("This is a custom warning from lab-h.", MyWarning)
 
 
@@ -388,12 +389,12 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
              # This is basically the same as check_exam_mark_validity() but with different valid ranges
              # Probably better to put both into a single function with parameters, but this is clearer for now
              if isinstance(mark, str):
-                 raise MarkIsText("Exam mark must be a number.")
+                 raise MarkIsText("Assignment mark must be a number.")
              valid_marks = range(0, 6)  # end value not included, so is 6 rather than 5
              if mark not in valid_marks:
-                 raise ExamMarkOutOfRange("Exam mark must be between 0 and 100.")
+                 raise AssignmentMarkOutOfRange("Assignment mark must be between 0 and 5.")
              if not isinstance(mark, int):
-                 raise ValueError("Exam mark must be an integer.")
+                 raise ValueError("Assignment mark must be an integer.")
 
 
          # %% Object classes
@@ -527,7 +528,7 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
                      f"Assignment mark must be between {ASSIGNMENT_MARK_MIN} and {ASSIGNMENT_MARK_MAX}."
                  )
              if not isinstance(mark, int):
-                 raise ValueError("Exam mark must be an integer.")
+                 raise ValueError("Assignment mark must be an integer.")
 
 
          # %% Object classes
@@ -568,7 +569,7 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
                      )
                      sys.exit(1)  # stops the program
                  except ValueError:
-                     mark = int(mark)
+                     mark = round(mark)
                      self.set_exam_mark(mark)  # try to set again with new mark
                  except ExamMarkOutOfRange:
                      if mark < EXAM_MARK_MIN:
@@ -585,11 +586,11 @@ In your Lab H :console:`src` folder we've included two files, :console:`student_
                      check_assignment_mark_validity(mark)
                  except MarkIsText as e:
                      print(
-                         f"Error setting exam mark. Asked for value: {mark}. It should be a number."
+                         f"Error setting assignment mark. Asked for value: {mark}. It should be a number."
                      )
                      sys.exit(1)  # stops the program
                  except ValueError:
-                     mark = int(mark)
+                     mark = round(mark)
                      self.set_assignment_mark(
                          assignment_letter, mark
                      )  # try to set again with new mark

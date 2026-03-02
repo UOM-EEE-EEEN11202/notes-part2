@@ -580,7 +580,7 @@ Another example
                  self.value = np.nan
 
              def __str__(self):
-        return "No Submission"
+                 return "No Submission"
 
              def __repr__(self):
                  return "No Submission"

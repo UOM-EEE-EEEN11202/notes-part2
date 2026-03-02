@@ -69,7 +69,7 @@ Numerical analysis in Python
 ----------------------------
 #. Make a new Python file with any suitable name. Put it in your Lab E :console:`src` folder.
 
-#. In this file, copy the code below and run it. We suggest putting a breakpoint on the :python:`return` statement on Line 13 so you can view the results, or you can inset :python:`logging` commands if you prefer.
+#. In this file, copy the code below and run it. To view the results we suggest you put a breakpoint on the :python:`return` statement on Line 13 and press the "Run and Debug" button in VSCode. This will run the code in the debugger, and pause at the breakpoint, allowing you to inspect the variables (see :ref:`debugging in Lab D <lab_d_stage_1>`). Or you can inset :python:`logging` commands if you prefer.
 
    .. code-block:: python
 
@@ -379,7 +379,7 @@ Simulating signals in Python
             ts
          )  # initialize v to be an array of zeros the same shape as t, lets us just add values to this in the for loop
          for k in range(1, n + 1):  #  range doesn't include stop value
-            vs += (4 / (((2 * k) - 1) * np.pi)) * np.sin(((2 * k) - 1) * 2 * np.pi * f * ts)
+            vs += (1 / ((2 * k) - 1)) * np.sin(((2 * k) - 1) * 2 * np.pi * f * ts)
          vs = (4 / np.pi) * vs  # scale the final result
          do_plots(ts, vs)
 

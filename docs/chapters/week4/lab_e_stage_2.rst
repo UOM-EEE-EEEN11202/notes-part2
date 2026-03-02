@@ -28,7 +28,7 @@ Signal filtering example
    Scipy has a function that can read these :console:`.mat` files for us, called :python:`scipy.io.loadmat()`. You can read its `documentation online <https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.loadmat.html>`_.
 
 
-#. Start a new Python file in your Lab E :console:`src` folder. Call it something like :console:`signal_filtering.py`. Write a function that loads the file :console:`data/signal_data.mat`, and extracts the time vector and signal vector from it, and then plots it. 
+#. Start a new Python file in your Lab E :console:`src` folder. Call it something like :console:`signal_filtering.py`. Write a function that loads the file :console:`data/sin.mat`, and extracts the time vector and signal vector from it, and then plots it. 
 
    - The variable names in the file are :python:`t` for the time vector, and :python:`v` for the signal vector. 
    - You might need to think about where the data file is located relative to your code file. In the solution below we've used the :python:`pathlib` library to find this automatically, but you can just type in the address by hand if you prefer.
