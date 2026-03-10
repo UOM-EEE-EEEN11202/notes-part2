@@ -109,7 +109,7 @@ Auto-complete suggestions
 
 #. **Is this the best way to do it?** There are often many ways to do the same thing in code. It might be good enough for your needs. Not everything necessarily has to be perfect all of the time. Equally, it might be that using :python:`x ** 2` is a better way to compute the square. For complex algorithms, some code might run much more quickly than others and the first suggestion may or may not be the best one. You need to be able to provide some evaluation of that. 
 
-#. **Does this meet my standards**. For example, here are no comments or docstrings in the suggested code. Is that acceptable to you? If not, you need to add them in yourself. Again for a simple example, this code is pretty self-documenting via it's name.
+#. **Does this meet my standards**? For example, here are no comments or docstrings in the suggested code. Is that acceptable to you? If not, you need to add them in yourself. Again for a simple example, this code is pretty self-documenting via it's name.
 
 #. What other factors might you want to consider? Security? Scalability? Maintainability? Anything else? 
 

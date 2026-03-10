@@ -151,6 +151,8 @@ To help people get started, there are a number of public data sets available onl
            ),
        )
 
+       return training_data, test_data
+
 
    if __name__ == "__main__":
        # Settings
@@ -286,7 +288,7 @@ Model architecture
           model = NeuralNetwork().to(device)
           print(model)
 
-      return model, device
+          return model, device
 
       ...
     
