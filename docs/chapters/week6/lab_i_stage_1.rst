@@ -10,7 +10,7 @@
 Writing code for AI
 ===================
 
-.. admonition:: Danger
+.. danger::
 
    This part of Lab I can use quite a lot of disc space. If using a codespace, it is important that you delete the files at the end of the lab to free up space. Otherwise you may find that you run out of your free codespaces quota. Instructions are given at the end of the lab. Make sure you follow them. 
 
@@ -474,7 +474,7 @@ Making the network better
 Tidying up at the end of the lab
 --------------------------------
 
-.. admonition:: Important
+.. danger::
 
    This lab uses quite a lot of disc space due to the PyTorch installation. If using a codespace, it is important to clean up some of the files when you're done, or there is a risk you'll run out of storage space.
 
