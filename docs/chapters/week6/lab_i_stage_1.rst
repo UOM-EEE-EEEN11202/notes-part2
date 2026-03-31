@@ -10,6 +10,11 @@
 Writing code for AI
 ===================
 
+.. admonition:: Danger
+
+   This part of Lab I can use quite a lot of disc space. If using a codespace, it is important that you delete the files at the end of the lab to free up space. Otherwise you may find that you run out of your free codespaces quota. Instructions are given at the end of the lab. Make sure you follow them. 
+
+
 Initial setup for the Lab
 -------------------------
 #. In the VSCode terminal enter:
@@ -45,12 +50,13 @@ Initial setup for the Lab
    - We've made a :console:`tests` folder for any tests that we might want to write later, and a :console:`docs` folder for any documentation.
    - In the files that were downloaded from Git automatically, you'll also see there's a folder called :console:`data`. This contains some files that we'll analyze during the lab.
 
-#. Install the required dependencies for this lab by entering the command:
+#. Install the required dependencies for this lab by entering the commands (note there are two separate commands to enter here):
 
    .. prompt::
       :language: bash
 
-      uv add torch torchvision torchmetrics scipy plotly pandas nbformat
+      uv pip install torch torchvision torchmetrics --index-url https://download.pytorch.org/whl/cpu
+      uv add scipy plotly pandas nbformat
 
 #. Run 
 
@@ -63,6 +69,15 @@ Initial setup for the Lab
 
 #. When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html>`_ if you're unsure. 
 
+
+.. admonition:: Important
+
+   In the above commands we install the CPU version of PyTorch. In contrast Graphics Processing Units (GPUs) are often used for AI, and there is a separate version of PyTorch that can use GPU acceleration. If you have a suitable GPU, the GPU version of PyTorch will likely run much faster.
+
+   However:
+
+   - If you're using a codespace: The GPU version of PyTorch uses a lot of disc space, too much to fit into a codespace. Moreover, our codespaces don't have GPU acceleration available, so the GPU version of PyTorch wouldn't be able to use the GPU even if we installed it.
+   - If you're using a devcontainer on your own computer: We don't know whether you have a suitable GPU that is compatible with PyTorch or not. Your computer definitely has a CPU! We thus use the CPU version. If you want, you can delete the `--index-url https://download.pytorch.org/whl/cpu` part of the command to install the GPU version, but this may not work on all machines and may take a long time to install.
 
 
 Overview
@@ -453,3 +468,22 @@ Making the network better
 
    - Using a pre-trained model such as ResNet rather than making your own from scratch. With this, you wouldn't necessarily need to do your own training step. Information for this is `online <https://pytorch.org/hub/pytorch_vision_resnet/>`_. 
    - Using a Convolutional Neural Network (CNN) architecture rather than a simple feed-forward network. CNNs are very widely used for image data. There are built in layers for CNNs in PyTorch, see `here <https://pytorch.org/docs/stable/nn.html#convolution-layers>`_ for more information.
+
+
+
+Tidying up at the end of the lab
+--------------------------------
+
+.. admonition:: Important
+
+   This lab uses quite a lot of disc space due to the PyTorch installation. If using a codespace, it is important to clean up some of the files when you're done, or there is a risk you'll run out of storage space.
+
+   To clean up, in the terminal run the commands:
+
+   .. prompt::
+      :language: bash
+
+      cd /workspaces/`ls /workspaces`/lab-i
+      rm -rf .venv/
+      rm -rf data/flowers-102
+      uv cache clean
