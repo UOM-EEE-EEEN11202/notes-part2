@@ -65,8 +65,8 @@ Initial setup for the Lab
 #. When you open a Python file, make sure that the correct Python virtual environment is activated. See the instructions `in Lab D <https://uom-eee-eeen11202.github.io/notes-part2/chapters/week3/lab_d_stage_1.html>`_ if you're unsure. 
 
 
-Objects
--------
+Custom classes and objects
+--------------------------
 #. Make a new Python file, with any suitable name, and copy the code below into it. Then run the code.
 
 .. code-block:: python
@@ -274,8 +274,8 @@ Objects
              main()
 
 
-Another example
----------------
+Student marks example
+---------------------
 
 .. admonition:: Aside
    :class: dropdown

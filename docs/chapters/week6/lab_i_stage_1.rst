@@ -55,8 +55,10 @@ Initial setup for the Lab
    .. prompt::
       :language: bash
 
-      uv pip install torch torchvision torchmetrics --index-url https://download.pytorch.org/whl/cpu
       uv add scipy plotly pandas nbformat
+      source .venv/bin/activate
+      uv pip install torch torchvision torchmetrics --index-url https://download.pytorch.org/whl/cpu
+      
 
 #. Run 
 
@@ -77,7 +79,7 @@ Initial setup for the Lab
    However:
 
    - If you're using a codespace: The GPU version of PyTorch uses a lot of disc space, too much to fit into a codespace. Moreover, our codespaces don't have GPU acceleration available, so the GPU version of PyTorch wouldn't be able to use the GPU even if we installed it.
-   - If you're using a devcontainer on your own computer: We don't know whether you have a suitable GPU that is compatible with PyTorch or not. Your computer definitely has a CPU! We thus use the CPU version. If you want, you can delete the :console:`--index-url https://download.pytorch.org/whl/cpu` part of the command to install the GPU version, but this may not work on all machines and may take a long time to install.
+   - If you're using a devcontainer on your own computer: We don't know whether you have a suitable GPU that is compatible with PyTorch or not. Your computer definitely has a CPU! We thus use the CPU version. If you want, you can delete the :console:`--index-url https://download.pytorch.org/whl/cpu` part of the command to install the GPU version, but this may not work on all machines.
 
 
 Overview
