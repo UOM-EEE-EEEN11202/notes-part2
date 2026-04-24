@@ -25,10 +25,11 @@ The contents of Part 2 of the notes are:
 
 Links to the other parts of the course:
 
-- `Part 0 on course administration <https://uom-eee-eeen11202.github.io/>`_. 
+.. raw:: html
 
-- `Part 1 on underlying theory of programming and software engineering <https://uom-eee-eeen11202.github.io/notes-part1/>`_. 
-
-- `Part 2 (this part) on general purpose computing <https://uom-eee-eeen11202.github.io/notes-part2/>`_. 
-
-- `Part 3 on higher performance computing <https://uom-eee-eeen11202.github.io/notes-part3/>`_.
+   <ul>
+      <li><a href="https://uom-eee-eeen11202.github.io/">Part 0 on course administration</a>.</li>
+      <li><a href="https://uom-eee-eeen11202.github.io/notes-part1/">Part 1 on underlying theory of programming and software engineering</a>.</li>
+      <li><a href="https://uom-eee-eeen11202.github.io/notes-part2/">Part 2 (this part)on general purpose computing</a>.</li>
+      <li><a href="https://canvas.manchester.ac.uk/courses/45995/files/15464159/download" rel="noopener" data-api-endpoint="https://canvas.manchester.ac.uk/api/v1/courses/45995/files/15464159" data-api-returntype="File">Part 3 on higher performance computing</a>.</li>
+   </ul>
